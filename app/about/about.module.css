@@ -1,0 +1,121 @@
+/* about.module.css */
+.mission {
+  border-bottom: 1px solid var(--color-line);
+}
+.missionGrid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(32px, 5vw, 96px);
+}
+.missionStatement {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 2.6vw, 36px);
+  line-height: 1.18;
+  letter-spacing: -0.018em;
+  color: var(--color-ink-900);
+  text-wrap: pretty;
+  max-width: 24ch;
+}
+.missionBody p { color: var(--color-ink-700); font-size: 18px; line-height: 1.65; max-width: 54ch; }
+.principles {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--color-line);
+}
+.principle {
+  padding: 28px 24px 28px 0;
+  border-right: 1px solid var(--color-line);
+}
+.principle:last-child { border-right: 0; padding-right: 0; }
+.principle:not(:first-child) { padding-left: 24px; }
+.principleNum {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+}
+.principle h4 { margin: 12px 0 10px; }
+.principle p { color: var(--color-ink-700); font-size: 15px; line-height: 1.55; }
+
+.origin { background: var(--color-white); border-bottom: 1px solid var(--color-line); }
+.originGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+.originMedia { position: relative; aspect-ratio: 4/5; border-radius: 12px; overflow: hidden; }
+.originBody p { margin-top: 18px; color: var(--color-ink-700); max-width: 48ch; }
+
+.stakes { background: var(--color-sand-100); border-bottom: 1px solid var(--color-line); }
+.stakesGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
+.stake { padding: 32px 24px; border-right: 1px solid var(--color-line); }
+.stake:last-child { border-right: 0; }
+.stakeN { font-family: var(--font-display); font-size: clamp(36px, 4vw, 56px); font-weight: 600; line-height: 1; letter-spacing: -0.02em; }
+.stakeN sup { font-size: 0.5em; vertical-align: super; color: var(--color-accent); }
+.stake p { margin-top: 12px; font-size: 14px; color: var(--color-ink-700); max-width: 20ch; }
+.stakesSrc { margin-top: 24px; font-family: var(--font-mono); font-size: 12px; color: var(--color-ink-500); letter-spacing: 0.04em; }
+
+.pull { background: var(--color-ink-900); color: var(--color-sand-50); padding: clamp(80px, 9vw, 140px) 0; border-bottom: 1px solid var(--color-ink-900); }
+.pull .eyebrow { color: var(--color-accent-soft); }
+.pullQ { font-family: var(--font-display); font-weight: 500; font-size: clamp(30px, 3.8vw, 56px); line-height: 1.1; letter-spacing: -0.02em; color: var(--color-sand-50); margin-top: 24px; max-width: 22ch; text-wrap: balance; }
+.pullQ::before { content: "“"; color: var(--color-accent); margin-right: 0.05em; }
+.pullWho { margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(247,243,236,0.18); display: flex; gap: 32px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 12px; color: rgba(247,243,236,0.65); letter-spacing: 0.04em; }
+.pullWho strong { color: var(--color-sand-50); font-weight: 600; }
+
+.people { border-bottom: 1px solid var(--color-line); }
+.teamGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(32px, 4vw, 56px) 24px; }
+.person .img { aspect-ratio: 4/5; border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+.person h4 { font-size: 17px; margin-bottom: 4px; }
+.person .role { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--color-accent); margin-bottom: 12px; }
+.person p { font-size: 14px; color: var(--color-ink-700); line-height: 1.5; }
+
+.gov { background: var(--color-sand-100); border-bottom: 1px solid var(--color-line); }
+.govGrid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px); }
+.govList { border-top: 1px solid var(--color-line); }
+.govItem { padding: 16px 0; border-bottom: 1px solid var(--color-line); display: grid; grid-template-columns: 1fr 1.5fr; gap: 16px; align-items: baseline; }
+.govItem h4 { font-size: 16px; }
+.govItem p { font-size: 14px; color: var(--color-ink-700); }
+
+.timeline { background: var(--color-white); border-bottom: 1px solid var(--color-line); }
+.tlRail { position: relative; margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--color-line); display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.tlRow { position: relative; }
+.tlRow::before { content: ""; position: absolute; top: -44px; left: 0; width: 9px; height: 9px; background: var(--color-accent); border-radius: 50%; }
+.tlRow .yr { font-family: var(--font-mono); font-size: 14px; font-weight: 500; color: var(--color-ink-900); }
+.tlRow h4 { margin: 12px 0 8px; font-size: 18px; }
+.tlRow p { font-size: 14px; color: var(--color-ink-700); }
+
+.partners { border-bottom: 1px solid var(--color-line); }
+.partnersGrid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
+.partnersRow { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--color-line); border-left: 1px solid var(--color-line); }
+.pcell { aspect-ratio: 16/9; border-right: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); display: grid; place-items: center; color: var(--color-ink-300); font-family: var(--font-display); font-weight: 600; font-size: 18px; letter-spacing: -0.02em; }
+
+.press { background: var(--color-sand-100); border-bottom: 1px solid var(--color-line); }
+.pressGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.pressCard { background: var(--color-white); border: 1px solid var(--color-line); border-radius: 12px; padding: 32px; }
+.pressCard .eyebrow { margin-bottom: 16px; }
+.pressCard h3 { font-size: 24px; margin-bottom: 16px; }
+.pressCard p { color: var(--color-ink-700); margin-bottom: 24px; font-size: 15px; }
+
+@media (max-width: 1024px) {
+  .missionGrid, .originGrid, .govGrid, .partnersGrid, .pressGrid { grid-template-columns: 1fr !important; }
+  .stakesGrid { grid-template-columns: repeat(2, 1fr); }
+  .stake:nth-child(1), .stake:nth-child(2) { border-bottom: 1px solid var(--color-line); }
+  .stake:nth-child(2) { border-right: 0; }
+  .teamGrid { grid-template-columns: repeat(2, 1fr); }
+  .tlRail { grid-template-columns: 1fr; padding-left: 24px; border-top: 0; border-left: 1px solid var(--color-line); gap: 40px; }
+  .tlRow::before { top: 4px; left: -29px; }
+  .principles { grid-template-columns: 1fr !important; }
+  .principle { border-right: 0 !important; border-bottom: 1px solid var(--color-line); padding: 22px 0 !important; }
+  .principle:last-child { border-bottom: 0; }
+}
+@media (max-width: 640px) {
+  .stakesGrid { grid-template-columns: 1fr; }
+  .stake { border-right: 0; border-bottom: 1px solid var(--color-line); }
+  .stake:last-child { border-bottom: 0; }
+  .teamGrid { grid-template-columns: 1fr; }
+  .partnersRow { grid-template-columns: repeat(2, 1fr); }
+  .govItem { grid-template-columns: 1fr; gap: 4px; }
+}
