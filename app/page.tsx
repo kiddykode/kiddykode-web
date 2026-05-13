@@ -545,8 +545,17 @@ export default function HomePage() {
                 KiddyKode to grow across cities and countries without losing the
                 consistency of its method.
               </p>
+            </div>
             <div className={styles.missionBody}>
-              <p>KiddyKode is designed to grow through regional chapters led by local educators, facilitators, and partners. The central team provides the curriculum, platform, and pedagogical framework, while chapter leaders help adapt delivery, support schools, and expand access in their region. Over time, this structure can help KiddyKode grow across cities and countries without losing the consistency of its method.</p>
+              <p>
+                KiddyKode is designed to grow through regional chapters led by
+                local educators, facilitators, and partners. The central team
+                provides the curriculum, platform, and pedagogical framework,
+                while chapter leaders help adapt delivery, support schools, and
+                expand access in their region. Over time, this structure can
+                help KiddyKode grow across cities and countries without losing
+                the consistency of its method.
+              </p>
             </div>
           </div>
           <div className={styles.chaptersGrid}>
@@ -580,26 +589,44 @@ export default function HomePage() {
               >
                 <div className={styles.pin}></div>
               </div>
+            </div>
+          </div>
           <div className={styles.principles4}>
             <div className={styles.principle}>
               <span className={styles.num}>01</span>
               <h4>Local leadership</h4>
-              <p>Chapter leads coordinate delivery in their region, build local relationships, and help bring the KiddyKode method into schools and communities.</p>
+              <p>
+                Chapter leads coordinate delivery in their region, build local
+                relationships, and help bring the KiddyKode method into schools
+                and communities.
+              </p>
             </div>
             <div className={styles.principle}>
               <span className={styles.num}>02</span>
               <h4>Shared pedagogy</h4>
-              <p>Every chapter works from the same structured framework, so learners experience a consistent method even when delivery is local.</p>
+              <p>
+                Every chapter works from the same structured framework, so
+                learners experience a consistent method even when delivery is
+                local.
+              </p>
             </div>
             <div className={styles.principle}>
               <span className={styles.num}>03</span>
               <h4>Scalable support</h4>
-              <p>The central team provides curriculum, training, and platform support, making it possible for chapters to grow without weakening quality.</p>
+              <p>
+                The central team provides curriculum, training, and platform
+                support, making it possible for chapters to grow without
+                weakening quality.
+              </p>
             </div>
             <div className={styles.principle}>
               <span className={styles.num}>04</span>
               <h4>Regional access</h4>
-              <p>A chapter network makes KiddyKode easier to reach across different cities and countries while keeping the brand coherent and recognizable.</p>
+              <p>
+                A chapter network makes KiddyKode easier to reach across
+                different cities and countries while keeping the brand coherent
+                and recognizable.
+              </p>
             </div>
           </div>
         </div>
@@ -762,32 +789,50 @@ export default function HomePage() {
             <div className={styles.studioCopy}>
               <h2>KiddyKode Studio turns lessons into projects.</h2>
               <p>
-                KiddyKode Studio is our self-paced platform for children to follow courses, practice skills, and build projects at their own pace. Learners move through Explorer, Builder, and Creator levels as they grow from guided work into more independent creation.
+                KiddyKode Studio is our self-paced platform for children to
+                follow courses, practice skills, and build projects at their own
+                pace. Learners move through Explorer, Builder, and Creator
+                levels as they grow from guided work into more independent
+                creation.
               </p>
               <div className={styles.studioFeatures}>
                 <div className={styles.studioFeature}>
                   <div className={styles.n}>01</div>
                   <div>
                     <h4>Progressive Complexity</h4>
-                    <p>Children start with guided activities and simple projects, then move step by step into more open-ended building as their confidence grows.</p>
+                    <p>
+                      Children start with guided activities and simple projects,
+                      then move step by step into more open-ended building as
+                      their confidence grows.
+                    </p>
                   </div>
                 </div>
                 <div className={styles.studioFeature}>
                   <div className={styles.n}>02</div>
                   <div>
                     <h4>Offline Resilience</h4>
-                    <p>Studio is designed so learners can continue building even when connectivity is inconsistent, with progress and project work structured to support uninterrupted learning.</p>
+                    <p>
+                      Studio is designed so learners can continue building even
+                      when connectivity is inconsistent, with progress and
+                      project work structured to support uninterrupted learning.
+                    </p>
                   </div>
                 </div>
                 <div className={styles.studioFeature}>
                   <div className={styles.n}>03</div>
                   <div>
                     <h4>Peer Review Built-in</h4>
-                    <p>As learners grow, they can share work, compare approaches, and learn from one another through structured feedback and presentation.</p>
+                    <p>
+                      As learners grow, they can share work, compare approaches,
+                      and learn from one another through structured feedback and
+                      presentation.
+                    </p>
                   </div>
                 </div>
               </div>
-              <Link href="/programs" className="btn btn--ghost">Start Exploring<span className="arrow">→</span></Link>
+              <Link href="/programs" className="btn btn--ghost">
+                Start Exploring<span className="arrow">→</span>
+              </Link>
             </div>
             <div className={styles.browser}>
               <div className={styles.browserChrome}>
