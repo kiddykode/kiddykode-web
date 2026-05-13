@@ -18,7 +18,11 @@
 .missionGrid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 5vw, 96px); }
 .missionStatement { font-family: var(--font-display); font-size: clamp(26px, 2.6vw, 36px); line-height: 1.18; letter-spacing: -0.018em; color: var(--color-ink-900); text-wrap: pretty; max-width: 24ch; }
 .missionBody p { color: var(--color-ink-700); font-size: 18px; line-height: 1.65; max-width: 54ch; }
-.principles { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--color-line); }
+
+.principles, .principles4 { margin-top: 56px; display: grid; gap: 0; border-top: 1px solid var(--color-line); }
+.principles { grid-template-columns: repeat(3, 1fr); }
+.principles4 { grid-template-columns: repeat(4, 1fr); }
+
 .principle { padding: 28px 24px 28px 0; border-right: 1px solid var(--color-line); }
 .principle:last-child { border-right: 0; padding-right: 0; }
 .principle:not(:first-child) { padding-left: 24px; }
@@ -206,7 +210,7 @@
   .studioSide, .studioPreview { display: none; }
   .finalPath { border-right: 0; border-bottom: 1px solid rgba(247,243,236,0.18); padding-bottom: 32px; }
   .finalPath:not(:first-child) { padding-left: 0; padding-top: 32px; }
-  .principles, .whyThemes { grid-template-columns: 1fr !important; }
+  .principles, .principles4, .whyThemes { grid-template-columns: 1fr !important; }
   .principle, .theme { border-right: 0 !important; border-bottom: 1px solid var(--color-line); padding: 22px 0 !important; }
   .principle:last-child, .theme:last-child { border-bottom: 0; }
 }

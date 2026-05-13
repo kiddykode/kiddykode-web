@@ -529,7 +529,7 @@ export default function HomePage() {
       >
         <div className="wrap">
           <div className="section-head">
-            <div className="heading">
+            <div>
               <span className="eyebrow">07 / Chapters</span>
               <h2 className="mt-[18px]">
                 A decentralized network for future growth.
@@ -545,6 +545,8 @@ export default function HomePage() {
                 KiddyKode to grow across cities and countries without losing the
                 consistency of its method.
               </p>
+            <div className={styles.missionBody}>
+              <p>KiddyKode is designed to grow through regional chapters led by local educators, facilitators, and partners. The central team provides the curriculum, platform, and pedagogical framework, while chapter leaders help adapt delivery, support schools, and expand access in their region. Over time, this structure can help KiddyKode grow across cities and countries without losing the consistency of its method.</p>
             </div>
           </div>
           <div className={styles.chaptersGrid}>
@@ -578,63 +580,26 @@ export default function HomePage() {
               >
                 <div className={styles.pin}></div>
               </div>
+          <div className={styles.principles4}>
+            <div className={styles.principle}>
+              <span className={styles.num}>01</span>
+              <h4>Local leadership</h4>
+              <p>Chapter leads coordinate delivery in their region, build local relationships, and help bring the KiddyKode method into schools and communities.</p>
             </div>
-            <div>
-              <div className={styles.chaptersList}>
-                <div className={styles.chapterRow}>
-                  <div className={styles.idx}>01</div>
-                  <div>
-                    <div className={styles.city}>Lagos</div>
-                    <div className={styles.country}>Nigeria</div>
-                  </div>
-                  <div>HQ / West Africa Hub</div>
-                  <div className={`${styles.status} ${styles.live}`}>Live</div>
-                </div>
-                <div className={styles.chapterRow}>
-                  <div className={styles.idx}>02</div>
-                  <div>
-                    <div className={styles.city}>Nairobi</div>
-                    <div className={styles.country}>Kenya</div>
-                  </div>
-                  <div>East Africa Hub</div>
-                  <div className={`${styles.status} ${styles.live}`}>Live</div>
-                </div>
-                <div className={styles.chapterRow}>
-                  <div className={styles.idx}>03</div>
-                  <div>
-                    <div className={styles.city}>Cape Town</div>
-                    <div className={styles.country}>South Africa</div>
-                  </div>
-                  <div>Southern Hub</div>
-                  <div className={`${styles.status} ${styles.live}`}>Live</div>
-                </div>
-                <div className={styles.chapterRow}>
-                  <div className={styles.idx}>04</div>
-                  <div>
-                    <div className={styles.city}>Accra</div>
-                    <div className={styles.country}>Ghana</div>
-                  </div>
-                  <div>Chapter</div>
-                  <div className={`${styles.status} ${styles.live}`}>Live</div>
-                </div>
-                <div className={styles.chapterRow}>
-                  <div className={styles.idx}>05</div>
-                  <div>
-                    <div className={styles.city}>Cairo</div>
-                    <div className={styles.country}>Egypt</div>
-                  </div>
-                  <div>Chapter</div>
-                  <div className={`${styles.status} ${styles.planned}`}>
-                    Planned Q3
-                  </div>
-                </div>
-              </div>
-              <div className={styles.chaptersCta}>
-                <span className={styles.mono}>Showing 5 of 12 chapters</span>
-                <Link href="/contact" className="btn btn--link">
-                  Apply to open a chapter <span className="arrow">→</span>
-                </Link>
-              </div>
+            <div className={styles.principle}>
+              <span className={styles.num}>02</span>
+              <h4>Shared pedagogy</h4>
+              <p>Every chapter works from the same structured framework, so learners experience a consistent method even when delivery is local.</p>
+            </div>
+            <div className={styles.principle}>
+              <span className={styles.num}>03</span>
+              <h4>Scalable support</h4>
+              <p>The central team provides curriculum, training, and platform support, making it possible for chapters to grow without weakening quality.</p>
+            </div>
+            <div className={styles.principle}>
+              <span className={styles.num}>04</span>
+              <h4>Regional access</h4>
+              <p>A chapter network makes KiddyKode easier to reach across different cities and countries while keeping the brand coherent and recognizable.</p>
             </div>
           </div>
         </div>
@@ -789,57 +754,40 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="heading">
-              <span className="eyebrow">09 / The Platform</span>
+              <span className="eyebrow">09 / The Studio</span>
             </div>
             <div></div>
           </div>
           <div className={styles.studioGrid}>
             <div className={styles.studioCopy}>
-              <h2>KiddyKode Studio</h2>
+              <h2>KiddyKode Studio turns lessons into projects.</h2>
               <p>
-                The curriculum comes to life in Studio — our custom,
-                browser-based coding environment designed specifically for
-                primary and secondary learners. No installations, no complex
-                local environments. Just open the browser and build.
+                KiddyKode Studio is our self-paced platform for children to follow courses, practice skills, and build projects at their own pace. Learners move through Explorer, Builder, and Creator levels as they grow from guided work into more independent creation.
               </p>
               <div className={styles.studioFeatures}>
                 <div className={styles.studioFeature}>
                   <div className={styles.n}>01</div>
                   <div>
                     <h4>Progressive Complexity</h4>
-                    <p>
-                      Learners start in a block-based visual editor. When
-                      they're ready, they toggle to the exact same logic
-                      represented in Python or JavaScript.
-                    </p>
+                    <p>Children start with guided activities and simple projects, then move step by step into more open-ended building as their confidence grows.</p>
                   </div>
                 </div>
                 <div className={styles.studioFeature}>
                   <div className={styles.n}>02</div>
                   <div>
                     <h4>Offline Resilience</h4>
-                    <p>
-                      Designed for intermittent connectivity. Studio caches
-                      locally; if the school internet drops, the child keeps
-                      coding and syncs later.
-                    </p>
+                    <p>Studio is designed so learners can continue building even when connectivity is inconsistent, with progress and project work structured to support uninterrupted learning.</p>
                   </div>
                 </div>
                 <div className={styles.studioFeature}>
                   <div className={styles.n}>03</div>
                   <div>
                     <h4>Peer Review Built-in</h4>
-                    <p>
-                      Students can securely share project links with their
-                      cohort to request code reviews or playtest each other's
-                      games.
-                    </p>
+                    <p>As learners grow, they can share work, compare approaches, and learn from one another through structured feedback and presentation.</p>
                   </div>
                 </div>
               </div>
-              <Link href="/programs" className="btn btn--ghost">
-                Learn more about the curriculum <span className="arrow">→</span>
-              </Link>
+              <Link href="/programs" className="btn btn--ghost">Start Exploring<span className="arrow">→</span></Link>
             </div>
             <div className={styles.browser}>
               <div className={styles.browserChrome}>

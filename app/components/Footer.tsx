@@ -13,26 +13,26 @@ export function Footer() {
               <Image className="logo-img filter brightness-0 invert saturate-0 opacity-90" src="/kiddykode-logo.png" alt="KiddyKode" width={44} height={44} />
             </Link>
             <p className="text-sm leading-relaxed text-[rgba(247,243,236,0.62)] max-w-[32ch] mt-4">
-              A continental learning movement teaching Africa's youngest generation to build with code.
+              KiddyKode teaches children to think, build, and create with code.
             </p>
           </div>
           
           <div className="footer-col">
             <h5 className="font-mono text-[11px] tracking-[0.12em] uppercase text-[rgba(247,243,236,0.5)] m-0 mb-5 font-medium">Programs</h5>
             <ul className="list-none p-0 m-0 flex flex-col gap-2.5 text-sm">
-              <li><Link href="/programs">School Programs</Link></li>
-              <li><Link href="/programs">Community Clubs</Link></li>
-              <li><Link href="/programs">Creator Camps</Link></li>
-              <li><Link href="/programs">One-on-One Learning</Link></li>
+              <li><Link href="/#studio">KiddyKode Studio</Link></li>
+              <li><Link href="/programs">KiddyKode Live</Link></li>
+              <li><Link href="/programs">School Clubs</Link></li>
+              <li><Link href="/programs">Holiday Bootcamps</Link></li>
             </ul>
           </div>
           
           <div className="footer-col">
-            <h5 className="font-mono text-[11px] tracking-[0.12em] uppercase text-[rgba(247,243,236,0.5)] m-0 mb-5 font-medium">Movement</h5>
+            <h5 className="font-mono text-[11px] tracking-[0.12em] uppercase text-[rgba(247,243,236,0.5)] m-0 mb-5 font-medium">About</h5>
             <ul className="list-none p-0 m-0 flex flex-col gap-2.5 text-sm">
               <li><Link href="/about">About</Link></li>
-              <li><Link href="/stories">Stories</Link></li>
-              <li><Link href="/#impact">Impact</Link></li>
+              <li><Link href="/about#approach">Our Approach</Link></li>
+              <li><Link href="/#impact">Early Evidence</Link></li>
               <li><Link href="/#chapters">Chapters</Link></li>
             </ul>
           </div>
@@ -41,15 +41,14 @@ export function Footer() {
             <h5 className="font-mono text-[11px] tracking-[0.12em] uppercase text-[rgba(247,243,236,0.5)] m-0 mb-5 font-medium">Get involved</h5>
             <ul className="list-none p-0 m-0 flex flex-col gap-2.5 text-sm">
               <li><Link href="/contact">Contact</Link></li>
-              <li><Link href="/#partner">Partner With Us</Link></li>
-              <li><Link href="/#support">Support the Mission</Link></li>
-              <li><Link href="#">Careers</Link></li>
+              <li><Link href="/partners">Partner With Us</Link></li>
+              <li><Link href="/partners">Support the Mission</Link></li>
             </ul>
           </div>
           
           <div className="footer-col">
             <h5 className="font-mono text-[11px] tracking-[0.12em] uppercase text-[rgba(247,243,236,0.5)] m-0 mb-5 font-medium">Newsletter</h5>
-            <p className="text-sm text-[rgba(247,243,236,0.62)] m-0">One field dispatch a month. No fluff.</p>
+            <p className="text-sm text-[rgba(247,243,236,0.62)] m-0">Monthly updates for parents, schools, and partners.</p>
             <form className="newsletter flex mt-3.5" onSubmit={(e) => e.preventDefault()}>
               <input 
                 type="email" 
@@ -67,12 +66,10 @@ export function Footer() {
         </div>
         
         <div className="footer-base mt-16 pt-6 border-t border-[rgba(247,243,236,0.12)] flex justify-between items-center flex-wrap gap-4 text-xs text-[rgba(247,243,236,0.5)] font-mono tracking-[0.04em]">
-          <span>© 2026 KiddyKode Foundation · Registered in Lagos, Cape Town & Nairobi</span>
+          <span>© 2026 KiddyKode. Code Early. Build Tomorrow.</span>
           <nav className="flex gap-5">
-            <Link href="#">Privacy</Link>
-            <Link href="#">Terms</Link>
-            <Link href="#">Safeguarding</Link>
-            <Link href="#">Press</Link>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
           </nav>
         </div>
       </div>
