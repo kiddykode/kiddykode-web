@@ -1,0 +1,80 @@
+.overview { border-bottom: 1px solid var(--color-line); padding: clamp(64px, 8vw, 120px) 0; }
+.infoCard { background: var(--color-white); border: 1px solid var(--color-accent); border-radius: 16px; padding: clamp(32px, 5vw, 64px); box-shadow: 0 20px 40px -20px rgba(166,106,44,0.15); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
+.infoCard.feature { border-color: var(--color-accent); }
+
+.infoMeta { display: flex; flex-direction: column; gap: 24px; }
+.infoGroup { display: flex; flex-direction: column; gap: 4px; }
+.infoLabel { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-ink-500); }
+.infoValue { font-size: 18px; font-weight: 500; color: var(--color-ink-900); }
+
+.infoMain h2 { font-size: clamp(32px, 4vw, 48px); line-height: 1.1; margin-bottom: 16px; }
+.infoMain p { font-size: 16px; color: var(--color-ink-700); line-height: 1.5; margin-bottom: 32px; max-width: 42ch; }
+
+.flyer { background: var(--color-sand-100); border-bottom: 1px solid var(--color-line); padding: clamp(64px, 8vw, 120px) 0; }
+.flyerGrid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+.flyerImage { position: relative; aspect-ratio: 3/4; border-radius: 12px; overflow: hidden; border: 1px solid var(--color-line); box-shadow: 0 12px 32px -12px rgba(21,32,51,0.15); }
+.flyerBody { background: var(--color-white); border: 1px solid var(--color-line); border-radius: 12px; padding: clamp(32px, 4vw, 48px); }
+.flyerBody h3 { font-size: 24px; margin-bottom: 16px; }
+.flyerBody p { color: var(--color-ink-700); font-size: 15px; line-height: 1.5; margin-bottom: 24px; }
+.shareBox { background: var(--color-sand-50); border: 1px dashed var(--color-line); border-radius: 8px; padding: 16px; font-family: var(--font-mono); font-size: 12px; color: var(--color-ink-700); margin-top: 24px; }
+
+.breakdown { background: var(--color-ink-900); color: var(--color-sand-50); padding: clamp(80px, 9vw, 140px) 0; }
+.breakdown .eyebrow { color: var(--color-accent-soft); }
+.breakdown h2 { color: var(--color-sand-50); margin-top: 24px; max-width: 22ch; }
+.breakdown .lede { color: rgba(247,243,236,0.78); margin-top: 24px; }
+.spineTable { margin-top: 64px; border-top: 1px solid rgba(247,243,236,0.18); }
+.spineRow { display: grid; grid-template-columns: 140px 1.5fr 1.5fr 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid rgba(247,243,236,0.18); align-items: start; }
+.spineRow .wk { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--color-accent-soft); }
+.spineRow h4 { font-size: 18px; color: var(--color-sand-50); margin-bottom: 6px; }
+.spineRow p { font-size: 14px; color: rgba(247,243,236,0.78); line-height: 1.5; }
+.spineRow .topic { font-family: var(--font-mono); font-size: 11px; color: rgba(247,243,236,0.5); letter-spacing: 0.04em; }
+
+.steps { border-bottom: 1px solid var(--color-line); padding: clamp(64px, 8vw, 120px) 0; }
+.stepsGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); margin-top: 56px; }
+.step { padding: 40px 32px 40px 0; border-right: 1px solid var(--color-line); }
+.step:last-child { border-right: 0; padding-right: 0; }
+.step:not(:first-child) { padding-left: 32px; }
+.step .num { font-family: var(--font-mono); font-size: 12px; color: var(--color-accent); letter-spacing: 0.1em; display: block; margin-bottom: 16px; }
+.step h4 { font-size: 20px; line-height: 1.25; margin-bottom: 12px; }
+.step p { font-size: 14px; color: var(--color-ink-700); line-height: 1.55; }
+
+.results { background: var(--color-sand-100); border-bottom: 1px solid var(--color-line); padding: clamp(64px, 8vw, 120px) 0; }
+.impactGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); margin-top: 56px; }
+.impactCell { padding: 36px 28px; border-right: 1px solid var(--color-line); background: transparent; }
+.impactCell:last-child { border-right: 0; }
+.impactCell .label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-ink-500); }
+.impactCell .num { font-family: var(--font-display); font-weight: 600; font-size: clamp(36px, 4vw, 56px); line-height: 1; letter-spacing: -0.03em; margin-top: 16px; color: var(--color-ink-900); font-variant-numeric: tabular-nums; }
+.impactCell .desc { margin-top: 16px; font-size: 14px; color: var(--color-ink-700); line-height: 1.5; max-width: 28ch; }
+
+.faq { border-bottom: 1px solid var(--color-line); padding: clamp(64px, 8vw, 120px) 0; }
+.faqGrid { display: grid; grid-template-columns: 4fr 8fr; gap: clamp(40px, 6vw, 80px); align-items: start; }
+.faqList { border-top: 1px solid var(--color-line); }
+.cq { border-bottom: 1px solid var(--color-line); }
+.cq summary { padding: 24px 0; font-size: 18px; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; }
+.cq summary::-webkit-details-marker { display: none; }
+.cq summary .plus { font-family: var(--font-mono); color: var(--color-ink-300); transition: transform .2s ease; }
+.cq[open] summary .plus { transform: rotate(45deg); color: var(--color-ink-900); }
+.cq .ans { padding-bottom: 24px; color: var(--color-ink-700); font-size: 15px; line-height: 1.6; max-width: 64ch; }
+
+@media (max-width: 1024px) {
+  .infoCard { grid-template-columns: 1fr; gap: 32px; }
+  .flyerGrid { grid-template-columns: 1fr; }
+  .spineRow { grid-template-columns: 100px 1fr 1fr; }
+  .spineRow p { grid-column: span 2; }
+  .stepsGrid { grid-template-columns: 1fr; border-top: 0; }
+  .step { border-right: 0 !important; border-bottom: 1px solid var(--color-line); padding: 32px 0 !important; }
+  .step:first-child { border-top: 1px solid var(--color-line); }
+  .impactGrid { grid-template-columns: repeat(2, 1fr); }
+  .impactCell:nth-child(1), .impactCell:nth-child(2) { border-bottom: 1px solid var(--color-line); }
+  .impactCell:nth-child(2) { border-right: 0; }
+  .faqGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .spineRow { grid-template-columns: 1fr; gap: 16px; padding: 24px 0 32px; }
+  .spineRow p { grid-column: 1; }
+  .impactGrid { grid-template-columns: 1fr; }
+  .impactCell { border-right: 0; border-bottom: 1px solid var(--color-line); }
+  .impactCell:last-child { border-bottom: 0; }
+  .cq summary { font-size: 16px; }
+}

@@ -5,12 +5,20 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 
-const navLinks = [
+type NavLink = { href: string; label: string; children?: { href: string; label: string }[] };
+
+const navLinks: NavLink[] = [
   { href: '/',          label: 'Home'     },
   { href: '/about',     label: 'About'    },
-  { href: '/programs',  label: 'Learning Formats' },
-  { href: '/#schools',  label: 'Schools'  },
-  { href: '/#parents',  label: 'Parents'  },
+  { 
+    href: '/programs',  
+    label: 'Learning Formats',
+    children: [
+      { href: '/programs', label: 'All Formats' },
+      { href: '/programs/portfolio', label: 'Portfolio' },
+      { href: '/programs/next-cohort', label: 'Next Cohort' },
+    ]
+  },
   { href: '/#impact',   label: 'Early Evidence'   },
   { href: '/stories',   label: 'Stories'  },
   { href: '/#studio',   label: 'Studio'   },
@@ -63,8 +71,42 @@ export function Navbar() {
         
         <nav className="hidden lg:flex items-center justify-center flex-grow px-8">
           <ul className="flex items-center gap-8 xl:gap-10">
-            {navLinks.map(({ href, label }) => {
-              const isActive = pathname === href || pathname?.startsWith(href + '/') && href !== '/'
+            {navLinks.map((item) => {
+              const { href, label, children } = item;
+              const isActive = pathname === href || (pathname?.startsWith(href + '/') && href !== '/');
+              
+              if (children) {
+                return (
+                  <li key={href} className="relative group">
+                    <button
+                      className={`text-[15px] font-medium tracking-tight transition-all duration-200 py-2 flex items-center gap-1 ${
+                        isActive ? 'text-[var(--color-ink-900)]' : 'text-[var(--color-ink-700)] group-hover:text-[var(--color-ink-900)]'
+                      }`}
+                    >
+                      {label}
+                      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" className={`transition-transform duration-200 group-hover:rotate-180 ${isActive ? 'text-[var(--color-accent)]' : ''}`}>
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pt-2 w-48">
+                      <div className="bg-[var(--color-sand-50)] rounded-lg shadow-lg border border-[var(--color-line)] p-2 flex flex-col gap-1">
+                        {children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className={`px-4 py-2 text-[14px] font-medium rounded-md transition-colors ${
+                              pathname === child.href ? 'bg-[var(--color-sand-100)] text-[var(--color-accent)]' : 'text-[var(--color-ink-700)] hover:bg-[var(--color-sand-100)] hover:text-[var(--color-ink-900)]'
+                            }`}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </li>
+                );
+              }
+
               return (
                 <li key={href}>
                   <Link
@@ -110,22 +152,38 @@ export function Navbar() {
         }`}
       >
         <div className="flex flex-col p-8 gap-1 overflow-y-auto h-full pb-32">
-          {navLinks.map(({ href, label }, index) => {
-            const isActive = pathname === href || pathname?.startsWith(href + '/') && href !== '/'
+          {navLinks.map((item, index) => {
+            const { href, label, children } = item;
+            const isActive = pathname === href || (pathname?.startsWith(href + '/') && href !== '/');
+            
             return (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setIsMenuOpen(false)}
-                className={`text-2xl py-4 font-medium tracking-tight border-b border-[var(--color-line-soft)] transition-all duration-300 ${
-                  isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
-                } ${
-                  isActive ? 'text-[var(--color-accent)]' : 'text-[var(--color-ink-900)]'
-                }`}
-                style={{ transitionDelay: `${index * 50}ms` }}
-              >
-                {label}
-              </Link>
+              <div key={href} style={{ transitionDelay: `${index * 50}ms` }} className={`transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}`}>
+                <Link
+                  href={href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`block text-2xl py-4 font-medium tracking-tight border-b border-[var(--color-line-soft)] ${
+                    isActive ? 'text-[var(--color-accent)]' : 'text-[var(--color-ink-900)]'
+                  }`}
+                >
+                  {label}
+                </Link>
+                {children && (
+                  <div className="flex flex-col pl-4 border-b border-[var(--color-line-soft)]">
+                    {children.slice(1).map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`block text-lg py-3 font-medium tracking-tight ${
+                          pathname === child.href ? 'text-[var(--color-accent)]' : 'text-[var(--color-ink-700)]'
+                        }`}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             )
           })}
           
