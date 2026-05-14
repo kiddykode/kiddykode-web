@@ -492,7 +492,7 @@ export default function HomePage() {
                 consistency of its method.
               </p>
             </div>
-            <div className={styles.missionBody}>
+            {/* <div className={styles.missionBody}>
               <p>
                 KiddyKode is designed to grow through regional chapters led by
                 local educators, facilitators, and partners. The central team
@@ -502,9 +502,9 @@ export default function HomePage() {
                 help KiddyKode grow across cities and countries without losing
                 the consistency of its method.
               </p>
-            </div>
+            </div> */}
           </div>
-          <div className={styles.chaptersGrid}>
+          {/* <div className={styles.chaptersGrid}>
             <div className={styles.map}>
               <div className={styles.mapFrame}></div>
               <div className={styles.mapLabel}>Network Map</div>
@@ -536,7 +536,7 @@ export default function HomePage() {
                 <div className={styles.pin}></div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className={styles.principles4}>
             <div className={styles.principle}>
               <span className={styles.num}>01</span>

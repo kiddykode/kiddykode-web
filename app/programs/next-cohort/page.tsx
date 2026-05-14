@@ -5,6 +5,7 @@ import { CtaStrip } from "../../components/CtaStrip";
 import { ImagePlaceholder } from "../../components/ImagePlaceholder";
 import styles from "./cohort.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Next Cohort — KiddyKode Live",
@@ -25,9 +26,9 @@ export default function NextCohortPage() {
         lede="KiddyKode Live is our flagship cohort-based experience. Learners build projects with expert facilitators, practice at home, and present their work on demo day."
         metaItems={[
           { label: "Format", value: "Live on Zoom" },
-          { label: "Ages", value: "8–16" },
-          { label: "Duration", value: "[TBD from Flyer]" },
-          { label: "Start Date", value: "[TBD from Flyer]" },
+          { label: "Ages", value: "8–17" },
+          { label: "Duration", value: "2 Months" },
+          { label: "Start Date", value: "6th June 2026" },
         ]}
       />
 
@@ -40,32 +41,40 @@ export default function NextCohortPage() {
           <div className={`${styles.infoCard} ${styles.feature}`}>
             <div className={styles.infoMain}>
               <span className="eyebrow text-[var(--color-accent)] mb-4">Registration Open</span>
-              <h2>[Cohort Name from Flyer]</h2>
+              <h2>Explorer Live Session — June 2026</h2>
               <p>Join a guided cohort of learners. Over the course of the program, your child will move from understanding basic logic to presenting a fully functional project.</p>
-              <Link href="/contact" className="btn btn--primary">
+              <Link href="https://forms.gle/QaHPUcdT1RNGezAB8" className="btn btn--primary" target="_blank" rel="noopener noreferrer">
                 Register Now <span className="arrow">→</span>
               </Link>
             </div>
             <div className={styles.infoMeta}>
               <div className={styles.infoGroup}>
                 <span className={styles.infoLabel}>Schedule</span>
-                <span className={styles.infoValue}>[TBD from Flyer]</span>
+                <span className={styles.infoValue}>Every week · 5:30 PM (Cameroon Time)</span>
               </div>
               <div className={styles.infoGroup}>
                 <span className={styles.infoLabel}>Start Date</span>
-                <span className={styles.infoValue}>[TBD from Flyer]</span>
+                <span className={styles.infoValue}>6th June 2026</span>
               </div>
               <div className={styles.infoGroup}>
                 <span className={styles.infoLabel}>Target Age Group</span>
-                <span className={styles.infoValue}>[TBD from Flyer]</span>
+                <span className={styles.infoValue}>8–17 Years</span>
               </div>
               <div className={styles.infoGroup}>
                 <span className={styles.infoLabel}>Level</span>
-                <span className={styles.infoValue}>[TBD from Flyer]</span>
+                <span className={styles.infoValue}>Explorer (Beginner)</span>
               </div>
               <div className={styles.infoGroup}>
                 <span className={styles.infoLabel}>Format</span>
-                <span className={styles.infoValue}>[TBD from Flyer]</span>
+                <span className={styles.infoValue}>100% Online · Live on Zoom</span>
+              </div>
+              <div className={styles.infoGroup}>
+                <span className={styles.infoLabel}>Program Fee</span>
+                <span className={styles.infoValue}>50,000 FRS</span>
+              </div>
+              <div className={styles.infoGroup}>
+                <span className={styles.infoLabel}>Early Bird</span>
+                <span className={styles.infoValue}>10% off before 31st May 2026</span>
               </div>
             </div>
           </div>
@@ -76,18 +85,24 @@ export default function NextCohortPage() {
         <div className="wrap">
           <div className={styles.flyerGrid}>
             <div className={styles.flyerImage}>
-              <ImagePlaceholder tone="ink" caption="Replace ▸ Uploaded Flyer Image" />
+              <Image 
+                src="/explorer-cohort-june-2026.jpeg" 
+                alt="Explorer Live Session Flyer — June 2026" 
+                width={800} 
+                height={1000} 
+                style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
+              />
             </div>
             <div className={styles.flyerBody}>
               <span className="eyebrow mb-4">Help us spread the word</span>
               <h3>Share this cohort with your network.</h3>
               <p>Know other parents, teachers, or schools who might be interested? Download the event flyer to share on WhatsApp or social media.</p>
-              <button className="btn btn--primary mb-6">
+              <a href="/explorer-cohort-june-2026.jpeg" download className="btn btn--primary mb-6">
                 Download Flyer <span className="arrow">↓</span>
-              </button>
+              </a>
               <div className={styles.shareBox}>
                 <strong>Suggested share text:</strong><br /><br />
-                KiddyKode is launching their next live coding cohort for kids ages 8-16. Registration is open now at kiddykode.com/programs/next-cohort
+                KiddyKode is launching their next live coding cohort for kids ages 8-17. Registration is open now at https://forms.gle/QaHPUcdT1RNGezAB8
               </div>
             </div>
           </div>
@@ -266,7 +281,7 @@ export default function NextCohortPage() {
         eyebrow="Don't miss out"
         title="Spots are limited. Register your child today."
         buttons={[
-          { label: "Register Now", href: "/contact", variant: "primary" },
+          { label: "Register Now", href: "https://forms.gle/QaHPUcdT1RNGezAB8", variant: "primary" },
           { label: "Ask a Question", href: "/contact", variant: "ghost" },
         ]}
       />
