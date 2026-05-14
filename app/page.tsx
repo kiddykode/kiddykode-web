@@ -579,66 +579,6 @@ export default function HomePage() {
       </section>
 
       <section
-        className={styles.mission}
-        id="mission"
-        data-screen-label="02 Mission"
-      >
-        <div className="wrap">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow">07 / Chapter</span>
-            </div>
-            <div></div>
-          </div>
-          <div className={styles.missionGrid}>
-            <div className={styles.missionStatement}>
-              From consumers to creators.
-            </div>
-            <div className={styles.missionBody}>
-              <p>
-                KiddyKode exists to help children move from scrolling and
-                consuming to thinking, building, and creating with code. We
-                deliver structured, project-based coding experiences that are
-                culturally grounded and designed to grow problem-solving,
-                logical reasoning, creativity, communication, and confidence.
-                Through every project, children learn to see themselves not just
-                as users of technology, but as builders of stories, solutions,
-                and futures.
-              </p>
-            </div>
-          </div>
-          <div className={styles.principles}>
-            <div className={styles.principle}>
-              <span className={styles.num}>01</span>
-              <h4>Creation over consumption</h4>
-              <p>
-                We use coding to help children move beyond passive screen time
-                into active building, making, and problem-solving.
-              </p>
-            </div>
-            <div className={styles.principle}>
-              <span className={styles.num}>02</span>
-              <h4>Culturally grounded learning</h4>
-              <p>
-                Our projects, stories, and examples reflect African contexts so
-                children can learn through experiences that feel familiar,
-                meaningful, and empowering.
-              </p>
-            </div>
-            <div className={styles.principle}>
-              <span className={styles.num}>03</span>
-              <h4>Built for thinking and confidence</h4>
-              <p>
-                We do not teach code as memorization alone; we use it to develop
-                logic, creativity, resilience, communication, and the confidence
-                to present what they build.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
         className={styles.partners}
         id="partner"
         data-screen-label="08 Partners"
@@ -648,37 +588,37 @@ export default function HomePage() {
             <div>
               <span className="eyebrow">08 / Partners</span>
               <h2 className="mt-[18px]">
-                Funded by organizations investing in the next generation.
+                Supported by partners helping expand access to coding education.
               </h2>
             </div>
             <div>
               <p className="lede">
-                Our cross-subsidy model relies on philanthropic grants,
-                corporate CSR, and foundation partners to keep the curriculum
-                free for public schools.
+                KiddyKode works with schools, companies, and institutional
+                partners to expand access, strengthen delivery, and support
+                high-quality coding education for children.
               </p>
             </div>
           </div>
           <div className={styles.partnersGrid}>
             <div className={styles.partner}>
               <div className={styles.name}>Atlas Ventures</div>
-              <div className={styles.kind}>Seed Funder</div>
+              <div className={styles.kind}>Strategic Partner</div>
             </div>
             <div className={styles.partner}>
               <div className={styles.name}>MTN Foundation</div>
-              <div className={styles.kind}>Connectivity Partner</div>
+              <div className={styles.kind}>Infrastructure Partner</div>
             </div>
             <div className={styles.partner}>
               <div className={styles.name}>Lagos State MoE</div>
-              <div className={styles.kind}>Gov Partner</div>
+              <div className={styles.kind}>School or Government Partner</div>
             </div>
             <div className={styles.partner}>
               <div className={styles.name}>Google.org</div>
-              <div className={styles.kind}>Grant Funder</div>
+              <div className={styles.kind}>Institutional Partner</div>
             </div>
             <div className={styles.partner}>
               <div className={styles.name}>Safaricom</div>
-              <div className={styles.kind}>Chapter Sponsor</div>
+              <div className={styles.kind}>Access Partner</div>
             </div>
             <div className={styles.partner}>
               <div className={styles.name}>ALX Africa</div>
@@ -686,33 +626,33 @@ export default function HomePage() {
             </div>
             <div className={styles.partner}>
               <div className={styles.name}>Western Cape Gov</div>
-              <div className={styles.kind}>Gov Partner</div>
+              <div className={styles.kind}>School or Government Partner</div>
             </div>
             <div className={styles.partner}>
               <div className={styles.name}>Mastercard Fdn</div>
-              <div className={styles.kind}>Scale Partner</div>
+              <div className={styles.kind}>Ecosystem Partner</div>
             </div>
             <div className={styles.partner}>
               <div className={styles.name}>Paystack</div>
-              <div className={styles.kind}>Payment Partner</div>
+              <div className={styles.kind}>Technology Partner</div>
             </div>
             <div className={styles.partner}>
               <div className={styles.name}>UNICEF Innovation</div>
-              <div className={styles.kind}>Impact Partner</div>
+              <div className={styles.kind}>Institutional Partner</div>
             </div>
           </div>
           <div className={styles.partnersNote}>
-            <span className={styles.label}>Become a partner</span>
+            <span className={styles.label}>Partner with KiddyKode</span>
             <p>
-              We are currently taking on new corporate and foundation partners
-              for the 2026/2027 school year, particularly those interested in
-              sponsoring specific city chapters or providing hardware grants.{" "}
+              We are currently welcoming school, corporate, and institutional
+              partners interested in learner access, hardware support, program
+              delivery, and strategic collaboration.{" "}
               <Link
                 href="/partners"
                 className="btn btn--link"
                 style={{ display: "inline-block", marginLeft: "8px" }}
               >
-                Read our partnership guidelines →
+                Partner with KiddyKode →
               </Link>
             </p>
           </div>
@@ -910,13 +850,13 @@ export default function HomePage() {
             </div>
             <div className={styles.finalPath}>
               <span className={styles.pn}>03 / Partners</span>
-              <h3>Fund a chapter</h3>
+              <h3>Support school access</h3>
               <p>
-                Sponsor a public school deployment or help us open a new city
-                hub.
+                Support school delivery, learner access, or the tools that help
+                more children build with code.
               </p>
               <Link href="/partners" className="btn btn--ghost">
-                Partner with us
+                Explore partnerships
               </Link>
             </div>
           </div>

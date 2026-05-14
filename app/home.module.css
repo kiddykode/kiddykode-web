@@ -212,11 +212,11 @@
 .finalPath .pn { font-family: var(--font-mono); font-size: 12px; color: var(--color-accent); letter-spacing: 0.1em; }
 .finalPath h3 { color: var(--color-sand-50); margin-top: 16px; }
 .finalPath p { margin-top: 14px; color: rgba(247,243,236,0.7); font-size: 15px; max-width: 30ch; flex: 1; }
-.finalPath .btn { margin-top: 24px; align-self: flex-start; }
-.finalPath .btn--primary { background: var(--color-sand-50); color: var(--color-ink-900); }
-.finalPath .btn--primary:hover { background: #fff; }
-.finalPath .btn--ghost { border-color: var(--color-sand-50); color: var(--color-sand-50); }
-.finalPath .btn--ghost:hover { background: var(--color-sand-50); color: var(--color-ink-900); }
+.finalPath :global(.btn) { margin-top: 24px; align-self: flex-start; }
+.finalPath :global(.btn--primary) { background: var(--color-sand-50); color: var(--color-ink-900); }
+.finalPath :global(.btn--primary):hover { background: #fff; }
+.finalPath :global(.btn--ghost) { border-color: var(--color-sand-50); color: var(--color-sand-50); }
+.finalPath :global(.btn--ghost):hover { background: var(--color-sand-50); color: var(--color-ink-900); }
 
 @media (max-width: 1024px) {
   .heroGrid, .missionGrid, .whyGrid, .pullquote, .whyThemes, .storiesGrid, .chaptersGrid, .partnersHead, .partnersNote, .studioGrid, .finalPaths { grid-template-columns: 1fr !important; }
