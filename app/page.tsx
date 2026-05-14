@@ -41,16 +41,11 @@ export default function HomePage() {
               </div>
             </div>
             <figure className={styles.heroMedia}>
-              <ImagePlaceholder
-                tone="warm"
-                photoUrl="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80"
+              <img
+                src="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774727/ChatGPT_Image_May_14_2026_08_13_08_PM_kdo9lh.png"
+                alt="A learner presenting a built project"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
-              <figcaption className={styles.caption}>
-                <span>
-                  <strong>Replace ▸</strong> Portrait — a learner presenting a
-                  built project, classroom or demo-night setting
-                </span>
-              </figcaption>
             </figure>
           </div>
         </div>
@@ -243,10 +238,10 @@ export default function HomePage() {
 
             <Link className={styles.pathway} href="/programs">
               <div className={styles.pathwayImage}>
-                <ImagePlaceholder
-                  tone="cool"
-                  photoUrl="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=80"
-                  caption="Replace ▸ Community club night, mentor + peers"
+                <img
+                  src="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774726/ChatGPT_Image_May_14_2026_09_08_46_PM_dgfdz9.png"
+                  alt="Community club night"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
               <div className={styles.pathwayBody}>
@@ -297,10 +292,10 @@ export default function HomePage() {
 
             <Link className={styles.pathway} href="/programs">
               <div className={styles.pathwayImage}>
-                <ImagePlaceholder
-                  tone="clay"
-                  photoUrl="https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=900&q=80"
-                  caption="Replace ▸ Holiday creator camp — group demo"
+                <img
+                  src="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774727/ChatGPT_Image_May_14_2026_09_17_40_PM_ma3741.png"
+                  alt="Holiday creator camp"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
               <div className={styles.pathwayBody}>
