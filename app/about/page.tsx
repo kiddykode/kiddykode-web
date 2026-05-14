@@ -23,43 +23,65 @@ export default function AboutPage() {
         title="We teach children to build with code, not just use technology."
         lede="KiddyKode is a learning initiative helping children move from passive screen use to confident digital creation. Through structured, project-based coding experiences, children learn to think clearly, build solutions, debug with confidence, and present what they create."
         metaItems={[
-          { label: "Founded in", value: "2023" },
+          { label: "Founded in", value: "2025 | Yaoundé, Cameroon" },
         ]}
       />
 
-      <section className={styles.mission} id="mission" data-screen-label="The Story">
+      <section
+        className={styles.mission}
+        id="mission"
+        data-screen-label="02 Mission"
+      >
         <div className="wrap">
-          <SectionHead eyebrow="The Story" />
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">02 / Mission</span>
+            </div>
+            <div></div>
+          </div>
           <div className={styles.missionGrid}>
             <div className={styles.missionStatement}>
-              From consumers of technology to authors of it.
+              From consumers to creators.
             </div>
             <div className={styles.missionBody}>
-              <p>Technology is not a passive utility; it is the material of modern power. We exist to ensure Africa's youngest generation learns to wield it.</p>
-              <p className="mt-[18px]">We teach children how to code, but code is just the medium. The outcome we care about is agency: the moment a ten-year-old realizes she doesn't just have to play the game, she can change the rules.</p>
+              <p>
+                KiddyKode exists to help children move from scrolling and
+                consuming to thinking, building, and creating with code. We
+                deliver structured, project-based coding experiences that are
+                culturally grounded and designed to grow problem-solving,
+                logical reasoning, creativity, communication, and confidence.
+                Through every project, children learn to see themselves not just
+                as users of technology, but as builders of stories, solutions,
+                and futures.
+              </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className={styles.principles} id="method" data-screen-label="01 Method">
-        <div className="wrap">
-          <SectionHead eyebrow="01 / The Method" />
           <div className={styles.principles}>
             <div className={styles.principle}>
-              <span className={styles.principleNum}>01</span>
-              <h4>Creativity first</h4>
-              <p>We do not teach syntax for the sake of syntax. Every lesson begins with a brief to build something tangible: a story, a game, a tool for their family.</p>
+              <span className={styles.num}>01</span>
+              <h4>From consumers of technology to creators with it.</h4>
+              <p>
+                We use coding to help children move beyond passive screen time
+                into active building, making, and problem-solving.
+              </p>
             </div>
             <div className={styles.principle}>
-              <span className={styles.principleNum}>02</span>
-              <h4>Context matters</h4>
-              <p>Our curriculum is not translated from San Francisco. The examples, the logic puzzles, and the constraints are drawn from the realities of African cities.</p>
+              <span className={styles.num}>02</span>
+              <h4>Culturally grounded learning</h4>
+              <p>
+                Our projects, stories, and examples reflect African contexts so
+                children can learn through experiences that feel familiar,
+                meaningful, and empowering.
+              </p>
             </div>
             <div className={styles.principle}>
-              <span className={styles.principleNum}>03</span>
-              <h4>Built for all</h4>
-              <p>Coding is not a luxury enrichment activity. We partner with public school systems to ensure access does not depend on a parent's income.</p>
+              <span className={styles.num}>03</span>
+              <h4>Built for thinking and confidence</h4>
+              <p>
+                We do not teach code as memorization alone; we use it to develop
+                logic, creativity, resilience, communication, and the confidence
+                to present what they build.
+              </p>
             </div>
           </div>
         </div>
@@ -164,28 +186,28 @@ export default function AboutPage() {
 
       <section className={styles.timeline} id="timeline" data-screen-label="05 Journey">
         <div className="wrap">
-          <SectionHead eyebrow="05 / THE JOURNEY SO FAR" title="A growing method, shaped through practice." />
+          <SectionHead eyebrow="05 / THE JOURNEY SO FAR" title="An idea in 2025. A pilot in March 2026." />
           <div className={styles.tlRail}>
             <div className={styles.tlRow}>
-              <div className={styles.yr}>2023</div>
-              <h4>Early pilot sessions begin.</h4>
-              <p>The core pedagogy is tested with our first cohorts of young learners.</p>
+              <div className={styles.yr}>June 2025</div>
+              <h4>KiddyKode is born.</h4>
+              <p>The idea for KiddyKode begins with a question: “How can we help children here in Cameroon learn to think with code, not just use apps?”</p>
             </div>
             <div className={styles.tlRow}>
-              <div className={styles.yr}>2024</div>
-              <h4>Formalization</h4>
-              <p>KiddyKode is formalized and the method becomes more structured.</p>
-            </div>
-            <div className={styles.tlRow}>
-              <div className={styles.yr}>2025</div>
-              <h4>Refinement</h4>
-              <p>Programs, curriculum, and platform direction become clearer.</p>
+              <div className={styles.yr}>March 2026</div>
+              <h4>Pilot launched</h4>
+              <p>We run our first pilot program with a group of 20 learners in our Kiddykode Live program, testing our curriculum and approach in real classrooms.</p>
             </div>
             <div className={styles.tlRow}>
               <div className={styles.yr}>2026</div>
+              <h4>Refining and growing.</h4>
+              <p>We are expanding our reach, deepening our curriculum, and building the platform to support learning for thousands of children.</p>
+            </div>
+            {/* <div className={styles.tlRow}>
+              <div className={styles.yr}>2026</div>
               <h4>Growth</h4>
               <p>Learning formats, partnerships, and evidence-building continue to develop.</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

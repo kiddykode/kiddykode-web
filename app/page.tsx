@@ -74,42 +74,30 @@ export default function HomePage() {
             </div>
             <div className={styles.missionBody}>
               <p>
-                KiddyKode exists to help children move from scrolling and
-                consuming to thinking, building, and creating with code. We
-                deliver structured, project-based coding experiences that are
-                culturally grounded and designed to grow problem-solving,
-                logical reasoning, creativity, communication, and confidence.
-                Through every project, children learn to see themselves not just
-                as users of technology, but as builders of stories, solutions,
-                and futures.
+                KiddyKode exists to help children move from passive screen use to active digital creation. We use coding as a tool for problem-solving, creativity, communication, and confidence — not as syntax practice alone.
               </p>
             </div>
           </div>
           <div className={styles.principles}>
             <div className={styles.principle}>
               <span className={styles.num}>01</span>
-              <h4>Creation over consumption</h4>
+              <h4>Creativity first</h4>
               <p>
-                We use coding to help children move beyond passive screen time
-                into active building, making, and problem-solving.
+                Every lesson begins with something a child can make: a story, a game, a tool, or a small solution to a real problem.
               </p>
             </div>
             <div className={styles.principle}>
               <span className={styles.num}>02</span>
-              <h4>Culturally grounded learning</h4>
+              <h4>Context matters</h4>
               <p>
-                Our projects, stories, and examples reflect African contexts so
-                children can learn through experiences that feel familiar,
-                meaningful, and empowering.
+                Our stories, examples, and challenges are designed to feel familiar, meaningful, and rooted in African realities.
               </p>
             </div>
             <div className={styles.principle}>
               <span className={styles.num}>03</span>
-              <h4>Built for thinking and confidence</h4>
+              <h4>Built for access</h4>
               <p>
-                We do not teach code as memorization alone; we use it to develop
-                logic, creativity, resilience, communication, and the confidence
-                to present what they build.
+                We want coding education to be practical, structured, and reachable for more children, not only a small privileged few.
               </p>
             </div>
           </div>

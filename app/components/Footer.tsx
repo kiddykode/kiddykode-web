@@ -9,8 +9,8 @@ export function Footer() {
       <div className="wrap">
         <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1.5fr] gap-10">
           <div className="footer-brand">
-            <Link href="/" className="logo text-[var(--color-sand-50)]">
-              <Image className="logo-img filter brightness-0 invert saturate-0 opacity-90" src="/kiddykode-logo.png" alt="KiddyKode" width={44} height={44} />
+            <Link href="/" className="logo flex-shrink-0 transition-transform duration-200 hover:scale-105" aria-label="KiddyKode home">
+              <Image className="logo-img" src="/kiddykode-logo.png" alt="KiddyKode" width={48} height={48} />
             </Link>
             <p className="text-sm leading-relaxed text-[rgba(247,243,236,0.62)] max-w-[32ch] mt-4">
               KiddyKode teaches children to think, build, and create with code.
