@@ -482,7 +482,7 @@ export default function HomePage() {
               </h2>
             </div>
             <div>
-              <p className="lede">
+              <p className={styles.missionBody}> 
                 KiddyKode is designed to grow through regional chapters led by
                 local educators, facilitators, and partners. The central team
                 provides the curriculum, platform, and pedagogical framework,
