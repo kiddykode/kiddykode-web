@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { ImagePlaceholder } from "./components/ImagePlaceholder";
+import HeroCarousel from "./components/HeroCarousel";
 import styles from "./home.module.css";
 import Link from "next/link";
 
@@ -11,45 +12,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <section className={styles.hero} id="hero" data-screen-label="01 Hero">
-        <div className="wrap">
-          <div className={styles.heroGrid}>
-            <div className={styles.heroCopy}>
-              <span className="eyebrow">
-                Coding education for Africa's next generation of creators
-              </span>
-              <h1>
-                We are building Africa's next generation of{" "}
-                <em>Problelm Solvers and creators</em> — through code.
-              </h1>
-              <p className="lede mt-[26px]">
-                KiddyKode is a continental learning movement. We help children
-                become creators by pairing rigorous coding education with
-                cultural storytelling, project-based learning, and school
-                partnerships across the continent.
-              </p>
-              <div className={styles.heroCta}>
-                <Link className="btn btn--primary" href="/programs">
-                  Join a Program <span className="arrow">→</span>
-                </Link>
-                <Link className="btn btn--ghost" href="/#partner">
-                  Partner With Us
-                </Link>
-              </div>
-              <div className={styles.heroMeta}>
-                {/* <span className="mono">— Active in nine cities across Africa</span> */}
-              </div>
-            </div>
-            <figure className={styles.heroMedia}>
-              <img
-                src="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774727/ChatGPT_Image_May_14_2026_08_13_08_PM_kdo9lh.png"
-                alt="A learner presenting a built project"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            </figure>
-          </div>
-        </div>
-      </section>
+      <HeroCarousel />
 
       <section
         className={styles.mission}
