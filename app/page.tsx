@@ -119,12 +119,12 @@ export default function HomePage() {
       <section
         className={styles.impact}
         id="impact"
-        data-screen-label="03 Impact"
+        data-screen-label="03 Early Evidence"
       >
         <div className="wrap">
           <div className="section-head">
             <div className="heading">
-              <span className="eyebrow">03 / Early signals of impact</span>
+              <span className="eyebrow">03 / Early signals of evidence</span>
               <h2 className="mt-[18px]">
                 We are early — so we measure carefully.
               </h2>
@@ -193,7 +193,7 @@ export default function HomePage() {
               Source — KiddyKode internal reporting, March 2026
             </span>
             <Link href="#" className="btn btn--link">
-              Read the 2025 impact report →
+              Read the 2025 evidence report →
             </Link>
           </div>
         </div>
@@ -202,7 +202,7 @@ export default function HomePage() {
       <section
         className={styles.pathways}
         id="programs"
-        data-screen-label="04 Programs"
+        data-screen-label="04 Learning Formats"
       >
         <div className="wrap">
           <div className="section-head">

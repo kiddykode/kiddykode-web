@@ -18,7 +18,7 @@ export function Footer() {
           </div>
           
           <div className="footer-col">
-            <h5 className="font-mono text-[11px] tracking-[0.12em] uppercase text-[rgba(247,243,236,0.5)] m-0 mb-5 font-medium">Programs</h5>
+            <h5 className="font-mono text-[11px] tracking-[0.12em] uppercase text-[rgba(247,243,236,0.5)] m-0 mb-5 font-medium">Learning Formats</h5>
             <ul className="list-none p-0 m-0 flex flex-col gap-2.5 text-sm">
               <li><Link href="/#studio">KiddyKode Studio</Link></li>
               <li><Link href="/programs">KiddyKode Live</Link></li>

@@ -19,18 +19,17 @@ export default function AboutPage() {
           { label: "Home", href: "/" },
           { label: "About", href: "/about" },
         ]}
-        eyebrow="The Story"
-        title="We teach children to build the things they use."
-        lede="KiddyKode is a non-profit learning movement. We believe the next century of African culture, commerce, and civic life will be written in code — and the children writing it deserve more than borrowed curricula."
+        eyebrow="— THE STORY"
+        title="We teach children to build with code, not just use technology."
+        lede="KiddyKode is a learning initiative helping children move from passive screen use to confident digital creation. Through structured, project-based coding experiences, children learn to think clearly, build solutions, debug with confidence, and present what they create."
         metaItems={[
-          { label: "Founded", value: "2025" },
-          { label: "HQ", value: "Yaounde, Cameroon" },
+          { label: "Founded in", value: "2023" },
         ]}
       />
 
-      <section className={styles.mission} id="mission" data-screen-label="Mission">
+      <section className={styles.mission} id="mission" data-screen-label="The Story">
         <div className="wrap">
-          <SectionHead eyebrow="01 / Mission" />
+          <SectionHead eyebrow="The Story" />
           <div className={styles.missionGrid}>
             <div className={styles.missionStatement}>
               From consumers of technology to authors of it.
@@ -40,6 +39,12 @@ export default function AboutPage() {
               <p className="mt-[18px]">We teach children how to code, but code is just the medium. The outcome we care about is agency: the moment a ten-year-old realizes she doesn't just have to play the game, she can change the rules.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.principles} id="method" data-screen-label="01 Method">
+        <div className="wrap">
+          <SectionHead eyebrow="01 / The Method" />
           <div className={styles.principles}>
             <div className={styles.principle}>
               <span className={styles.principleNum}>01</span>
@@ -60,52 +65,48 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={styles.origin} id="origin" data-screen-label="Origin Story">
+      <section className={styles.origin} id="origin" data-screen-label="02 Origin">
         <div className="wrap">
           <SectionHead
-            eyebrow="02 / The Origin"
-            title="It started with a borrowed church hall in Surulere."
+            eyebrow="02 / THE ORIGIN"
+            title="It started small, and it started with real children."
           />
           <div className={styles.originGrid}>
             <div className={styles.originMedia}>
               <ImagePlaceholder tone="warm" photoUrl="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80" caption="Replace ▸ The first cohort, 2023" />
             </div>
             <div className={styles.originBody}>
-              <p>In 2023, our founders — two software engineers and a primary school teacher — ran a six-week Saturday coding club for 12 children in Lagos. The curriculum was entirely offline: algorithms taught via clapping games, loops taught via relay races.</p>
-              <p>By week four, the children were writing basic Python scripts on three borrowed laptops. By week six, they had built a text-based adventure game in Yoruba.</p>
-              <p>The demand from parents was overwhelming. But what became clear was that the magic wasn't the laptops — it was the pedagogy. When you remove the intimidation of "computer science" and replace it with "making things," children learn at astonishing speed.</p>
-              <p>We formalized KiddyKode later that year to scale that pedagogy across the continent.</p>
+              <p>KiddyKode began with a small early cohort and a simple idea: children should not only use technology, they should learn to build with it. From the start, the method combined storytelling, logical reasoning, project work, and presentation.</p>
+              <p>What became clear very quickly was that children learn faster when coding feels creative, structured, and connected to their world. That insight became the foundation of the KiddyKode method.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.stakes} id="scale" data-screen-label="Stakes">
+      <section className={styles.stakes} id="why-now" data-screen-label="03 Why Now">
         <div className="wrap">
           <SectionHead
-            eyebrow="03 / The Scale"
-            title="The largest youth population in human history."
-            lede="By 2050, one in three young people in the world will live in Africa. The economic and cultural future of the globe depends on what this generation is equipped to build."
+            eyebrow="03 / WHY NOW"
+            title="Africa’s children should help build the digital future, not just inherit it."
+            lede="Africa’s young population will shape the next generation of systems, stories, and tools. KiddyKode exists to make sure more children grow up not only as users of technology, but as confident creators with it."
           />
-          <div className={styles.stakesGrid}>
-            <div className={styles.stake}>
-              <div className={styles.stakeN}>60<sup>%</sup></div>
-              <p>Of Africa's population is currently under the age of 25.</p>
+          <div className={styles.principles}>
+            <div className={styles.principle}>
+              <span className={styles.principleNum}>01</span>
+              <h4>Digital sovereignty</h4>
+              <p>Children should not grow up only consuming technologies built elsewhere. They should learn to shape tools and solutions for their own contexts.</p>
             </div>
-            <div className={styles.stake}>
-              <div className={styles.stakeN}>12<sup>M</sup></div>
-              <p>Youth enter the African workforce every year, competing for 3M formal jobs.</p>
+            <div className={styles.principle}>
+              <span className={styles.principleNum}>02</span>
+              <h4>Cultural continuity</h4>
+              <p>Coding becomes more meaningful when it is taught through stories, examples, and challenges children recognize.</p>
             </div>
-            <div className={styles.stake}>
-              <div className={styles.stakeN}>&lt; 5<sup>%</sup></div>
-              <p>Of primary schools on the continent currently offer structured computing education.</p>
-            </div>
-            <div className={styles.stake}>
-              <div className={styles.stakeN}>100<sup>K</sup></div>
-              <p>The number of creators KiddyKode aims to train by the year 2030.</p>
+            <div className={styles.principle}>
+              <span className={styles.principleNum}>03</span>
+              <h4>Systemic thinking</h4>
+              <p>Learning to code teaches children how to break complex problems into smaller, solvable parts — a habit of mind that lasts beyond the screen.</p>
             </div>
           </div>
-          <div className={styles.stakesSrc}>Source — UN Population Fund / African Development Bank</div>
         </div>
       </section>
 
@@ -114,200 +115,137 @@ export default function AboutPage() {
           <span className={styles.eyebrow}>Why we do this</span>
           <div className={styles.pullQ}>When a child builds her first program, the country gains a citizen who knows the world is editable.</div>
           <div className={styles.pullWho}>
-            <span><strong>Adaeze Okonkwo</strong> · Co-founder & Curriculum Director</span>
+            <span><strong>Deodatus Bijengsi</strong> · Co-founder & Curriculum Director</span>
           </div>
         </div>
       </section>
 
-      <section className={styles.people} id="team" data-screen-label="Team">
+      <section className={styles.people} id="team" data-screen-label="04 People">
         <div className="wrap">
           <SectionHead
-            eyebrow="04 / The People"
-            title="Built by teachers, engineers, and parents."
-            lede="Our core team spans three countries and combines deep experience in primary pedagogy, scalable software architecture, and community organizing."
+            eyebrow="04 / THE PEOPLE"
+            title="Built by educators, builders, and believers in creative learning."
+            lede="KiddyKode is being shaped by people who care deeply about how children learn: educators, technologists, and mission-aligned partners committed to helping young learners build with confidence."
           />
           <div className={styles.teamGrid}>
             <div className={styles.person}>
               <div className={styles.img}><ImagePlaceholder tone="clay" caption="Replace ▸ Headshot" /></div>
-              <h4>Adaeze Okonkwo</h4>
-              <div className={styles.role}>Co-founder, Curriculum</div>
-              <p>Former primary teacher and curriculum designer. Writes the pedagogy.</p>
+              <h4>Chiella Harriet</h4>
+              <div className={styles.role}>Co-Founder, CEO</div>
+              <p>Leads the mission and strategic direction of KiddyKode.</p>
             </div>
             <div className={styles.person}>
               <div className={styles.img}><ImagePlaceholder tone="ink" caption="Replace ▸ Headshot" /></div>
-              <h4>Kweku Ofori</h4>
-              <div className={styles.role}>Co-founder, Operations</div>
-              <p>Scales the chapter model. Previously ran logistics for a pan-African NGO.</p>
+              <h4>Deodatus Bijengsi</h4>
+              <div className={styles.role}>Co-Founder, Curriculum Director</div>
+              <p>Architect of the KiddyKode method and pedagogical framework.</p>
             </div>
             <div className={styles.person}>
               <div className={styles.img}><ImagePlaceholder tone="warm" caption="Replace ▸ Headshot" /></div>
-              <h4>Thandi Mbeki</h4>
-              <div className={styles.role}>Head of Storytelling</div>
-              <p>Documents the movement. Former education journalist.</p>
+              <h4>Chiella Elvis</h4>
+              <div className={styles.role}>Co-Founder, Finance and Logistics</div>
+              <p>Ensures sustainable operations and regional delivery scale.</p>
             </div>
             <div className={styles.person}>
-              <div className={styles.img}><ImagePlaceholder tone="cool" caption="Replace ▸ Headshot" /></div>
-              <h4>Samuel Kamau</h4>
+              <div className={styles.img}><ImagePlaceholder tone="cool" caption="Replace ▸ Role Placeholder" /></div>
+              <h4>Learning Experience</h4>
+              <div className={styles.role}>Team Lead</div>
+              <p>Designing the structured journey for every KiddyKode learner.</p>
+            </div>
+            <div className={styles.person}>
+              <div className={styles.img}><ImagePlaceholder tone="sage" caption="Replace ▸ Role Placeholder" /></div>
+              <h4>Platform Development</h4>
               <div className={styles.role}>Engineering Lead</div>
-              <p>Builds the Studio platform. Open-source contributor.</p>
-            </div>
-            <div className={styles.person}>
-              <div className={styles.img}><ImagePlaceholder tone="sage" caption="Replace ▸ Headshot" /></div>
-              <h4>Mariam El-Sayed</h4>
-              <div className={styles.role}>Regional Lead, North</div>
-              <p>Manages the Cairo and Alexandria chapters and Arabic localization.</p>
-            </div>
-            <div className={styles.person}>
-              <div className={styles.img}><ImagePlaceholder tone="ink" caption="Replace ▸ Headshot" /></div>
-              <h4>Zola Nkosi</h4>
-              <div className={styles.role}>Regional Lead, South</div>
-              <p>Coordinates partner schools across the Western Cape.</p>
-            </div>
-            <div className={styles.person}>
-              <div className={styles.img}><ImagePlaceholder tone="clay" caption="Replace ▸ Headshot" /></div>
-              <h4>David Ochieng</h4>
-              <div className={styles.role}>Head of Partnerships</div>
-              <p>Works with sponsors and ministries to fund public school deployments.</p>
-            </div>
-            <div className={styles.person}>
-              <div className={styles.img}><ImagePlaceholder tone="warm" caption="Replace ▸ Headshot" /></div>
-              <h4>Esther Adekunle</h4>
-              <div className={styles.role}>Lead Mentor</div>
-              <p>Trains our volunteer network and writes the mentor handbook.</p>
+              <p>Building the Studio platform to support self-paced creation.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.gov} id="governance" data-screen-label="Governance">
+      <section className={styles.timeline} id="timeline" data-screen-label="05 Journey">
         <div className="wrap">
-          <SectionHead eyebrow="05 / Governance" />
-          <div className={styles.govGrid}>
-            <div>
-              <h3 className="mb-[24px]">Board of Directors</h3>
-              <div className={styles.govList}>
-                <div className={styles.govItem}>
-                  <h4>Dr. Funmilayo Sowande (Chair)</h4>
-                  <p>Dean of Education, Lagos State University</p>
-                </div>
-                <div className={styles.govItem}>
-                  <h4>Tarik Mansour</h4>
-                  <p>Partner, Atlas Ventures Africa</p>
-                </div>
-                <div className={styles.govItem}>
-                  <h4>Grace Njoroge</h4>
-                  <p>Former Minister of ICT, Kenya</p>
-                </div>
-                <div className={styles.govItem}>
-                  <h4>Adaeze Okonkwo</h4>
-                  <p>Co-founder, KiddyKode</p>
-                </div>
-                <div className={styles.govItem}>
-                  <h4>Kweku Ofori</h4>
-                  <p>Co-founder, KiddyKode</p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h3 className="mb-[24px]">Advisory Council</h3>
-              <div className={styles.govList}>
-                <div className={styles.govItem}>
-                  <h4>Prof. Sarah Olanrewaju</h4>
-                  <p>Child Psychology & Early Development</p>
-                </div>
-                <div className={styles.govItem}>
-                  <h4>James Mwangi</h4>
-                  <p>Technology Infrastructure Strategy</p>
-                </div>
-                <div className={styles.govItem}>
-                  <h4>Fatima Al-Fayed</h4>
-                  <p>Policy & Government Relations</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.timeline} id="timeline" data-screen-label="Timeline">
-        <div className="wrap">
-          <SectionHead eyebrow="06 / The Journey So Far" />
+          <SectionHead eyebrow="05 / THE JOURNEY SO FAR" title="A growing method, shaped through practice." />
           <div className={styles.tlRail}>
             <div className={styles.tlRow}>
               <div className={styles.yr}>2023</div>
-              <h4>The First Cohort</h4>
-              <p>12 students in a borrowed hall in Surulere, Lagos. The curriculum is tested and proven.</p>
+              <h4>Early pilot sessions begin.</h4>
+              <p>The core pedagogy is tested with our first cohorts of young learners.</p>
             </div>
             <div className={styles.tlRow}>
               <div className={styles.yr}>2024</div>
               <h4>Formalization</h4>
-              <p>Registered as a non-profit. First 5 partner schools onboarded. The 'Studio' platform prototype is built.</p>
+              <p>KiddyKode is formalized and the method becomes more structured.</p>
             </div>
             <div className={styles.tlRow}>
               <div className={styles.yr}>2025</div>
-              <h4>Regional Expansion</h4>
-              <p>Chapters open in Nairobi and Cape Town. Curriculum localized into Swahili. 5,000 learners reached.</p>
+              <h4>Refinement</h4>
+              <p>Programs, curriculum, and platform direction become clearer.</p>
             </div>
             <div className={styles.tlRow}>
               <div className={styles.yr}>2026</div>
-              <h4>The Network Effect</h4>
-              <p>9 active cities. 40k+ projects shipped. Launch of the continental demo night series.</p>
+              <h4>Growth</h4>
+              <p>Learning formats, partnerships, and evidence-building continue to develop.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.partners} id="partners" data-screen-label="Funding">
+      <section className={styles.gov} id="governance" data-screen-label="06 Governance">
+        <div className="wrap">
+          <SectionHead 
+            eyebrow="06 / GOVERNANCE" 
+            title="Guided by accountability and educational purpose."
+            lede="KiddyKode is being built with long-term accountability in mind, with input from educators, operators, and mission-aligned advisors. As the organization grows, its governance structure will continue to formalize around educational quality, child safety, and responsible scale."
+          />
+        </div>
+      </section>
+
+      <section className={styles.partners} id="partners" data-screen-label="07 Funding">
         <div className="wrap">
           <div className={styles.partnersGrid}>
             <div>
-              <span className="eyebrow">07 / Funding & Partners</span>
-              <h2 className="mt-[18px]">Backed by organizations that believe in the mission.</h2>
-              <p className="lede mt-[24px]">KiddyKode is supported by philanthropic grants, corporate CSR partnerships, and a network of individual donors. This ensures our curriculum remains free for public school partners.</p>
+              <span className="eyebrow">07 / FUNDING & PARTNERS</span>
+              <h2 className="mt-[18px]">Supported by people and partners who believe in the mission.</h2>
+              <p className="lede mt-[24px]">KiddyKode is growing through a mix of founder effort, early partners, and mission-aligned support. As the organization expands, partnerships will help widen access, strengthen delivery, and support long-term sustainability.</p>
               <Link href="/partners" className="btn btn--link mt-[32px]">Read our partnership guidelines <span className="arrow">→</span></Link>
             </div>
             <div className={styles.partnersRow}>
-              <div className={styles.pcell}>Partner Logomark</div>
-              <div className={styles.pcell}>Partner Logomark</div>
-              <div className={styles.pcell}>Partner Logomark</div>
-              <div className={styles.pcell}>Partner Logomark</div>
-              <div className={styles.pcell}>Partner Logomark</div>
-              <div className={styles.pcell}>Partner Logomark</div>
-              <div className={styles.pcell}>Partner Logomark</div>
-              <div className={styles.pcell}>Partner Logomark</div>
-              <div className={styles.pcell}>Partner Logomark</div>
+              <div className={styles.pcell}>Schools</div>
+              <div className={styles.pcell}>Donors</div>
+              <div className={styles.pcell}>Mission-aligned organizations</div>
+              <div className={styles.pcell}>Future partners</div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.press} id="contact" data-screen-label="Contact">
+      <section className={styles.press} id="contact" data-screen-label="08 Contact">
         <div className="wrap">
-          <SectionHead eyebrow="08 / Get in Touch" />
+          <SectionHead eyebrow="08 / GET IN TOUCH" title="Partnerships, enquiries, and next steps." />
           <div className={styles.pressGrid}>
             <div className={styles.pressCard}>
-              <span className="eyebrow">Press & Media</span>
-              <h3>Writing a story?</h3>
-              <p>We can provide high-res assets, impact data, and interviews with leadership, teachers, or parents (with consent).</p>
-              <Link href="/contact" className="btn btn--ghost">Visit the Press Desk <span className="arrow">→</span></Link>
+              <span className="eyebrow">Card 1</span>
+              <h3>Partnerships & enquiries</h3>
+              <p>Questions about schools, collaborations, or support opportunities.</p>
+              <Link href="/contact" className="btn btn--primary">Contact Us <span className="arrow">→</span></Link>
             </div>
             <div className={styles.pressCard}>
-              <span className="eyebrow">General Enquiries</span>
-              <h3>Want to get involved?</h3>
-              <p>Whether you want to enroll a child, partner as a school, or open a chapter in your city, our contact team will route your message.</p>
-              <Link href="/contact" className="btn btn--primary">Contact Us <span className="arrow">→</span></Link>
+              <span className="eyebrow">Card 2</span>
+              <h3>Programs</h3>
+              <p>Looking for the right format for a child, school, or group.</p>
+              <Link href="/programs" className="btn btn--ghost">Explore Learning Formats <span className="arrow">→</span></Link>
             </div>
           </div>
         </div>
       </section>
 
       <CtaStrip 
-        eyebrow="Join the movement"
-        title="We are building the future, one line of code at a time."
+        eyebrow="Get involved"
+        title="We are helping children move from using technology to building with it."
         buttons={[
           { label: "Join a Program", href: "/programs", variant: "primary" },
           { label: "Partner With Us", href: "/partners", variant: "ghost" },
-          { label: "Read the Stories", href: "/stories", variant: "link" }
+          { label: "Contact Us", href: "/contact", variant: "link" }
         ]}
       />
     </>

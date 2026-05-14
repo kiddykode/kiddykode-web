@@ -7,7 +7,7 @@ import styles from "./programs.module.css";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Programs — KiddyKode",
+  title: "Learning Formats — KiddyKode",
   description: "Curriculum designed to turn curious minds into confident creators.",
 };
 
@@ -17,7 +17,7 @@ export default function ProgramsPage() {
       <PageHero
         breadcrumb={[
           { label: "Home", href: "/" },
-          { label: "Programs", href: "/programs" },
+          { label: "Learning Formats", href: "/programs" },
         ]}
         eyebrow="The Curriculum"
         title="We don't teach syntax. We teach creation."
@@ -59,12 +59,12 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      <section className={styles.pathways} id="pathways" data-screen-label="Pathways">
+      <section className={styles.pathways} id="formats" data-screen-label="Learning Formats">
         <div className="wrap">
           <SectionHead
-            eyebrow="02 / Pathways"
+            eyebrow="02 / Learning Formats"
             title="How to join."
-            lede="We deliver the curriculum through five distinct pathways, depending on where the child lives and how they learn best."
+            lede="We deliver the curriculum through five distinct formats, depending on where the child lives and how they learn best."
           />
           
           <div className={styles.pathRow}>
@@ -263,7 +263,7 @@ export default function ProgramsPage() {
         <div className="wrap">
           <div className={styles.faqGrid}>
             <div>
-              <span className="eyebrow">Program FAQ</span>
+              <span className="eyebrow">Learning Formats FAQ</span>
               <h2 className="mt-[18px]">Common questions.</h2>
             </div>
             <div>
