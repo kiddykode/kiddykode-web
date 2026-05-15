@@ -9,7 +9,7 @@ const initialState: NewsletterState = {
 };
 
 interface NewsletterFormProps {
-  source?: 'footer' | 'stories' | 'cohort' | 'homepage';
+  source?: 'footer' | 'stories' | 'cohort' | 'homepage' | 'promo-modal';
   /** Placeholder text for the email input */
   placeholder?: string;
   /** Button label */
