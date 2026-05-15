@@ -33,20 +33,37 @@
   --spacing-maxw: 1360px;
 
   /* YIL Campaign Variant C Custom Colors */
-  --color-yilc-bg: #0A0A0A;
-  --color-yilc-card: #141414;
-  --color-yilc-card2: #1A1A1A;
-  --color-yilc-line: #262626;
-  --color-yilc-ink: #0A0A0A;
-  --color-yilc-paper: #FBFAF6;
-  --color-yilc-fg: #F5F4F0;
-  --color-yilc-fg2: #A8A39A;
-  --color-yilc-fg3: #6E6A60;
-  --color-yilc-wa: #25D366;
-  --color-yilc-wa-dk: #1FB957;
-  --color-yilc-hi: #FFD93B;
-  --color-yilc-hi-dk: #E0B800;
-  --color-yilc-warn: #FF7A45;
+  --color-yil-bg: #0A0A0A;
+  --color-yil-card: #141414;
+  --color-yil-card2: #1A1A1A;
+  --color-yil-line: #262626;
+  --color-yil-ink: #0A0A0A;
+  --color-yil-paper: #FBFAF6;
+  --color-yil-fg: #F5F4F0;
+  --color-yil-fg2: #A8A39A;
+  --color-yil-fg3: #6E6A60;
+  --color-yil-wa: #25D366;
+  --color-yil-wa-dk: #1FB957;
+  --color-yil-hi: #FFD93B;
+  --color-yil-hi-dk: #E0B800;
+  --color-yil-warn: #FF7A45;
+
+  /* YIL Campaign Typography & Utils */
+  --font-yil-display: var(--font-yil-display), system-ui, sans-serif;
+  --font-yil-sans: var(--font-yil-sans), system-ui, sans-serif;
+  --font-yil-mono: var(--font-yil-mono), ui-monospace, monospace;
+  --font-yil-serif: var(--font-yil-serif), serif;
+  
+  --tracking-yil-tightish: -0.018em;
+  --tracking-yil-tighter2: -0.03em;
+  --tracking-yil-tighter3: -0.04em;
+  
+  --animate-yilpulseHi: yilpulseHi 2.2s infinite;
+}
+
+@keyframes yilpulseHi { 
+  70% { box-shadow: 0 0 0 10px rgba(255,217,59,0); } 
+  100% { box-shadow: 0 0 0 0 rgba(255,217,59,0); } 
 }
 
 @layer base {
@@ -345,5 +362,54 @@
     padding: 5px 9px;
     border-radius: 5px;
     max-width: calc(100% - 28px);
+  }
+
+  /* YIL Campaign Custom Components */
+  .yil-btn-wa {
+    background: linear-gradient(180deg, #2EE678 0%, #1FB957 100%); color:#062B16; transition: transform .15s ease, box-shadow .15s ease, filter .15s ease; box-shadow: 0 1px 0 rgba(255,255,255,.25) inset, 0 12px 28px -10px rgba(31,185,87,.55);
+  }
+  .yil-btn-wa:hover { transform: translateY(-1px); filter: brightness(1.05); box-shadow: 0 1px 0 rgba(255,255,255,.3) inset, 0 18px 36px -10px rgba(31,185,87,.6); }
+  .yil-btn-wa:active { transform: translateY(0); }
+  
+  .yil-btn-warn { background: linear-gradient(180deg, #FF9F66 0%, #FF6A2E 100%); color:#2A1106; box-shadow: 0 1px 0 rgba(255,255,255,.3) inset, 0 12px 28px -10px rgba(255,106,46,.55); transition: filter .15s ease, transform .15s ease; }
+  .yil-btn-warn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+  .yil-card-lift { transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+  .yil-card-lift:hover { transform: translateY(-2px); border-color: rgba(255,217,59,.35); }
+
+  .yil-photo-ph {
+    position: relative; overflow: hidden;
+    background:
+      linear-gradient(135deg, rgba(255,217,59,.06), rgba(37,211,102,.06)),
+      repeating-linear-gradient(135deg, #1a1a1a 0 8px, #161616 8px 16px);
+    border: 1px solid #262626;
+  }
+  .yil-photo-ph::after {
+    content: "REPLACE WITH REAL PHOTO"; position: absolute; left: 10px; bottom: 10px;
+    font-family: var(--font-yil-mono, monospace); font-size: 10px; letter-spacing: .12em;
+    color: #A8A39A; background: rgba(10,10,10,.85);
+    padding: 4px 8px; border: 1px solid #262626; border-radius: 4px;
+  }
+
+  .yil-cert {
+    background: linear-gradient(135deg, #FBFAF6 0%, #EFEBE0 100%);
+    color: #0A0A0A; position: relative; overflow: hidden;
+  }
+  .yil-cert::before {
+    content: ""; position: absolute; left:-40px; top:-40px; width:200px; height:200px;
+    background: radial-gradient(circle, rgba(37,211,102,.15), transparent 60%);
+  }
+  .yil-cert::after {
+    content: ""; position: absolute; right:-60px; bottom:-60px; width:240px; height:240px;
+    background: radial-gradient(circle, rgba(255,217,59,.25), transparent 60%);
+  }
+
+  .yil-stamp {
+    position: absolute; top: -10px; right: -10px;
+    background: #FFD93B; color: #0A0A0A;
+    font-family: var(--font-yil-mono, monospace);
+    padding: 4px 8px; font-size: 11px; letter-spacing: .12em; font-weight: 700;
+    transform: rotate(6deg);
+    border: 2px solid #0A0A0A;
   }
 }
