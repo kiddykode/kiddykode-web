@@ -1,0 +1,194 @@
+{
+  "Metadata": {
+    "title": "KiddyKode | Learn to Code, Build the Future",
+    "description": "Empowering the next generation of creators through fun and interactive coding programs."
+  },
+  "UtilityBar": {
+    "applyJoin": "Apply / Join a Program",
+    "becomePartner": "Become a School Partner",
+    "supportMission": "Support the Mission",
+    "contact": "Contact"
+  },
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "learningFormats": "Learning Formats",
+    "allFormats": "All Formats",
+    "portfolio": "Portfolio",
+    "nextCohort": "Next Cohort",
+    "earlyEvidence": "Early Evidence",
+    "stories": "Stories",
+    "studio": "Studio",
+    "partnerWithUs": "Partner With Us",
+    "joinProgram": "Join a Program"
+  },
+  "Footer": {
+    "brandStatement": "KiddyKode teaches children to think, build, and create with code.",
+    "colFormats": "Learning Formats",
+    "allFormats": "All Formats",
+    "learnerPortfolio": "Learner Portfolio",
+    "nextCohort": "Next Cohort",
+    "kiddykodeStudio": "KiddyKode Studio",
+    "schoolClubs": "School Clubs",
+    "holidayBootcamps": "Holiday Bootcamps",
+    "colAbout": "About",
+    "about": "About",
+    "ourApproach": "Our Approach",
+    "earlyEvidence": "Early Evidence",
+    "chapters": "Chapters",
+    "colGetInvolved": "Get involved",
+    "contactLink": "Contact",
+    "partnerWithUs": "Partner With Us",
+    "supportMission": "Support the Mission",
+    "colNewsletter": "Newsletter",
+    "newsletterDesc": "Monthly updates for parents, schools, and partners.",
+    "emailPlaceholder": "your@email.com",
+    "join": "Join",
+    "copyright": "© 2026 KiddyKode. Code Early. Build Tomorrow.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "HomePage": {
+    "metadata": {
+      "title": "KiddyKode — Coding education for Africa's next generation of creators",
+      "description": "KiddyKode is a continental learning movement teaching Africa's youngest generation to build with code."
+    },
+    "hero": {
+      "slides": [
+        {
+          "eyebrow": "Coding education for Africa's next generation of creators",
+          "title": "We are building Africa's next generation of problem solvers and creators — through code.",
+          "titleEm": "problem solvers and creators",
+          "description": "KiddyKode is a continental learning movement. We help children become creators by pairing rigorous coding education with cultural storytelling, project-based learning, and school partnerships across the continent.",
+          "primaryCta": "Join a Program",
+          "secondaryCta": "Partner With Us",
+          "meta": "Active in nine cities across Africa"
+        },
+        {
+          "eyebrow": "For parents raising builders",
+          "title": "Turn curiosity into code, confidence, and creativity.",
+          "titleEm": "confidence, and creativity.",
+          "description": "KiddyKode helps children move from passive screen time into active making through guided coding, storytelling, and project-based learning that builds real thinking skills.",
+          "primaryCta": "Find a Program",
+          "secondaryCta": "How It Works",
+          "meta": "Built for ages 8–16"
+        },
+        {
+          "eyebrow": "For schools and educators",
+          "title": "Bring structured coding education into your classroom.",
+          "titleEm": "coding education",
+          "description": "We partner with schools to deliver practical, culturally grounded coding experiences that help learners build logic, creativity, communication, and confidence.",
+          "primaryCta": "Partner Your School",
+          "secondaryCta": "Explore Programs",
+          "meta": "In-school, live online, and bootcamp formats"
+        },
+        {
+          "eyebrow": "Self-paced learning, guided growth",
+          "title": "Learn step by step. Build project by project.",
+          "titleEm": "Build project by project.",
+          "description": "KiddyKode Studio helps learners move from guided lessons into independent creation through a structured journey from Explorer to Builder to Creator.",
+          "primaryCta": "Start Exploring",
+          "secondaryCta": "See Studio",
+          "meta": "Explorer → Builder → Creator"
+        },
+        {
+          "eyebrow": "A movement for African creators",
+          "title": "Coding education rooted in African stories, learners, and futures.",
+          "titleEm": "African stories, learners, and futures.",
+          "description": "We teach children to see technology not just as something to use, but as something they can shape, question, and build for their own communities.",
+          "primaryCta": "Read Our Story",
+          "secondaryCta": "Partner With Us",
+          "meta": "From consumers to creators"
+        }
+      ]
+    },
+    "mission": {
+      "eyebrow": "02 / Mission",
+      "statement": "From consumers to creators.",
+      "body": "KiddyKode exists to help children move from passive screen use to active digital creation. We use coding as a tool for problem-solving, creativity, communication, and confidence — not as syntax practice alone.",
+      "principles": [
+        { "title": "Creativity first", "body": "Every lesson begins with something a child can make: a story, a game, a tool, or a small solution to a real problem." },
+        { "title": "Context matters", "body": "Our stories, examples, and challenges are designed to feel familiar, meaningful, and rooted in African realities." },
+        { "title": "Built for access", "body": "We want coding education to be practical, structured, and reachable for more children, not only a small privileged few." }
+      ]
+    },
+    "impact": {
+      "eyebrow": "03 / Early signals of evidence",
+      "title": "We are early — so we measure carefully.",
+      "lede": "We are still in the early stage of building KiddyKode, so this section focuses on what we can honestly measure now: pilot learners, baseline assessments, student work, and the thinking skills we are tracking over time. We would rather publish small, real evidence than oversized claims.",
+      "cells": [
+        { "label": "Pilot learners", "desc": "The first students helping us test and strengthen the KiddyKode method through real sessions and assessments." },
+        { "label": "Projects completed", "num": "4", "desc": "Early student work that shows children can move from ideas to structured digital creation." },
+        { "label": "Skills tracked", "desc": "Logical reasoning, problem-solving, creativity, communication, and confidence." },
+        { "label": "Evidence building", "desc": "We are documenting baseline assessments, student artefacts, and progress over time rather than publishing inflated vanity metrics." }
+      ],
+      "source": "Source — KiddyKode internal reporting, March 2026",
+      "reportLink": "Read the 2025 evidence report →"
+    },
+    "pathways": {
+      "eyebrow": "04 / LEARNING FORMATS",
+      "title": "Where children can learn with KiddyKode.",
+      "lede": "KiddyKode keeps its learning formats simple and intentional. Every format follows the same structured journey: story, logic, build, improve, present.",
+      "featured": "Featured pathway",
+      "schoolClubs": { "title": "School Clubs", "body": "Weekly structured coding sessions delivered in partner schools, designed to help learners build thinking skills and complete hands-on projects.", "cta": "Explore school programs" },
+      "live": { "title": "KiddyKode Live", "body": "Cohort-based coding sessions on Zoom where children learn with facilitators, build projects in Python, practice at home, and present their work.", "cta": "Register" },
+      "studio": { "title": "KiddyKode Studio", "body": "A guided online platform where learners move from Explorer to Builder to Creator through structured lessons, practice, and project work.", "cta": "Signup" },
+      "bootcamps": { "title": "Holiday Bootcamps", "body": "Short, focused programs during school breaks where learners build and present a complete project in a concentrated format.", "cta": "Browse upcoming camps" }
+    },
+    "why": {
+      "eyebrow": "05 / Why KiddyKode, why now",
+      "headline": "Africa's children are already living in a digital world. The real question is whether they will only use it, or help build it.",
+      "body": "By 2030, Africa's young population will shape the systems, stories, and software that define the continent's future. Yet many children are still learning to use technology without learning to build with it. KiddyKode exists to change that by helping children move from consumption to authorship through structured, project-based coding.",
+      "quote": "When a child builds their first program, they begin to understand that the digital world is editable.",
+      "attribution": "— Deodatus Bijengsi, KiddyKode Co-founder & Curriculum Director",
+      "themes": [
+        { "title": "Digital Sovereignty", "body": "African children should not grow up only consuming technologies built elsewhere. They should learn to shape the tools, systems, and solutions that affect their own communities." },
+        { "title": "Cultural Continuity", "body": "Coding becomes more meaningful when it is taught through stories, language, and contexts children recognize. At KiddyKode, technology is not presented as foreign; it becomes a medium for African expression." },
+        { "title": "Systemic Thinking", "body": "Learning to code teaches children how to break complex problems into smaller, solvable parts. That way of thinking stays with them long after the lesson ends." }
+      ]
+    },
+    "stories": {
+      "eyebrow": "06 / Stories",
+      "title": "Dispatches from the work.",
+      "lede": "Stories, field notes, and interviews from the classrooms, demo nights, and homes of the children, teachers, and partners building this movement.",
+      "readAll": "Read all dispatches"
+    },
+    "chapters": {
+      "eyebrow": "07 / Chapters",
+      "title": "A decentralized network for future growth.",
+      "body": "KiddyKode is designed to grow through regional chapters led by local educators, facilitators, and partners. The central team provides the curriculum, platform, and pedagogical framework, while chapter leaders help adapt delivery, support schools, and expand access in their region. In time, this structure can allow KiddyKode to grow across cities and countries without losing the consistency of its method.",
+      "principles": [
+        { "title": "Local leadership", "body": "Chapter leads coordinate delivery in their region, build local relationships, and help bring the KiddyKode method into schools and communities." },
+        { "title": "Shared pedagogy", "body": "Every chapter works from the same structured framework, so learners experience a consistent method even when delivery is local." },
+        { "title": "Scalable support", "body": "The central team provides curriculum, training, and platform support, making it possible for chapters to grow without weakening quality." },
+        { "title": "Regional access", "body": "A chapter network makes KiddyKode easier to reach across different cities and countries while keeping the brand coherent and recognizable." }
+      ]
+    },
+    "partners": {
+      "eyebrow": "08 / Partners",
+      "title": "Supported by partners helping expand access to coding education.",
+      "lede": "KiddyKode works with schools, companies, and institutional partners to expand access, strengthen delivery, and support high-quality coding education for children.",
+      "partnerCta": "Partner with KiddyKode",
+      "partnerNote": "We are currently welcoming school, corporate, and institutional partners interested in learner access, hardware support, program delivery, and strategic collaboration.",
+      "partnerLink": "Partner with KiddyKode →"
+    },
+    "studioSection": {
+      "eyebrow": "09 / The Studio",
+      "title": "KiddyKode Studio turns lessons into projects.",
+      "body": "KiddyKode Studio is our self-paced platform for children to follow courses, practice skills, and build projects at their own pace. Learners move through Explorer, Builder, and Creator levels as they grow from guided work into more independent creation.",
+      "features": [
+        { "title": "Progressive Complexity", "body": "Children start with guided activities and simple projects, then move step by step into more open-ended building as their confidence grows." },
+        { "title": "Offline Resilience", "body": "Studio is designed so learners can continue building even when connectivity is inconsistent, with progress and project work structured to support uninterrupted learning." },
+        { "title": "Peer Review Built-in", "body": "As learners grow, they can share work, compare approaches, and learn from one another through structured feedback and presentation." }
+      ],
+      "cta": "Start Exploring"
+    },
+    "final": {
+      "eyebrow": "Get Involved",
+      "title": "Build the future with us.",
+      "schools": { "label": "01 / Schools", "title": "Bring KiddyKode to your classroom", "body": "We provide the curriculum, the platform, and the teacher training.", "cta": "Partner your school" },
+      "parents": { "label": "02 / Parents", "title": "Enroll your child", "body": "Find a community club or join the waitlist for the next Creator Camp.", "cta": "Find a program" },
+      "partnersPath": { "label": "03 / Partners", "title": "Support school access", "body": "Support school delivery, learner access, or the tools that help more children build with code.", "cta": "Explore partnerships" }
+    }
+  }
+}

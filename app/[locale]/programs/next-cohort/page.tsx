@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import { PageHero } from "../../components/PageHero";
-import { SectionHead } from "../../components/SectionHead";
-import { CtaStrip } from "../../components/CtaStrip";
-import { ImagePlaceholder } from "../../components/ImagePlaceholder";
+import { PageHero } from "../../../components/PageHero";
+import { SectionHead } from "../../../components/SectionHead";
+import { CtaStrip } from "../../../components/CtaStrip";
+import { ImagePlaceholder } from "../../../components/ImagePlaceholder";
 import styles from "./cohort.module.css";
-import Link from "next/link";
+import { Link } from '@/i18n/navigation';
 import Image from "next/image";
 
 export const metadata: Metadata = {

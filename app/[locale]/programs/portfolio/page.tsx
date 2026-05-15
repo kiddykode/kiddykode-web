@@ -1,12 +1,12 @@
 'use client'
 
 import { useState } from "react";
-import { PageHero } from "../../components/PageHero";
-import { SectionHead } from "../../components/SectionHead";
-import { CtaStrip } from "../../components/CtaStrip";
-import { ImagePlaceholder } from "../../components/ImagePlaceholder";
+import { PageHero } from "../../../components/PageHero";
+import { SectionHead } from "../../../components/SectionHead";
+import { CtaStrip } from "../../../components/CtaStrip";
+import { ImagePlaceholder } from "../../../components/ImagePlaceholder";
 import styles from "./portfolio.module.css";
-import Link from "next/link";
+import { Link } from '@/i18n/navigation';
 
 const projects = [
   {

@@ -1,33 +1,34 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
+import { useTranslations } from 'next-intl'
+import { Link, usePathname } from '@/i18n/navigation'
 import { useState, useEffect } from 'react'
 
 type NavLink = { href: string; label: string; children?: { href: string; label: string }[] };
 
-const navLinks: NavLink[] = [
-  { href: '/',          label: 'Home'     },
-  { href: '/about',     label: 'About'    },
-  { 
-    href: '/programs',  
-    label: 'Learning Formats',
-    children: [
-      { href: '/programs', label: 'All Formats' },
-      { href: '/programs/portfolio', label: 'Portfolio' },
-      { href: '/programs/next-cohort', label: 'Next Cohort' },
-    ]
-  },
-  { href: '/#impact',   label: 'Early Evidence'   },
-  { href: '/stories',   label: 'Stories'  },
-  { href: '/#studio',   label: 'Studio'   },
-]
-
 export function Navbar() {
+  const t = useTranslations('Navbar')
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+
+  const navLinks: NavLink[] = [
+    { href: '/',          label: t('home')     },
+    { href: '/about',     label: t('about')    },
+    { 
+      href: '/programs',  
+      label: t('learningFormats'),
+      children: [
+        { href: '/programs', label: t('allFormats') },
+        { href: '/programs/portfolio', label: t('portfolio') },
+        { href: '/programs/next-cohort', label: t('nextCohort') },
+      ]
+    },
+    { href: '/#impact',   label: t('earlyEvidence')   },
+    { href: '/stories',   label: t('stories')  },
+    { href: '/#studio',   label: t('studio')   },
+  ]
 
   // Handle scroll for navbar shadow
   useEffect(() => {
@@ -124,9 +125,9 @@ export function Navbar() {
         </nav>
 
         <div className="nav-actions flex items-center gap-3">
-          <Link href="/partners" className="btn btn--ghost hidden sm:inline-flex !py-2.5 !px-5 text-[14px]">Partner With Us</Link>
+          <Link href="/partners" className="btn btn--ghost hidden sm:inline-flex !py-2.5 !px-5 text-[14px]">{t('partnerWithUs')}</Link>
           <Link href="/programs" className="btn btn--primary hidden sm:inline-flex !py-2.5 !px-5 text-[14px]">
-            Join a Program <span className="arrow">→</span>
+            {t('joinProgram')} <span className="arrow">→</span>
           </Link>
 
           {/* Mobile Menu Button */}
@@ -195,14 +196,14 @@ export function Navbar() {
               onClick={() => setIsMenuOpen(false)}
               className="btn btn--ghost justify-center py-4"
             >
-              Partner With Us
+              {t('partnerWithUs')}
             </Link>
             <Link
               href="/programs"
               onClick={() => setIsMenuOpen(false)}
               className="btn btn--primary justify-center py-4"
             >
-              Join a Program <span className="arrow">→</span>
+              {t('joinProgram')} <span className="arrow">→</span>
             </Link>
           </div>
         </div>

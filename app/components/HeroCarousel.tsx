@@ -1,140 +1,48 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import Link from "next/link";
-import styles from "../home.module.css";
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
+import styles from "../[locale]/home.module.css";
 
-const heroSlides = [
-  {
-    id: "slide-1",
-    eyebrow: "Coding education for Africa’s next generation of creators",
-    title: (
-      <>
-        We are building Africa’s next generation of{" "}
-        <em>problem solvers and creators</em> — through code.
-      </>
-    ),
-    description:
-      "KiddyKode is a continental learning movement. We help children become creators by pairing rigorous coding education with cultural storytelling, project-based learning, and school partnerships across the continent.",
-    primaryCtaLabel: "Join a Program",
-    primaryCtaHref: "/programs",
-    secondaryCtaLabel: "Partner With Us",
-    secondaryCtaHref: "/partner",
-    meta: "Active in nine cities across Africa",
-    imageSrc:
-      "https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774727/ChatGPT_Image_May_14_2026_08_13_08_PM_kdo9lh.png",
-    imageAlt: "A learner presenting a built project",
-  },
-  {
-    id: "slide-2",
-    eyebrow: "For parents raising builders",
-    title: (
-      <>
-        Turn curiosity into code, <em>confidence, and creativity.</em>
-      </>
-    ),
-    description:
-      "KiddyKode helps children move from passive screen time into active making through guided coding, storytelling, and project-based learning that builds real thinking skills.",
-    primaryCtaLabel: "Find a Program",
-    primaryCtaHref: "/programs",
-    secondaryCtaLabel: "How It Works",
-    secondaryCtaHref: "/#mission",
-    meta: "Built for ages 8–16",
-    imageSrc:
-      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "A child learning to code",
-  },
-  {
-    id: "slide-3",
-    eyebrow: "For schools and educators",
-    title: (
-      <>
-        Bring structured <em>coding education</em> into your classroom.
-      </>
-    ),
-    description:
-      "We partner with schools to deliver practical, culturally grounded coding experiences that help learners build logic, creativity, communication, and confidence.",
-    primaryCtaLabel: "Partner Your School",
-    primaryCtaHref: "/partner",
-    secondaryCtaLabel: "Explore Programs",
-    secondaryCtaHref: "/programs",
-    meta: "In-school, live online, and bootcamp formats",
-    imageSrc:
-      "https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774726/ChatGPT_Image_May_14_2026_09_08_46_PM_dgfdz9.png",
-    imageAlt: "Students coding in a classroom",
-  },
-  {
-    id: "slide-4",
-    eyebrow: "Self-paced learning, guided growth",
-    title: (
-      <>
-        Learn step by step. <em>Build project by project.</em>
-      </>
-    ),
-    description:
-      "KiddyKode Studio helps learners move from guided lessons into independent creation through a structured journey from Explorer to Builder to Creator.",
-    primaryCtaLabel: "Start Exploring",
-    primaryCtaHref: "/programs",
-    secondaryCtaLabel: "See Studio",
-    secondaryCtaHref: "/#studio",
-    meta: "Explorer → Builder → Creator",
-    imageSrc:
-      "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=80",
-    imageAlt: "KiddyKode Studio interface",
-  },
-  {
-    id: "slide-5",
-    eyebrow: "A movement for African creators",
-    title: (
-      <>
-        Coding education rooted in <em>African stories, learners, and futures.</em>
-      </>
-    ),
-    description:
-      "We teach children to see technology not just as something to use, but as something they can shape, question, and build for their own communities.",
-    primaryCtaLabel: "Read Our Story",
-    primaryCtaHref: "/#stories",
-    secondaryCtaLabel: "Partner With Us",
-    secondaryCtaHref: "/partner",
-    meta: "From consumers to creators",
-    imageSrc:
-      "https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774727/ChatGPT_Image_May_14_2026_09_17_40_PM_ma3741.png",
-    imageAlt: "A student presenting an app about African stories",
-  },
+const slideImages = [
+  { src: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774727/ChatGPT_Image_May_14_2026_08_13_08_PM_kdo9lh.png", alt: "A learner presenting a built project" },
+  { src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80", alt: "A child learning to code" },
+  { src: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774726/ChatGPT_Image_May_14_2026_09_08_46_PM_dgfdz9.png", alt: "Students coding in a classroom" },
+  { src: "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=80", alt: "KiddyKode Studio interface" },
+  { src: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774727/ChatGPT_Image_May_14_2026_09_17_40_PM_ma3741.png", alt: "A student presenting an app about African stories" },
 ];
+
+const slidePrimaryCtas = ["/programs", "/programs", "/partner", "/programs", "/#stories"];
+const slideSecondaryCtas = ["/partner", "/#mission", "/programs", "/#studio", "/partner"];
 
 const AUTOPLAY_INTERVAL = 5500;
 
 export default function HeroCarousel() {
+  const t = useTranslations('HomePage.hero');
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
   const nextSlide = useCallback(() => {
-    setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+    setActiveSlide((prev) => (prev + 1) % 5);
   }, []);
 
   const prevSlide = useCallback(() => {
-    setActiveSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+    setActiveSlide((prev) => (prev - 1 + 5) % 5);
   }, []);
 
   useEffect(() => {
     if (isPaused) return;
-
-    // Check for reduced motion preference
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mediaQuery.matches) return;
-
     const interval = setInterval(nextSlide, AUTOPLAY_INTERVAL);
     return () => clearInterval(interval);
   }, [isPaused, nextSlide]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowLeft") {
-      prevSlide();
-    } else if (e.key === "ArrowRight") {
-      nextSlide();
-    }
+    if (e.key === "ArrowLeft") prevSlide();
+    else if (e.key === "ArrowRight") nextSlide();
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -143,14 +51,9 @@ export default function HeroCarousel() {
 
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStartX.current === null) return;
-    const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartX.current - touchEndX;
-
-    if (diff > 50) {
-      nextSlide();
-    } else if (diff < -50) {
-      prevSlide();
-    }
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (diff > 50) nextSlide();
+    else if (diff < -50) prevSlide();
     touchStartX.current = null;
   };
 
@@ -171,44 +74,48 @@ export default function HeroCarousel() {
     >
       <div className="wrap">
         <div className={styles.heroTrack}>
-          {heroSlides.map((slide, index) => {
+          {[0, 1, 2, 3, 4].map((index) => {
             const isActive = index === activeSlide;
             return (
               <div
-                key={slide.id}
+                key={index}
                 className={`${styles.heroSlide} ${isActive ? styles.heroSlideActive : ""}`}
                 aria-hidden={!isActive}
               >
                 <div className={styles.heroGrid}>
                   <div className={styles.heroCopy}>
-                    <span className="eyebrow">{slide.eyebrow}</span>
-                    <h1>{slide.title}</h1>
-                    <p className="lede mt-[26px]">{slide.description}</p>
+                    <span className="eyebrow">{t(`slides.${index}.eyebrow`)}</span>
+                    <h1>
+                      {t(`slides.${index}.title`).split(t(`slides.${index}.titleEm`))[0]}
+                      <em>{t(`slides.${index}.titleEm`)}</em>
+                      {t(`slides.${index}.title`).split(t(`slides.${index}.titleEm`))[1] || ''}
+                    </h1>
+                    <p className="lede mt-[26px]">{t(`slides.${index}.description`)}</p>
                     <div className={styles.heroCta}>
                       <Link
                         className="btn btn--primary"
-                        href={slide.primaryCtaHref}
+                        href={slidePrimaryCtas[index]}
                         tabIndex={isActive ? 0 : -1}
                       >
-                        {slide.primaryCtaLabel} <span className="arrow">→</span>
+                        {t(`slides.${index}.primaryCta`)} <span className="arrow">→</span>
                       </Link>
                       <Link
                         className="btn btn--ghost"
-                        href={slide.secondaryCtaHref}
+                        href={slideSecondaryCtas[index]}
                         tabIndex={isActive ? 0 : -1}
                       >
-                        {slide.secondaryCtaLabel}
+                        {t(`slides.${index}.secondaryCta`)}
                       </Link>
                     </div>
                     <div className={styles.heroMeta}>
-                      <span className="mono">— {slide.meta}</span>
+                      <span className="mono">— {t(`slides.${index}.meta`)}</span>
                     </div>
                   </div>
                   <figure className={styles.heroMedia}>
                     <div className={styles.heroMediaInner}>
                       <img
-                        src={slide.imageSrc}
-                        alt={slide.imageAlt}
+                        src={slideImages[index].src}
+                        alt={slideImages[index].alt}
                         style={{ width: "100%", height: "100%", objectFit: "cover" }}
                         loading={index === 0 ? "eager" : "lazy"}
                       />
@@ -222,7 +129,7 @@ export default function HeroCarousel() {
 
         <div className={styles.heroNav}>
           <div className={styles.heroDots} role="tablist" aria-label="Slides">
-            {heroSlides.map((_, index) => (
+            {[0, 1, 2, 3, 4].map((index) => (
               <button
                 key={index}
                 className={`${styles.heroDot} ${index === activeSlide ? styles.heroDotActive : ""}`}
@@ -234,20 +141,8 @@ export default function HeroCarousel() {
             ))}
           </div>
           <div className={styles.heroArrows}>
-            <button
-              className={styles.heroArrow}
-              onClick={prevSlide}
-              aria-label="Previous slide"
-            >
-              ←
-            </button>
-            <button
-              className={styles.heroArrow}
-              onClick={nextSlide}
-              aria-label="Next slide"
-            >
-              →
-            </button>
+            <button className={styles.heroArrow} onClick={prevSlide} aria-label="Previous slide">←</button>
+            <button className={styles.heroArrow} onClick={nextSlide} aria-label="Next slide">→</button>
           </div>
         </div>
       </div>

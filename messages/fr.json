@@ -1,0 +1,194 @@
+{
+  "Metadata": {
+    "title": "[FR] KiddyKode | Apprendre à coder, construire l'avenir",
+    "description": "[FR] Donner aux créateurs de demain les moyens d'agir grâce à des programmes de codage amusants et interactifs."
+  },
+  "UtilityBar": {
+    "applyJoin": "[FR] Postuler / Rejoindre un programme",
+    "becomePartner": "[FR] Devenir école partenaire",
+    "supportMission": "[FR] Soutenir la mission",
+    "contact": "[FR] Contact"
+  },
+  "Navbar": {
+    "home": "[FR] Accueil",
+    "about": "[FR] À propos",
+    "learningFormats": "[FR] Formats d'apprentissage",
+    "allFormats": "[FR] Tous les formats",
+    "portfolio": "[FR] Portfolio",
+    "nextCohort": "[FR] Prochaine cohorte",
+    "earlyEvidence": "[FR] Premières preuves",
+    "stories": "[FR] Témoignages",
+    "studio": "[FR] Studio",
+    "partnerWithUs": "[FR] Devenir partenaire",
+    "joinProgram": "[FR] Rejoindre un programme"
+  },
+  "Footer": {
+    "brandStatement": "[FR] KiddyKode enseigne aux enfants à penser, construire et créer avec du code.",
+    "colFormats": "[FR] Formats d'apprentissage",
+    "allFormats": "[FR] Tous les formats",
+    "learnerPortfolio": "[FR] Portfolio des apprenants",
+    "nextCohort": "[FR] Prochaine cohorte",
+    "kiddykodeStudio": "[FR] KiddyKode Studio",
+    "schoolClubs": "[FR] Clubs scolaires",
+    "holidayBootcamps": "[FR] Bootcamps de vacances",
+    "colAbout": "[FR] À propos",
+    "about": "[FR] À propos",
+    "ourApproach": "[FR] Notre approche",
+    "earlyEvidence": "[FR] Premières preuves",
+    "chapters": "[FR] Chapitres",
+    "colGetInvolved": "[FR] S'impliquer",
+    "contactLink": "[FR] Contact",
+    "partnerWithUs": "[FR] Devenir partenaire",
+    "supportMission": "[FR] Soutenir la mission",
+    "colNewsletter": "[FR] Newsletter",
+    "newsletterDesc": "[FR] Mises à jour mensuelles pour les parents, écoles et partenaires.",
+    "emailPlaceholder": "votre@email.com",
+    "join": "[FR] Rejoindre",
+    "copyright": "[FR] © 2026 KiddyKode. Coder tôt. Construire demain.",
+    "privacy": "[FR] Confidentialité",
+    "terms": "[FR] Conditions"
+  },
+  "HomePage": {
+    "metadata": {
+      "title": "[FR] KiddyKode — L'éducation au codage pour la prochaine génération de créateurs africains",
+      "description": "[FR] KiddyKode est un mouvement d'apprentissage continental enseignant aux plus jeunes d'Afrique à construire avec du code."
+    },
+    "hero": {
+      "slides": [
+        {
+          "eyebrow": "[FR] L'éducation au codage pour la prochaine génération de créateurs africains",
+          "title": "[FR] Nous formons la prochaine génération de résolveurs de problèmes et de créateurs africains — grâce au code.",
+          "titleEm": "résolveurs de problèmes et de créateurs",
+          "description": "[FR] KiddyKode est un mouvement d'apprentissage continental. Nous aidons les enfants à devenir des créateurs en associant une éducation rigoureuse au codage avec la narration culturelle, l'apprentissage par projet et les partenariats scolaires à travers le continent.",
+          "primaryCta": "[FR] Rejoindre un programme",
+          "secondaryCta": "[FR] Devenir partenaire",
+          "meta": "[FR] Actif dans neuf villes d'Afrique"
+        },
+        {
+          "eyebrow": "[FR] Pour les parents qui élèvent des bâtisseurs",
+          "title": "[FR] Transformez la curiosité en code, confiance et créativité.",
+          "titleEm": "confiance et créativité.",
+          "description": "[FR] KiddyKode aide les enfants à passer du temps d'écran passif à la création active grâce au codage guidé, à la narration et à l'apprentissage par projet.",
+          "primaryCta": "[FR] Trouver un programme",
+          "secondaryCta": "[FR] Comment ça marche",
+          "meta": "[FR] Conçu pour les 8–16 ans"
+        },
+        {
+          "eyebrow": "[FR] Pour les écoles et éducateurs",
+          "title": "[FR] Amenez l'éducation au codage structurée dans votre classe.",
+          "titleEm": "l'éducation au codage",
+          "description": "[FR] Nous collaborons avec les écoles pour offrir des expériences de codage pratiques et culturellement ancrées.",
+          "primaryCta": "[FR] Partenariat scolaire",
+          "secondaryCta": "[FR] Explorer les programmes",
+          "meta": "[FR] En école, en ligne et en bootcamp"
+        },
+        {
+          "eyebrow": "[FR] Apprentissage autonome, croissance guidée",
+          "title": "[FR] Apprenez étape par étape. Construisez projet par projet.",
+          "titleEm": "Construisez projet par projet.",
+          "description": "[FR] KiddyKode Studio aide les apprenants à passer des leçons guidées à la création indépendante.",
+          "primaryCta": "[FR] Commencer à explorer",
+          "secondaryCta": "[FR] Voir le Studio",
+          "meta": "[FR] Explorateur → Constructeur → Créateur"
+        },
+        {
+          "eyebrow": "[FR] Un mouvement pour les créateurs africains",
+          "title": "[FR] L'éducation au codage enracinée dans les histoires, les apprenants et les futurs africains.",
+          "titleEm": "les histoires, les apprenants et les futurs africains.",
+          "description": "[FR] Nous enseignons aux enfants à voir la technologie non pas comme quelque chose à utiliser, mais comme quelque chose qu'ils peuvent façonner.",
+          "primaryCta": "[FR] Lire notre histoire",
+          "secondaryCta": "[FR] Devenir partenaire",
+          "meta": "[FR] Des consommateurs aux créateurs"
+        }
+      ]
+    },
+    "mission": {
+      "eyebrow": "[FR] 02 / Mission",
+      "statement": "[FR] Des consommateurs aux créateurs.",
+      "body": "[FR] KiddyKode existe pour aider les enfants à passer de l'utilisation passive des écrans à la création numérique active.",
+      "principles": [
+        { "title": "[FR] La créativité d'abord", "body": "[FR] Chaque leçon commence par quelque chose qu'un enfant peut créer : une histoire, un jeu, un outil." },
+        { "title": "[FR] Le contexte compte", "body": "[FR] Nos histoires, exemples et défis sont conçus pour être familiers et enracinés dans les réalités africaines." },
+        { "title": "[FR] Conçu pour l'accès", "body": "[FR] Nous voulons que l'éducation au codage soit pratique, structurée et accessible au plus grand nombre." }
+      ]
+    },
+    "impact": {
+      "eyebrow": "[FR] 03 / Premiers signaux",
+      "title": "[FR] Nous sommes au début — donc nous mesurons avec soin.",
+      "lede": "[FR] Nous sommes encore au début de la construction de KiddyKode, nous nous concentrons donc sur ce que nous pouvons honnêtement mesurer maintenant.",
+      "cells": [
+        { "label": "[FR] Apprenants pilotes", "desc": "[FR] Les premiers étudiants qui nous aident à tester et renforcer la méthode KiddyKode." },
+        { "label": "[FR] Projets réalisés", "num": "4", "desc": "[FR] Les premiers travaux d'étudiants montrant que les enfants peuvent passer des idées à la création numérique structurée." },
+        { "label": "[FR] Compétences suivies", "desc": "[FR] Raisonnement logique, résolution de problèmes, créativité, communication et confiance." },
+        { "label": "[FR] Construction de preuves", "desc": "[FR] Nous documentons les évaluations de base et les progrès au fil du temps." }
+      ],
+      "source": "[FR] Source — Rapports internes KiddyKode, Mars 2026",
+      "reportLink": "[FR] Lire le rapport de preuves 2025 →"
+    },
+    "pathways": {
+      "eyebrow": "[FR] 04 / FORMATS D'APPRENTISSAGE",
+      "title": "[FR] Où les enfants peuvent apprendre avec KiddyKode.",
+      "lede": "[FR] KiddyKode garde ses formats d'apprentissage simples et intentionnels.",
+      "featured": "[FR] Format vedette",
+      "schoolClubs": { "title": "[FR] Clubs scolaires", "body": "[FR] Sessions de codage structurées hebdomadaires dans les écoles partenaires.", "cta": "[FR] Explorer les programmes scolaires" },
+      "live": { "title": "[FR] KiddyKode Live", "body": "[FR] Sessions de codage en cohorte sur Zoom.", "cta": "[FR] S'inscrire" },
+      "studio": { "title": "[FR] KiddyKode Studio", "body": "[FR] Une plateforme en ligne guidée où les apprenants progressent.", "cta": "[FR] S'inscrire" },
+      "bootcamps": { "title": "[FR] Bootcamps de vacances", "body": "[FR] Programmes courts et concentrés pendant les vacances scolaires.", "cta": "[FR] Parcourir les camps à venir" }
+    },
+    "why": {
+      "eyebrow": "[FR] 05 / Pourquoi KiddyKode, pourquoi maintenant",
+      "headline": "[FR] Les enfants d'Afrique vivent déjà dans un monde numérique. La vraie question est de savoir s'ils ne feront que l'utiliser, ou aideront à le construire.",
+      "body": "[FR] D'ici 2030, la jeune population africaine façonnera les systèmes, les histoires et les logiciels qui définiront l'avenir du continent.",
+      "quote": "[FR] Quand un enfant construit son premier programme, il commence à comprendre que le monde numérique est modifiable.",
+      "attribution": "[FR] — Deodatus Bijengsi, Co-fondateur et Directeur pédagogique de KiddyKode",
+      "themes": [
+        { "title": "[FR] Souveraineté numérique", "body": "[FR] Les enfants africains ne devraient pas grandir en ne consommant que des technologies construites ailleurs." },
+        { "title": "[FR] Continuité culturelle", "body": "[FR] Le codage devient plus significatif quand il est enseigné à travers des histoires et des contextes que les enfants reconnaissent." },
+        { "title": "[FR] Pensée systémique", "body": "[FR] Apprendre à coder enseigne aux enfants comment décomposer des problèmes complexes en parties plus petites et résolvables." }
+      ]
+    },
+    "stories": {
+      "eyebrow": "[FR] 06 / Témoignages",
+      "title": "[FR] Dépêches du terrain.",
+      "lede": "[FR] Histoires, notes de terrain et entretiens des salles de classe, des soirées démo et des foyers.",
+      "readAll": "[FR] Lire tous les témoignages"
+    },
+    "chapters": {
+      "eyebrow": "[FR] 07 / Chapitres",
+      "title": "[FR] Un réseau décentralisé pour la croissance future.",
+      "body": "[FR] KiddyKode est conçu pour croître grâce à des chapitres régionaux dirigés par des éducateurs locaux.",
+      "principles": [
+        { "title": "[FR] Leadership local", "body": "[FR] Les responsables de chapitre coordonnent la livraison dans leur région." },
+        { "title": "[FR] Pédagogie partagée", "body": "[FR] Chaque chapitre travaille à partir du même cadre structuré." },
+        { "title": "[FR] Soutien évolutif", "body": "[FR] L'équipe centrale fournit le programme, la formation et le soutien de la plateforme." },
+        { "title": "[FR] Accès régional", "body": "[FR] Un réseau de chapitres rend KiddyKode plus facile d'accès." }
+      ]
+    },
+    "partners": {
+      "eyebrow": "[FR] 08 / Partenaires",
+      "title": "[FR] Soutenus par des partenaires aidant à élargir l'accès à l'éducation au codage.",
+      "lede": "[FR] KiddyKode travaille avec des écoles, des entreprises et des partenaires institutionnels.",
+      "partnerCta": "[FR] Devenir partenaire de KiddyKode",
+      "partnerNote": "[FR] Nous accueillons actuellement les partenaires scolaires, corporatifs et institutionnels.",
+      "partnerLink": "[FR] Devenir partenaire de KiddyKode →"
+    },
+    "studioSection": {
+      "eyebrow": "[FR] 09 / Le Studio",
+      "title": "[FR] KiddyKode Studio transforme les leçons en projets.",
+      "body": "[FR] KiddyKode Studio est notre plateforme autonome pour que les enfants suivent des cours et construisent des projets.",
+      "features": [
+        { "title": "[FR] Complexité progressive", "body": "[FR] Les enfants commencent par des activités guidées puis progressent vers la construction ouverte." },
+        { "title": "[FR] Résilience hors ligne", "body": "[FR] Studio est conçu pour que les apprenants puissent continuer à construire même avec une connectivité inconstante." },
+        { "title": "[FR] Évaluation par les pairs intégrée", "body": "[FR] Les apprenants peuvent partager leur travail et apprendre les uns des autres." }
+      ],
+      "cta": "[FR] Commencer à explorer"
+    },
+    "final": {
+      "eyebrow": "[FR] S'impliquer",
+      "title": "[FR] Construisez l'avenir avec nous.",
+      "schools": { "label": "[FR] 01 / Écoles", "title": "[FR] Amenez KiddyKode dans votre classe", "body": "[FR] Nous fournissons le programme, la plateforme et la formation.", "cta": "[FR] Partenariat scolaire" },
+      "parents": { "label": "[FR] 02 / Parents", "title": "[FR] Inscrivez votre enfant", "body": "[FR] Trouvez un club ou rejoignez la liste d'attente.", "cta": "[FR] Trouver un programme" },
+      "partnersPath": { "label": "[FR] 03 / Partenaires", "title": "[FR] Soutenir l'accès scolaire", "body": "[FR] Soutenez la livraison scolaire et l'accès des apprenants.", "cta": "[FR] Explorer les partenariats" }
+    }
+  }
+}

@@ -1,9 +1,9 @@
 import { Metadata } from "next";
-import { PageHero } from "../components/PageHero";
-import { SectionHead } from "../components/SectionHead";
-import { CtaStrip } from "../components/CtaStrip";
+import { PageHero } from "../../components/PageHero";
+import { SectionHead } from "../../components/SectionHead";
+import { CtaStrip } from "../../components/CtaStrip";
 import styles from "./partners.module.css";
-import Link from "next/link";
+import { Link } from '@/i18n/navigation';
 
 export const metadata: Metadata = {
   title: "Partner With Us — KiddyKode",

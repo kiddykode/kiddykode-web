@@ -1,15 +1,24 @@
 import { Metadata } from "next";
-import { ImagePlaceholder } from "./components/ImagePlaceholder";
-import HeroCarousel from "./components/HeroCarousel";
+import { setRequestLocale, getTranslations } from 'next-intl/server';
+import { ImagePlaceholder } from "../components/ImagePlaceholder";
+import HeroCarousel from "../components/HeroCarousel";
 import styles from "./home.module.css";
-import Link from "next/link";
+import { Link } from '@/i18n/navigation';
 
-export const metadata: Metadata = {
-  title: "KiddyKode — Coding education for Africa's next generation of creators",
-  description: "KiddyKode is a continental learning movement teaching Africa's youngest generation to build with code.",
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'HomePage.metadata' });
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
+}
 
-export default function HomePage() {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'HomePage' });
+
   return (
     <>
       <HeroCarousel />
@@ -22,42 +31,26 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div>
-              <span className="eyebrow">02 / Mission</span>
+              <span className="eyebrow">{t('mission.eyebrow')}</span>
             </div>
             <div></div>
           </div>
           <div className={styles.missionGrid}>
             <div className={styles.missionStatement}>
-              From consumers to creators.
+              {t('mission.statement')}
             </div>
             <div className={styles.missionBody}>
-              <p>
-                KiddyKode exists to help children move from passive screen use to active digital creation. We use coding as a tool for problem-solving, creativity, communication, and confidence — not as syntax practice alone.
-              </p>
+              <p>{t('mission.body')}</p>
             </div>
           </div>
           <div className={styles.principles}>
-            <div className={styles.principle}>
-              <span className={styles.num}>01</span>
-              <h4>Creativity first</h4>
-              <p>
-                Every lesson begins with something a child can make: a story, a game, a tool, or a small solution to a real problem.
-              </p>
-            </div>
-            <div className={styles.principle}>
-              <span className={styles.num}>02</span>
-              <h4>Context matters</h4>
-              <p>
-                Our stories, examples, and challenges are designed to feel familiar, meaningful, and rooted in African realities.
-              </p>
-            </div>
-            <div className={styles.principle}>
-              <span className={styles.num}>03</span>
-              <h4>Built for access</h4>
-              <p>
-                We want coding education to be practical, structured, and reachable for more children, not only a small privileged few.
-              </p>
-            </div>
+            {[0, 1, 2].map((i) => (
+              <div key={i} className={styles.principle}>
+                <span className={styles.num}>{String(i + 1).padStart(2, '0')}</span>
+                <h4>{t(`mission.principles.${i}.title`)}</h4>
+                <p>{t(`mission.principles.${i}.body`)}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -70,77 +63,27 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="heading">
-              <span className="eyebrow">03 / Early signals of evidence</span>
-              <h2 className="mt-[18px]">
-                We are early — so we measure carefully.
-              </h2>
+              <span className="eyebrow">{t('impact.eyebrow')}</span>
+              <h2 className="mt-[18px]">{t('impact.title')}</h2>
             </div>
             <div>
-              <p className="lede">
-                We are still in the early stage of building KiddyKode, so this
-                section focuses on what we can honestly measure now: pilot
-                learners, baseline assessments, student work, and the thinking
-                skills we are tracking over time. We would rather publish small,
-                real evidence than oversized claims.
-              </p>
+              <p className="lede">{t('impact.lede')}</p>
             </div>
           </div>
           <div className={styles.impactGrid}>
-            <div className={styles.impactCell}>
-              <div className={styles.label}>
-                {/* Learners Reached */}
-                Pilot learners
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i} className={styles.impactCell}>
+                <div className={styles.label}>{t(`impact.cells.${i}.label`)}</div>
+                {t.has(`impact.cells.${i}.num`) && (
+                  <div className={styles.num}>{t(`impact.cells.${i}.num`)}</div>
+                )}
+                <div className={styles.desc}>{t(`impact.cells.${i}.desc`)}</div>
               </div>
-              {/* <div className={styles.num}>
-                12,400<sup>+</sup>
-              </div> */}
-              <div className={styles.desc}>
-                The first students helping us test and strengthen the KiddyKode
-                method through real sessions and assessments.
-              </div>
-            </div>
-            <div className={styles.impactCell}>
-              <div className={styles.label}>
-                {/* Schools Engaged */}
-                Projects completed
-              </div>
-              <div className={styles.num}>4</div>
-              <div className={styles.desc}>
-                Early student work that shows children can move from ideas to
-                structured digital creation.
-              </div>
-            </div>
-            <div className={styles.impactCell}>
-              <div className={styles.label}>
-                {/* Projects Shipped */}
-                Skills tracked
-              </div>
-              {/* <div className={styles.num}>41k</div> */}
-              <div className={styles.desc}>
-                Logical reasoning, problem-solving, creativity, communication,
-                and confidence.
-              </div>
-            </div>
-            <div className={styles.impactCell}>
-              <div className={styles.label}>
-                {/* Cities active */}
-                Evidence building
-              </div>
-              {/* <div className={styles.num}>9</div> */}
-              <div className={styles.desc}>
-                We are documenting baseline assessments, student artefacts, and
-                progress over time rather than publishing inflated vanity
-                metrics.
-              </div>
-            </div>
+            ))}
           </div>
           <div className={styles.impactFootnote}>
-            <span className="mono">
-              Source — KiddyKode internal reporting, March 2026
-            </span>
-            <Link href="#" className="btn btn--link">
-              Read the 2025 evidence report →
-            </Link>
+            <span className="mono">{t('impact.source')}</span>
+            <Link href="#" className="btn btn--link">{t('impact.reportLink')}</Link>
           </div>
         </div>
       </section>
@@ -153,17 +96,11 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="heading">
-              <span className="eyebrow">04 / LEARNING FORMATS</span>
-              <h2 className="mt-[18px]">
-                Where children can learn with KiddyKode.
-              </h2>
+              <span className="eyebrow">{t('pathways.eyebrow')}</span>
+              <h2 className="mt-[18px]">{t('pathways.title')}</h2>
             </div>
             <div>
-              <p className="lede">
-                KiddyKode keeps its learning formats simple and intentional.
-                Every format follows the same structured journey: story, logic,
-                build, improve, present.
-              </p>
+              <p className="lede">{t('pathways.lede')}</p>
             </div>
           </div>
 
@@ -182,19 +119,15 @@ export default function HomePage() {
               <div className={styles.pathwayBody}>
                 <div className={styles.meta}>
                   <span>
-                    <span className={styles.dot}></span>Featured pathway
+                    <span className={styles.dot}></span>{t('pathways.featured')}
                   </span>
                   <span>Ages 8 – 16</span>
                   <span>In-school</span>
                 </div>
-                <h3>School Clubs</h3>
-                <p>
-                  Weekly structured coding sessions delivered in partner
-                  schools, designed to help learners build thinking skills and
-                  complete hands-on projects.
-                </p>
+                <h3>{t('pathways.schoolClubs.title')}</h3>
+                <p>{t('pathways.schoolClubs.body')}</p>
                 <span className={styles.pathwayCta}>
-                  Explore school programs <span>→</span>
+                  {t('pathways.schoolClubs.cta')} <span>→</span>
                 </span>
               </div>
             </Link>
@@ -214,14 +147,10 @@ export default function HomePage() {
                   </span>
                   <span>Ages 8–16</span>
                 </div>
-                <h3>KiddyKode Live</h3>
-                <p>
-                  Cohort-based coding sessions on Zoom where children learn with
-                  facilitators, build projects in Python, practice at home, and
-                  present their work.
-                </p>
+                <h3>{t('pathways.live.title')}</h3>
+                <p>{t('pathways.live.body')}</p>
                 <span className={styles.pathwayCta}>
-                  Register <span>→</span>
+                  {t('pathways.live.cta')} <span>→</span>
                 </span>
               </div>
             </Link>
@@ -241,14 +170,10 @@ export default function HomePage() {
                   </span>
                   <span>Ages 8–16</span>
                 </div>
-                <h3>KiddyKode Studio</h3>
-                <p>
-                  A guided online platform where learners move from Explorer to
-                  Builder to Creator through structured lessons, practice, and
-                  project work.
-                </p>
+                <h3>{t('pathways.studio.title')}</h3>
+                <p>{t('pathways.studio.body')}</p>
                 <span className={styles.pathwayCta}>
-                  Signup <span>→</span>
+                  {t('pathways.studio.cta')} <span>→</span>
                 </span>
               </div>
             </Link>
@@ -268,13 +193,10 @@ export default function HomePage() {
                   </span>
                   <span>4-week intensive</span>
                 </div>
-                <h3>Holiday Bootcamps</h3>
-                <p>
-                  Short, focused programs during school breaks where learners
-                  build and present a complete project in a concentrated format.
-                </p>
+                <h3>{t('pathways.bootcamps.title')}</h3>
+                <p>{t('pathways.bootcamps.body')}</p>
                 <span className={styles.pathwayCta}>
-                  Browse upcoming camps <span>→</span>
+                  {t('pathways.bootcamps.cta')} <span>→</span>
                 </span>
               </div>
             </Link>
@@ -286,79 +208,33 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="heading">
-              <span className={styles.eyebrow}>
-                05 / Why KiddyKode, why now
-              </span>
+              <span className={styles.eyebrow}>{t('why.eyebrow')}</span>
             </div>
             <div></div>
           </div>
           <div className={styles.whyGrid}>
             <div>
-              <h2>
-                Africa’s children are already living in a digital world. The
-                real question is whether they will only use it, or help build
-                it.
-              </h2>
+              <h2>{t('why.headline')}</h2>
             </div>
             <div className={styles.whyBody}>
-              <p>
-                By 2030, Africa’s young population will shape the systems,
-                stories, and software that define the continent’s future. Yet
-                many children are still learning to use technology without
-                learning to build with it. KiddyKode exists to change that by
-                helping children move from consumption to authorship through
-                structured, project-based coding.
-              </p>
-              {/* <p>
-                KiddyKode exists to invert that trajectory. We teach the
-                youngest cohort — primary through early secondary — to move from
-                consumption to authorship: from playing the app to making it,
-                from reading the story to writing one in code, from using the
-                tool to designing a better one for their context.
-              </p> */}
+              <p>{t('why.body')}</p>
             </div>
           </div>
           <div className={styles.pullquote}>
             <div>
-              <div className={styles.quote}>
-                When a child builds their first program, they begin to
-                understand that the digital world is editable.
-              </div>
-              <div className={styles.attribution}>
-                — Deodatus Bijengsi, KiddyKode Co-founder & Curriculum Director
-              </div>
+              <div className={styles.quote}>{t('why.quote')}</div>
+              <div className={styles.attribution}>{t('why.attribution')}</div>
             </div>
             <div></div>
           </div>
           <div className={styles.whyThemes}>
-            <div className={styles.theme}>
-              <span className={styles.marker}>// 01</span>
-              <h4>Digital Sovereignty</h4>
-              <p>
-                WAfrican children should not grow up only consuming technologies
-                built elsewhere. They should learn to shape the tools, systems,
-                and solutions that affect their own communities.
-              </p>
-            </div>
-            <div className={styles.theme}>
-              <span className={styles.marker}>// 02</span>
-              <h4>Cultural Continuity</h4>
-              <p>
-                Coding becomes more meaningful when it is taught through
-                stories, language, and contexts children recognize. At
-                KiddyKode, technology is not presented as foreign; it becomes a
-                medium for African expression.
-              </p>
-            </div>
-            <div className={styles.theme}>
-              <span className={styles.marker}>// 03</span>
-              <h4>Systemic Thinking</h4>
-              <p>
-                Learning to code teaches children how to break complex problems
-                into smaller, solvable parts. That way of thinking stays with
-                them long after the lesson ends.
-              </p>
-            </div>
+            {[0, 1, 2].map((i) => (
+              <div key={i} className={styles.theme}>
+                <span className={styles.marker}>// {String(i + 1).padStart(2, '0')}</span>
+                <h4>{t(`why.themes.${i}.title`)}</h4>
+                <p>{t(`why.themes.${i}.body`)}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -371,15 +247,11 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="heading">
-              <span className="eyebrow">06 / Stories</span>
-              <h2 className="mt-[18px]">Dispatches from the work.</h2>
+              <span className="eyebrow">{t('stories.eyebrow')}</span>
+              <h2 className="mt-[18px]">{t('stories.title')}</h2>
             </div>
             <div>
-              <p className="lede">
-                Stories, field notes, and interviews from the classrooms, demo
-                nights, and homes of the children, teachers, and partners
-                building this movement.
-              </p>
+              <p className="lede">{t('stories.lede')}</p>
             </div>
           </div>
           <div className={styles.storiesGrid}>
@@ -461,7 +333,7 @@ export default function HomePage() {
                 href="/stories"
                 style={{ alignSelf: "flex-start", marginTop: "8px" }}
               >
-                Read all dispatches <span className="arrow">→</span>
+                {t('stories.readAll')} <span className="arrow">→</span>
               </Link>
             </div>
           </div>
@@ -476,104 +348,21 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div>
-              <span className="eyebrow">07 / Chapters</span>
-              <h2 className="mt-[18px]">
-                A decentralized network for future growth.
-              </h2>
+              <span className="eyebrow">{t('chapters.eyebrow')}</span>
+              <h2 className="mt-[18px]">{t('chapters.title')}</h2>
             </div>
             <div>
-              <p className={styles.missionBody}> 
-                KiddyKode is designed to grow through regional chapters led by
-                local educators, facilitators, and partners. The central team
-                provides the curriculum, platform, and pedagogical framework,
-                while chapter leaders help adapt delivery, support schools, and
-                expand access in their region. In time, this structure can allow
-                KiddyKode to grow across cities and countries without losing the
-                consistency of its method.
-              </p>
+              <p className={styles.missionBody}>{t('chapters.body')}</p>
             </div>
-            {/* <div className={styles.missionBody}>
-              <p>
-                KiddyKode is designed to grow through regional chapters led by
-                local educators, facilitators, and partners. The central team
-                provides the curriculum, platform, and pedagogical framework,
-                while chapter leaders help adapt delivery, support schools, and
-                expand access in their region. Over time, this structure can
-                help KiddyKode grow across cities and countries without losing
-                the consistency of its method.
-              </p>
-            </div> */}
           </div>
-          {/* <div className={styles.chaptersGrid}>
-            <div className={styles.map}>
-              <div className={styles.mapFrame}></div>
-              <div className={styles.mapLabel}>Network Map</div>
-              <div
-                className={`${styles.marker} ${styles.live}`}
-                style={{ top: "45%", left: "35%" }}
-              >
-                <div className={styles.pin}></div>
-                <div className={styles.pinLabel}>Lagos</div>
-              </div>
-              <div
-                className={`${styles.marker} ${styles.live}`}
-                style={{ top: "55%", left: "65%" }}
-              >
-                <div className={styles.pin}></div>
-                <div className={styles.pinLabel}>Nairobi</div>
-              </div>
-              <div
-                className={`${styles.marker} ${styles.live}`}
-                style={{ top: "85%", left: "45%" }}
-              >
-                <div className={styles.pin}></div>
-                <div className={styles.pinLabel}>Cape Town</div>
-              </div>
-              <div
-                className={`${styles.marker} ${styles.planned}`}
-                style={{ top: "30%", left: "50%" }}
-              >
-                <div className={styles.pin}></div>
-              </div>
-            </div>
-          </div> */}
           <div className={styles.principles4}>
-            <div className={styles.principle}>
-              <span className={styles.num}>01</span>
-              <h4>Local leadership</h4>
-              <p>
-                Chapter leads coordinate delivery in their region, build local
-                relationships, and help bring the KiddyKode method into schools
-                and communities.
-              </p>
-            </div>
-            <div className={styles.principle}>
-              <span className={styles.num}>02</span>
-              <h4>Shared pedagogy</h4>
-              <p>
-                Every chapter works from the same structured framework, so
-                learners experience a consistent method even when delivery is
-                local.
-              </p>
-            </div>
-            <div className={styles.principle}>
-              <span className={styles.num}>03</span>
-              <h4>Scalable support</h4>
-              <p>
-                The central team provides curriculum, training, and platform
-                support, making it possible for chapters to grow without
-                weakening quality.
-              </p>
-            </div>
-            <div className={styles.principle}>
-              <span className={styles.num}>04</span>
-              <h4>Regional access</h4>
-              <p>
-                A chapter network makes KiddyKode easier to reach across
-                different cities and countries while keeping the brand coherent
-                and recognizable.
-              </p>
-            </div>
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i} className={styles.principle}>
+                <span className={styles.num}>{String(i + 1).padStart(2, '0')}</span>
+                <h4>{t(`chapters.principles.${i}.title`)}</h4>
+                <p>{t(`chapters.principles.${i}.body`)}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -586,17 +375,11 @@ export default function HomePage() {
         <div className="wrap">
           <div className={styles.partnersHead}>
             <div>
-              <span className="eyebrow">08 / Partners</span>
-              <h2 className="mt-[18px]">
-                Supported by partners helping expand access to coding education.
-              </h2>
+              <span className="eyebrow">{t('partners.eyebrow')}</span>
+              <h2 className="mt-[18px]">{t('partners.title')}</h2>
             </div>
             <div>
-              <p className="lede">
-                KiddyKode works with schools, companies, and institutional
-                partners to expand access, strengthen delivery, and support
-                high-quality coding education for children.
-              </p>
+              <p className="lede">{t('partners.lede')}</p>
             </div>
           </div>
           <div className={styles.partnersGrid}>
@@ -642,17 +425,15 @@ export default function HomePage() {
             </div>
           </div>
           <div className={styles.partnersNote}>
-            <span className={styles.label}>Partner with KiddyKode</span>
+            <span className={styles.label}>{t('partners.partnerCta')}</span>
             <p>
-              We are currently welcoming school, corporate, and institutional
-              partners interested in learner access, hardware support, program
-              delivery, and strategic collaboration.{" "}
+              {t('partners.partnerNote')}{" "}
               <Link
                 href="/partners"
                 className="btn btn--link"
                 style={{ display: "inline-block", marginLeft: "8px" }}
               >
-                Partner with KiddyKode →
+                {t('partners.partnerLink')}
               </Link>
             </p>
           </div>
@@ -667,57 +448,27 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="heading">
-              <span className="eyebrow">09 / The Studio</span>
+              <span className="eyebrow">{t('studioSection.eyebrow')}</span>
             </div>
             <div></div>
           </div>
           <div className={styles.studioGrid}>
             <div className={styles.studioCopy}>
-              <h2>KiddyKode Studio turns lessons into projects.</h2>
-              <p>
-                KiddyKode Studio is our self-paced platform for children to
-                follow courses, practice skills, and build projects at their own
-                pace. Learners move through Explorer, Builder, and Creator
-                levels as they grow from guided work into more independent
-                creation.
-              </p>
+              <h2>{t('studioSection.title')}</h2>
+              <p>{t('studioSection.body')}</p>
               <div className={styles.studioFeatures}>
-                <div className={styles.studioFeature}>
-                  <div className={styles.n}>01</div>
-                  <div>
-                    <h4>Progressive Complexity</h4>
-                    <p>
-                      Children start with guided activities and simple projects,
-                      then move step by step into more open-ended building as
-                      their confidence grows.
-                    </p>
+                {[0, 1, 2].map((i) => (
+                  <div key={i} className={styles.studioFeature}>
+                    <div className={styles.n}>{String(i + 1).padStart(2, '0')}</div>
+                    <div>
+                      <h4>{t(`studioSection.features.${i}.title`)}</h4>
+                      <p>{t(`studioSection.features.${i}.body`)}</p>
+                    </div>
                   </div>
-                </div>
-                <div className={styles.studioFeature}>
-                  <div className={styles.n}>02</div>
-                  <div>
-                    <h4>Offline Resilience</h4>
-                    <p>
-                      Studio is designed so learners can continue building even
-                      when connectivity is inconsistent, with progress and
-                      project work structured to support uninterrupted learning.
-                    </p>
-                  </div>
-                </div>
-                <div className={styles.studioFeature}>
-                  <div className={styles.n}>03</div>
-                  <div>
-                    <h4>Peer Review Built-in</h4>
-                    <p>
-                      As learners grow, they can share work, compare approaches,
-                      and learn from one another through structured feedback and
-                      presentation.
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
               <Link href="/programs" className="btn btn--ghost">
-                Start Exploring<span className="arrow">→</span>
+                {t('studioSection.cta')}<span className="arrow">→</span>
               </Link>
             </div>
             <div className={styles.browser}>
@@ -736,9 +487,7 @@ export default function HomePage() {
                 <div className={styles.studioSide}>
                   <div className={styles.group}>
                     <div className={styles.groupLabel}>Project Files</div>
-                    <div className={`${styles.item} ${styles.active}`}>
-                      app.js
-                    </div>
+                    <div className={`${styles.item} ${styles.active}`}>app.js</div>
                     <div className={styles.item}>index.html</div>
                     <div className={styles.item}>styles.css</div>
                   </div>
@@ -756,7 +505,7 @@ export default function HomePage() {
                   </div>
                   <pre>
                     <span className={styles.ln}>1</span>
-                    <span className={styles.com}>// Medicine Map Logic</span>
+                    <span className={styles.com}>{"// Medicine Map Logic"}</span>
                     <br />
                     <span className={styles.ln}>2</span>
                     <span className={styles.kw}>const</span> herbs = [<br />
@@ -823,40 +572,31 @@ export default function HomePage() {
 
       <section className={styles.final} data-screen-label="10 Final">
         <div className="wrap">
-          <span className={styles.eyebrow}>Get Involved</span>
-          <h2>Build the future with us.</h2>
+          <span className={styles.eyebrow}>{t('final.eyebrow')}</span>
+          <h2>{t('final.title')}</h2>
           <div className={styles.finalPaths}>
             <div className={styles.finalPath}>
-              <span className={styles.pn}>01 / Schools</span>
-              <h3>Bring KiddyKode to your classroom</h3>
-              <p>
-                We provide the curriculum, the platform, and the teacher
-                training.
-              </p>
+              <span className={styles.pn}>{t('final.schools.label')}</span>
+              <h3>{t('final.schools.title')}</h3>
+              <p>{t('final.schools.body')}</p>
               <Link href="/contact" className="btn btn--primary">
-                Partner your school
+                {t('final.schools.cta')}
               </Link>
             </div>
             <div className={styles.finalPath}>
-              <span className={styles.pn}>02 / Parents</span>
-              <h3>Enroll your child</h3>
-              <p>
-                Find a community club or join the waitlist for the next Creator
-                Camp.
-              </p>
+              <span className={styles.pn}>{t('final.parents.label')}</span>
+              <h3>{t('final.parents.title')}</h3>
+              <p>{t('final.parents.body')}</p>
               <Link href="/programs" className="btn btn--ghost">
-                Find a program
+                {t('final.parents.cta')}
               </Link>
             </div>
             <div className={styles.finalPath}>
-              <span className={styles.pn}>03 / Partners</span>
-              <h3>Support school access</h3>
-              <p>
-                Support school delivery, learner access, or the tools that help
-                more children build with code.
-              </p>
+              <span className={styles.pn}>{t('final.partnersPath.label')}</span>
+              <h3>{t('final.partnersPath.title')}</h3>
+              <p>{t('final.partnersPath.body')}</p>
               <Link href="/partners" className="btn btn--ghost">
-                Explore partnerships
+                {t('final.partnersPath.cta')}
               </Link>
             </div>
           </div>

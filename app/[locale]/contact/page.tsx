@@ -1,9 +1,9 @@
 import { Metadata } from "next";
-import { PageHero } from "../components/PageHero";
-import { SectionHead } from "../components/SectionHead";
-import { ImagePlaceholder } from "../components/ImagePlaceholder";
+import { PageHero } from "../../components/PageHero";
+import { SectionHead } from "../../components/SectionHead";
+import { ImagePlaceholder } from "../../components/ImagePlaceholder";
 import styles from "./contact.module.css";
-import Link from "next/link";
+import { Link } from '@/i18n/navigation';
 
 export const metadata: Metadata = {
   title: "Contact — KiddyKode",
