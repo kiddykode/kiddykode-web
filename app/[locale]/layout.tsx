@@ -7,6 +7,7 @@ import "../globals.css";
 import { UtilityBar } from "../components/UtilityBar";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { PromoModal } from "../components/PromoModal";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default async function LocaleLayout({
           <Navbar />
           <main className="flex-grow flex flex-col">{children}</main>
           <Footer />
+          <PromoModal />
         </NextIntlClientProvider>
       </body>
     </html>

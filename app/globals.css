@@ -31,6 +31,22 @@
   --spacing-section-y: clamp(80px, 9vw, 140px);
   --spacing-gutter: clamp(20px, 3.2vw, 48px);
   --spacing-maxw: 1360px;
+
+  /* YIL Campaign Variant C Custom Colors */
+  --color-yilc-bg: #0A0A0A;
+  --color-yilc-card: #141414;
+  --color-yilc-card2: #1A1A1A;
+  --color-yilc-line: #262626;
+  --color-yilc-ink: #0A0A0A;
+  --color-yilc-paper: #FBFAF6;
+  --color-yilc-fg: #F5F4F0;
+  --color-yilc-fg2: #A8A39A;
+  --color-yilc-fg3: #6E6A60;
+  --color-yilc-wa: #25D366;
+  --color-yilc-wa-dk: #1FB957;
+  --color-yilc-hi: #FFD93B;
+  --color-yilc-hi-dk: #E0B800;
+  --color-yilc-warn: #FF7A45;
 }
 
 @layer base {
