@@ -156,6 +156,19 @@
     color: var(--color-sand-50);
   }
 
+  .btn--white {
+    background: var(--color-white);
+    color: var(--color-ink-900);
+    border-color: var(--color-line);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  .btn--white:hover {
+    background: var(--color-sand-50);
+    border-color: var(--color-ink-900);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px -4px rgba(21,32,51,0.12);
+  }
+
   .btn--link {
     padding: 0;
     background: transparent;

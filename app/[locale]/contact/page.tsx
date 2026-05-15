@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { PageHero } from "../../components/PageHero";
 import { SectionHead } from "../../components/SectionHead";
 import { ImagePlaceholder } from "../../components/ImagePlaceholder";
+import { ContactForm } from "../../components/ContactForm";
 import styles from "./contact.module.css";
 import { Link } from '@/i18n/navigation';
 
@@ -62,76 +63,7 @@ export default function ContactPage() {
             lede="If you prefer not to use email, drop a message here. It goes to the same inbox."
           />
           <div className={styles.contactGrid}>
-            <div className={styles.formBox}>
-              <form>
-                <div className={styles.intentPicker}>
-                  <label className={styles.intentLabel}>
-                    <input type="radio" name="intent" value="parent" defaultChecked />
-                    <span>I am a parent</span>
-                  </label>
-                  <label className={styles.intentLabel}>
-                    <input type="radio" name="intent" value="school" />
-                    <span>I represent a school</span>
-                  </label>
-                  <label className={styles.intentLabel}>
-                    <input type="radio" name="intent" value="partner" />
-                    <span>I want to partner</span>
-                  </label>
-                  <label className={styles.intentLabel}>
-                    <input type="radio" name="intent" value="other" />
-                    <span>Other inquiry</span>
-                  </label>
-                </div>
-
-                <div className={styles.fieldRow}>
-                  <div className={styles.field}>
-                    <label>First Name</label>
-                    <input type="text" placeholder="e.g. Jane" required />
-                  </div>
-                  <div className={styles.field}>
-                    <label>Last Name</label>
-                    <input type="text" placeholder="e.g. Doe" required />
-                  </div>
-                </div>
-                
-                <div className={styles.fieldRow}>
-                  <div className={styles.field}>
-                    <label>Email Address</label>
-                    <input type="email" placeholder="jane@example.com" required />
-                  </div>
-                  <div className={styles.field}>
-                    <label>City / Country</label>
-                    <input type="text" placeholder="e.g. Nairobi, KE" required />
-                  </div>
-                </div>
-
-                <div className={styles.field} style={{ marginBottom: "20px" }}>
-                  <label>Subject</label>
-                  <select>
-                    <option>Enrolling my child in a program</option>
-                    <option>Bringing KiddyKode to my school</option>
-                    <option>Opening a chapter in my city</option>
-                    <option>Funding or sponsorship</option>
-                    <option>Press inquiry</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-
-                <div className={styles.field}>
-                  <label>Message</label>
-                  <textarea placeholder="How can we help?" required></textarea>
-                </div>
-
-                <div className={styles.consent}>
-                  <input type="checkbox" id="consent" required />
-                  <label htmlFor="consent">I agree to the <Link href="#">Privacy Policy</Link> and consent to KiddyKode storing my data to respond to this inquiry.</label>
-                </div>
-
-                <button type="submit" className="btn btn--primary" style={{ width: "100%", justifyContent: "center" }}>
-                  Send Message <span className="arrow">→</span>
-                </button>
-              </form>
-            </div>
+            <ContactForm />
 
             <div className={styles.sidebar}>
               <div className={styles.sideCard}>

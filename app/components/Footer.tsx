@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import Image from "next/image";
+import { NewsletterForm } from './NewsletterForm';
 
 export function Footer() {
   const t = useTranslations('Footer');
@@ -54,19 +55,12 @@ export function Footer() {
           <div className="footer-col">
             <h5 className="font-mono text-[11px] tracking-[0.12em] uppercase text-[rgba(247,243,236,0.5)] m-0 mb-5 font-medium">{t('colNewsletter')}</h5>
             <p className="text-sm text-[rgba(247,243,236,0.62)] m-0">{t('newsletterDesc')}</p>
-            <form className="newsletter flex mt-3.5" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder={t('emailPlaceholder')}
-                className="flex-1 px-3.5 py-3 bg-[rgba(247,243,236,0.06)] border border-r-0 border-[rgba(247,243,236,0.18)] rounded-l-md text-[var(--color-sand-50)] font-body text-[13px] min-w-0 focus:outline-none placeholder:text-[rgba(247,243,236,0.4)]"
-              />
-              <button 
-                type="submit"
-                className="px-4 py-3 bg-[var(--color-accent)] text-[var(--color-ink-900)] border-0 rounded-r-md font-body font-semibold text-[13px] cursor-pointer hover:bg-[var(--color-sand-50)] transition-colors"
-              >
-                {t('join')}
-              </button>
-            </form>
+            <NewsletterForm
+              source="footer"
+              placeholder={t('emailPlaceholder')}
+              buttonText={t('join')}
+              variant="footer"
+            />
           </div>
         </div>
         

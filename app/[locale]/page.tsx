@@ -112,8 +112,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <div className={styles.pathwayImage}>
                 <ImagePlaceholder
                   tone="warm"
-                  photoUrl="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80"
-                  caption="Replace ▸ Classroom — students at a partner school working at shared devices"
+                  photoUrl="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778847213/kiddykode_at_partner_school_lz8nrt.png?auto=format&fit=crop&w=1200&q=80"
+                  // caption="Replace ▸ Classroom — students at a partner school working at shared devices"
                 />
               </div>
               <div className={styles.pathwayBody}>
@@ -134,10 +134,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
             <Link className={styles.pathway} href="/programs">
               <div className={styles.pathwayImage}>
-                <img
-                  src="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774726/ChatGPT_Image_May_14_2026_09_08_46_PM_dgfdz9.png"
-                  alt="Community club night"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                <ImagePlaceholder
+                  tone="sage"
+                  photoUrl="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774726/ChatGPT_Image_May_14_2026_09_08_46_PM_dgfdz9.png"
+                  // caption="Replace ▸ Community club night, mentor + peers"
                 />
               </div>
               <div className={styles.pathwayBody}>
@@ -180,10 +180,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
             <Link className={styles.pathway} href="/programs">
               <div className={styles.pathwayImage}>
-                <img
-                  src="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774727/ChatGPT_Image_May_14_2026_09_17_40_PM_ma3741.png"
-                  alt="Holiday creator camp"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                <ImagePlaceholder
+                  tone="clay"
+                  photoUrl="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774727/ChatGPT_Image_May_14_2026_09_17_40_PM_ma3741.png"
+                  // caption="Replace ▸ Holiday creator camp"
                 />
               </div>
               <div className={styles.pathwayBody}>

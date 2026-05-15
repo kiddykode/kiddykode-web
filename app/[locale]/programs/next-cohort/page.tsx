@@ -3,6 +3,8 @@ import { PageHero } from "../../../components/PageHero";
 import { SectionHead } from "../../../components/SectionHead";
 import { CtaStrip } from "../../../components/CtaStrip";
 import { ImagePlaceholder } from "../../../components/ImagePlaceholder";
+import { RegistrationForm } from "../../../components/RegistrationForm";
+import { ShareActions } from "../../../components/ShareActions";
 import styles from "./cohort.module.css";
 import { Link } from '@/i18n/navigation';
 import Image from "next/image";
@@ -10,6 +12,28 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Next Cohort — KiddyKode Live",
   description: "The next cohort starts soon. Register your child for live, cohort-based coding sessions.",
+  openGraph: {
+    title: "Explorer Live Session — June 2026",
+    description: "KiddyKode is launching a new live coding cohort for kids ages 8-17! Learners build real projects with expert facilitators.",
+    url: "https://kiddykode.org/programs/next-cohort",
+    siteName: "KiddyKode",
+    images: [
+      {
+        url: "/explorer-cohort-june-2026.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Explorer Live Session Flyer — June 2026",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Explorer Live Session — June 2026",
+    description: "KiddyKode is launching a new live coding cohort for kids ages 8-17!",
+    images: ["/explorer-cohort-june-2026.jpeg"],
+  },
 };
 
 export default function NextCohortPage() {
@@ -43,9 +67,9 @@ export default function NextCohortPage() {
               <span className="eyebrow text-[var(--color-accent)] mb-4">Registration Open</span>
               <h2>Explorer Live Session — June 2026</h2>
               <p>Join a guided cohort of learners. Over the course of the program, your child will move from understanding basic logic to presenting a fully functional project.</p>
-              <Link href="https://forms.gle/QaHPUcdT1RNGezAB8" className="btn btn--primary" target="_blank" rel="noopener noreferrer">
+              <a href="#register" className="btn btn--primary">
                 Register Now <span className="arrow">→</span>
-              </Link>
+              </a>
             </div>
             <div className={styles.infoMeta}>
               <div className={styles.infoGroup}>
@@ -97,12 +121,19 @@ export default function NextCohortPage() {
               <span className="eyebrow mb-4">Help us spread the word</span>
               <h3>Share this cohort with your network.</h3>
               <p>Know other parents, teachers, or schools who might be interested? Download the event flyer to share on WhatsApp or social media.</p>
-              <a href="/explorer-cohort-june-2026.jpeg" download className="btn btn--primary mb-6">
-                Download Flyer <span className="arrow">↓</span>
-              </a>
+              <div className="flex flex-wrap gap-4 items-center mb-6">
+                <a href="/explorer-cohort-june-2026.jpeg" download className="btn btn--primary">
+                  Download Flyer <span className="arrow">↓</span>
+                </a>
+                <ShareActions 
+                  url="https://kiddykode.org/programs/next-cohort"
+                  title="Explorer Live Session — June 2026"
+                  text="🚀 KiddyKode is launching a new live coding cohort for kids ages 8-17! Check out the details and register here:"
+                />
+              </div>
               <div className={styles.shareBox}>
                 <strong>Suggested share text:</strong><br /><br />
-                KiddyKode is launching their next live coding cohort for kids ages 8-17. Registration is open now at https://forms.gle/QaHPUcdT1RNGezAB8
+                🚀 KiddyKode is launching a new live coding cohort for kids ages 8-17! Learners will build real projects and present them on Demo Day. Check out the details and register here: https://kiddykode.org/programs/next-cohort
               </div>
             </div>
           </div>
@@ -277,11 +308,24 @@ export default function NextCohortPage() {
         </div>
       </section>
 
+      <section id="register" style={{ background: 'var(--color-sand-100)', borderBottom: '1px solid var(--color-line)' }}>
+        <div className="wrap">
+          <SectionHead
+            eyebrow="06 / Register"
+            title="Secure your child's spot."
+            lede="Fill in the form below to register for the next cohort. You'll receive a confirmation email with everything you need."
+          />
+          <div style={{ maxWidth: 720, margin: '0 auto' }}>
+            <RegistrationForm />
+          </div>
+        </div>
+      </section>
+
       <CtaStrip
-        eyebrow="Don't miss out"
-        title="Spots are limited. Register your child today."
+        eyebrow="Questions?"
+        title="Need help deciding? We're here."
         buttons={[
-          { label: "Register Now", href: "https://forms.gle/QaHPUcdT1RNGezAB8", variant: "primary" },
+          { label: "Register Now", href: "#register", variant: "primary" },
           { label: "Ask a Question", href: "/contact", variant: "ghost" },
         ]}
       />
