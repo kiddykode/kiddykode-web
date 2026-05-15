@@ -194,7 +194,7 @@ export default function YILLandingPage() {
 
   return (
     <div
-      className={`${display.variable} ${sans.variable} ${serif.variable} ${mono.variable} font-yil-sans bg-yil-bg text-yil-fg antialiased`}
+      className={`${display.variable} ${sans.variable} ${serif.variable} ${mono.variable} yil-landing font-yil-sans bg-yil-bg text-yil-fg antialiased`}
       style={{ colorScheme: "dark" }}
       id="top"
     >
@@ -255,7 +255,7 @@ export default function YILLandingPage() {
             }}
           />
 
-          <div className="relative mx-auto max-w-[1100px] px-4 lg:px-6 pt-10 lg:pt-14 pb-8 text-center">
+          <div className="relative mx-auto max-w-[1100px] px-4 lg:px-6 pt-16 lg:pt-24 pb-12 text-center">
             <div className="inline-flex items-center gap-2 text-[12.5px] font-yil-mono uppercase tracking-[.14em] text-yil-warn">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-yil-warn animate-[yilpulseHi_2.2s_infinite]" />
               Holiday Tech Bootcamp · Yaoundé
@@ -407,13 +407,13 @@ export default function YILLandingPage() {
         </section>
 
         {/* ================= WHY JOIN ================= */}
-        <section id="program" className="relative">
+        <section id="program" className="relative bg-white text-black">
           <div className="mx-auto max-w-[1100px] px-4 lg:px-6 py-16 lg:py-20">
-            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] lg:text-[44px] leading-[1.1]">
+            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] lg:text-[44px] leading-[1.1] text-black">
               Why parents <Hi>choose YIL</Hi> for the holidays
             </h2>
-            <p className="mt-3 text-center text-yil-fg2 max-w-[58ch] mx-auto text-[15px]">
-              Most holiday programmes try to entertain. We&apos;re built to <HiLine>teach</HiLine>, with a structure, a curriculum, and a deliverable at the end.
+            <p className="mt-3 text-center text-gray-600 max-w-[58ch] mx-auto text-[15px]">
+              Most holiday programmes try to entertain. We&apos;re built to <span className="text-yil-hi-dk font-bold">teach</span>, with a structure, a curriculum, and a deliverable at the end.
             </p>
 
             <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
@@ -422,37 +422,37 @@ export default function YILLandingPage() {
                   tone: "wa",
                   icon: <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />,
                   t: "Real Python coding",
-                  d: <>From <HiLine>zero to a working program</HiLine> they can demo and explain. Not blocks, real code.</>,
+                  d: <>From <span className="text-yil-hi-dk font-bold">zero to a working program</span> they can demo and explain. Not blocks, real code.</>,
                 },
                 {
                   tone: "hi",
                   icon: <><rect x="3" y="8" width="18" height="10" rx="1" /><path d="M7 12h2M11 12h2M15 12h2M7 5v3M17 5v3" /></>,
                   t: "Hands-on electronics",
-                  d: <>Breadboards, sensors, microcontrollers. They learn <HiLine>how systems actually work</HiLine>.</>,
+                  d: <>Breadboards, sensors, microcontrollers. They learn <span className="text-yil-hi-dk font-bold">how systems actually work</span>.</>,
                 },
                 {
                   tone: "warn",
                   icon: <><path d="M3 12l3 3 4-4 4 4 5-7" /><path d="M3 19h18" /></>,
                   t: "Real-world problem solving",
-                  d: <>Daily challenges with <HiLine>no single answer</HiLine> — they learn to think, not memorise.</>,
+                  d: <>Daily challenges with <span className="text-yil-hi-dk font-bold">no single answer</span> — they learn to think, not memorise.</>,
                 },
                 {
                   tone: "wa",
                   icon: <><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2" /><circle cx="10" cy="7" r="4" /><path d="M21 21v-2a4 4 0 00-3-3.87" /><path d="M17 3.13A4 4 0 0117 11" /></>,
                   t: "Teamwork & leadership",
-                  d: <>They build in small teams — <HiLine>leading, supporting, disagreeing well</HiLine>.</>,
+                  d: <>They build in small teams — <span className="text-yil-hi-dk font-bold">leading, supporting, disagreeing well</span>.</>,
                 },
                 {
                   tone: "hi",
                   icon: <><rect x="3" y="3" width="18" height="14" rx="1" /><path d="M8 21h8M12 17v4" /></>,
                   t: "Pitch Day on stage",
-                  d: <>Every child presents — slides, project, story. <HiLine>Parents are in the room.</HiLine></>,
+                  d: <>Every child presents — slides, project, story. <span className="text-yil-hi-dk font-bold">Parents are in the room.</span></>,
                 },
                 {
                   tone: "warn",
                   icon: <path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z" />,
                   t: "CPR certification",
-                  d: <>Every cohort gets a <HiLine>certified CPR training session</HiLine> — a real life skill.</>,
+                  d: <>Every cohort gets a <span className="text-yil-hi-dk font-bold">certified CPR training session</span> — a real life skill.</>,
                 },
               ].map((c) => {
                 const toneClass =
@@ -462,25 +462,25 @@ export default function YILLandingPage() {
                     ? "bg-yil-hi/20 text-yil-hi"
                     : "bg-yil-warn/15 text-yil-warn";
                 return (
-                  <div key={c.t} className="yil-card-lift bg-yil-card border border-yil-line rounded-xl p-5">
+                  <div key={c.t} className="yil-card-lift bg-white border border-gray-200 rounded-xl p-5">
                     <div className="flex items-center gap-3">
                       <span className={`inline-flex h-9 w-9 items-center justify-center rounded-lg ${toneClass}`}>
                         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
                           {c.icon}
                         </svg>
                       </span>
-                      <h3 className="font-bold tracking-yil-tightish text-[15px]">{c.t}</h3>
+                      <h3 className="font-bold tracking-yil-tightish text-[15px] text-black">{c.t}</h3>
                     </div>
-                    <p className="mt-3 text-[13.5px] text-yil-fg2 leading-relaxed">{c.d}</p>
+                    <p className="mt-3 text-[13.5px] text-gray-600 leading-relaxed">{c.d}</p>
                   </div>
                 );
               })}
             </div>
 
-            <div className="mt-10 border border-yil-line rounded-xl p-5 bg-yil-card2 flex flex-col sm:flex-row items-center gap-4">
+            <div className="mt-10 border border-gray-200 rounded-xl p-5 bg-gray-50 flex flex-col sm:flex-row items-center gap-4">
               <div className="text-[13px] font-yil-mono uppercase tracking-[.14em] text-yil-warn bg-yil-warn/10 border border-yil-warn/30 px-2 py-1 rounded">⚠ Specially Designed</div>
-              <div className="text-[14.5px] text-yil-fg flex-1 text-center sm:text-left">
-                For <HiLine>serious parents</HiLine> who want a productive holiday — and a child who can show real skills by September.
+              <div className="text-[14.5px] text-black flex-1 text-center sm:text-left">
+                For <span className="text-yil-hi-dk font-bold">serious parents</span> who want a productive holiday — and a child who can show real skills by September.
               </div>
             </div>
           </div>
@@ -549,13 +549,13 @@ export default function YILLandingPage() {
         </section>
 
         {/* ================= IS THIS FOR YOU ================= */}
-        <section>
+        <section className="bg-white text-black">
           <div className="mx-auto max-w-[1100px] px-4 lg:px-6 py-16 lg:py-20">
-            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.1]">
+            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.1] text-black">
               Is this bootcamp <Hi>for your child</Hi>?
             </h2>
-            <p className="mt-3 text-center text-yil-fg2 max-w-[60ch] mx-auto text-[15px]">
-              In 4 weeks, your child will learn <HiLine>six concrete skills</HiLine> they&apos;ll carry into school, college and a future career.
+            <p className="mt-3 text-center text-gray-600 max-w-[60ch] mx-auto text-[15px]">
+              In 4 weeks, your child will learn <span className="text-yil-hi-dk font-bold">six concrete skills</span> they&apos;ll carry into school, college and a future career.
             </p>
 
             <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -574,14 +574,14 @@ export default function YILLandingPage() {
                     ? "bg-yil-hi/20 text-yil-hi"
                     : "bg-yil-warn/15 text-yil-warn";
                 return (
-                  <div key={s.t} className="bg-yil-card border border-yil-line rounded-xl p-5">
+                  <div key={s.t} className="bg-white border border-gray-200 rounded-xl p-5">
                     <div className={`inline-flex h-10 w-10 items-center justify-center rounded-lg ${toneClass}`}>
                       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
                         {s.icon}
                       </svg>
                     </div>
-                    <h3 className="mt-4 font-bold text-[15.5px]">{s.t}</h3>
-                    <p className="mt-1.5 text-[13px] text-yil-fg2">{s.d}</p>
+                    <h3 className="mt-4 font-bold text-[15.5px] text-black">{s.t}</h3>
+                    <p className="mt-1.5 text-[13px] text-gray-600">{s.d}</p>
                   </div>
                 );
               })}
@@ -596,8 +596,8 @@ export default function YILLandingPage() {
               >
                 Reserve before midnight · 65,000 FCFA
               </a>
-              <div className="mt-2 font-yil-mono text-[11px] text-yil-fg2">
-                Early Bird ends in <span className="text-yil-hi font-bold">{cd.mini}</span>
+              <div className="mt-2 font-yil-mono text-[11px] text-gray-500">
+                Early Bird ends in <span className="text-yil-hi-dk font-bold">{cd.mini}</span>
               </div>
             </div>
           </div>
@@ -629,13 +629,13 @@ export default function YILLandingPage() {
         </section>
 
         {/* ================= BONUSES ================= */}
-        <section>
+        <section className="bg-white text-black">
           <div className="mx-auto max-w-[1100px] px-4 lg:px-6 py-16 lg:py-20">
-            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.1]">
+            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.1] text-black">
               Reserve today, get <Hi>3 bonuses worth 25,000 FCFA</Hi> — free
             </h2>
-            <p className="mt-3 text-center text-yil-fg2 max-w-[58ch] mx-auto text-[15px]">
-              Only for parents who reserve before <HiLine>midnight, June 15</HiLine>.
+            <p className="mt-3 text-center text-gray-600 max-w-[58ch] mx-auto text-[15px]">
+              Only for parents who reserve before <span className="text-yil-hi-dk font-bold">midnight, June 15</span>.
             </p>
 
             <div className="mt-10 grid sm:grid-cols-3 gap-4">
@@ -644,50 +644,50 @@ export default function YILLandingPage() {
                 { n: "BONUS 02", t: "Pitch Day deck templates", d: "The exact slide templates our top students used — they'll use these again at school.", v: "7,500 FCFA", icon: <><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M7 8h10M7 12h10M7 16h6" /></> },
                 { n: "BONUS 03", t: "Certified CPR training", d: "A real-world life skill — every child leaves with a recognised CPR certification.", v: "7,500 FCFA", icon: <><circle cx="12" cy="12" r="9" /><path d="M9 12l2 2 4-4" /></> },
               ].map((b) => (
-                <div key={b.n} className="relative bg-yil-card border border-yil-line rounded-xl p-5 yil-card-lift">
+                <div key={b.n} className="relative bg-white border border-gray-200 rounded-xl p-5 yil-card-lift">
                   <span className="yil-stamp">FREE</span>
-                  <Eyebrow>{b.n}</Eyebrow>
+                  <Eyebrow className="!text-gray-500">{b.n}</Eyebrow>
                   <div className="mt-4 h-32 yil-photo-ph rounded-lg flex items-center justify-center">
-                    <svg viewBox="0 0 24 24" className="h-10 w-10 text-yil-hi/80" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <svg viewBox="0 0 24 24" className="h-10 w-10 text-yil-hi-dk/80" fill="none" stroke="currentColor" strokeWidth="1.5">
                       {b.icon}
                     </svg>
                   </div>
-                  <h3 className="mt-4 font-extrabold text-[16px] tracking-yil-tightish">{b.t}</h3>
-                  <p className="mt-2 text-[13px] text-yil-fg2">{b.d}</p>
-                  <div className="mt-4 flex items-center justify-between border-t border-yil-line pt-3">
-                    <div className="text-[12px] text-yil-fg2 font-yil-mono">VALUED AT</div>
-                    <div className="font-extrabold text-yil-hi">{b.v}</div>
+                  <h3 className="mt-4 font-extrabold text-[16px] tracking-yil-tightish text-black">{b.t}</h3>
+                  <p className="mt-2 text-[13px] text-gray-600">{b.d}</p>
+                  <div className="mt-4 flex items-center justify-between border-t border-gray-200 pt-3">
+                    <div className="text-[12px] text-gray-500 font-yil-mono">VALUED AT</div>
+                    <div className="font-extrabold text-yil-hi-dk">{b.v}</div>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Total */}
-            <div className="mt-8 max-w-md mx-auto bg-yil-card border border-yil-hi/30 rounded-xl p-5">
+            <div className="mt-8 max-w-md mx-auto bg-white border border-yil-hi/50 rounded-xl p-5 shadow-sm">
               <div className="flex items-center justify-between">
-                <div className="text-[13.5px] text-yil-fg2">Bonus value</div>
-                <div className="font-extrabold">25,000 FCFA</div>
+                <div className="text-[13.5px] text-gray-600">Bonus value</div>
+                <div className="font-extrabold text-black">25,000 FCFA</div>
               </div>
               <div className="flex items-center justify-between mt-2">
-                <div className="text-[13.5px] text-yil-fg2">Bootcamp price (Early Bird)</div>
-                <div className="font-extrabold">65,000 FCFA</div>
+                <div className="text-[13.5px] text-gray-600">Bootcamp price (Early Bird)</div>
+                <div className="font-extrabold text-black">65,000 FCFA</div>
               </div>
               <div
                 className="my-3"
                 style={{
                   height: "1px",
-                  backgroundImage: "linear-gradient(90deg, rgba(255,255,255,.18) 0 8px, transparent 8px 16px)",
+                  backgroundImage: "linear-gradient(90deg, rgba(0,0,0,.1) 0 8px, transparent 8px 16px)",
                   backgroundSize: "16px 1px",
                   backgroundRepeat: "repeat-x",
                   backgroundPosition: "center",
                 }}
               />
               <div className="flex items-center justify-between">
-                <div className="text-[14px] text-yil-fg">You pay today</div>
-                <div className="text-yil-hi font-extrabold text-[24px]">65,000 FCFA</div>
+                <div className="text-[14px] text-black">You pay today</div>
+                <div className="text-yil-hi-dk font-extrabold text-[24px]">65,000 FCFA</div>
               </div>
-              <div className="mt-2 text-[12px] text-yil-fg2 font-yil-mono text-center">
-                YOU SAVE <b className="text-yil-hi">35,000 FCFA</b> (bonus + Early Bird discount)
+              <div className="mt-2 text-[12px] text-gray-500 font-yil-mono text-center">
+                YOU SAVE <b className="text-yil-hi-dk">35,000 FCFA</b> (bonus + Early Bird discount)
               </div>
             </div>
           </div>
@@ -751,12 +751,12 @@ export default function YILLandingPage() {
         </section>
 
         {/* ================= MENTORS ================= */}
-        <section>
+        <section className="bg-white text-black">
           <div className="mx-auto max-w-[1100px] px-4 lg:px-6 py-16 lg:py-20">
-            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.1]">
+            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.1] text-black">
               Know your <Hi>mentors</Hi>
             </h2>
-            <p className="mt-3 text-center text-yil-fg2 max-w-[58ch] mx-auto text-[15px]">
+            <p className="mt-3 text-center text-gray-600 max-w-[58ch] mx-auto text-[15px]">
               Working engineers from Kiddykode and PlastiBytes — small-group ratios so every question gets answered.
             </p>
 
@@ -766,21 +766,21 @@ export default function YILLandingPage() {
                   role: "Lead Instructor",
                   name: "[ Mentor Name 01 ]",
                   bullets: ["Kiddykode co-founder · 8+ years teaching", "Python · electronics · prototyping"],
-                  bio: <>Hi, I&apos;m leading the YIL programme this year. I&apos;ve taught over 600 students in Cameroon — I know how to take a beginner to a working project in 4 weeks. <HiLine>Come build with us.</HiLine></>,
+                  bio: <>Hi, I&apos;m leading the YIL programme this year. I&apos;ve taught over 600 students in Cameroon — I know how to take a beginner to a working project in 4 weeks. <span className="text-yil-hi-dk font-bold">Come build with us.</span></>,
                 },
                 {
                   role: "Programme Director",
                   name: "[ Mentor Name 02 ]",
                   bullets: ["PlastiBytes engineer · electronics specialist", "Circuits · microcontrollers · Pitch Day coaching"],
-                  bio: <>I&apos;ll be running the electronics and prototyping track. We work with real components — what your child builds at YIL <HiLine>is theirs to take home</HiLine>.</>,
+                  bio: <>I&apos;ll be running the electronics and prototyping track. We work with real components — what your child builds at YIL <span className="text-yil-hi-dk font-bold">is theirs to take home</span>.</>,
                 },
               ].map((m) => (
-                <article key={m.name} className="bg-yil-card border border-yil-line rounded-2xl p-5 flex flex-col sm:flex-row gap-5">
+                <article key={m.name} className="bg-white border border-gray-200 rounded-2xl p-5 flex flex-col sm:flex-row gap-5">
                   <PhotoPlaceholder className="rounded-xl w-full sm:w-44 aspect-square sm:aspect-auto sm:h-52 shrink-0" />
                   <div className="flex-1">
-                    <Eyebrow className="!text-yil-hi">{m.role}</Eyebrow>
-                    <h3 className="mt-2 font-extrabold text-[20px] tracking-yil-tightish">{m.name}</h3>
-                    <ul className="mt-3 space-y-1.5 text-[13.5px] text-yil-fg2">
+                    <Eyebrow className="!text-yil-hi-dk">{m.role}</Eyebrow>
+                    <h3 className="mt-2 font-extrabold text-[20px] tracking-yil-tightish text-black">{m.name}</h3>
+                    <ul className="mt-3 space-y-1.5 text-[13.5px] text-gray-600">
                       {m.bullets.map((b) => (
                         <li key={b} className="flex items-start gap-2">
                           <span className="mt-0.5"><Check tone="hi" /></span>
@@ -788,7 +788,7 @@ export default function YILLandingPage() {
                         </li>
                       ))}
                     </ul>
-                    <p className="mt-3 text-[13px] text-yil-fg2 leading-relaxed">{m.bio}</p>
+                    <p className="mt-3 text-[13px] text-gray-600 leading-relaxed">{m.bio}</p>
                   </div>
                 </article>
               ))}

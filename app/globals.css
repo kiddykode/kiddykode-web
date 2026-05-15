@@ -253,6 +253,10 @@
     padding: var(--spacing-section-y) 0;
     position: relative;
   }
+  
+  .yil-landing section {
+    padding: 0;
+  }
 
   .section-head {
     display: grid;
