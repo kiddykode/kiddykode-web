@@ -51,6 +51,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Manrope, Instrument_Serif, Geist_Mono } from "next/font/google";
+import { YilRegistrationModal } from "@/app/components/YilRegistrationModal";
 
 // === Fonts ===
 const display = Manrope({
@@ -191,6 +192,7 @@ const PressLogo = ({ children, className = "" }: { children: React.ReactNode; cl
 // ───────────────────────────────────────────────────────────────────────────
 export default function YILLandingPage() {
   const cd = useCountdown();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div
@@ -219,24 +221,20 @@ export default function YILLandingPage() {
             <span className="text-yil-fg3">·</span>
             <span className="text-yil-hi font-semibold">Limited seats remaining</span>
           </div>
-          <a
-            href={wa()}
-            target="_blank"
-            rel="noopener"
+          <button
+            onClick={() => setIsModalOpen(true)}
             className="hidden md:inline-flex yil-btn-wa items-center gap-2 rounded-md px-4 py-2 text-[13px] font-extrabold"
           >
             <WhatsAppIcon className="h-4 w-4" />
             RESERVE — 65,000 FCFA
-          </a>
-          <a
-            href={wa()}
-            target="_blank"
-            rel="noopener"
-            aria-label="Reserve on WhatsApp"
+          </button>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            aria-label="Reserve"
             className="md:hidden yil-btn-wa inline-flex items-center justify-center rounded-md h-9 w-9"
           >
             <WhatsAppIcon className="h-4 w-4" />
-          </a>
+          </button>
         </div>
       </header>
 
@@ -354,18 +352,16 @@ export default function YILLandingPage() {
 
             {/* Primary CTA */}
             <div className="mt-8 flex flex-col items-center gap-3" id="reserve">
-              <a
-                href={wa()}
-                target="_blank"
-                rel="noopener"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="yil-btn-wa inline-flex items-center justify-center gap-3 rounded-xl px-8 py-5 text-[16px] sm:text-[18px] font-extrabold tracking-yil-tightish max-w-md w-full"
               >
                 <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-yil-bg/15">
                   <WhatsAppIcon className="h-4 w-4" />
                 </span>
-                Reserve a seat on WhatsApp
+                Reserve a seat
                 <ArrowRight />
-              </a>
+              </button>
               <div className="font-yil-mono text-[11px] text-yil-fg2">
                 FEE · <b className="text-yil-fg">75,000 FCFA</b>
               </div>
@@ -555,15 +551,13 @@ export default function YILLandingPage() {
             </div>
 
             <div className="mt-10 text-center">
-              <a
-                href={wa()}
-                target="_blank"
-                rel="noopener"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="yil-btn-warn inline-flex items-center justify-center gap-2.5 rounded-xl px-7 py-4 text-[15px] font-extrabold"
               >
                 Reserve before midnight · 65,000 FCFA
                 <ArrowRight className="h-4 w-4" />
-              </a>
+              </button>
               <div className="mt-2 font-yil-mono text-[11px] text-yil-fg2">Register before midnight, June 15 — to unlock bonuses worth 10,500 FCFA</div>
             </div>
           </div>
@@ -609,14 +603,12 @@ export default function YILLandingPage() {
             </div>
 
             <div className="mt-10 text-center">
-              <a
-                href={wa()}
-                target="_blank"
-                rel="noopener"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="yil-btn-warn inline-flex items-center justify-center gap-2.5 rounded-xl px-7 py-4 text-[15px] font-extrabold"
               >
                 Reserve before midnight · 65,000 FCFA
-              </a>
+              </button>
               <div className="mt-2 font-yil-mono text-[11px] text-gray-500">
                 Early Bird ends in <span className="text-yil-hi-dk font-bold">{cd.mini}</span>
               </div>
@@ -760,15 +752,13 @@ export default function YILLandingPage() {
             </div>
 
             <div className="mt-10 text-center">
-              <a
-                href={wa()}
-                target="_blank"
-                rel="noopener"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="yil-btn-wa inline-flex items-center justify-center gap-2.5 rounded-xl px-7 py-4 text-[15px] font-extrabold"
               >
                 <WhatsAppIcon />
                 Reserve seat & earn certificate
-              </a>
+              </button>
             </div>
           </div>
         </section>
@@ -816,7 +806,7 @@ export default function YILLandingPage() {
                     <Eyebrow className="!text-yil-hi-dk">{m.role}</Eyebrow>
                     <h3 className="mt-2 font-extrabold text-[20px] tracking-yil-tightish text-black">{m.name}</h3>
                     <ul className="mt-3 space-y-1.5 text-[13.5px] text-gray-600">
-                      {m.bullets.map((b) => (
+                      {m.bullets.map((b: string) => (
                         <li key={b} className="flex items-start gap-2">
                           <span className="mt-0.5"><Check tone="hi" /></span>
                           {b}
@@ -1018,15 +1008,13 @@ export default function YILLandingPage() {
               50 seats per session. Early Bird ends June 15. Tap WhatsApp now — we&apos;ll walk you through everything in plain language.
             </p>
             <div className="mt-10">
-              <a
-                href={wa()}
-                target="_blank"
-                rel="noopener"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="yil-btn-wa inline-flex items-center justify-center gap-3 rounded-xl px-8 py-5 text-[18px] font-extrabold"
               >
                 <WhatsAppIcon />
                 Reserve on WhatsApp — 65,000 FCFA
-              </a>
+              </button>
               <div className="mt-3 font-yil-mono text-[11.5px] text-yil-fg2">Replies within ~1hr · +237 680 262 136</div>
             </div>
           </div>
@@ -1051,15 +1039,13 @@ export default function YILLandingPage() {
             <div className="font-yil-mono text-[9.5px] text-yil-fg2 tracking-wider">EARLY BIRD ENDS</div>
             <div className="text-[14px] font-extrabold leading-none mt-0.5 text-yil-hi font-yil-mono">{cd.mini}</div>
           </div>
-          <a
-            href={wa()}
-            target="_blank"
-            rel="noopener"
+          <button
+            onClick={() => setIsModalOpen(true)}
             className="ml-auto yil-btn-wa inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-[13px] font-extrabold"
           >
             <WhatsAppIcon className="h-4 w-4" />
             Reserve now
-          </a>
+          </button>
         </div>
       </div>
 
@@ -1160,6 +1146,8 @@ export default function YILLandingPage() {
           }
         }
       `}</style>
+      
+      <YilRegistrationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

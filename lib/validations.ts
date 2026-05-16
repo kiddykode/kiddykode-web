@@ -93,3 +93,31 @@ export const registrationSchema = z.object({
 });
 
 export type RegistrationFormData = z.infer<typeof registrationSchema>;
+
+// ────────────────────────────────────────────
+// YIL Campaign Registration
+// ────────────────────────────────────────────
+
+export const yilRegistrationSchema = z.object({
+  fullName: z
+    .string()
+    .min(1, 'Full name is required.')
+    .max(200, 'Name is too long.'),
+  whatsappNumber: z
+    .string()
+    .min(1, 'WhatsApp number is required.')
+    .max(50, 'Number is too long.'),
+  numberOfKids: z
+    .string()
+    .min(1, 'Number of children is required.')
+    .transform((val) => parseInt(val, 10))
+    .pipe(
+      z
+        .number()
+        .int('Must be a whole number.')
+        .min(1, 'Minimum is 1.')
+        .max(20, 'Maximum is 20.')
+    ),
+});
+
+export type YilRegistrationFormData = z.infer<typeof yilRegistrationSchema>;

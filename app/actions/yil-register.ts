@@ -1,0 +1,61 @@
+'use server';
+
+import { yilRegistrationSchema } from '@/lib/validations';
+import { supabase } from '@/lib/supabase/client';
+
+export type YilRegistrationState = {
+  success: boolean;
+  message: string;
+  errors?: Record<string, string[]>;
+};
+
+export async function registerForYil(
+  prevState: YilRegistrationState,
+  formData: FormData
+): Promise<YilRegistrationState> {
+  const raw = {
+    fullName: formData.get('fullName'),
+    whatsappNumber: formData.get('whatsappNumber'),
+    numberOfKids: formData.get('numberOfKids'),
+  };
+
+  const result = yilRegistrationSchema.safeParse(raw);
+
+  if (!result.success) {
+    return {
+      success: false,
+      message: 'Please fix the errors below.',
+      errors: result.error.flatten().fieldErrors as Record<string, string[]>,
+    };
+  }
+
+  const data = result.data;
+
+  try {
+    const { error: dbError } = await supabase.from('yil_registrations').insert({
+      full_name: data.fullName,
+      whatsapp_number: data.whatsappNumber,
+      number_of_kids: data.numberOfKids,
+      status: 'pending',
+    });
+
+    if (dbError) {
+      console.error('Supabase insert error:', dbError);
+      return {
+        success: false,
+        message: 'Something went wrong. Please try again or contact us directly.',
+      };
+    }
+
+    return {
+      success: true,
+      message: 'Registration successful! We will contact you on WhatsApp shortly.',
+    };
+  } catch (error) {
+    console.error('Registration error:', error);
+    return {
+      success: false,
+      message: 'Something went wrong. Please try again or contact us directly.',
+    };
+  }
+}
