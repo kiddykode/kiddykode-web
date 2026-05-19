@@ -4,10 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import "../globals.css";
-import { UtilityBar } from "../components/UtilityBar";
-import { Navbar } from "../components/Navbar";
-import { Footer } from "../components/Footer";
-import { PromoModal } from "../components/PromoModal";
+import { LayoutWrapper } from "../components/LayoutWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,11 +45,7 @@ export default async function LocaleLayout({
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable}`} data-accent="bronze" data-type="general-inter">
         <NextIntlClientProvider messages={messages}>
-          <UtilityBar />
-          <Navbar />
-          <main className="flex-grow flex flex-col">{children}</main>
-          <Footer />
-          <PromoModal />
+          <LayoutWrapper>{children}</LayoutWrapper>
         </NextIntlClientProvider>
       </body>
     </html>
