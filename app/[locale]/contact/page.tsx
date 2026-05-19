@@ -69,7 +69,7 @@ export default function ContactPage() {
               <div className={styles.sideCard}>
                 <h4>Looking for the Studio?</h4>
                 <p>If you're a student trying to log into KiddyKode Studio to access your projects, you're in the wrong place.</p>
-                <Link href="#" className="btn btn--link" style={{ marginTop: "16px" }}>Go to Studio Login →</Link>
+                <Link href="studio.kiddykode.com" className="btn btn--link" style={{ marginTop: "16px" }}>Go to Studio Login →</Link>
               </div>
               {/* <div className={styles.sideCard}>
                 <h4>Want to open a chapter?</h4>

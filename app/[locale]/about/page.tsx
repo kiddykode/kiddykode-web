@@ -19,7 +19,7 @@ export default function AboutPage() {
           { label: "Home", href: "/" },
           { label: "About", href: "/about" },
         ]}
-        eyebrow="— THE STORY"
+        eyebrow="THE STORY"
         title="We teach children to build with code, not just use technology."
         lede="KiddyKode is a learning initiative helping children move from passive screen use to confident digital creation. Through structured, project-based coding experiences, children learn to think clearly, build solutions, debug with confidence, and present what they create."
         metaItems={[{ label: "Founded in", value: "2025 | Yaoundé, Cameroon" }]}
@@ -88,19 +88,19 @@ export default function AboutPage() {
       <section
         className={styles.origin}
         id="origin"
-        data-screen-label="02 Origin"
+        data-screen-label="03 Origin"
       >
         <div className="wrap">
           <SectionHead
-            eyebrow="02 / THE ORIGIN"
+            eyebrow="03 / THE ORIGIN"
             title="It started small, and it started with real children."
           />
           <div className={styles.originGrid}>
             <div className={styles.originMedia}>
               <ImagePlaceholder
                 tone="warm"
-                photoUrl="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80"
-                caption="Replace ▸ The first cohort, 2023"
+                photoUrl="https://res.cloudinary.com/dsbm73ojs/image/upload/v1779206577/Capture22_gbx7ja.png"
+                // caption="Replace ▸ The first cohort, 2023"
               />
             </div>
             <div className={styles.originBody}>
@@ -124,11 +124,11 @@ export default function AboutPage() {
       <section
         className={styles.stakes}
         id="why-now"
-        data-screen-label="03 Why Now"
+        data-screen-label="04 Why Now"
       >
         <div className="wrap">
           <SectionHead
-            eyebrow="03 / WHY NOW"
+            eyebrow="04 / WHY NOW"
             title="Africa’s children should help build the digital future, not just inherit it."
             lede="Africa’s young population will shape the next generation of systems, stories, and tools. KiddyKode exists to make sure more children grow up not only as users of technology, but as confident creators with it."
           />
@@ -182,11 +182,11 @@ export default function AboutPage() {
       <section
         className={styles.people}
         id="team"
-        data-screen-label="04 People"
+        data-screen-label="05 People"
       >
         <div className="wrap">
           <SectionHead
-            eyebrow="04 / THE PEOPLE"
+            eyebrow="05 / THE PEOPLE"
             title="Built by educators, builders, and believers in creative learning."
             lede="KiddyKode is being shaped by people who care deeply about how children learn: educators, technologists, and mission-aligned partners committed to helping young learners build with confidence."
           />
@@ -269,11 +269,11 @@ export default function AboutPage() {
       <section
         className={styles.timeline}
         id="timeline"
-        data-screen-label="05 Journey"
+        data-screen-label="06 Journey"
       >
         <div className="wrap">
           <SectionHead
-            eyebrow="05 / THE JOURNEY SO FAR"
+            eyebrow="06 / THE JOURNEY SO FAR"
             title="An idea in 2025. A pilot in March 2026."
           />
           <div className={styles.tlRail}>
@@ -316,11 +316,11 @@ export default function AboutPage() {
       <section
         className={styles.gov}
         id="governance"
-        data-screen-label="06 Governance"
+        data-screen-label="07 Governance"
       >
         <div className="wrap">
           <SectionHead
-            eyebrow="06 / GOVERNANCE"
+            eyebrow="07 / GOVERNANCE"
             title="Guided by accountability and educational purpose."
             lede="KiddyKode is being built with long-term accountability in mind, with input from educators, operators, and mission-aligned advisors. As the organization grows, its governance structure will continue to formalize around educational quality, child safety, and responsible scale."
           />
@@ -330,12 +330,12 @@ export default function AboutPage() {
       <section
         className={styles.partners}
         id="partners"
-        data-screen-label="07 Funding"
+        data-screen-label="08 Funding"
       >
         <div className="wrap">
           <div className={styles.partnersGrid}>
             <div>
-              <span className="eyebrow">07 / FUNDING & PARTNERS</span>
+              <span className="eyebrow">08 / FUNDING & PARTNERS</span>
               <h2 className="mt-[18px]">
                 Supported by people and partners who believe in the mission.
               </h2>
@@ -352,7 +352,13 @@ export default function AboutPage() {
             <div className={styles.partnersRow}>
               <div className={styles.pcell}>Schools</div>
               <div className={styles.pcell}>Donors</div>
-              <div className={styles.pcell}>Mission-aligned organizations</div>
+              <div className={styles.pcell}>
+                <img
+                  src="https://res.cloudinary.com/dsbm73ojs/image/upload/v1779207801/Young_African_Women_Congress_ox6rrz.jpg"
+                  alt="Mission-aligned organizations"
+                  className={styles.partnerImage}
+                />
+              </div>
               <div className={styles.pcell}>Future partners</div>
             </div>
           </div>
@@ -362,11 +368,11 @@ export default function AboutPage() {
       <section
         className={styles.press}
         id="contact"
-        data-screen-label="08 Contact"
+        data-screen-label="09 Contact"
       >
         <div className="wrap">
           <SectionHead
-            eyebrow="08 / GET IN TOUCH"
+            eyebrow="09 / GET IN TOUCH"
             title="Partnerships, enquiries, and next steps."
           />
           <div className={styles.pressGrid}>

@@ -128,7 +128,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                     <span className={styles.dot}></span>
                     {t("pathways.featured")}
                   </span>
-                  <span>Ages 8 – 16</span>
+                  <span>Ages 8 – 17</span>
                   <span>In-school</span>
                 </div>
                 <h3>{t("pathways.schoolClubs.title")}</h3>
@@ -152,7 +152,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <span>
                     <span className={styles.dot}></span>Live Online
                   </span>
-                  <span>Ages 8–16</span>
+                  <span>Ages 8–17</span>
                 </div>
                 <h3>{t("pathways.live.title")}</h3>
                 <p>{t("pathways.live.body")}</p>
@@ -175,7 +175,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <span>
                     <span className={styles.dot}></span>SELF-PACED Online
                   </span>
-                  <span>Ages 8–16</span>
+                  <span>Ages 8–17</span>
                 </div>
                 <h3>{t("pathways.studio.title")}</h3>
                 <p>{t("pathways.studio.body")}</p>
