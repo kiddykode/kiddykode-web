@@ -72,7 +72,7 @@ export function YilRegistrationModal({ isOpen, onClose }: Props) {
         {/* Header */}
         <div className="bg-yil-card border-b border-yil-line text-yil-fg px-6 py-4 flex items-center gap-3">
           <UserPlusIcon />
-          <h2 className="text-xl font-extrabold tracking-tight">Register Now</h2>
+          <h2 className="text-xl font-extrabold tracking-tight text-yil-fg">Register Now</h2>
           <button
             onClick={onClose}
             className="ml-auto text-gray-400 hover:text-white transition-colors"
@@ -127,7 +127,7 @@ export function YilRegistrationModal({ isOpen, onClose }: Props) {
                   htmlFor="fullName"
                   className="block text-sm font-extrabold text-yil-fg mb-1"
                 >
-                  Full name / Nom et prénom <span className="text-red-500">*</span>
+                  Full name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"

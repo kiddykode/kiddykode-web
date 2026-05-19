@@ -140,7 +140,8 @@ const Hi = ({ children }: { children: React.ReactNode }) => (
     style={{
       background: "#FFD93B",
       color: "#0A0A0A",
-      padding: "2px 5px",
+      padding: "1px 4px",
+      margin: "0 2px",
       borderRadius: "4px",
       boxDecorationBreak: "clone",
       WebkitBoxDecorationBreak: "clone",
@@ -258,7 +259,7 @@ export default function YILLandingPage() {
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-yil-warn animate-[yilpulseHi_2.2s_infinite]" />
             </div>
 
-            <h1 className="mt-5 font-extrabold tracking-yil-tighter2 text-[34px] leading-[1.08] sm:text-[44px] lg:text-[58px] lg:leading-[1.04] max-w-[22ch] mx-auto">
+            <h1 className="mt-5 font-extrabold tracking-yil-tighter2 text-[34px] leading-[1.2] sm:text-[44px] lg:text-[58px] lg:leading-[1.15] max-w-[22ch] mx-auto text-yil-fg">
               Give your child a holiday that <Hi>teaches, builds, and inspires</Hi>
             </h1>
             <p className="mt-5 text-[15.5px] lg:text-[17px] text-yil-fg2 max-w-[58ch] mx-auto leading-[1.55]">
@@ -326,7 +327,7 @@ export default function YILLandingPage() {
             <div className="mt-10 max-w-[760px] mx-auto">
               <div className="relative rounded-2xl overflow-hidden border border-yil-line">
                 <Image
-                  src="/yil/bootcamp-photo.jpg"
+                  src="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778909992/for_flier_too_rjsrey.jpg"
                   alt="Students at YIL building circuits and writing code together"
                   width={1520}
                   height={1000}
@@ -426,7 +427,7 @@ export default function YILLandingPage() {
         {/* ================= WHY JOIN ================= */}
         <section id="program" className="relative bg-white text-black">
           <div className="mx-auto max-w-[1100px] px-4 lg:px-6 py-16 lg:py-20">
-            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] lg:text-[44px] leading-[1.1] text-black">
+            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] lg:text-[44px] leading-[1.2] text-black">
               Why parents <Hi>choose YIL</Hi> for the holidays
             </h2>
             <p className="mt-3 text-center text-gray-600 max-w-[58ch] mx-auto text-[15px]">
@@ -506,7 +507,7 @@ export default function YILLandingPage() {
         {/* ================= NEWS-STYLE SOCIAL PROOF ================= */}
         <section className="bg-yil-card2 border-y border-yil-line">
           <div className="mx-auto max-w-[1100px] px-4 lg:px-6 py-16 lg:py-20">
-            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.1]">
+            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.2] text-yil-fg">
               <HiLine>Kids who can</HiLine> solve problems <Hi>will stand out</Hi>
             </h2>
             <p className="mt-3 text-center text-yil-fg2 max-w-[58ch] mx-auto text-[15px]">
@@ -516,8 +517,8 @@ export default function YILLandingPage() {
             {/* Stats */}
             <div className="mt-10 grid sm:grid-cols-3 gap-3">
               {[
-                { n: "230M+", d: <>Young Africans needing digital skills <span className="text-yil-fg2">— ITU, 2025</span></> },
-                { n: "3.5M", d: <>Tech jobs forecast across Africa by 2030 <span className="text-yil-fg2">— Google / IFC</span></> },
+                { n: "230M+", d: <>digital-skill-related jobs in Sub-Saharan Africa by 2030. <span className="text-yil-fg2">— IFC</span></> },
+                { n: "650M", d: <>training opportunities by 2030 <span className="text-yil-fg2">— IFC</span></> },
                 { n: "5×", d: <>Higher employability for tech-literate graduates <span className="text-yil-fg2">— World Bank</span></> },
               ].map((s, i) => (
                 <div key={i} className="bg-yil-card border border-yil-line rounded-xl p-5 text-center">
@@ -530,8 +531,8 @@ export default function YILLandingPage() {
             {/* News cards */}
             <div className="mt-8 grid md:grid-cols-3 gap-3">
               {[
-                { name: <span className="font-yil-serif italic">Cameroon Tribune</span>, quote: "\u201CCameroon's youth must master coding to compete in the new African digital market.\u201D", tag: "Education · 2025" },
-                { name: <span>Jeune Afrique</span>, quote: "\u201CAfrica's next wave of founders is being trained right now — at 14, not 24.\u201D", tag: "Innovation · 2025" },
+                { name: <span className="font-yil-serif italic">Cameroon Tribune</span>, quote: "\u201CRegional policy and education reporting consistently highlights Africa’s digital-skills gap.\u201D", tag: "Education · 2025" },
+                { name: <span>Jeune Afrique</span>, quote: "\u201CAfrica’s youth need stronger pathways from digital literacy to creation and problem-solving.\u201D", tag: "Innovation · 2025" },
                 { name: <span className="font-extrabold">TechCabal</span>, quote: "\u201CHands-on bootcamps are out-performing traditional CS curricula for early-stage learners.\u201D", tag: "Skills · 2025" },
               ].map((n, i) => (
                 <article key={i} className="bg-yil-card border border-yil-line rounded-[10px] overflow-hidden">
@@ -558,7 +559,7 @@ export default function YILLandingPage() {
                 Reserve before midnight · 65,000 FCFA
                 <ArrowRight className="h-4 w-4" />
               </button>
-              <div className="mt-2 font-yil-mono text-[11px] text-yil-fg2">Register before midnight, June 15 — to unlock bonuses worth 10,500 FCFA</div>
+              <div className="mt-2 font-yil-mono text-[11px] text-yil-fg2">Register before midnight, June 15 — to get a discount of 10,500 FCFA</div>
             </div>
           </div>
         </section>
@@ -566,7 +567,7 @@ export default function YILLandingPage() {
         {/* ================= IS THIS FOR YOU ================= */}
         <section className="bg-white text-black">
           <div className="mx-auto max-w-[1100px] px-4 lg:px-6 py-16 lg:py-20">
-            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.1] text-black">
+            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.2] text-black">
               Is this bootcamp <Hi>for your child</Hi>?
             </h2>
             <p className="mt-3 text-center text-gray-600 max-w-[60ch] mx-auto text-[15px]">
@@ -711,7 +712,7 @@ export default function YILLandingPage() {
         {/* ================= CERTIFICATE PREVIEW ================= */}
         <section className="bg-yil-card2 border-y border-yil-line">
           <div className="mx-auto max-w-[1100px] px-4 lg:px-6 py-16 lg:py-20">
-            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.1]">
+            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.2] text-yil-fg">
               Your child&apos;s name on a <Hi>YIL completion certificate</Hi>
             </h2>
             <p className="mt-3 text-center text-yil-fg2 max-w-[58ch] mx-auto text-[15px]">
@@ -734,7 +735,7 @@ export default function YILLandingPage() {
                 </div>
                 <div className="mt-8 flex items-center justify-between gap-4">
                   <div className="text-left flex-1 max-w-[160px]">
-                    <div className="font-yil-serif italic text-[20px]">Aditya / YIL</div>
+                    <div className="font-yil-serif italic text-[20px]">Chiella Harriet / YIL</div>
                     <div className="text-[10px] font-yil-mono uppercase tracking-wider text-yil-fg3">Lead Instructor</div>
                   </div>
                   <div className="h-14 w-14 rounded-full bg-yil-bg/10 border border-yil-bg/20 flex items-center justify-center">
@@ -766,7 +767,7 @@ export default function YILLandingPage() {
         {/* ================= MENTORS ================= */}
         <section className="bg-white text-black">
           <div className="mx-auto max-w-[1100px] px-4 lg:px-6 py-16 lg:py-20">
-            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.1] text-black">
+            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.2] text-black">
               Know your <Hi>mentors</Hi>
             </h2>
             <p className="mt-3 text-center text-gray-600 max-w-[58ch] mx-auto text-[15px]">
@@ -780,11 +781,12 @@ export default function YILLandingPage() {
                   name: "Chiella Harriet",
                   img: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1778875749/Untitled_design_samdro.png",
                   bullets: ["Kiddykode co-founder · 8+ years teaching", "Python · electronics · Design Thinking"],
-                  bio: <>Hi, I&apos;m leading the YIL programme this year. I&apos;ve taught over 600 students in Cameroon — I know how to take a beginner to a working project in 4 weeks. <span className="text-yil-hi-dk font-bold">Come build with us.</span></>,
+                  bio: <>Hi, I&apos;m leading the YIL programme this year. It shall be exciting taking beginners to a working project in 4 weeks. <span className="text-yil-hi-dk font-bold">Come build with us.</span></>,
                 },
                 {
                   role: "Programme Director",
-                  name: "[ Mentor Name 02 ]",
+                  name: "Mbah Matt-Klaus",
+                  img: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1779163880/Mbah_Matt-Klaus_orxaah.jpg",
                   bullets: ["PlastiBytes engineer · electronics specialist", "Circuits · microcontrollers · Pitch Day coaching"],
                   bio: <>I&apos;ll be running the electronics and prototyping track. We work with real components — what your child builds at YIL <span className="text-yil-hi-dk font-bold">is theirs to take home</span>.</>,
                 },
@@ -842,7 +844,7 @@ export default function YILLandingPage() {
         {/* ================= SESSIONS + PRICING ================= */}
         <section className="bg-yil-card2 border-y border-yil-line">
           <div className="mx-auto max-w-[1100px] px-4 lg:px-6 py-16 lg:py-20">
-            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.1]">
+            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.2] text-yil-fg">
               Pick your <Hi>session & lock the price</Hi>
             </h2>
             <p className="mt-3 text-center text-yil-fg2 max-w-[58ch] mx-auto text-[15px]">
@@ -883,7 +885,7 @@ export default function YILLandingPage() {
                     <Eyebrow>{s.tag}</Eyebrow>
                     {s.badge}
                   </div>
-                  <h3 className="mt-3 font-extrabold text-[28px] tracking-yil-tighter2">{s.title}</h3>
+                  <h3 className="mt-3 font-extrabold text-[28px] tracking-yil-tighter2 text-yil-fg">{s.title}</h3>
                   <ul className="mt-4 space-y-1.5 text-[13.5px] text-yil-fg2">
                     {s.bullets.map((b) => (
                       <li key={b} className="flex items-center gap-2">
@@ -933,7 +935,7 @@ export default function YILLandingPage() {
         {/* ================= HOW IT WORKS ================= */}
         <section>
           <div className="mx-auto max-w-[1100px] px-4 lg:px-6 py-16 lg:py-20">
-            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.1]">
+            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.2] text-yil-fg">
               How to reserve in <Hi>3 simple steps</Hi>
             </h2>
 
@@ -945,7 +947,7 @@ export default function YILLandingPage() {
               ].map((step) => (
                 <div key={step.n} className="bg-yil-card border border-yil-line rounded-xl p-5 text-center">
                   <div className="font-extrabold text-yil-hi text-[44px] leading-none tracking-yil-tighter3">{step.n}</div>
-                  <h3 className="mt-3 font-bold text-[16px]">{step.t}</h3>
+                  <h3 className="mt-3 font-bold text-[16px] text-yil-fg">{step.t}</h3>
                   <p className="mt-2 text-[13px] text-yil-fg2">{step.d}</p>
                 </div>
               ))}
@@ -956,7 +958,7 @@ export default function YILLandingPage() {
         {/* ================= FAQ ================= */}
         <section className="bg-white text-black border-y border-gray-200">
           <div className="mx-auto max-w-[860px] px-4 lg:px-6 py-16 lg:py-20">
-            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.1] text-black">
+            <h2 className="text-center font-extrabold tracking-yil-tighter2 text-[28px] sm:text-[36px] leading-[1.2] text-black">
               Frequently <Hi>asked</Hi> questions
             </h2>
             <p className="mt-3 text-center text-gray-600 max-w-[58ch] mx-auto text-[15px]">
@@ -1001,7 +1003,7 @@ export default function YILLandingPage() {
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-yil-warn animate-[yilpulseHi_2.2s_infinite]" />
               ONLY 18 SEATS LEFT IN SESSION 01
             </div>
-            <h2 className="mt-6 font-extrabold tracking-yil-tighter3 text-[40px] sm:text-[64px] lg:text-[88px] leading-[0.95] max-w-[20ch] mx-auto">
+            <h2 className="mt-6 font-extrabold tracking-yil-tighter3 text-[40px] sm:text-[64px] lg:text-[88px] leading-[1.15] max-w-[20ch] mx-auto text-yil-fg">
               A productive holiday <Hi>is a choice</Hi>
             </h2>
             <p className="mt-6 text-yil-fg2 max-w-[58ch] mx-auto text-[16px]">

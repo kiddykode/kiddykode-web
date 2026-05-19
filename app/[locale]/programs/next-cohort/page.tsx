@@ -75,6 +75,7 @@ export default function NextCohortPage() {
               <div className={styles.infoGroup}>
                 <span className={styles.infoLabel}>Schedule</span>
                 <span className={styles.infoValue}>Every week · 5:30 PM (Cameroon Time)</span>
+                <span className={styles.infoValue}>Every week · 9:00 PM (Cameroon Time for Participants Abroad)</span>
               </div>
               <div className={styles.infoGroup}>
                 <span className={styles.infoLabel}>Start Date</span>
@@ -94,7 +95,8 @@ export default function NextCohortPage() {
               </div>
               <div className={styles.infoGroup}>
                 <span className={styles.infoLabel}>Program Fee</span>
-                <span className={styles.infoValue}>50,000 FRS</span>
+                <span className={styles.infoValue}>50,000 FRS (Cameroon)</span>
+                <span className={styles.infoValue}>65,000 FRS (Abroad)</span>
               </div>
               <div className={styles.infoGroup}>
                 <span className={styles.infoLabel}>Early Bird</span>
@@ -113,7 +115,7 @@ export default function NextCohortPage() {
                 src="/explorer-cohort-june-2026.jpeg" 
                 alt="Explorer Live Session Flyer — June 2026" 
                 width={800} 
-                height={1000} 
+                height={800} 
                 style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
               />
             </div>
