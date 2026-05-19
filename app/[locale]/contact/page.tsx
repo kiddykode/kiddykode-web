@@ -71,17 +71,17 @@ export default function ContactPage() {
                 <p>If you're a student trying to log into KiddyKode Studio to access your projects, you're in the wrong place.</p>
                 <Link href="#" className="btn btn--link" style={{ marginTop: "16px" }}>Go to Studio Login →</Link>
               </div>
-              <div className={styles.sideCard}>
+              {/* <div className={styles.sideCard}>
                 <h4>Want to open a chapter?</h4>
                 <p>We provide the curriculum, the mentor training playbook, and the brand. You provide the space and the community.</p>
                 <Link href="#" className="btn btn--link" style={{ marginTop: "16px" }}>Read the chapter guide →</Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.offices} id="offices" data-screen-label="Offices">
+      {/* <section className={styles.offices} id="offices" data-screen-label="Offices">
         <div className="wrap">
           <SectionHead
             eyebrow="Locations"
@@ -153,7 +153,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className={styles.safe} id="safeguarding" data-screen-label="Safeguarding">
         <div className="wrap">

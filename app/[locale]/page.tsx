@@ -31,22 +31,24 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="wrap">
           <div className="section-head">
             <div>
-              <span className="eyebrow">{t('mission.eyebrow')}</span>
+              <span className="eyebrow">{t("mission.eyebrow")}</span>
             </div>
             <div></div>
           </div>
           <div className={styles.missionGrid}>
             <div className={styles.missionStatement}>
-              {t('mission.statement')}
+              {t("mission.statement")}
             </div>
             <div className={styles.missionBody}>
-              <p>{t('mission.body')}</p>
+              <p>{t("mission.body")}</p>
             </div>
           </div>
           <div className={styles.principles}>
             {[0, 1, 2].map((i) => (
               <div key={i} className={styles.principle}>
-                <span className={styles.num}>{String(i + 1).padStart(2, '0')}</span>
+                <span className={styles.num}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <h4>{t(`mission.principles.${i}.title`)}</h4>
                 <p>{t(`mission.principles.${i}.body`)}</p>
               </div>
@@ -63,17 +65,19 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="wrap">
           <div className="section-head">
             <div className="heading">
-              <span className="eyebrow">{t('impact.eyebrow')}</span>
-              <h2 className="mt-[18px]">{t('impact.title')}</h2>
+              <span className="eyebrow">{t("impact.eyebrow")}</span>
+              <h2 className="mt-[18px]">{t("impact.title")}</h2>
             </div>
             <div>
-              <p className="lede">{t('impact.lede')}</p>
+              <p className="lede">{t("impact.lede")}</p>
             </div>
           </div>
           <div className={styles.impactGrid}>
             {[0, 1, 2, 3].map((i) => (
               <div key={i} className={styles.impactCell}>
-                <div className={styles.label}>{t(`impact.cells.${i}.label`)}</div>
+                <div className={styles.label}>
+                  {t(`impact.cells.${i}.label`)}
+                </div>
                 {t.has(`impact.cells.${i}.num`) && (
                   <div className={styles.num}>{t(`impact.cells.${i}.num`)}</div>
                 )}
@@ -82,8 +86,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             ))}
           </div>
           <div className={styles.impactFootnote}>
-            <span className="mono">{t('impact.source')}</span>
-            <Link href="#" className="btn btn--link">{t('impact.reportLink')}</Link>
+            <span className="mono">{t("impact.source")}</span>
+            <Link href="#" className="btn btn--link">
+              {t("impact.reportLink")}
+            </Link>
           </div>
         </div>
       </section>
@@ -96,11 +102,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="wrap">
           <div className="section-head">
             <div className="heading">
-              <span className="eyebrow">{t('pathways.eyebrow')}</span>
-              <h2 className="mt-[18px]">{t('pathways.title')}</h2>
+              <span className="eyebrow">{t("pathways.eyebrow")}</span>
+              <h2 className="mt-[18px]">{t("pathways.title")}</h2>
             </div>
             <div>
-              <p className="lede">{t('pathways.lede')}</p>
+              <p className="lede">{t("pathways.lede")}</p>
             </div>
           </div>
 
@@ -119,15 +125,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <div className={styles.pathwayBody}>
                 <div className={styles.meta}>
                   <span>
-                    <span className={styles.dot}></span>{t('pathways.featured')}
+                    <span className={styles.dot}></span>
+                    {t("pathways.featured")}
                   </span>
                   <span>Ages 8 – 16</span>
                   <span>In-school</span>
                 </div>
-                <h3>{t('pathways.schoolClubs.title')}</h3>
-                <p>{t('pathways.schoolClubs.body')}</p>
+                <h3>{t("pathways.schoolClubs.title")}</h3>
+                <p>{t("pathways.schoolClubs.body")}</p>
                 <span className={styles.pathwayCta}>
-                  {t('pathways.schoolClubs.cta')} <span>→</span>
+                  {t("pathways.schoolClubs.cta")} <span>→</span>
                 </span>
               </div>
             </Link>
@@ -147,10 +154,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   </span>
                   <span>Ages 8–16</span>
                 </div>
-                <h3>{t('pathways.live.title')}</h3>
-                <p>{t('pathways.live.body')}</p>
+                <h3>{t("pathways.live.title")}</h3>
+                <p>{t("pathways.live.body")}</p>
                 <span className={styles.pathwayCta}>
-                  {t('pathways.live.cta')} <span>→</span>
+                  {t("pathways.live.cta")} <span>→</span>
                 </span>
               </div>
             </Link>
@@ -159,8 +166,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <div className={styles.pathwayImage}>
                 <ImagePlaceholder
                   tone="cool"
-                  photoUrl="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=80"
-                  caption="Replace ▸ Community club night, mentor + peers"
+                  photoUrl="https://res.cloudinary.com/dsbm73ojs/image/upload/v1779197414/kiddykode_studio_ml3y6q.png"
+                  // caption="Replace ▸ Community club night, mentor + peers"
                 />
               </div>
               <div className={styles.pathwayBody}>
@@ -170,10 +177,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   </span>
                   <span>Ages 8–16</span>
                 </div>
-                <h3>{t('pathways.studio.title')}</h3>
-                <p>{t('pathways.studio.body')}</p>
+                <h3>{t("pathways.studio.title")}</h3>
+                <p>{t("pathways.studio.body")}</p>
                 <span className={styles.pathwayCta}>
-                  {t('pathways.studio.cta')} <span>→</span>
+                  {t("pathways.studio.cta")} <span>→</span>
                 </span>
               </div>
             </Link>
@@ -193,10 +200,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   </span>
                   <span>4-week intensive</span>
                 </div>
-                <h3>{t('pathways.bootcamps.title')}</h3>
-                <p>{t('pathways.bootcamps.body')}</p>
+                <h3>{t("pathways.bootcamps.title")}</h3>
+                <p>{t("pathways.bootcamps.body")}</p>
                 <span className={styles.pathwayCta}>
-                  {t('pathways.bootcamps.cta')} <span>→</span>
+                  {t("pathways.bootcamps.cta")} <span>→</span>
                 </span>
               </div>
             </Link>
@@ -208,29 +215,31 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="wrap">
           <div className="section-head">
             <div className="heading">
-              <span className={styles.eyebrow}>{t('why.eyebrow')}</span>
+              <span className={styles.eyebrow}>{t("why.eyebrow")}</span>
             </div>
             <div></div>
           </div>
           <div className={styles.whyGrid}>
             <div>
-              <h2>{t('why.headline')}</h2>
+              <h2>{t("why.headline")}</h2>
             </div>
             <div className={styles.whyBody}>
-              <p>{t('why.body')}</p>
+              <p>{t("why.body")}</p>
             </div>
           </div>
           <div className={styles.pullquote}>
             <div>
-              <div className={styles.quote}>{t('why.quote')}</div>
-              <div className={styles.attribution}>{t('why.attribution')}</div>
+              <div className={styles.quote}>{t("why.quote")}</div>
+              <div className={styles.attribution}>{t("why.attribution")}</div>
             </div>
             <div></div>
           </div>
           <div className={styles.whyThemes}>
             {[0, 1, 2].map((i) => (
               <div key={i} className={styles.theme}>
-                <span className={styles.marker}>// {String(i + 1).padStart(2, '0')}</span>
+                <span className={styles.marker}>
+                  // {String(i + 1).padStart(2, "0")}
+                </span>
                 <h4>{t(`why.themes.${i}.title`)}</h4>
                 <p>{t(`why.themes.${i}.body`)}</p>
               </div>
@@ -247,11 +256,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="wrap">
           <div className="section-head">
             <div className="heading">
-              <span className="eyebrow">{t('stories.eyebrow')}</span>
-              <h2 className="mt-[18px]">{t('stories.title')}</h2>
+              <span className="eyebrow">{t("stories.eyebrow")}</span>
+              <h2 className="mt-[18px]">{t("stories.title")}</h2>
             </div>
             <div>
-              <p className="lede">{t('stories.lede')}</p>
+              <p className="lede">{t("stories.lede")}</p>
             </div>
           </div>
           <div className={styles.storiesGrid}>
@@ -333,7 +342,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 href="/stories"
                 style={{ alignSelf: "flex-start", marginTop: "8px" }}
               >
-                {t('stories.readAll')} <span className="arrow">→</span>
+                {t("stories.readAll")} <span className="arrow">→</span>
               </Link>
             </div>
           </div>
@@ -348,17 +357,19 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="wrap">
           <div className="section-head">
             <div>
-              <span className="eyebrow">{t('chapters.eyebrow')}</span>
-              <h2 className="mt-[18px]">{t('chapters.title')}</h2>
+              <span className="eyebrow">{t("chapters.eyebrow")}</span>
+              <h2 className="mt-[18px]">{t("chapters.title")}</h2>
             </div>
             <div>
-              <p className={styles.missionBody}>{t('chapters.body')}</p>
+              <p className={styles.missionBody}>{t("chapters.body")}</p>
             </div>
           </div>
           <div className={styles.principles4}>
             {[0, 1, 2, 3].map((i) => (
               <div key={i} className={styles.principle}>
-                <span className={styles.num}>{String(i + 1).padStart(2, '0')}</span>
+                <span className={styles.num}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <h4>{t(`chapters.principles.${i}.title`)}</h4>
                 <p>{t(`chapters.principles.${i}.body`)}</p>
               </div>
@@ -375,11 +386,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="wrap">
           <div className={styles.partnersHead}>
             <div>
-              <span className="eyebrow">{t('partners.eyebrow')}</span>
-              <h2 className="mt-[18px]">{t('partners.title')}</h2>
+              <span className="eyebrow">{t("partners.eyebrow")}</span>
+              <h2 className="mt-[18px]">{t("partners.title")}</h2>
             </div>
             <div>
-              <p className="lede">{t('partners.lede')}</p>
+              <p className="lede">{t("partners.lede")}</p>
             </div>
           </div>
           <div className={styles.partnersGrid}>
@@ -425,15 +436,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
           </div>
           <div className={styles.partnersNote}>
-            <span className={styles.label}>{t('partners.partnerCta')}</span>
+            <span className={styles.label}>{t("partners.partnerCta")}</span>
             <p>
-              {t('partners.partnerNote')}{" "}
+              {t("partners.partnerNote")}{" "}
               <Link
                 href="/partners"
                 className="btn btn--link"
                 style={{ display: "inline-block", marginLeft: "8px" }}
               >
-                {t('partners.partnerLink')}
+                {t("partners.partnerLink")}
               </Link>
             </p>
           </div>
@@ -448,18 +459,20 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="wrap">
           <div className="section-head">
             <div className="heading">
-              <span className="eyebrow">{t('studioSection.eyebrow')}</span>
+              <span className="eyebrow">{t("studioSection.eyebrow")}</span>
             </div>
             <div></div>
           </div>
           <div className={styles.studioGrid}>
             <div className={styles.studioCopy}>
-              <h2>{t('studioSection.title')}</h2>
-              <p>{t('studioSection.body')}</p>
+              <h2>{t("studioSection.title")}</h2>
+              <p>{t("studioSection.body")}</p>
               <div className={styles.studioFeatures}>
                 {[0, 1, 2].map((i) => (
                   <div key={i} className={styles.studioFeature}>
-                    <div className={styles.n}>{String(i + 1).padStart(2, '0')}</div>
+                    <div className={styles.n}>
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
                     <div>
                       <h4>{t(`studioSection.features.${i}.title`)}</h4>
                       <p>{t(`studioSection.features.${i}.body`)}</p>
@@ -468,7 +481,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 ))}
               </div>
               <Link href="/programs" className="btn btn--ghost">
-                {t('studioSection.cta')}<span className="arrow">→</span>
+                {t("studioSection.cta")}
+                <span className="arrow">→</span>
               </Link>
             </div>
             <div className={styles.browser}>
@@ -487,7 +501,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <div className={styles.studioSide}>
                   <div className={styles.group}>
                     <div className={styles.groupLabel}>Project Files</div>
-                    <div className={`${styles.item} ${styles.active}`}>app.js</div>
+                    <div className={`${styles.item} ${styles.active}`}>
+                      app.js
+                    </div>
                     <div className={styles.item}>index.html</div>
                     <div className={styles.item}>styles.css</div>
                   </div>
@@ -505,7 +521,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   </div>
                   <pre>
                     <span className={styles.ln}>1</span>
-                    <span className={styles.com}>{"// Medicine Map Logic"}</span>
+                    <span className={styles.com}>
+                      {"// Medicine Map Logic"}
+                    </span>
                     <br />
                     <span className={styles.ln}>2</span>
                     <span className={styles.kw}>const</span> herbs = [<br />
@@ -572,31 +590,31 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <section className={styles.final} data-screen-label="10 Final">
         <div className="wrap">
-          <span className={styles.eyebrow}>{t('final.eyebrow')}</span>
-          <h2>{t('final.title')}</h2>
+          <span className={styles.eyebrow}>{t("final.eyebrow")}</span>
+          <h2>{t("final.title")}</h2>
           <div className={styles.finalPaths}>
             <div className={styles.finalPath}>
-              <span className={styles.pn}>{t('final.schools.label')}</span>
-              <h3>{t('final.schools.title')}</h3>
-              <p>{t('final.schools.body')}</p>
+              <span className={styles.pn}>{t("final.schools.label")}</span>
+              <h3>{t("final.schools.title")}</h3>
+              <p>{t("final.schools.body")}</p>
               <Link href="/contact" className="btn btn--primary">
-                {t('final.schools.cta')}
+                {t("final.schools.cta")}
               </Link>
             </div>
             <div className={styles.finalPath}>
-              <span className={styles.pn}>{t('final.parents.label')}</span>
-              <h3>{t('final.parents.title')}</h3>
-              <p>{t('final.parents.body')}</p>
+              <span className={styles.pn}>{t("final.parents.label")}</span>
+              <h3>{t("final.parents.title")}</h3>
+              <p>{t("final.parents.body")}</p>
               <Link href="/programs" className="btn btn--ghost">
-                {t('final.parents.cta')}
+                {t("final.parents.cta")}
               </Link>
             </div>
             <div className={styles.finalPath}>
-              <span className={styles.pn}>{t('final.partnersPath.label')}</span>
-              <h3>{t('final.partnersPath.title')}</h3>
-              <p>{t('final.partnersPath.body')}</p>
+              <span className={styles.pn}>{t("final.partnersPath.label")}</span>
+              <h3>{t("final.partnersPath.title")}</h3>
+              <p>{t("final.partnersPath.body")}</p>
               <Link href="/partners" className="btn btn--ghost">
-                {t('final.partnersPath.cta')}
+                {t("final.partnersPath.cta")}
               </Link>
             </div>
           </div>
