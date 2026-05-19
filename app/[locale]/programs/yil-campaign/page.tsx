@@ -736,7 +736,7 @@ export default function YILLandingPage() {
                 <div className="mt-8 flex items-center justify-between gap-4">
                   <div className="text-left flex-1 max-w-[160px]">
                     <div className="font-yil-serif italic text-[20px]">Chiella Harriet / YIL</div>
-                    <div className="text-[10px] font-yil-mono uppercase tracking-wider text-yil-fg3">Lead Instructor</div>
+                    <div className="text-[10px] font-yil-mono uppercase tracking-wider text-yil-fg3">Programme Director</div>
                   </div>
                   <div className="h-14 w-14 rounded-full bg-yil-bg/10 border border-yil-bg/20 flex items-center justify-center">
                     <svg viewBox="0 0 24 24" className="h-7 w-7 text-yil-bg/70" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -746,7 +746,7 @@ export default function YILLandingPage() {
                   </div>
                   <div className="text-right flex-1 max-w-[160px]">
                     <div className="font-yil-serif italic text-[20px]">YIL Faculty</div>
-                    <div className="text-[10px] font-yil-mono uppercase tracking-wider text-yil-fg3">Programme Director</div>
+                    <div className="text-[10px] font-yil-mono uppercase tracking-wider text-yil-fg3">Lead Instructor</div>
                   </div>
                 </div>
               </div>
@@ -777,17 +777,17 @@ export default function YILLandingPage() {
             <div className="mt-10 grid md:grid-cols-2 gap-5">
               {[
                 {
-                  role: "Lead Instructor",
+                  role: "Programme Director",
                   name: "Chiella Harriet",
                   img: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1778875749/Untitled_design_samdro.png",
-                  bullets: ["Kiddykode co-founder · 8+ years teaching", "Python · electronics · Design Thinking"],
+                  bullets: ["Kiddykode co-founder · 3+ years teaching", "Python · Design Thinking"],
                   bio: <>Hi, I&apos;m leading the YIL programme this year. It shall be exciting taking beginners to a working project in 4 weeks. <span className="text-yil-hi-dk font-bold">Come build with us.</span></>,
                 },
                 {
-                  role: "Programme Director",
+                  role: "Lead Instructor",
                   name: "Mbah Matt-Klaus",
                   img: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1779163880/Mbah_Matt-Klaus_orxaah.jpg",
-                  bullets: ["PlastiBytes engineer · electronics specialist", "Circuits · microcontrollers · Pitch Day coaching"],
+                  bullets: ["PlastiBytes Material engineer.", "Community Development Specialist · Pitch Day coaching"],
                   bio: <>I&apos;ll be running the electronics and prototyping track. We work with real components — what your child builds at YIL <span className="text-yil-hi-dk font-bold">is theirs to take home</span>.</>,
                 },
               ].map((m: any) => (
