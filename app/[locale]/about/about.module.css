@@ -89,8 +89,9 @@
 
 .partners { border-bottom: 1px solid var(--color-line); }
 .partnersGrid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
-.partnersRow { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--color-line); border-left: 1px solid var(--color-line); }
+.partnersRow { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--color-line); border-left: 1px solid var(--color-line); }
 .pcell { aspect-ratio: 16/9; border-right: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); display: grid; place-items: center; color: var(--color-ink-300); font-family: var(--font-display); font-weight: 600; font-size: 18px; letter-spacing: -0.02em; }
+.pcell img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .press { background: var(--color-sand-100); border-bottom: 1px solid var(--color-line); }
 .pressGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
