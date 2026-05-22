@@ -17,6 +17,26 @@ const transporter = nodemailer.createTransport({
 const fromAddress = process.env.EMAIL_FROM || process.env.SMTP_USER || '';
 const contactEmail = process.env.CONTACT_EMAIL || fromAddress;
 
+// Helper to handle dummy SMTP in development
+async function sendEmail(options: any) {
+  const isDummy = !process.env.SMTP_USER || 
+                  process.env.SMTP_USER === 'kiddykode@gmail.com' || 
+                  process.env.SMTP_PASS === 'somrStrong@Guava678';
+  if (isDummy) {
+    console.log('\n✉️ [SMTP Dummy Mode] Email Log:');
+    console.log(`   From:    ${options.from}`);
+    console.log(`   To:      ${options.to}`);
+    console.log(`   Subject: ${options.subject}`);
+    console.log(`   HTML (truncated): ${options.html.replace(/\s+/g, ' ').substring(0, 200)}...\n`);
+    return;
+  }
+  try {
+    await transporter.sendMail(options);
+  } catch (error) {
+    console.error('❌ Failed to send email via SMTP transporter:', error);
+  }
+}
+
 // ────────────────────────────────────────────
 // Contact Form Notification
 // ────────────────────────────────────────────
@@ -39,7 +59,7 @@ export async function sendContactNotification(data: ContactNotificationData) {
     other: '📬 Other',
   };
 
-  await transporter.sendMail({
+  await sendEmail({
     from: `"KiddyKode Website" <${fromAddress}>`,
     to: contactEmail,
     replyTo: data.email,
@@ -83,7 +103,7 @@ interface RegistrationConfirmationData {
 }
 
 export async function sendRegistrationConfirmation(data: RegistrationConfirmationData) {
-  await transporter.sendMail({
+  await sendEmail({
     from: `"KiddyKode" <${fromAddress}>`,
     to: data.guardianEmail,
     subject: `Welcome to ${data.cohortName} — ${data.childName} is registered!`,
@@ -122,7 +142,7 @@ export async function sendRegistrationConfirmation(data: RegistrationConfirmatio
   });
 
   // Also notify the team
-  await transporter.sendMail({
+  await sendEmail({
     from: `"KiddyKode Website" <${fromAddress}>`,
     to: contactEmail,
     subject: `[Registration] ${data.childName} — ${data.cohortName}`,
