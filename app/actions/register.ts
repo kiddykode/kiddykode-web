@@ -25,9 +25,11 @@ export async function registerForCohort(
     consent: formData.get('consent'),
   };
 
+  console.log('[registerForCohort] Raw form data received:', raw);
   const result = registrationSchema.safeParse(raw);
 
   if (!result.success) {
+    console.log('[registerForCohort] Validation failed:', result.error.flatten().fieldErrors);
     return {
       success: false,
       message: 'Please fix the errors below.',
@@ -40,6 +42,7 @@ export async function registerForCohort(
 
   try {
     // 2. Insert into Supabase (unique constraint catches duplicates)
+    console.log('[registerForCohort] Attempting Supabase insert for:', data.childName);
     const { error: dbError } = await supabase.from('cohort_registrations').insert({
       cohort_name: cohortName,
       child_name: data.childName,
@@ -53,6 +56,7 @@ export async function registerForCohort(
     });
 
     if (dbError) {
+      console.error('[registerForCohort] Supabase insert failed with dbError:', dbError);
       // Check for unique constraint violation (duplicate registration)
       if (dbError.code === '23505') {
         return {
@@ -61,15 +65,17 @@ export async function registerForCohort(
         };
       }
 
-      console.error('Supabase insert error:', dbError);
       return {
         success: false,
         message: 'Something went wrong. Please try again or contact us directly.',
       };
     }
 
+    console.log('[registerForCohort] Supabase insert successful.');
+
     // 3. Send confirmation email
     try {
+      console.log('[registerForCohort] Attempting to send confirmation email...');
       await sendRegistrationConfirmation({
         guardianName: data.guardianName,
         guardianEmail: data.guardianEmail,
@@ -78,9 +84,10 @@ export async function registerForCohort(
         cohortName,
         city: data.city,
       });
+      console.log('[registerForCohort] Confirmation email sent successfully.');
     } catch (emailError) {
       // Email failure shouldn't block — registration is saved
-      console.error('Registration email failed:', emailError);
+      console.error('[registerForCohort] Registration email failed:', emailError);
     }
 
     return {
@@ -88,7 +95,7 @@ export async function registerForCohort(
       message: `${data.childName} is registered for ${cohortName}! Check ${data.guardianEmail} for a confirmation email.`,
     };
   } catch (error) {
-    console.error('Registration error:', error);
+    console.error('[registerForCohort] Unhandled exception occurred:', error);
     return {
       success: false,
       message: 'Something went wrong. Please try again or contact us directly.',
