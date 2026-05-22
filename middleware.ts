@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const intlMiddleware = createMiddleware(routing);
 
-export default function proxy(request: NextRequest) {
+export default function middleware(request: NextRequest) {
   if (request.headers.has('next-action')) {
     return NextResponse.next();
   }
