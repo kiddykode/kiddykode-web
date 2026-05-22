@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+import nodemailer, { SendMailOptions } from 'nodemailer';
 
 /**
  * Nodemailer transporter configured via environment variables.
@@ -18,7 +18,7 @@ const fromAddress = process.env.EMAIL_FROM || process.env.SMTP_USER || '';
 const contactEmail = process.env.CONTACT_EMAIL || fromAddress;
 
 // Helper to handle dummy SMTP in development
-async function sendEmail(options: any) {
+async function sendEmail(options: SendMailOptions) {
   const isDummy = !process.env.SMTP_USER || 
                   process.env.SMTP_USER === 'kiddykode@gmail.com' || 
                   process.env.SMTP_PASS === 'somrStrong@Guava678';
@@ -27,7 +27,8 @@ async function sendEmail(options: any) {
     console.log(`   From:    ${options.from}`);
     console.log(`   To:      ${options.to}`);
     console.log(`   Subject: ${options.subject}`);
-    console.log(`   HTML (truncated): ${options.html.replace(/\s+/g, ' ').substring(0, 200)}...\n`);
+    const htmlString = typeof options.html === 'string' ? options.html : '';
+    console.log(`   HTML (truncated): ${htmlString.replace(/\s+/g, ' ').substring(0, 200)}...\n`);
     return;
   }
   try {

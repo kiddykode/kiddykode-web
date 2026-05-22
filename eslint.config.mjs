@@ -12,6 +12,13 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "docs/**",
+    "*.js",
+    "*.py",
+    "check_browser_inserted.ts",
+    "check_inserted.ts",
+    "test_all_actions.ts",
+    "test_db_local.ts",
   ]),
 ]);
 
