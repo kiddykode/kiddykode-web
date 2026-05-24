@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/context';
 import { Link } from '@/i18n/navigation';
 import styles from "../[locale]/home.module.css";
 

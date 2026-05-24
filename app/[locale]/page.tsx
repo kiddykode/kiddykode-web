@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { setRequestLocale, getTranslations } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from '@/i18n/translations';
 import { ImagePlaceholder } from "../components/ImagePlaceholder";
 import HeroCarousel from "../components/HeroCarousel";
 import styles from "./home.module.css";

@@ -1,6 +1,6 @@
 'use client'
 
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/i18n/context';
 import { Link } from '@/i18n/navigation';
 import Image from "next/image";
 import { NewsletterForm } from './NewsletterForm';

@@ -1,6 +1,6 @@
 'use client'
 
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from '@/i18n/context';
 import { Link, useRouter, usePathname } from '@/i18n/navigation';
 
 export function UtilityBar() {

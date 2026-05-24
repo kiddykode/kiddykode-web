@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
-import { routing } from '@/i18n/routing';
+import { TranslationProvider } from '@/i18n/context';
+import { getMessages, setRequestLocale } from '@/i18n/translations';
 import "../globals.css";
 import { LayoutWrapper } from "../components/LayoutWrapper";
 
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
+  return [{ locale: 'en' }, { locale: 'fr' }];
 }
 
 export default async function LocaleLayout({
@@ -36,7 +35,7 @@ export default async function LocaleLayout({
 }>) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const messages = await getMessages();
+  const messages = await getMessages(locale);
 
   return (
     <html lang={locale}>
@@ -44,9 +43,9 @@ export default async function LocaleLayout({
         <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable}`} data-accent="bronze" data-type="general-inter">
-        <NextIntlClientProvider messages={messages}>
+        <TranslationProvider locale={locale} messages={messages}>
           <LayoutWrapper>{children}</LayoutWrapper>
-        </NextIntlClientProvider>
+        </TranslationProvider>
       </body>
     </html>
   );

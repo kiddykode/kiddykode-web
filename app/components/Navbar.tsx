@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/i18n/context'
 import { Link, usePathname } from '@/i18n/navigation'
 import { useState, useEffect } from 'react'
 
