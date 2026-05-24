@@ -69,7 +69,7 @@ export const registrationSchema = z.object({
       z
         .number()
         .int('Age must be a whole number.')
-        .min(5, 'Minimum age is 5.')
+        .min(6, 'Minimum age is 6.')
         .max(18, 'Maximum age is 18.')
     ),
   guardianName: z

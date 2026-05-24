@@ -135,7 +135,7 @@ export default function NextCohortPage() {
               </div>
               <div className={styles.shareBox}>
                 <strong>Suggested share text:</strong><br /><br />
-                🚀 KiddyKode is launching a new live coding cohort for kids ages 8-17! Learners will build real projects and present them on Demo Day. Check out the details and register here: https://kiddykode.org/programs/next-cohort
+                🚀 KiddyKode is launching a new live coding cohort for kids ages 8-17! Learners will build real projects and present them on Demo Day. Check out the details and register here: https://kiddykode.com/en/programs/next-cohort
               </div>
             </div>
           </div>
