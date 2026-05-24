@@ -3,6 +3,7 @@
 import { registrationSchema } from '@/lib/validations';
 import { supabase } from '@/lib/supabase/client';
 import { sendRegistrationConfirmation } from '@/lib/email/mailer';
+import { sendWelcomeMessage } from '@/lib/whatsapp/service';
 
 export type RegistrationState = {
   success: boolean;
@@ -20,6 +21,7 @@ export async function registerForCohort(
     childAge: formData.get('childAge'),
     guardianName: formData.get('guardianName'),
     guardianEmail: formData.get('guardianEmail'),
+    guardianPhone: formData.get('guardianPhone'),
     city: formData.get('city'),
     referralSource: formData.get('referralSource') || undefined,
     consent: formData.get('consent'),
@@ -49,6 +51,7 @@ export async function registerForCohort(
       child_age: data.childAge,
       guardian_name: data.guardianName,
       guardian_email: data.guardianEmail.toLowerCase().trim(),
+      guardian_phone: data.guardianPhone.trim(),
       city: data.city,
       referral_source: data.referralSource || null,
       consent: true,
@@ -73,7 +76,20 @@ export async function registerForCohort(
 
     console.log('[registerForCohort] Supabase insert successful.');
 
-    // 3. Send confirmation email
+    // 3. Send welcome WhatsApp message (non-blocking)
+    try {
+      console.log('[registerForCohort] Attempting to send welcome WhatsApp message...');
+      await sendWelcomeMessage(
+        data.guardianPhone,
+        data.guardianName,
+        data.childName,
+        cohortName
+      );
+    } catch (waError) {
+      console.error('[registerForCohort] Welcome WhatsApp message failed:', waError);
+    }
+
+    // 4. Send confirmation email
     try {
       console.log('[registerForCohort] Attempting to send confirmation email...');
       await sendRegistrationConfirmation({

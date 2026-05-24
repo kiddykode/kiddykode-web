@@ -4,6 +4,11 @@ import type { NextRequest } from 'next/server';
 const PUBLIC_FILE = /\.(.*)$/;
 
 export function proxy(request: NextRequest) {
+  // Bypass for Server Actions to prevent redirecting POST requests
+  if (request.headers.has('next-action')) {
+    return NextResponse.next();
+  }
+
   const { pathname } = request.nextUrl;
 
   // Skip internal paths, api, static files, favicon, etc.

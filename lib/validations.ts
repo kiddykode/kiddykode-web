@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { isValidPhone } from './phone';
 
 // ────────────────────────────────────────────
 // Contact Form
@@ -80,6 +81,12 @@ export const registrationSchema = z.object({
     .string()
     .min(1, 'Email is required.')
     .email('Please enter a valid email address.'),
+  guardianPhone: z
+    .string()
+    .min(1, 'Parent/guardian WhatsApp number is required.')
+    .refine((val) => isValidPhone(val), {
+      message: 'Please enter a valid WhatsApp number (including country code, e.g. 237677123456).',
+    }),
   city: z
     .string()
     .min(1, 'City / Country is required.')

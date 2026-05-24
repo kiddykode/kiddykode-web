@@ -82,8 +82,8 @@ export default function ProgramsPage() {
           <div className={styles.pathRow}>
             <div className={styles.pathImg}>
               <ImagePlaceholder
-                tone="warm"
-                photoUrl="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80"
+                tone="cool"
+                photoUrl="https://res.cloudinary.com/dsbm73ojs/image/upload/v1779197414/kiddykode_studio_ml3y6q.png"
                 caption="Replace ▸ Learner using KiddyKode Studio on a laptop"
               />
             </div>
@@ -107,8 +107,8 @@ export default function ProgramsPage() {
           <div className={styles.pathRow}>
             <div className={styles.pathImg}>
               <ImagePlaceholder
-                tone="clay"
-                photoUrl="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=80"
+                tone="sage"
+                photoUrl="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774726/ChatGPT_Image_May_14_2026_09_08_46_PM_dgfdz9.png"
                 caption="Replace ▸ Live online coding session with children on Zoom"
               />
             </div>
@@ -132,8 +132,8 @@ export default function ProgramsPage() {
           <div className={styles.pathRow}>
             <div className={styles.pathImg}>
               <ImagePlaceholder
-                tone="sage"
-                photoUrl="https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=1200&q=80"
+                tone="warm"
+                photoUrl="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778847213/kiddykode_at_partner_school_lz8nrt.png?auto=format&fit=crop&w=1200&q=80"
                 caption="Replace ▸ School-based coding session with learners and facilitator"
               />
             </div>
@@ -157,8 +157,8 @@ export default function ProgramsPage() {
           <div className={styles.pathRow}>
             <div className={styles.pathImg}>
               <ImagePlaceholder
-                tone="warm"
-                photoUrl="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1200&q=80"
+                tone="clay"
+                photoUrl="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774727/ChatGPT_Image_May_14_2026_09_17_40_PM_ma3741.png"
                 caption="Replace ▸ Holiday coding intensive or bootcamp session"
               />
             </div>

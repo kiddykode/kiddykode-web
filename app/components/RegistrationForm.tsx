@@ -227,6 +227,34 @@ export function RegistrationForm() {
               letterSpacing: '0.04em',
               color: 'var(--color-ink-700)',
             }}>
+              WhatsApp Number (including country code)
+            </label>
+            <input
+              type="tel"
+              name="guardianPhone"
+              placeholder="e.g. 237677123456"
+              required
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: 15,
+                padding: '12px 14px',
+                border: '1px solid var(--color-line)',
+                borderRadius: 6,
+                background: 'var(--color-sand-50)',
+                color: 'var(--color-ink-900)',
+              }}
+            />
+            {state.errors?.guardianPhone && (
+              <span style={{ fontSize: 12, color: '#dc2626' }}>{state.errors.guardianPhone[0]}</span>
+            )}
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <label style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 11,
+              letterSpacing: '0.04em',
+              color: 'var(--color-ink-700)',
+            }}>
               City / Country
             </label>
             <input
@@ -248,6 +276,9 @@ export function RegistrationForm() {
               <span style={{ fontSize: 12, color: '#dc2626' }}>{state.errors.city[0]}</span>
             )}
           </div>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 20 }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <label style={{
               fontFamily: 'var(--font-mono)',

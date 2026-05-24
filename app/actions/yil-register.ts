@@ -2,6 +2,7 @@
 
 import { yilRegistrationSchema } from '@/lib/validations';
 import { supabase } from '@/lib/supabase/client';
+import { sendWelcomeMessage } from '@/lib/whatsapp/service';
 
 export type YilRegistrationState = {
   success: boolean;
@@ -45,6 +46,19 @@ export async function registerForYil(
         success: false,
         message: 'Something went wrong. Please try again or contact us directly.',
       };
+    }
+
+    // Trigger WhatsApp welcome message
+    try {
+      console.log('[registerForYil] Triggering welcome WhatsApp message...');
+      await sendWelcomeMessage(
+        data.whatsappNumber,
+        data.fullName,
+        `${data.numberOfKids} child(ren)`,
+        'YIL Holiday Tech Bootcamp'
+      );
+    } catch (waError) {
+      console.error('[registerForYil] WhatsApp welcome failed:', waError);
     }
 
     return {
