@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Sora, Inter } from "next/font/google";
 import "./explorer-live.css";
+import { RegistrationForm } from "@/app/components/RegistrationForm";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -417,7 +418,7 @@ export default function ExplorerLivePage() {
               </article>
             </div>
 
-            <div className="earlybird-block" id="register">
+            <div className="earlybird-block" id="earlybird">
               <div>
                 <span className="savebadge">★ Early bird · ends 31 May 2026</span>
                 <h3>Register before 31 May and save 10% on the program fee</h3>
@@ -432,6 +433,16 @@ export default function ExplorerLivePage() {
                 <span className="footnote">Abroad-based: <b style={{ color: "var(--kk-text)" }}>58,500 FRS</b> <span style={{ textDecoration: "line-through", marginLeft: 4 }}>65,000 FRS</span></span>
                 <a className="btn btn-blue" href="https://wa.me/237680262136?text=Hello%2C%20I%20want%20to%20claim%20the%20Explorer%20Live%20Session%20early-bird%20discount.">Claim early-bird on WhatsApp →</a>
               </div>
+            </div>
+
+            {/* Embedded Registration Form Section */}
+            <div className="sec-head center" style={{ marginTop: 80, marginBottom: 40 }}>
+              <span className="kicker"><span className="num">★</span><span className="bar"></span>Register Now</span>
+              <h2>Secure your child's spot</h2>
+              <p>Complete the form below to enroll your child in the Explorer Live cohort. We will confirm your seat and send welcome details.</p>
+            </div>
+            <div id="register" style={{ maxWidth: 720, margin: '0 auto' }}>
+              <RegistrationForm />
             </div>
           </div>
         </section>
