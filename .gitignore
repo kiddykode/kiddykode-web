@@ -52,3 +52,7 @@ walkthrough Multi-Language Support
 walkthrough*.md
 # Added by code-review-graph
 .code-review-graph/
+
+# Agent skills cache
+.agents/
+

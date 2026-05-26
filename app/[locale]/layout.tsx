@@ -18,8 +18,31 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kiddykode.com"),
   title: "KiddyKode | Learn to Code, Build the Future",
   description: "Empowering the next generation of creators through fun and interactive coding programs.",
+  openGraph: {
+    title: "KiddyKode | Learn to Code, Build the Future",
+    description: "Empowering the next generation of creators through fun and interactive coding programs.",
+    url: "https://kiddykode.com",
+    siteName: "KiddyKode",
+    images: [
+      {
+        url: "/kiddykode-og-image.png",
+        width: 1024,
+        height: 1024,
+        alt: "KiddyKode — Code Early, Build Tomorrow",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KiddyKode | Learn to Code, Build the Future",
+    description: "Empowering the next generation of creators through fun and interactive coding programs.",
+    images: ["/kiddykode-og-image.png"],
+  },
 };
 
 export function generateStaticParams() {

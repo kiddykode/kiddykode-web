@@ -324,7 +324,7 @@ export function RegistrationForm() {
             lineHeight: 1.5,
           }}>
             I confirm that I am the parent or legal guardian of this child and consent to their participation in KiddyKode Live.
-            I agree to the <Link href="#" style={{ textDecoration: 'underline' }}>Terms of Service</Link> and <Link href="#" style={{ textDecoration: 'underline' }}>Privacy Policy</Link>.
+            I agree to the <Link href="/terms" style={{ textDecoration: 'underline' }}>Terms of Service</Link> and <Link href="/privacy" style={{ textDecoration: 'underline' }}>Privacy Policy</Link>.
           </label>
         </div>
         {state.errors?.consent && (

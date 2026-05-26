@@ -141,7 +141,7 @@ export function ContactForm() {
         <div className={styles.consent}>
           <input type="checkbox" id="consent" name="consent" required />
           <label htmlFor="consent">
-            I agree to the <Link href="#">Privacy Policy</Link> and consent to KiddyKode storing my data to respond to this inquiry.
+            I agree to the <Link href="/privacy">Privacy Policy</Link> and consent to KiddyKode storing my data to respond to this inquiry.
           </label>
         </div>
         {state.errors?.consent && (

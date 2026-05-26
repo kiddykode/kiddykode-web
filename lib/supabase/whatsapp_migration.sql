@@ -90,13 +90,6 @@ CREATE OR REPLACE FUNCTION claim_next_whatsapp_job(worker_id TEXT)
 RETURNS SETOF whatsapp_jobs AS $$
 DECLARE
   claimed_job whatsapp_jobs;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE OR REPLACE FUNCTION claim_next_whatsapp_job(worker_id TEXT)
-RETURNS SETOF whatsapp_jobs AS $$
-DECLARE
-  claimed_job whatsapp_jobs;
 BEGIN
   UPDATE whatsapp_jobs
   SET 
