@@ -100,7 +100,7 @@ export default function ExplorerLivePage() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3zm-8.5 18.3a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.9 9.9 0 1 1 8.4 4.7z"/>
               </svg>
-              680 262 136
+              +237 680 262 136
             </a>
           </div>
         </div>
@@ -493,7 +493,7 @@ export default function ExplorerLivePage() {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3z"/>
                 </svg>
-                Reserve on WhatsApp — 680 262 136
+                Reserve on WhatsApp — +237 680 262 136
               </a>
             </div>
             <p className="center" style={{ marginTop: 14, fontSize: 13, color: "var(--kk-muted)" }}>Replies within ~1hr · Yaoundé, Cameroon</p>
@@ -538,7 +538,7 @@ export default function ExplorerLivePage() {
               </details>
               <details className="faq-item">
                 <summary>How does payment work?<span className="plus">+</span></summary>
-                <div className="answer">Full payment secures a seat. Mobile money or bank transfer. Written confirmation and receipt are issued immediately.</div>
+                <div className="answer">Full payment secures a seat. Mobile money. Written confirmation and receipt are issued immediately.</div>
               </details>
             </div>
           </div>

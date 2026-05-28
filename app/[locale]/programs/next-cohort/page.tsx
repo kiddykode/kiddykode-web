@@ -100,7 +100,7 @@ export default function NextCohortPage() {
               </div>
               <div className={styles.infoGroup}>
                 <span className={styles.infoLabel}>Early Bird</span>
-                <span className={styles.infoValue}>10% off before 31st May 2026</span>
+                <span className={styles.infoValue}>10% off before 3rd June 2026</span>
               </div>
             </div>
           </div>
