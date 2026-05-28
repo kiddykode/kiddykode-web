@@ -30,7 +30,7 @@ export default function ExplorerLivePage() {
   });
 
   useEffect(() => {
-    const deadline = new Date("2026-05-31T23:59:59+01:00").getTime();
+    const deadline = new Date("2026-06-03T23:59:59+01:00").getTime();
     const tick = () => {
       const ms = deadline - Date.now();
       if (ms <= 0) {
@@ -69,7 +69,7 @@ export default function ExplorerLivePage() {
             <span><strong>Early-bird offer closed</strong> · Standard pricing now in effect</span>
           ) : (
             <>
-              <span><strong>Register before 31 May 2026</strong></span>
+              <span><strong>Register before 3 June 2026</strong></span>
               <span className="sep">·</span>
               <span className="countdown" aria-label="Time remaining">
                 <span className="cd-cell"><b>{timeLeft.d}</b><small>d</small></span>
@@ -134,7 +134,7 @@ export default function ExplorerLivePage() {
                 </svg>
                 Ask on WhatsApp
               </a>
-              <span className="note">10% off · ends 31 May 2026</span>
+              <span className="note">10% off · ends 3 June 2026</span>
             </div>
 
             {/* Session board mirroring YIL Session 01 / 02 layout */}
@@ -168,7 +168,7 @@ export default function ExplorerLivePage() {
             <div className="grp"><span className="lab">Duration</span><b>2 months</b></div>
             <div className="grp"><span className="lab">Format</span><b>100% online</b></div>
             <div className="grp"><span className="lab">Ages</span><b>8 – 17</b></div>
-            <div className="grp"><span className="lab">Early bird</span><b>Until 31 May · 10% off</b></div>
+            <div className="grp"><span className="lab">Early bird</span><b>Until 3 June · 10% off</b></div>
           </div>
         </div>
 
@@ -313,7 +313,7 @@ export default function ExplorerLivePage() {
           <div className="container" style={{ paddingTop: 0 }}>
             <div className="midstrip">
               <div className="wrap">
-                <div className="topline">Register before 31 May 2026</div>
+                <div className="topline">Register before 3 June 2026</div>
                 <h2>To get a discount of <span style={{ color: "var(--kk-yellow)" }}>10% off the program fee</span></h2>
                 <div className="big-cd">
                   <div className="cell"><div className="v">{timeLeft.d}</div><div className="k">Days</div></div>
@@ -383,6 +383,8 @@ export default function ExplorerLivePage() {
               </div>
             </div>
 
+            {/* Bring this back when we actually have some more partners */}
+            {/*
             <div className="partners">
               <div className="label">Programme run by · in partnership with</div>
               <div className="row">
@@ -393,6 +395,7 @@ export default function ExplorerLivePage() {
                 <div className="logo">Insert partner</div>
               </div>
             </div>
+            */}
           </div>
         </section>
 
@@ -437,8 +440,8 @@ export default function ExplorerLivePage() {
 
             <div className="earlybird-block" id="earlybird">
               <div>
-                <span className="savebadge">★ Early bird · ends 31 May 2026</span>
-                <h3>Register before 31 May and save 10% on the program fee</h3>
+                <span className="savebadge">★ Early bird · ends 3 June 2026</span>
+                <h3>Register before 3 June and save 10% on the program fee</h3>
                 <p>Discount applies to both Cameroon and abroad pricing. One transparent fee — paid once, mobile money or cash. Written confirmation issued the same day.</p>
               </div>
               <div className="right">
@@ -531,7 +534,7 @@ export default function ExplorerLivePage() {
               </details>
               <details className="faq-item">
                 <summary>How do I claim the 10% early-bird discount?<span className="plus">+</span></summary>
-                <div className="answer">Register before <strong>31 May 2026</strong>. The discount is applied automatically — the countdown at the top of this page shows the exact time remaining.</div>
+                <div className="answer">Register before <strong>3 June 2026</strong>. The discount is applied automatically — the countdown at the top of this page shows the exact time remaining.</div>
               </details>
               <details className="faq-item">
                 <summary>How does payment work?<span className="plus">+</span></summary>
@@ -542,14 +545,14 @@ export default function ExplorerLivePage() {
         </section>
 
         {/* Seat-left urgency strip */}
-        <div className="seatstrip">⚡ Limited cohort · early-bird ends 31 May 2026 — secure your seat before pricing increases</div>
+        <div className="seatstrip">⚡ Limited cohort · early-bird ends 3 June 2026 — secure your seat before pricing increases</div>
 
-        {/* ═══════════════ Final CTA ═══════════════ */}
+        {/* ═══════════════ 08 · The choice every parent makes ═══════════════ */}
         <section className="final-wrap">
           <div className="container">
             <span className="kicker"><span className="num">08</span><span className="bar"></span>The choice every parent makes</span>
             <h2>A productive online cohort is a choice. Help your child <span style={{ color: "var(--kk-red)" }}>build the future</span> — not just consume it.</h2>
-            <p>Explorer Live gives children a structured, creative, and confidence-building way to engage with technology through live learning and meaningful projects. Limited seats per cohort. Early-bird pricing ends 31 May.</p>
+            <p>Explorer Live gives children a structured, creative, and confidence-building way to engage with technology through live learning and meaningful projects. Limited seats per cohort. Early-bird pricing ends 3 June.</p>
             <div className="ctas">
               <a className="btn btn-blue btn-lg" href="#register">Reserve My Child's Spot →</a>
               <a className="btn btn-wa btn-lg" href="https://wa.me/237680262136?text=Hello%2C%20I%20want%20to%20reserve%20a%20spot%20for%20Explorer%20Live%20Session." target="_blank" rel="noopener noreferrer">

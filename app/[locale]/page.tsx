@@ -378,6 +378,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
+      {/* Bring this back when we actually have some more partners */}
+      {/*
       <section
         className={styles.partners}
         id="partner"
@@ -450,11 +452,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
         </div>
       </section>
+      */}
 
       <section
         className={styles.studio}
         id="studio"
-        data-screen-label="09 Studio"
+        data-screen-label="08 Studio"
       >
         <div className="wrap">
           <div className="section-head">
@@ -588,7 +591,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section className={styles.final} data-screen-label="10 Final">
+      <section className={styles.final} data-screen-label="09 Final">
         <div className="wrap">
           <span className={styles.eyebrow}>{t("final.eyebrow")}</span>
           <h2>{t("final.title")}</h2>
