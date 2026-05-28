@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Sora, Inter } from "next/font/google";
 import "./explorer-live.css";
 import { RegistrationForm } from "@/app/components/RegistrationForm";
@@ -87,9 +88,9 @@ export default function ExplorerLivePage() {
       <div className="brandbar">
         <div className="container row">
           <a className="brand" href="#top" aria-label="KiddyKode">
-            <span className="mark">KK</span>
+            <Image src="/kiddykode-logo.png" alt="KiddyKode Logo" width={38} height={38} className="logo-img" />
             <span className="word">
-              <b>kiddy<span>›››</span>kode</b>
+              <b>kiddykode</b>
               <small>Code Early, Build Tomorrow</small>
             </span>
           </a>
@@ -339,10 +340,18 @@ export default function ExplorerLivePage() {
             </div>
             <div className="mentors">
               <div className="mentor">
-                <div className="photo">Photo</div>
+                <div className="photo">
+                  <Image
+                    src="https://res.cloudinary.com/dsbm73ojs/image/upload/v1778875749/Untitled_design_samdro.png"
+                    alt="Chiella Harriet"
+                    width={120}
+                    height={120}
+                    className="mentor-photo"
+                  />
+                </div>
                 <div>
                   <span className="role">Programme Director</span>
-                  <h3>[ Facilitator name ]</h3>
+                  <h3>Chiella Harriet</h3>
                   <ul>
                     <li><span className="ck">✓</span>KiddyKode educator · [ years ] teaching experience</li>
                     <li><span className="ck">✓</span>[ Specialism · e.g. Python, Design Thinking ]</li>
@@ -352,10 +361,18 @@ export default function ExplorerLivePage() {
                 </div>
               </div>
               <div className="mentor">
-                <div className="photo">Photo</div>
+                <div className="photo">
+                  <Image
+                    src="https://res.cloudinary.com/dsbm73ojs/image/upload/v1779193923/Deodatus_Bijengsi_hlsjha.png"
+                    alt="Deodatus Bijengsi"
+                    width={120}
+                    height={120}
+                    className="mentor-photo"
+                  />
+                </div>
                 <div>
                   <span className="role">Lead Instructor</span>
-                  <h3>[ Facilitator name ]</h3>
+                  <h3>Deodatus Bijengsi</h3>
                   <ul>
                     <li><span className="ck">✓</span>[ Credential or role ]</li>
                     <li><span className="ck">✓</span>[ Specialism · e.g. project coaching ]</li>

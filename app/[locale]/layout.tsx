@@ -19,10 +19,10 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kiddykode.com"),
-  title: "KiddyKode | Learn to Code, Build the Future",
+  title: "KiddyKode | Code Early, Build Tomorrow",
   description: "Empowering the next generation of creators through fun and interactive coding programs.",
   openGraph: {
-    title: "KiddyKode | Learn to Code, Build the Future",
+    title: "KiddyKode | Code Early, Build Tomorrow",
     description: "Empowering the next generation of creators through fun and interactive coding programs.",
     url: "https://kiddykode.com",
     siteName: "KiddyKode",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "KiddyKode | Learn to Code, Build the Future",
+    title: "KiddyKode | Code Early, Build Tomorrow",
     description: "Empowering the next generation of creators through fun and interactive coding programs.",
     images: ["/kiddykode-og-image.png"],
   },

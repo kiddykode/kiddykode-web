@@ -284,6 +284,12 @@
     color: #fff;
   }
 
+  & .brand .logo-img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+  }
+
   & .brand .mark {
     width: 38px;
     height: 38px;
@@ -969,14 +975,22 @@
     height: 120px;
     border-radius: 14px;
     background: linear-gradient(140deg, var(--kk-cream), #f1ecde);
-    border: 1px dashed rgba(15,27,59,.18);
-    display: grid;
-    place-items: center;
+    border: 1px solid rgba(15,27,59,.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--kk-muted);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: .06em;
     text-transform: uppercase;
+    overflow: hidden;
+  }
+
+  & .mentor .photo .mentor-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   & .mentor .role {
