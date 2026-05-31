@@ -92,10 +92,16 @@ export default async function VerifyTokenPage({ params }: Props) {
   const verifyUrl = `${BASE_URL}/verify/${token}`;
   const instructorName = typeof c.metadata === 'object' && c.metadata && 'instructor_name' in c.metadata
     ? String((c.metadata as Record<string, unknown>).instructor_name)
-    : 'Dedoatus Bijengsi';
+    : 'Dedoatus Buengsi';
   const directorName = typeof c.metadata === 'object' && c.metadata && 'director_name' in c.metadata
     ? String((c.metadata as Record<string, unknown>).director_name)
     : 'Chiella Harriet';
+  const instructorSignatureUrl = typeof c.metadata === 'object' && c.metadata && 'instructor_signature_url' in c.metadata
+    ? String((c.metadata as Record<string, unknown>).instructor_signature_url)
+    : null;
+  const directorSignatureUrl = typeof c.metadata === 'object' && c.metadata && 'director_signature_url' in c.metadata
+    ? String((c.metadata as Record<string, unknown>).director_signature_url)
+    : null;
 
   /* ─── Found ─── */
   return (
@@ -241,6 +247,8 @@ export default async function VerifyTokenPage({ params }: Props) {
               verifyUrl={verifyUrl}
               instructorName={instructorName}
               directorName={directorName}
+              instructorSignatureUrl={instructorSignatureUrl}
+              directorSignatureUrl={directorSignatureUrl}
             />
           </div>
         )}

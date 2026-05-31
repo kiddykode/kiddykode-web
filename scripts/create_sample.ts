@@ -94,8 +94,10 @@ async function main() {
       issued_at: new Date().toISOString(),
       status: 'valid',
       metadata: {
-        instructor_name: 'Dedoatus Bijengsi',
+        instructor_name: 'Dedoatus Buengsi',
         director_name: 'Chiella Harriet',
+        instructor_signature_url: '/signatures/instructor-dedoatus.svg',
+        director_signature_url: '/signatures/director-chiella.svg',
         grade: 'A+',
         score: '95%'
       }

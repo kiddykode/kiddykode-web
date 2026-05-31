@@ -152,13 +152,13 @@
 
 /* ── Recipient name ────────────────────────────────────────── */
 .recipientName {
-  font-family: 'General Sans', 'Inter', system-ui, sans-serif;
-  font-size: 38px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  color: #111;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #1B4332;
   line-height: 1.05;
-  margin: 6px 0 0;
+  margin: 8px 0 0;
   text-transform: uppercase;
 }
 
@@ -215,38 +215,54 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  min-width: 160px;
+  gap: 1px;
+  min-width: 170px;
+}
+
+.sigImgWrapper {
+  height: 64px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: -6px; /* allows signature lines to overlap naturally */
+  z-index: 2;
 }
 
 .sigImage {
-  height: 52px;
+  height: 60px;
   width: auto;
   max-width: 150px;
   object-fit: contain;
   display: block;
-  filter: contrast(1.1);
 }
 
 .sigSvg {
-  height: 52px;
+  height: 60px;
   width: 140px;
 }
 
-.sigLine {
-  width: 140px;
-  height: 1px;
-  background: #1B4332;
-  margin: 2px 0;
-  opacity: 0.6;
+.sigLineSvg {
+  width: 160px;
+  height: 12px;
+  color: #8B7D3A;
+  z-index: 1;
+}
+
+.dividerSvg {
+  width: 320px;
+  height: 24px;
+  margin-top: 8px;
+  margin-bottom: 2px;
+  color: #8B7D3A;
 }
 
 .sigName {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: #1B4332;
   text-transform: uppercase;
+  margin-top: 4px;
 }
 
 .sigRole {
@@ -254,7 +270,7 @@
   letter-spacing: 0.12em;
   color: #555;
   text-transform: uppercase;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 /* ── Center logo ───────────────────────────────────────────── */

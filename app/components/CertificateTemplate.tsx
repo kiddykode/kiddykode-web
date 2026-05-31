@@ -17,9 +17,11 @@ export interface CertificateTemplateProps {
   /** base64 PNG data URI for the QR code */
   qrDataUri?: string | null;
   verifyUrl?: string;
-  /** Override signatory names (defaults to Explorer Live facilitators) */
+  /** Details from the database */
   instructorName?: string;
   directorName?: string;
+  instructorSignatureUrl?: string | null;
+  directorSignatureUrl?: string | null;
 }
 
 /* ────────────────────────────────────────────────────────────
@@ -40,50 +42,96 @@ logical thinking, debugging skills, problem solving, and confidence in coding.`;
 }
 
 /* ────────────────────────────────────────────────────────────
-   SVG Corner Ornament (matches the gold L-bracket style in the
-   reference image — decorative Celtic/Art-Deco corner)
+   SVG Corner Ornament (Stepped L-bracket geometric frame)
 ──────────────────────────────────────────────────────────── */
 function CornerOrnament() {
   return (
     <svg
-      viewBox="0 0 64 64"
+      viewBox="0 0 120 120"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* Outer L-bracket */}
-      <path
-        d="M4 4 L4 60 M4 4 L60 4"
-        stroke="#8B7D3A"
-        strokeWidth="2.5"
-        strokeLinecap="square"
-      />
-      {/* Inner L-bracket (inset) */}
-      <path
-        d="M10 10 L10 44 M10 10 L44 10"
-        stroke="#8B7D3A"
-        strokeWidth="1.2"
-        strokeLinecap="square"
-        opacity="0.6"
-      />
-      {/* Decorative diamond at corner */}
-      <rect x="2" y="2" width="5" height="5" fill="#8B7D3A" opacity="0.9" transform="rotate(45 4.5 4.5)" />
-      {/* Small accent squares along arms */}
-      <rect x="2.5" y="18" width="3" height="3" fill="#8B7D3A" opacity="0.55" />
-      <rect x="2.5" y="30" width="3" height="3" fill="#8B7D3A" opacity="0.4" />
-      <rect x="18" y="2.5" width="3" height="3" fill="#8B7D3A" opacity="0.55" />
-      <rect x="30" y="2.5" width="3" height="3" fill="#8B7D3A" opacity="0.4" />
-      {/* Inner corner dot */}
-      <circle cx="10" cy="10" r="2" fill="#8B7D3A" opacity="0.5" />
+      {/* Outer thick frame */}
+      <path d="M 120 6 H 18 M 6 120 V 18" stroke="#8B7D3A" strokeWidth="3" strokeLinecap="square" />
+      {/* Inner thin frame */}
+      <path d="M 120 14 H 26 M 14 120 V 26" stroke="#8B7D3A" strokeWidth="1.5" strokeLinecap="square" />
+      {/* Stepped corner key pattern */}
+      <path d="M 18 6 H 6 V 18 H 14 V 14 H 18 M 18 14 V 26 H 26 V 18 H 18" stroke="#8B7D3A" strokeWidth="1.5" strokeLinejoin="miter" fill="none" />
+      {/* Loops and square patterns at the steps */}
+      <path d="M 6 32 H 14 V 40 H 6 Z" stroke="#8B7D3A" strokeWidth="1.2" fill="none" />
+      <path d="M 32 6 V 14 H 40 V 6 Z" stroke="#8B7D3A" strokeWidth="1.2" fill="none" />
+      {/* Small diamonds */}
+      <path d="M 10 52 L 13 49 L 10 46 L 7 49 Z" fill="#8B7D3A" />
+      <path d="M 52 10 L 49 13 L 46 10 L 49 7 Z" fill="#8B7D3A" />
     </svg>
   );
 }
 
 /* ────────────────────────────────────────────────────────────
-   SVG Signature scribbles — approximate handwriting curves
-   matching the two signature styles visible in the reference
+   SVG Name Divider Ornament (Curled ends & center diamond dots)
 ──────────────────────────────────────────────────────────── */
-function InstructorSignature() {
+function NameDivider() {
+  return (
+    <svg
+      className={styles.dividerSvg}
+      viewBox="0 0 320 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      {/* Central motif: dots with diamond arrangement */}
+      <circle cx="160" cy="12" r="3.5" fill="#8B7D3A" />
+      <circle cx="150" cy="12" r="2" fill="#8B7D3A" />
+      <circle cx="170" cy="12" r="2" fill="#8B7D3A" />
+      <circle cx="160" cy="5" r="1.5" fill="#8B7D3A" />
+      <circle cx="160" cy="19" r="1.5" fill="#8B7D3A" />
+
+      {/* Left scroll & line */}
+      <path d="M 24 12 H 135" stroke="#8B7D3A" strokeWidth="1.5" />
+      <path
+        d="M 24 12 C 18 12, 12 15, 12 19 C 12 22, 18 23, 22 19 C 25 15, 22 12, 17 12 C 12 12, 9 15, 9 18"
+        stroke="#8B7D3A"
+        strokeWidth="1.2"
+        fill="none"
+      />
+
+      {/* Right scroll & line */}
+      <path d="M 296 12 H 185" stroke="#8B7D3A" strokeWidth="1.5" />
+      <path
+        d="M 296 12 C 302 12, 308 15, 308 19 C 308 22, 302 23, 298 19 C 295 15, 298 12, 303 12 C 308 12, 311 15, 311 18"
+        stroke="#8B7D3A"
+        strokeWidth="1.2"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+/* ────────────────────────────────────────────────────────────
+   SVG Signature Divider Line (Subtle scroll and center circles)
+──────────────────────────────────────────────────────────── */
+function SignatureLine() {
+  return (
+    <svg
+      className={styles.sigLineSvg}
+      viewBox="0 0 160 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path d="M 10 6 H 70 M 90 6 H 150" stroke="#8B7D3A" strokeWidth="1.2" />
+      <circle cx="80" cy="6" r="2.5" fill="#8B7D3A" />
+      <circle cx="73" cy="6" r="1.2" fill="#8B7D3A" />
+      <circle cx="87" cy="6" r="1.2" fill="#8B7D3A" />
+    </svg>
+  );
+}
+
+/* ────────────────────────────────────────────────────────────
+   Fallback SVG Signatures (Handwriting curves)
+──────────────────────────────────────────────────────────── */
+function FallbackInstructorSignature() {
   return (
     <svg
       className={styles.sigSvg}
@@ -92,18 +140,14 @@ function InstructorSignature() {
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Instructor signature"
     >
-      {/* Flowing cursive-style signature scribble */}
       <path
-        d="M 8 38 C 14 22 20 16 30 20 C 38 24 34 36 42 28 C 48 22 44 14 54 18
-           C 62 22 58 34 66 30 C 72 26 70 18 78 20 C 86 22 84 32 92 28
-           C 98 24 96 16 106 18 C 114 20 112 32 120 30 L 128 28"
+        d="M 8 38 C 14 22 20 16 30 20 C 38 24 34 36 42 28 C 48 22 44 14 54 18 C 62 22 58 34 66 30 C 72 26 70 18 78 20 C 86 22 84 32 92 28 C 98 24 96 16 106 18 C 114 20 112 32 120 30 L 128 28"
         stroke="#1a1a1a"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
         fill="none"
       />
-      {/* Underline flourish */}
       <path
         d="M 6 44 Q 40 48 80 45 Q 110 42 132 44"
         stroke="#1a1a1a"
@@ -112,13 +156,12 @@ function InstructorSignature() {
         fill="none"
         opacity="0.5"
       />
-      {/* Ascender dot */}
       <circle cx="32" cy="15" r="1.5" fill="#1a1a1a" opacity="0.7" />
     </svg>
   );
 }
 
-function DirectorSignature() {
+function FallbackDirectorSignature() {
   return (
     <svg
       className={styles.sigSvg}
@@ -127,19 +170,14 @@ function DirectorSignature() {
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Director signature"
     >
-      {/* Different style — more angular / looped */}
       <path
-        d="M 10 36 C 16 24 22 14 30 18 C 40 22 36 38 44 32
-           C 50 28 52 18 62 20 C 74 22 70 36 78 30
-           C 84 24 82 16 92 18 C 102 20 100 34 110 30
-           C 116 26 118 20 126 22 L 132 30"
+        d="M 10 36 C 16 24 22 14 30 18 C 40 22 36 38 44 32 C 50 28 52 18 62 20 C 74 22 70 36 78 30 C 84 24 82 16 92 18 C 102 20 100 34 110 30 C 116 26 118 20 126 22 L 132 30"
         stroke="#1a1a1a"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
         fill="none"
       />
-      {/* Loop accent */}
       <path
         d="M 44 32 C 44 24 52 20 56 28 C 58 34 52 40 44 36"
         stroke="#1a1a1a"
@@ -148,7 +186,6 @@ function DirectorSignature() {
         fill="none"
         opacity="0.6"
       />
-      {/* Underline */}
       <path
         d="M 8 44 Q 50 50 90 46 Q 116 43 132 45"
         stroke="#1a1a1a"
@@ -172,8 +209,10 @@ export function CertificateTemplate({
   certificateNumber,
   qrDataUri,
   verifyUrl,
-  instructorName = 'Dedoatus Bijengsi',
+  instructorName = 'Dedoatus Buengsi',
   directorName = 'Chiella Harriet',
+  instructorSignatureUrl,
+  directorSignatureUrl,
 }: CertificateTemplateProps) {
   const [qr, setQr] = useState<string | null>(qrDataUri ?? null);
   const achievementText = buildAchievementText(courseTitle);
@@ -204,10 +243,6 @@ export function CertificateTemplate({
   function handlePrint() {
     window.print();
   }
-
-  const programLabel = courseTitle
-    ? `${courseTitle}${cohortName ? ` — ${cohortName}` : ''}`
-    : `KiddyKode Explorer Program${cohortName ? ` — ${cohortName}` : ''}`;
 
   return (
     <div className={styles.printRoot} id="cert-print-root">
@@ -248,15 +283,7 @@ export function CertificateTemplate({
             <h2 className={styles.recipientName}>{recipientName}</h2>
 
             {/* Divider ornament */}
-            <div className={styles.dividerOrnament} aria-hidden="true">
-              <div className={styles.dividerLine} />
-              <div className={styles.dividerDots}>
-                <div className={styles.dividerDot} />
-                <div className={styles.dividerDot} />
-                <div className={styles.dividerDot} />
-              </div>
-              <div className={styles.dividerLine} />
-            </div>
+            <NameDivider />
 
             <p className={styles.achievementText}>
               {achievementText}
@@ -267,8 +294,19 @@ export function CertificateTemplate({
           <div className={styles.sigRow}>
             {/* Left: Instructor */}
             <div className={styles.sigBlock}>
-              <InstructorSignature />
-              <div className={styles.sigLine} />
+              <div className={styles.sigImgWrapper}>
+                {instructorSignatureUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={instructorSignatureUrl}
+                    alt="Instructor Signature"
+                    className={styles.sigImage}
+                  />
+                ) : (
+                  <FallbackInstructorSignature />
+                )}
+              </div>
+              <SignatureLine />
               <span className={styles.sigName}>{instructorName}</span>
               <span className={styles.sigRole}>Instructor</span>
             </div>
@@ -287,8 +325,19 @@ export function CertificateTemplate({
 
             {/* Right: Director */}
             <div className={styles.sigBlock}>
-              <DirectorSignature />
-              <div className={styles.sigLine} />
+              <div className={styles.sigImgWrapper}>
+                {directorSignatureUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={directorSignatureUrl}
+                    alt="Director Signature"
+                    className={styles.sigImage}
+                  />
+                ) : (
+                  <FallbackDirectorSignature />
+                )}
+              </div>
+              <SignatureLine />
               <span className={styles.sigName}>{directorName}</span>
               <span className={styles.sigRole}>Director</span>
             </div>
