@@ -319,3 +319,211 @@ export async function sendManualMessageAction(phone: string, text: string) {
     return { success: false, error: result.error || 'Failed to dispatch WhatsApp message.' };
   }
 }
+
+// ────────────────────────────────────────────
+// Certificate Admin Actions
+// ────────────────────────────────────────────
+
+import { generateCertificateQR, buildVerifyUrl } from '@/lib/qr/generate';
+import { randomUUID } from 'crypto';
+
+/** Generates a URL-safe public token from a UUID */
+function generatePublicToken(): string {
+  // Take the first 20 chars of a UUID (removing hyphens) and prefix with 'kk-'
+  const raw = randomUUID().replace(/-/g, '').slice(0, 20);
+  return `kk-${raw}`;
+}
+
+export interface CertificateProgram {
+  id: string;
+  name: string;
+  slug: string;
+  level: string | null;
+  active: boolean;
+}
+
+export interface CertificateRecord {
+  id: string;
+  public_token: string;
+  certificate_number: string | null;
+  recipient_name: string;
+  recipient_email: string | null;
+  program_id: string | null;
+  course_title: string;
+  cohort_name: string | null;
+  level: string | null;
+  issued_at: string;
+  expires_at: string | null;
+  status: 'valid' | 'revoked' | 'replaced' | 'expired';
+  revoked_at: string | null;
+  revoke_reason: string | null;
+  replaced_by: string | null;
+  pdf_url: string | null;
+  metadata: Record<string, unknown>;
+  created_at: string;
+  updated_at: string;
+}
+
+/** Fetch all active certificate programs for the dropdown */
+export async function fetchCertificatePrograms(): Promise<CertificateProgram[]> {
+  const isAuthenticated = await checkAdminAuth();
+  if (!isAuthenticated) throw new Error('Unauthorized');
+
+  const { data, error } = await supabase
+    .from('certificate_programs')
+    .select('id, name, slug, level, active')
+    .eq('active', true)
+    .order('name');
+
+  if (error) throw new Error(error.message);
+  return (data || []) as CertificateProgram[];
+}
+
+/** Fetch all certificates for the admin dashboard */
+export async function fetchCertificates(
+  limit = 100,
+  status?: string
+): Promise<CertificateRecord[]> {
+  const isAuthenticated = await checkAdminAuth();
+  if (!isAuthenticated) throw new Error('Unauthorized');
+
+  let query = supabase
+    .from('certificates')
+    .select('*')
+    .order('issued_at', { ascending: false })
+    .limit(limit);
+
+  if (status) {
+    query = query.eq('status', status);
+  }
+
+  const { data, error } = await query;
+  if (error) throw new Error(error.message);
+  return (data || []) as CertificateRecord[];
+}
+
+export interface IssueCertificateInput {
+  recipient_name: string;
+  recipient_email?: string;
+  program_id: string;
+  course_title: string;
+  cohort_name?: string;
+  level?: string;
+  metadata?: Record<string, unknown>;
+}
+
+/** Issue a new certificate and return the record including the public token */
+export async function issueCertificate(
+  input: IssueCertificateInput
+): Promise<{ success: true; record: CertificateRecord } | { success: false; error: string }> {
+  const isAuthenticated = await checkAdminAuth();
+  if (!isAuthenticated) throw new Error('Unauthorized');
+
+  const publicToken = generatePublicToken();
+
+  const { data, error } = await supabase
+    .from('certificates')
+    .insert({
+      public_token: publicToken,
+      recipient_name: input.recipient_name.trim(),
+      recipient_email: input.recipient_email?.trim() || null,
+      program_id: input.program_id,
+      course_title: input.course_title.trim(),
+      cohort_name: input.cohort_name?.trim() || null,
+      level: input.level?.trim() || null,
+      metadata: input.metadata || {},
+      status: 'valid',
+    })
+    .select()
+    .single();
+
+  if (error) return { success: false, error: error.message };
+  return { success: true, record: data as CertificateRecord };
+}
+
+/** Revoke a certificate */
+export async function revokeCertificate(
+  id: string,
+  reason: string
+): Promise<{ success: boolean; error?: string }> {
+  const isAuthenticated = await checkAdminAuth();
+  if (!isAuthenticated) throw new Error('Unauthorized');
+
+  const { error } = await supabase
+    .from('certificates')
+    .update({
+      status: 'revoked',
+      revoked_at: new Date().toISOString(),
+      revoke_reason: reason.trim(),
+    })
+    .eq('id', id);
+
+  if (error) return { success: false, error: error.message };
+  return { success: true };
+}
+
+/**
+ * Reissue a certificate: marks the original as 'replaced' and creates a new valid record.
+ * Returns the new certificate record.
+ */
+export async function reissueCertificate(
+  originalId: string
+): Promise<{ success: true; record: CertificateRecord } | { success: false; error: string }> {
+  const isAuthenticated = await checkAdminAuth();
+  if (!isAuthenticated) throw new Error('Unauthorized');
+
+  // Fetch original
+  const { data: original, error: fetchErr } = await supabase
+    .from('certificates')
+    .select('*')
+    .eq('id', originalId)
+    .single();
+
+  if (fetchErr || !original) {
+    return { success: false, error: 'Original certificate not found.' };
+  }
+
+  const newToken = generatePublicToken();
+
+  // Insert replacement
+  const { data: newCert, error: insertErr } = await supabase
+    .from('certificates')
+    .insert({
+      public_token: newToken,
+      recipient_name: original.recipient_name,
+      recipient_email: original.recipient_email,
+      program_id: original.program_id,
+      course_title: original.course_title,
+      cohort_name: original.cohort_name,
+      level: original.level,
+      metadata: original.metadata,
+      status: 'valid',
+    })
+    .select()
+    .single();
+
+  if (insertErr) return { success: false, error: insertErr.message };
+
+  // Mark original as replaced
+  await supabase
+    .from('certificates')
+    .update({ status: 'replaced', replaced_by: newCert.id })
+    .eq('id', originalId);
+
+  return { success: true, record: newCert as CertificateRecord };
+}
+
+/**
+ * Returns the QR code data URI and the verify URL for a certificate.
+ * Used by the admin dashboard to display/download the QR.
+ */
+export async function getCertificateQR(
+  token: string
+): Promise<{ qrDataUri: string; verifyUrl: string }> {
+  const isAuthenticated = await checkAdminAuth();
+  if (!isAuthenticated) throw new Error('Unauthorized');
+
+  const qrDataUri = await generateCertificateQR(token);
+  const verifyUrl = buildVerifyUrl(token);
+  return { qrDataUri, verifyUrl };
+}

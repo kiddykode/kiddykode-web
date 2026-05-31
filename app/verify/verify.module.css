@@ -1,0 +1,489 @@
+/* ====================================================
+   KiddyKode — Certificate Verification Pages
+   Shared styles for /verify and /verify/[token]
+   ==================================================== */
+
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: #F7F3EC;
+  font-family: var(--font-body, 'Inter', system-ui, sans-serif);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px clamp(20px, 3.2vw, 48px);
+  border-bottom: 1px solid #D8D2C7;
+  background: #fff;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.portalLabel {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #A66A2C;
+  padding: 4px 10px;
+  border: 1px solid #E9DBC7;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+/* ── Card area ── */
+.cardWrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(32px, 6vw, 80px) clamp(20px, 3.2vw, 48px);
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #D8D2C7;
+  border-radius: 20px;
+  padding: clamp(32px, 4vw, 56px);
+  width: 100%;
+  max-width: 560px;
+  box-shadow: 0 4px 24px -8px rgba(21,32,51,0.09), 0 1px 3px rgba(21,32,51,0.05);
+}
+
+.cardIcon {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: 'General Sans', system-ui, sans-serif;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600;
+  color: #152033;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #5C6783;
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  gap: 4px;
+  background: #EFE8DD;
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 28px;
+}
+
+.tab {
+  flex: 1;
+  padding: 9px 14px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #5C6783;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: #152033;
+}
+
+.tabActive {
+  background: #fff;
+  color: #152033;
+  box-shadow: 0 1px 4px rgba(21,32,51,0.08);
+}
+
+/* ── Forms ── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fieldGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 480px) {
+  .fieldGroup { grid-template-columns: 1fr; }
+}
+
+.label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #33415C;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #D8D2C7;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #152033;
+  background: #FDFCFA;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input::placeholder { color: #8C95AC; }
+
+.input:focus {
+  border-color: #A66A2C;
+  box-shadow: 0 0 0 3px rgba(166,106,44,0.12);
+  background: #fff;
+}
+
+.inputRow {
+  display: flex;
+  gap: 8px;
+}
+
+.inputRow .input { flex: 1; }
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: #152033;
+  color: #F7F3EC;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+  white-space: nowrap;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: #1769E0;
+  transform: translateY(-1px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.errorMsg {
+  font-size: 13.5px;
+  color: #C0392B;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 0;
+}
+
+.hint {
+  font-size: 12.5px;
+  color: #8C95AC;
+  margin: 20px 0 0;
+  text-align: center;
+}
+
+.hintLink {
+  color: #A66A2C;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ── Footer ── */
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px clamp(20px, 3.2vw, 48px);
+  border-top: 1px solid #D8D2C7;
+  font-size: 12.5px;
+  color: #8C95AC;
+}
+
+.footer a {
+  color: #5C6783;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ====================================================
+   Verification Result Page (/verify/[token])
+   ==================================================== */
+
+.resultCard {
+  background: #fff;
+  border: 1px solid #D8D2C7;
+  border-radius: 20px;
+  padding: clamp(32px, 4vw, 56px);
+  width: 100%;
+  max-width: 620px;
+  box-shadow: 0 4px 24px -8px rgba(21,32,51,0.09), 0 1px 3px rgba(21,32,51,0.05);
+}
+
+/* Status badge */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-bottom: 24px;
+}
+
+.statusValid {
+  background: #DCFCE7;
+  color: #15803D;
+  border: 1px solid #BBF7D0;
+}
+
+.statusRevoked {
+  background: #FEF2F2;
+  color: #DC2626;
+  border: 1px solid #FECACA;
+}
+
+.statusReplaced {
+  background: #FFF7ED;
+  color: #C2410C;
+  border: 1px solid #FED7AA;
+}
+
+.statusExpired {
+  background: #F5F5F5;
+  color: #6B7280;
+  border: 1px solid #E5E7EB;
+}
+
+/* Certificate details */
+.recipientName {
+  font-family: 'General Sans', system-ui, sans-serif;
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 600;
+  color: #152033;
+  letter-spacing: -0.025em;
+  margin: 0 0 4px;
+  line-height: 1.1;
+}
+
+.courseTitle {
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: #5C6783;
+  margin: 0 0 28px;
+  font-weight: 400;
+}
+
+.divider {
+  height: 1px;
+  background: #EFE8DD;
+  margin: 24px 0;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
+}
+
+@media (max-width: 480px) {
+  .metaGrid { grid-template-columns: 1fr; }
+}
+
+.metaLabel {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8C95AC;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.metaValue {
+  font-size: 14.5px;
+  color: #152033;
+  font-weight: 500;
+}
+
+.metaValueMuted {
+  font-size: 14.5px;
+  color: #5C6783;
+}
+
+/* Revoke notice */
+.revokeNotice {
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-top: 20px;
+}
+
+.revokeNotice p {
+  font-size: 13.5px;
+  color: #991B1B;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Actions row */
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+  border: 1.5px solid transparent;
+  text-decoration: none;
+}
+
+.actionBtnPrimary {
+  background: #152033;
+  color: #F7F3EC;
+}
+
+.actionBtnPrimary:hover {
+  background: #1769E0;
+  transform: translateY(-1px);
+}
+
+.actionBtnGhost {
+  background: transparent;
+  color: #152033;
+  border-color: #D8D2C7;
+}
+
+.actionBtnGhost:hover {
+  background: #F7F3EC;
+  border-color: #152033;
+}
+
+/* Not found state */
+.notFoundCard {
+  background: #fff;
+  border: 1px solid #D8D2C7;
+  border-radius: 20px;
+  padding: clamp(40px, 5vw, 72px);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 24px -8px rgba(21,32,51,0.09);
+}
+
+.notFoundIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: #EFE8DD;
+  border-radius: 16px;
+  margin: 0 auto 20px;
+}
+
+.notFoundTitle {
+  font-family: 'General Sans', system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #152033;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+
+.notFoundText {
+  font-size: 15px;
+  color: #5C6783;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #152033;
+  text-decoration: none;
+  border-bottom: 1px solid #152033;
+  padding-bottom: 2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.backLink:hover {
+  color: #A66A2C;
+  border-color: #A66A2C;
+}
+
+/* Issuer strip */
+.issuerStrip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: #F7F3EC;
+  border: 1px solid #EFE8DD;
+  border-radius: 12px;
+  margin-top: 24px;
+}
+
+.issuerLogo {
+  height: 28px;
+  width: auto;
+}
+
+.issuerText {
+  font-size: 12.5px;
+  color: #5C6783;
+  line-height: 1.4;
+}
+
+.issuerName {
+  font-weight: 600;
+  color: #152033;
+}

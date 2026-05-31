@@ -19,6 +19,15 @@ import {
   fetchWhatsAppSettings,
   saveWhatsAppSetting,
   sendManualMessageAction,
+  // Certificate actions
+  fetchCertificates,
+  fetchCertificatePrograms,
+  issueCertificate,
+  revokeCertificate,
+  reissueCertificate,
+  getCertificateQR,
+  type CertificateRecord,
+  type CertificateProgram,
 } from '../../actions/admin';
 
 export default function AdminPage() {
@@ -26,7 +35,7 @@ export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [password, setPassword] = useState('');
   const [authError, setAuthError] = useState('');
-  const [activeTab, setActiveTab] = useState<'status' | 'faq' | 'logs' | 'jobs' | 'manual'>('status');
+  const [activeTab, setActiveTab] = useState<'status' | 'faq' | 'logs' | 'jobs' | 'manual' | 'certs'>('status');
   const [isPending, startTransition] = useTransition();
 
   // Status & Settings States
@@ -67,6 +76,24 @@ export default function AdminPage() {
   });
   const [manualSendStatus, setManualSendStatus] = useState<{ success: boolean; message: string } | null>(null);
 
+  // Certificates States
+  const [certs, setCerts] = useState<CertificateRecord[]>([]);
+  const [certPrograms, setCertPrograms] = useState<CertificateProgram[]>([]);
+  const [certFilter, setCertFilter] = useState<string>('');
+  const [showIssueForm, setShowIssueForm] = useState(false);
+  const [certForm, setCertForm] = useState({
+    recipient_name: '',
+    recipient_email: '',
+    program_id: '',
+    course_title: '',
+    cohort_name: '',
+    level: '',
+  });
+  const [certFormStatus, setCertFormStatus] = useState<{ success: boolean; message: string } | null>(null);
+  const [qrModal, setQrModal] = useState<{ qrDataUri: string; verifyUrl: string; certNumber: string | null } | null>(null);
+  const [revokeModal, setRevokeModal] = useState<{ id: string; name: string } | null>(null);
+  const [revokeReason, setRevokeReason] = useState('');
+
   // Load Initial Data
   useEffect(() => {
     async function init() {
@@ -82,18 +109,22 @@ export default function AdminPage() {
   const loadData = async () => {
     startTransition(async () => {
       try {
-        const [faqs, messageLogs, queueJobs, classSess, settings] = await Promise.all([
+        const [faqs, messageLogs, queueJobs, classSess, settings, certList, programs] = await Promise.all([
           fetchFaqTemplates(),
           fetchMessageLogs(),
           fetchWhatsAppJobs(),
           fetchClassSessions(),
           fetchWhatsAppSettings(),
+          fetchCertificates(200),
+          fetchCertificatePrograms(),
         ]);
         setFaqTemplates(faqs);
         setLogs(messageLogs);
         setJobs(queueJobs);
         setClasses(classSess);
         setWaSettings(settings);
+        setCerts(certList);
+        setCertPrograms(programs);
 
         // Ping WhatsApp API
         const waUrl = process.env.NEXT_PUBLIC_WHATSAPP_API_URL || settings.api_url;
@@ -118,6 +149,77 @@ export default function AdminPage() {
         console.error('Failed to load admin data:', err);
       }
     });
+  };
+
+  // Certificate handlers
+  const handleIssueCert = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setCertFormStatus(null);
+    startTransition(async () => {
+      try {
+        const res = await issueCertificate({
+          recipient_name: certForm.recipient_name,
+          recipient_email: certForm.recipient_email || undefined,
+          program_id: certForm.program_id,
+          course_title: certForm.course_title,
+          cohort_name: certForm.cohort_name || undefined,
+          level: certForm.level || undefined,
+        });
+        if (res.success) {
+          setCertFormStatus({ success: true, message: `Certificate issued! ID: ${res.record.certificate_number}` });
+          setCertForm({ recipient_name: '', recipient_email: '', program_id: '', course_title: '', cohort_name: '', level: '' });
+          setShowIssueForm(false);
+          const updated = await fetchCertificates(200);
+          setCerts(updated);
+        } else {
+          setCertFormStatus({ success: false, message: res.error });
+        }
+      } catch (err: any) {
+        setCertFormStatus({ success: false, message: err.message });
+      }
+    });
+  };
+
+  const handleRevokeCert = async () => {
+    if (!revokeModal || !revokeReason.trim()) return;
+    startTransition(async () => {
+      try {
+        await revokeCertificate(revokeModal.id, revokeReason);
+        setRevokeModal(null);
+        setRevokeReason('');
+        const updated = await fetchCertificates(200);
+        setCerts(updated);
+      } catch (err: any) {
+        alert('Error: ' + err.message);
+      }
+    });
+  };
+
+  const handleReissueCert = async (id: string) => {
+    if (!confirm('Create a replacement certificate? The original will be marked as "replaced".')) return;
+    startTransition(async () => {
+      try {
+        const res = await reissueCertificate(id);
+        if (res.success) {
+          alert(`New certificate issued: ${res.record.certificate_number}`);
+          const updated = await fetchCertificates(200);
+          setCerts(updated);
+        } else {
+          alert('Error: ' + res.error);
+        }
+      } catch (err: any) {
+        alert('Error: ' + err.message);
+      }
+    });
+  };
+
+  const handleShowQR = async (token: string, certNumber: string | null) => {
+    try {
+      const qr = await getCertificateQR(token);
+      setQrModal({ ...qr, certNumber });
+    } catch (err: any) {
+      alert('Error generating QR: ' + err.message);
+    }
   };
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -438,6 +540,22 @@ export default function AdminPage() {
             }}
           >
             💬 Manual Dispatch Send
+          </button>
+          <button
+            onClick={() => setActiveTab('certs')}
+            style={{
+              textAlign: 'left',
+              padding: '12px 16px',
+              borderRadius: 8,
+              background: activeTab === 'certs' ? 'var(--color-white)' : 'transparent',
+              border: activeTab === 'certs' ? '1px solid var(--color-line)' : '1px solid transparent',
+              color: activeTab === 'certs' ? 'var(--color-ink-900)' : 'var(--color-ink-700)',
+              fontWeight: activeTab === 'certs' ? 600 : 500,
+              cursor: 'pointer',
+              fontSize: 15,
+            }}
+          >
+            🎓 Certificates
           </button>
 
           <button onClick={loadData} className="btn btn--white" style={{ marginTop: 24, fontSize: 13, justifyContent: 'center' }} disabled={isPending}>
@@ -1006,8 +1124,305 @@ export default function AdminPage() {
               </form>
             </div>
           )}
+
+          {/* TAB 6: CERTIFICATES */}
+          {activeTab === 'certs' && (
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                <div>
+                  <h2 style={{ fontSize: 22, marginBottom: 4 }}>Certificates</h2>
+                  <p style={{ fontSize: 13, color: 'var(--color-ink-500)', margin: 0 }}>Issue, revoke, or reissue certificates and access verification QR codes.</p>
+                </div>
+                <button
+                  onClick={() => { setShowIssueForm(true); setCertFormStatus(null); }}
+                  className="btn btn--primary"
+                  style={{ fontSize: 13, padding: '10px 18px' }}
+                >
+                  + Issue Certificate
+                </button>
+              </div>
+
+              {/* Issue Form */}
+              {showIssueForm && (
+                <div style={{ background: 'var(--color-sand-50)', borderRadius: 10, padding: 24, border: '1px solid var(--color-line)', marginTop: 20, marginBottom: 28 }}>
+                  <h3 style={{ fontSize: 15, marginBottom: 16 }}>Issue New Certificate</h3>
+                  {certFormStatus && (
+                    <div style={{ padding: '10px 14px', borderRadius: 6, fontSize: 13, marginBottom: 16, background: certFormStatus.success ? '#dcfce7' : '#fef2f2', border: certFormStatus.success ? '1px solid #bbf7d0' : '1px solid #fecaca', color: certFormStatus.success ? '#15803d' : '#991b1b' }}>
+                      {certFormStatus.message}
+                    </div>
+                  )}
+                  <form onSubmit={handleIssueCert}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        <label style={{ fontSize: 11, fontFamily: 'var(--font-mono)' }}>Recipient Full Name *</label>
+                        <input
+                          type="text"
+                          value={certForm.recipient_name}
+                          onChange={(e) => setCertForm({ ...certForm, recipient_name: e.target.value })}
+                          placeholder="e.g. Amara Okonkwo"
+                          required
+                          style={{ fontSize: 14, padding: '8px 10px', border: '1px solid var(--color-line)', borderRadius: 6 }}
+                        />
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        <label style={{ fontSize: 11, fontFamily: 'var(--font-mono)' }}>Recipient Email</label>
+                        <input
+                          type="email"
+                          value={certForm.recipient_email}
+                          onChange={(e) => setCertForm({ ...certForm, recipient_email: e.target.value })}
+                          placeholder="e.g. amara@example.com"
+                          style={{ fontSize: 14, padding: '8px 10px', border: '1px solid var(--color-line)', borderRadius: 6 }}
+                        />
+                      </div>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: 16, marginBottom: 16 }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        <label style={{ fontSize: 11, fontFamily: 'var(--font-mono)' }}>Program *</label>
+                        <select
+                          value={certForm.program_id}
+                          onChange={(e) => {
+                            const prog = certPrograms.find(p => p.id === e.target.value);
+                            setCertForm({ ...certForm, program_id: e.target.value, course_title: prog?.name ?? '', level: prog?.level ?? '' });
+                          }}
+                          required
+                          style={{ fontSize: 14, padding: '8px 10px', border: '1px solid var(--color-line)', borderRadius: 6, background: '#fff' }}
+                        >
+                          <option value="">Select a program…</option>
+                          {certPrograms.map(p => (
+                            <option key={p.id} value={p.id}>{p.name}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        <label style={{ fontSize: 11, fontFamily: 'var(--font-mono)' }}>Cohort / Session</label>
+                        <input
+                          type="text"
+                          value={certForm.cohort_name}
+                          onChange={(e) => setCertForm({ ...certForm, cohort_name: e.target.value })}
+                          placeholder="e.g. Cohort 03"
+                          style={{ fontSize: 14, padding: '8px 10px', border: '1px solid var(--color-line)', borderRadius: 6 }}
+                        />
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        <label style={{ fontSize: 11, fontFamily: 'var(--font-mono)' }}>Level</label>
+                        <input
+                          type="text"
+                          value={certForm.level}
+                          onChange={(e) => setCertForm({ ...certForm, level: e.target.value })}
+                          placeholder="e.g. Beginner"
+                          style={{ fontSize: 14, padding: '8px 10px', border: '1px solid var(--color-line)', borderRadius: 6 }}
+                        />
+                      </div>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 20 }}>
+                      <label style={{ fontSize: 11, fontFamily: 'var(--font-mono)' }}>Certificate Title (auto-filled from program, editable)</label>
+                      <input
+                        type="text"
+                        value={certForm.course_title}
+                        onChange={(e) => setCertForm({ ...certForm, course_title: e.target.value })}
+                        placeholder="e.g. Explorer Live — Cohort 03"
+                        required
+                        style={{ fontSize: 14, padding: '8px 10px', border: '1px solid var(--color-line)', borderRadius: 6 }}
+                      />
+                    </div>
+                    <div style={{ display: 'flex', gap: 12 }}>
+                      <button type="submit" className="btn btn--primary" style={{ fontSize: 13, padding: '8px 16px' }} disabled={isPending}>
+                        {isPending ? 'Issuing…' : 'Issue Certificate'}
+                      </button>
+                      <button type="button" onClick={() => setShowIssueForm(false)} className="btn btn--ghost" style={{ fontSize: 13, padding: '8px 16px' }}>
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              )}
+
+              {/* Filter */}
+              <div style={{ display: 'flex', gap: 8, marginBottom: 16, flexWrap: 'wrap' }}>
+                {['', 'valid', 'revoked', 'replaced', 'expired'].map(s => (
+                  <button
+                    key={s || 'all'}
+                    onClick={() => setCertFilter(s)}
+                    style={{
+                      padding: '5px 14px',
+                      borderRadius: 100,
+                      fontSize: 12.5,
+                      fontWeight: certFilter === s ? 600 : 400,
+                      border: certFilter === s ? '1.5px solid #152033' : '1px solid var(--color-line)',
+                      background: certFilter === s ? '#152033' : '#fff',
+                      color: certFilter === s ? '#F7F3EC' : 'var(--color-ink-700)',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    {s || 'All'}
+                  </button>
+                ))}
+                <span style={{ marginLeft: 'auto', fontSize: 12.5, color: 'var(--color-ink-500)', alignSelf: 'center' }}>
+                  {certs.filter(c => !certFilter || c.status === certFilter).length} certificates
+                </span>
+              </div>
+
+              {/* Certs Table */}
+              <div style={{ border: '1px solid var(--color-line)', borderRadius: 8, overflow: 'hidden' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13.5 }}>
+                  <thead>
+                    <tr style={{ background: 'var(--color-sand-50)', textAlign: 'left', borderBottom: '1px solid var(--color-line)' }}>
+                      <th style={{ padding: '10px 14px' }}>Cert #</th>
+                      <th style={{ padding: '10px 14px' }}>Recipient</th>
+                      <th style={{ padding: '10px 14px' }}>Program</th>
+                      <th style={{ padding: '10px 14px' }}>Issued</th>
+                      <th style={{ padding: '10px 14px' }}>Status</th>
+                      <th style={{ padding: '10px 14px', textAlign: 'right' }}>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {certs
+                      .filter(c => !certFilter || c.status === certFilter)
+                      .map((cert) => {
+                        const statusColors: Record<string, { bg: string; color: string }> = {
+                          valid:    { bg: '#dcfce7', color: '#15803d' },
+                          revoked:  { bg: '#fef2f2', color: '#dc2626' },
+                          replaced: { bg: '#fff7ed', color: '#c2410c' },
+                          expired:  { bg: '#f5f5f5', color: '#6b7280' },
+                        };
+                        const sc = statusColors[cert.status] ?? statusColors.expired;
+                        return (
+                          <tr key={cert.id} style={{ borderBottom: '1px solid var(--color-line-soft)' }}>
+                            <td style={{ padding: '10px 14px', fontFamily: 'var(--font-mono)', fontSize: 12 }}>
+                              {cert.certificate_number ?? '—'}
+                            </td>
+                            <td style={{ padding: '10px 14px', fontWeight: 600 }}>
+                              {cert.recipient_name}
+                              {cert.recipient_email && <div style={{ fontSize: 11, color: 'var(--color-ink-500)', fontWeight: 400 }}>{cert.recipient_email}</div>}
+                            </td>
+                            <td style={{ padding: '10px 14px', color: 'var(--color-ink-700)', maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                              {cert.course_title}
+                              {cert.cohort_name && <div style={{ fontSize: 11, color: 'var(--color-ink-500)' }}>{cert.cohort_name}</div>}
+                            </td>
+                            <td style={{ padding: '10px 14px', color: 'var(--color-ink-500)', whiteSpace: 'nowrap' }}>
+                              {new Date(cert.issued_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+                            </td>
+                            <td style={{ padding: '10px 14px' }}>
+                              <span style={{ padding: '3px 10px', borderRadius: 100, fontSize: 11.5, fontWeight: 600, background: sc.bg, color: sc.color }}>
+                                {cert.status}
+                              </span>
+                            </td>
+                            <td style={{ padding: '10px 14px', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                              <button
+                                onClick={() => handleShowQR(cert.public_token, cert.certificate_number)}
+                                style={{ background: 'transparent', border: 'none', color: 'var(--color-blue-600)', cursor: 'pointer', fontSize: 12.5, marginRight: 10 }}
+                                title="View QR Code"
+                              >
+                                QR
+                              </button>
+                              <a
+                                href={`/verify/${cert.public_token}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: 'var(--color-ink-700)', fontSize: 12.5, marginRight: 10 }}
+                              >
+                                Verify ↗
+                              </a>
+                              {cert.status === 'valid' && (
+                                <button
+                                  onClick={() => { setRevokeModal({ id: cert.id, name: cert.recipient_name }); setRevokeReason(''); }}
+                                  style={{ background: 'transparent', border: 'none', color: '#dc2626', cursor: 'pointer', fontSize: 12.5, marginRight: 10 }}
+                                  disabled={isPending}
+                                >
+                                  Revoke
+                                </button>
+                              )}
+                              {(cert.status === 'revoked' || cert.status === 'replaced') && (
+                                <button
+                                  onClick={() => handleReissueCert(cert.id)}
+                                  style={{ background: 'transparent', border: 'none', color: '#ea580c', cursor: 'pointer', fontSize: 12.5 }}
+                                  disabled={isPending}
+                                >
+                                  Reissue
+                                </button>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    {certs.filter(c => !certFilter || c.status === certFilter).length === 0 && (
+                      <tr>
+                        <td colSpan={6} style={{ padding: 20, textAlign: 'center', color: 'var(--color-ink-500)' }}>No certificates found.</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
         </div>
       </div>
+
+      {/* QR Modal */}
+      {qrModal && (
+        <div
+          style={{ position: 'fixed', inset: 0, background: 'rgba(21,32,51,0.55)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          onClick={() => setQrModal(null)}
+        >
+          <div
+            style={{ background: '#fff', borderRadius: 16, padding: 32, maxWidth: 380, width: '90%', textAlign: 'center', boxShadow: '0 20px 60px rgba(0,0,0,0.25)' }}
+            onClick={e => e.stopPropagation()}
+          >
+            <h3 style={{ fontSize: 18, marginBottom: 4 }}>Certificate QR Code</h3>
+            {qrModal.certNumber && <p style={{ fontSize: 12, color: 'var(--color-ink-500)', fontFamily: 'var(--font-mono)', marginBottom: 20 }}>{qrModal.certNumber}</p>}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={qrModal.qrDataUri} alt="QR Code" style={{ width: 240, height: 240, margin: '0 auto 16px', display: 'block' }} />
+            <p style={{ fontSize: 12, color: 'var(--color-ink-500)', wordBreak: 'break-all', marginBottom: 20 }}>{qrModal.verifyUrl}</p>
+            <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
+              <a
+                href={qrModal.qrDataUri}
+                download={`qr-${qrModal.certNumber ?? 'cert'}.png`}
+                className="btn btn--primary"
+                style={{ fontSize: 13, padding: '8px 16px' }}
+              >
+                Download PNG
+              </a>
+              <button onClick={() => setQrModal(null)} className="btn btn--ghost" style={{ fontSize: 13, padding: '8px 16px' }}>Close</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Revoke Modal */}
+      {revokeModal && (
+        <div
+          style={{ position: 'fixed', inset: 0, background: 'rgba(21,32,51,0.55)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          onClick={() => setRevokeModal(null)}
+        >
+          <div
+            style={{ background: '#fff', borderRadius: 16, padding: 32, maxWidth: 420, width: '90%', boxShadow: '0 20px 60px rgba(0,0,0,0.25)' }}
+            onClick={e => e.stopPropagation()}
+          >
+            <h3 style={{ fontSize: 18, marginBottom: 8 }}>Revoke Certificate</h3>
+            <p style={{ fontSize: 14, color: 'var(--color-ink-700)', marginBottom: 20 }}>
+              You are revoking the certificate for <strong>{revokeModal.name}</strong>. This action cannot be undone from the verification page, but you can reissue.
+            </p>
+            <label style={{ fontSize: 11, fontFamily: 'var(--font-mono)', display: 'block', marginBottom: 6 }}>Reason for revocation *</label>
+            <textarea
+              value={revokeReason}
+              onChange={e => setRevokeReason(e.target.value)}
+              placeholder="e.g. Issued in error, policy violation, etc."
+              rows={3}
+              style={{ width: '100%', fontSize: 14, padding: '10px 12px', border: '1px solid var(--color-line)', borderRadius: 8, fontFamily: 'var(--font-body)', boxSizing: 'border-box', marginBottom: 20 }}
+            />
+            <div style={{ display: 'flex', gap: 10 }}>
+              <button
+                onClick={handleRevokeCert}
+                disabled={!revokeReason.trim() || isPending}
+                style={{ padding: '10px 18px', background: '#dc2626', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 600, fontSize: 13.5, cursor: 'pointer', opacity: !revokeReason.trim() ? 0.5 : 1 }}
+              >
+                Confirm Revoke
+              </button>
+              <button onClick={() => setRevokeModal(null)} className="btn btn--ghost" style={{ fontSize: 13, padding: '8px 16px' }}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
