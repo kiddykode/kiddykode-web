@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 
 const PUBLIC_FILE = /\.(.*)$/;
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   // Bypass for Server Actions to prevent redirecting POST requests
   if (request.headers.has('next-action')) {
     return NextResponse.next();
@@ -11,11 +11,12 @@ export function proxy(request: NextRequest) {
 
   const { pathname } = request.nextUrl;
 
-  // Skip internal paths, api, static files, favicon, etc.
+  // Skip internal paths, api, static files, favicon, and verify routes
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname === '/favicon.ico' ||
+    pathname.startsWith('/verify') || // Bypass verify routes to prevent redirect loops with next.config redirects
     PUBLIC_FILE.test(pathname)
   ) {
     return NextResponse.next();
