@@ -487,3 +487,75 @@
   font-weight: 600;
   color: #152033;
 }
+
+/* ====================================================
+   Certificate display section (below result card)
+   ==================================================== */
+
+/* Wrap for the result card + cert template stacked */
+.resultPageWrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: clamp(32px, 6vw, 64px) clamp(20px, 3.2vw, 48px) clamp(40px, 6vw, 80px);
+}
+
+/* Stretch card wrap when showing stacked layout */
+.cardWrapColumn {
+  flex: unset;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Certificate section */
+.certSection {
+  width: 100%;
+  max-width: 1120px;
+  margin-top: 48px;
+}
+
+.certSectionHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.certSectionTitle {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8C95AC;
+}
+
+.certSectionDivider {
+  flex: 1;
+  height: 1px;
+  background: #EFE8DD;
+}
+
+@media print {
+  .resultPageWrap,
+  .cardWrapColumn,
+  .certSectionHead {
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 0 !important;
+  }
+  /* Hide the metadata card and header/footer when printing */
+  .resultCard,
+  .header,
+  .footer,
+  .certSectionHead,
+  .certSectionTitle,
+  .certSectionDivider,
+  .actions,
+  .issuerStrip {
+    display: none !important;
+  }
+}

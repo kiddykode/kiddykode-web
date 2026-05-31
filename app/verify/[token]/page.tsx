@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { verifyCertificate } from '@/app/actions/certificates';
+import { CertificateTemplate } from '@/app/components/CertificateTemplate';
 import styles from '../verify.module.css';
+
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://kiddykode.com';
 
 interface Props {
   params: Promise<{ token: string }>;
@@ -86,11 +89,20 @@ export default async function VerifyTokenPage({ params }: Props) {
   const c = result.certificate;
   const isValid = c.status === 'valid';
 
+  const verifyUrl = `${BASE_URL}/verify/${token}`;
+  const instructorName = typeof c.metadata === 'object' && c.metadata && 'instructor_name' in c.metadata
+    ? String((c.metadata as Record<string, unknown>).instructor_name)
+    : 'Dedoatus Bijengsi';
+  const directorName = typeof c.metadata === 'object' && c.metadata && 'director_name' in c.metadata
+    ? String((c.metadata as Record<string, unknown>).director_name)
+    : 'Chiella Harriet';
+
   /* ─── Found ─── */
   return (
     <main className={styles.page}>
       <Header />
-      <section className={styles.cardWrap}>
+      <div className={styles.resultPageWrap}>
+        <div className={styles.cardWrapColumn}>
         <div className={styles.resultCard}>
 
           <StatusBadge status={c.status} />
@@ -211,7 +223,28 @@ export default async function VerifyTokenPage({ params }: Props) {
             </a>
           </div>
         </div>
-      </section>
+        </div>
+
+        {/* ── Certificate template (valid only) ── */}
+        {isValid && (
+          <div className={styles.certSection}>
+            <div className={styles.certSectionHead} aria-hidden="true">
+              <span className={styles.certSectionTitle}>Your Certificate</span>
+              <div className={styles.certSectionDivider} />
+            </div>
+            <CertificateTemplate
+              recipientName={c.recipient_name}
+              courseTitle={c.course_title}
+              cohortName={c.cohort_name ?? undefined}
+              issuedAt={c.issued_at}
+              certificateNumber={c.certificate_number}
+              verifyUrl={verifyUrl}
+              instructorName={instructorName}
+              directorName={directorName}
+            />
+          </div>
+        )}
+      </div>
       <Footer />
     </main>
   );

@@ -14,6 +14,7 @@ export interface PublicCertificate {
   revoked_at: string | null;
   revoke_reason: string | null;
   pdf_url: string | null;
+  metadata: Record<string, unknown> | null;
 }
 
 /**
@@ -32,7 +33,7 @@ export async function verifyCertificate(
   const { data, error } = await supabase
     .from('certificates')
     .select(
-      'certificate_number, recipient_name, course_title, cohort_name, level, issued_at, expires_at, status, revoked_at, revoke_reason, pdf_url'
+      'certificate_number, recipient_name, course_title, cohort_name, level, issued_at, expires_at, status, revoked_at, revoke_reason, pdf_url, metadata'
     )
     .eq('public_token', token)
     .single();

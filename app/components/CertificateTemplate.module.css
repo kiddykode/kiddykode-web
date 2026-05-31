@@ -1,0 +1,389 @@
+/* ============================================================
+   CertificateTemplate.module.css
+   Explorer Live — Certificate of Completion
+   A4 Landscape  297 × 210 mm  /  1122 × 794 px @96dpi
+   ============================================================ */
+
+/* ── Google Font (Playfair Display for title) ─────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* ── Print page setup ─────────────────────────────────────── */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  /* Hide everything except the certificate when printing */
+  body > *:not(#cert-print-root) {
+    display: none !important;
+  }
+
+  .printRoot {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9999 !important;
+    background: #fff !important;
+  }
+}
+
+/* ── Wrapper (screen view) ─────────────────────────────────── */
+.printRoot {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 32px 0;
+  background: transparent;
+}
+
+/* ── Certificate paper ─────────────────────────────────────── */
+.certificate {
+  /* A4 landscape at 96dpi */
+  width: 1056px;
+  height: 748px;
+  max-width: 100%;
+  aspect-ratio: 1056 / 748;
+
+  position: relative;
+  background: #ffffff;
+  box-shadow:
+    0 4px 32px rgba(27, 67, 50, 0.14),
+    0 1px 4px rgba(27, 67, 50, 0.08);
+
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1a1a1a;
+
+  /* Inner padding from the edge border */
+  padding: 0;
+  overflow: hidden;
+
+  /* Slight warm paper tint */
+  background: linear-gradient(145deg, #ffffff 0%, #fdfcf9 100%);
+}
+
+/* ── Outer border ──────────────────────────────────────────── */
+.outerBorder {
+  position: absolute;
+  inset: 16px;
+  border: 2px solid #1B4332;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Inner border (hairline) ───────────────────────────────── */
+.innerBorder {
+  position: absolute;
+  inset: 22px;
+  border: 0.75px solid #1B4332;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.45;
+}
+
+/* ── Corner ornaments ──────────────────────────────────────── */
+.corner {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  z-index: 2;
+  color: #8B7D3A;
+}
+.corner svg {
+  width: 100%;
+  height: 100%;
+}
+.cornerTL { top: 8px;  left: 8px; }
+.cornerTR { top: 8px;  right: 8px;  transform: scaleX(-1); }
+.cornerBL { bottom: 8px; left: 8px;  transform: scaleY(-1); }
+.cornerBR { bottom: 8px; right: 8px; transform: scale(-1, -1); }
+
+/* ── Content area (inside borders) ───────────────────────────*/
+.content {
+  position: absolute;
+  inset: 36px 72px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 3;
+  text-align: center;
+}
+
+/* ── Top section ───────────────────────────────────────────── */
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+
+.title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #1B4332;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #1B4332;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.preamble {
+  margin-top: 14px;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  color: #444;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+/* ── Recipient name ────────────────────────────────────────── */
+.recipientName {
+  font-family: 'General Sans', 'Inter', system-ui, sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #111;
+  line-height: 1.05;
+  margin: 6px 0 0;
+  text-transform: uppercase;
+}
+
+/* ── Divider ornament ──────────────────────────────────────── */
+.dividerOrnament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+  color: #8B7D3A;
+}
+.dividerLine {
+  height: 1px;
+  width: 60px;
+  background: currentColor;
+  opacity: 0.7;
+}
+.dividerDots {
+  display: flex;
+  gap: 4px;
+}
+.dividerDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+/* ── Achievement body text ─────────────────────────────────── */
+.achievementText {
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  color: #333;
+  line-height: 1.7;
+  max-width: 540px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* ── Signature row ─────────────────────────────────────────── */
+.sigRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px;
+  gap: 0;
+}
+
+.sigBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 160px;
+}
+
+.sigImage {
+  height: 52px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  display: block;
+  filter: contrast(1.1);
+}
+
+.sigSvg {
+  height: 52px;
+  width: 140px;
+}
+
+.sigLine {
+  width: 140px;
+  height: 1px;
+  background: #1B4332;
+  margin: 2px 0;
+  opacity: 0.6;
+}
+
+.sigName {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #1B4332;
+  text-transform: uppercase;
+}
+
+.sigRole {
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  color: #555;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+
+/* ── Center logo ───────────────────────────────────────────── */
+.centerLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.logoCircle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 2px solid #1769E0;
+  padding: 4px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.logoImg {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── QR + cert number (bottom-right corner) ────────────────── */
+.qrBlock {
+  position: absolute;
+  bottom: 32px;
+  right: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  z-index: 4;
+}
+
+.qrImg {
+  width: 64px;
+  height: 64px;
+  image-rendering: pixelated;
+}
+
+.qrLabel {
+  font-size: 7.5px;
+  letter-spacing: 0.08em;
+  color: #888;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ── Certificate number (bottom-left) ──────────────────────── */
+.certNumber {
+  position: absolute;
+  bottom: 32px;
+  left: 80px;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: #aaa;
+  z-index: 4;
+}
+
+/* ── Issued date (very small, bottom centre) ───────────────── */
+.issuedDate {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #bbb;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 4;
+}
+
+/* ── Print button (hidden in print) ────────────────────────── */
+.printBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #1B4332;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+.printBtn:hover {
+  background: #14532d;
+  transform: translateY(-1px);
+}
+
+@media print {
+  .printBtn {
+    display: none !important;
+  }
+  .certificate {
+    width: 297mm;
+    height: 210mm;
+    box-shadow: none;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .printRoot {
+    padding: 0;
+    gap: 0;
+  }
+}
+
+/* ── Responsive scale on small screens ─────────────────────── */
+@media (max-width: 1120px) {
+  .certificate {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1056 / 748;
+  }
+  .title        { font-size: clamp(24px, 4.5vw, 52px); }
+  .recipientName { font-size: clamp(18px, 3.2vw, 38px); }
+  .achievementText { font-size: clamp(8px, 1vw, 11.5px); }
+}

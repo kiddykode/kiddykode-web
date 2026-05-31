@@ -421,6 +421,21 @@ export async function issueCertificate(
 
   const publicToken = generatePublicToken();
 
+  // Fetch program slug to determine defaults
+  const { data: program } = await supabase
+    .from('certificate_programs')
+    .select('slug')
+    .eq('id', input.program_id)
+    .single();
+
+  const meta: Record<string, unknown> = { ...(input.metadata || {}) };
+
+  // Auto-populate Explorer Live signatory defaults if not already set
+  if (program?.slug?.startsWith('explorer-live')) {
+    if (!meta.instructor_name) meta.instructor_name = 'Dedoatus Bijengsi';
+    if (!meta.director_name)   meta.director_name   = 'Chiella Harriet';
+  }
+
   const { data, error } = await supabase
     .from('certificates')
     .insert({
@@ -431,7 +446,7 @@ export async function issueCertificate(
       course_title: input.course_title.trim(),
       cohort_name: input.cohort_name?.trim() || null,
       level: input.level?.trim() || null,
-      metadata: input.metadata || {},
+      metadata: meta,
       status: 'valid',
     })
     .select()
@@ -440,6 +455,7 @@ export async function issueCertificate(
   if (error) return { success: false, error: error.message };
   return { success: true, record: data as CertificateRecord };
 }
+
 
 /** Revoke a certificate */
 export async function revokeCertificate(
