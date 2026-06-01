@@ -8,74 +8,21 @@ import { ImagePlaceholder } from "../../../components/ImagePlaceholder";
 import styles from "./portfolio.module.css";
 import { Link } from '@/i18n/navigation';
 
-const projects = [
-  {
-    id: 1,
-    title: "My First Calculator",
-    description: "A Python CLI calculator that handles basic math operations including addition, subtraction, multiplication, and division.",
-    format: "KiddyKode Live",
-    cohort: "COHORT 01",
-    learner: "Amara",
-    age: 10,
-    tags: ["Python", "Variables", "Math"],
-    tone: "warm" as const,
-  },
-  {
-    id: 2,
-    title: "Animal Quiz Game",
-    description: "An interactive terminal quiz about African wildlife, testing users on animal facts with score tracking.",
-    format: "Studio",
-    cohort: "SELF-PACED",
-    learner: "Kofi",
-    age: 12,
-    tags: ["Python", "Conditions", "Loops"],
-    tone: "cool" as const,
-  },
-  {
-    id: 3,
-    title: "Story Generator",
-    description: "A fun script that generates random short stories by combining different user inputs and pre-defined story elements.",
-    format: "Bootcamp",
-    cohort: "SUMMER 2025",
-    learner: "Naledi",
-    age: 9,
-    tags: ["Python", "Strings", "Input"],
-    tone: "clay" as const,
-  },
-  {
-    id: 4,
-    title: "Temperature Converter",
-    description: "A utility program that seamlessly converts temperatures between Celsius and Fahrenheit scales.",
-    format: "KiddyKode Live",
-    cohort: "COHORT 02",
-    learner: "Dami",
-    age: 11,
-    tags: ["Python", "Functions", "Math"],
-    tone: "sage" as const,
-  },
-  {
-    id: 5,
-    title: "Times Table Trainer",
-    description: "A math practice game that challenges users with random multiplication questions and tracks their accuracy.",
-    format: "School Clubs",
-    cohort: "TERM 1",
-    learner: "Zuri",
-    age: 10,
-    tags: ["Python", "Loops", "Random"],
-    tone: "ink" as const,
-  },
-  {
-    id: 6,
-    title: "Password Generator",
-    description: "Creates secure, random passwords based on user-defined length and character requirements.",
-    format: "KiddyKode Live",
-    cohort: "COHORT 02",
-    learner: "Thandiwe",
-    age: 13,
-    tags: ["Python", "Modules", "Logic"],
-    tone: "warm" as const,
-  }
-];
+import projectsData from "./projects.json";
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  format: string;
+  cohort: string;
+  learner: string;
+  age: number;
+  tags: string[];
+  tone: "warm" | "cool" | "clay" | "sage" | "ink";
+}
+
+const projects = projectsData as Project[];
 
 const filters = ["All", "KiddyKode Live", "Studio", "Bootcamp", "School Clubs"];
 
