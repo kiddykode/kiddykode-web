@@ -1,7 +1,7 @@
 /* stories.module.css */
 .feature { border-bottom: 1px solid var(--color-line); }
-.featureGrid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
-.featureMedia { position: relative; aspect-ratio: 4/3; border-radius: 12px; overflow: hidden; }
+.featureGrid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: stretch; }
+.featureMedia { position: relative; border-radius: 12px; overflow: hidden; }
 .featureBody .meta { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--color-ink-500); text-transform: uppercase; margin-bottom: 16px; display: flex; gap: 16px; }
 .featureBody .meta span { display: flex; align-items: center; gap: 8px; }
 .featureBody .meta .tag { color: var(--color-accent); }
