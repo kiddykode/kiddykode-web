@@ -30,7 +30,7 @@ export default function StoriesPage() {
             <div className={styles.featureMedia}>
               <ImagePlaceholder
                 tone="clay"
-                photoUrl="https://res.cloudinary.com/dsbm73ojs/image/upload/v1779204270/Bernice_Chenwi_m9ouh1.jpg"
+                photoUrl="https://res.cloudinary.com/dsbm73ojs/image/upload/v1779204743/Britney_Chenwi_mqdjeg.jpg"
                 // caption="Replace ▸ Zola at the Cape Town demo night"
               />
             </div>

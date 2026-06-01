@@ -20,6 +20,7 @@ interface Project {
   age: number;
   tags: string[];
   tone: "warm" | "cool" | "clay" | "sage" | "ink";
+  photoUrl?: string;
 }
 
 const projects = projectsData as Project[];
@@ -73,7 +74,7 @@ export default function PortfolioPage() {
             {filteredProjects.map(project => (
               <div key={project.id} className={styles.card}>
                 <div className={styles.cardImage}>
-                  <ImagePlaceholder tone={project.tone} />
+                  <ImagePlaceholder tone={project.tone} photoUrl={project.photoUrl} />
                 </div>
                 <div className={styles.cardBody}>
                   <div className={styles.meta}>

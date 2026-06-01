@@ -8,7 +8,8 @@
     "learner": "Amara",
     "age": 10,
     "tags": ["Python", "Variables", "Math"],
-    "tone": "warm"
+    "tone": "warm",
+    "photoUrl": ""
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@
     "learner": "Kofi",
     "age": 12,
     "tags": ["Python", "Conditions", "Loops"],
-    "tone": "cool"
+    "tone": "cool",
+    "photoUrl": ""
   },
   {
     "id": 3,
@@ -30,7 +32,8 @@
     "learner": "Naledi",
     "age": 9,
     "tags": ["Python", "Strings", "Input"],
-    "tone": "clay"
+    "tone": "clay",
+    "photoUrl": ""
   },
   {
     "id": 4,
@@ -41,7 +44,8 @@
     "learner": "Dami",
     "age": 11,
     "tags": ["Python", "Functions", "Math"],
-    "tone": "sage"
+    "tone": "sage",
+    "photoUrl": ""
   },
   {
     "id": 5,
@@ -52,7 +56,8 @@
     "learner": "Zuri",
     "age": 10,
     "tags": ["Python", "Loops", "Random"],
-    "tone": "ink"
+    "tone": "ink",
+    "photoUrl": ""
   },
   {
     "id": 6,
@@ -63,6 +68,7 @@
     "learner": "Thandiwe",
     "age": 13,
     "tags": ["Python", "Modules", "Logic"],
-    "tone": "warm"
+    "tone": "warm",
+    "photoUrl": ""
   }
 ]
