@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "title": "My Amazing Calculator",
-    "description": "A Python CLI calculator that handles basic math operations including addition, subtraction, multiplication, and division.",
+    "title": "African Aventure Game",
+    "description": "An interactive air pollution awareness game where players explore real-world pollution sources and make everyday choices that show how individual actions can reduce environmental harm and promote sustainability.",
     "format": "KiddyKode Live",
     "level": "Explorer",
     "cohort": "COHORT 01",
-    "learner": "Amara",
-    "age": 10,
-    "tags": ["Python", "Variables", "Math"],
+    "learner": "Britney Chenwi",
+    "age": 13,
+    "tags": ["Python", "Variables", "Environmental Awareness"],
     "tone": "warm",
     "photoUrl": ""
   },
@@ -74,6 +74,19 @@
     "learner": "Thandiwe",
     "age": 13,
     "tags": ["Python", "Modules", "Logic"],
+    "tone": "warm",
+    "photoUrl": ""
+  },
+  {
+    "id": 7,
+        "title": "Air Pollution Awareness Game",
+    "description": "An interactive air pollution awareness game where players explore real-world pollution sources and make everyday choices that show how individual actions can reduce environmental harm and promote sustainability.",
+    "format": "KiddyKode Live",
+    "level": "Explorer",
+    "cohort": "COHORT 01",
+    "learner": "Britney Chenwi",
+    "age": 13,
+    "tags": ["Python", "Variables", "Environmental Awareness"],
     "tone": "warm",
     "photoUrl": ""
   }
