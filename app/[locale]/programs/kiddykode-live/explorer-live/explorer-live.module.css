@@ -13,19 +13,43 @@
 @media (min-width: 1025px) {
   .progHero {
     height: calc(100dvh - 124px);
-    min-height: 520px;
+    min-height: 560px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding-top: 0;
-    padding-bottom: 0;
+    justify-content: flex-start;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
   .progHero :global(.wrap) {
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .progHero :global(.crumb) {
+    margin-bottom: auto;
   }
   .progHeroGrid {
-    height: 100%;
+    height: auto;
+    flex: 1;
     align-items: center;
+  }
+  .progHero .outcomeBadge {
+    margin-top: 12px;
+  }
+  .progHero h1 {
+    margin-top: 16px;
+  }
+  .progHero .lede {
+    margin-top: 16px;
+  }
+  .progHero .meta {
+    margin-top: 24px;
+    padding-top: 16px;
+  }
+  .progHero .heroActions {
+    margin-top: 20px;
   }
 }
 .progHeroGrid {
