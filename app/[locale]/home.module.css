@@ -1,25 +1,26 @@
 /* home.module.css */
 .hero { padding-top: clamp(48px, 6vw, 96px); padding-bottom: clamp(64px, 8vw, 120px); border-bottom: 1px solid var(--color-line); }
-.heroGrid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(24px, 4vw, 64px); align-items: center; }
-.heroCopy { max-width: 640px; }
-.heroCopy h1 { margin-top: 28px; }
+.heroGrid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(24px, 4vw, 64px); align-items: center; height: 100%; }
+.heroCopy { max-width: 640px; display: flex; flex-direction: column; justify-content: center; }
+.heroCopy h1 { margin-top: 10px; font-size: clamp(24px, 3vw, 46px); line-height: 1.0; }
 .heroCopy h1 em { font-style: normal; color: var(--color-accent); font-family: var(--font-display); position: relative; }
-.heroCopy .lede { margin-top: 26px; max-width: 50ch; }
-.heroCta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
-.heroMeta { margin-top: 24px; }
+.heroCopy .lede { margin-top: 12px; max-width: 50ch; font-size: clamp(14px, 1vw, 16px); }
+.heroCta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.heroMeta { margin-top: 10px; }
 .heroTrust { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--color-line); display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .heroTrust .statNum { font-family: var(--font-display); font-size: 32px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; }
 .heroTrust .statLabel { font-size: 13px; color: var(--color-ink-500); margin-top: 8px; max-width: 18ch; line-height: 1.4; }
-.heroMedia { position: relative; aspect-ratio: 4/5; border-radius: 12px; overflow: hidden; background: var(--color-sand-200); }
+.heroMedia { position: relative; height: 100%; min-height: 0; border-radius: 12px; overflow: hidden; background: var(--color-sand-200); }
 .heroMedia .caption { position: absolute; inset: auto 16px 16px 16px; background: rgba(21, 32, 51, 0.86); color: var(--color-sand-50); backdrop-filter: blur(4px); padding: 12px 14px; border-radius: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; display: flex; justify-content: space-between; gap: 16px; }
 .heroMedia .caption strong { font-weight: 600; color: #fff; }
 
 /* Carousel Additions */
-.heroCarouselSection { padding-top: clamp(20px, 2.5vw, 36px); padding-bottom: clamp(16px, 2vw, 28px); border-bottom: 1px solid var(--color-line); position: relative; overflow: hidden; min-height: calc(100dvh - 124px); display: flex; flex-direction: column; justify-content: center; }
-.heroTrack { display: grid; grid-template-areas: "slide"; width: 100%; }
-.heroSlide { grid-area: slide; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(12px); z-index: 1; }
+.heroCarouselSection { height: calc(100dvh - 124px); min-height: 420px; padding-top: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--color-line); position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.heroCarouselSection :global(.wrap) { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.heroTrack { flex: 1; min-height: 0; display: grid; grid-template-areas: "slide"; width: 100%; }
+.heroSlide { grid-area: slide; height: 100%; min-height: 0; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(12px); z-index: 1; }
 .heroSlideActive { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); z-index: 2; }
-.heroNav { display: flex; align-items: center; justify-content: space-between; margin-top: clamp(14px, 2vw, 24px); }
+.heroNav { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; flex-shrink: 0; }
 .heroDots { display: flex; gap: 10px; }
 .heroDot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-line); border: none; cursor: pointer; padding: 0; transition: background 0.3s ease, transform 0.3s ease; }
 .heroDot:hover { background: var(--color-ink-300); }
