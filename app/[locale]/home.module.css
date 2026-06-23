@@ -1,6 +1,6 @@
 /* home.module.css */
 .hero { padding-top: clamp(48px, 6vw, 96px); padding-bottom: clamp(64px, 8vw, 120px); border-bottom: 1px solid var(--color-line); }
-.heroGrid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(32px, 5vw, 80px); align-items: end; }
+.heroGrid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(24px, 4vw, 64px); align-items: center; }
 .heroCopy { max-width: 640px; }
 .heroCopy h1 { margin-top: 28px; }
 .heroCopy h1 em { font-style: normal; color: var(--color-accent); font-family: var(--font-display); position: relative; }
@@ -15,11 +15,11 @@
 .heroMedia .caption strong { font-weight: 600; color: #fff; }
 
 /* Carousel Additions */
-.heroCarouselSection { padding-top: clamp(48px, 6vw, 96px); padding-bottom: clamp(40px, 6vw, 80px); border-bottom: 1px solid var(--color-line); position: relative; overflow: hidden; }
+.heroCarouselSection { padding-top: clamp(20px, 2.5vw, 36px); padding-bottom: clamp(16px, 2vw, 28px); border-bottom: 1px solid var(--color-line); position: relative; overflow: hidden; min-height: calc(100dvh - 124px); display: flex; flex-direction: column; justify-content: center; }
 .heroTrack { display: grid; grid-template-areas: "slide"; width: 100%; }
 .heroSlide { grid-area: slide; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(12px); z-index: 1; }
 .heroSlideActive { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); z-index: 2; }
-.heroNav { display: flex; align-items: center; justify-content: space-between; margin-top: clamp(32px, 4vw, 48px); }
+.heroNav { display: flex; align-items: center; justify-content: space-between; margin-top: clamp(14px, 2vw, 24px); }
 .heroDots { display: flex; gap: 10px; }
 .heroDot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-line); border: none; cursor: pointer; padding: 0; transition: background 0.3s ease, transform 0.3s ease; }
 .heroDot:hover { background: var(--color-ink-300); }
