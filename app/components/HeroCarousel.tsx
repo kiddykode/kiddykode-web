@@ -8,7 +8,7 @@ import styles from "../[locale]/home.module.css";
 const slideImages = [
   { src: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1782231517/copy_of_chatgpt_image_may_14_2026_08_13_08_pm_kdo9lh.png", alt: "A learner presenting a built project" },
   { src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80", alt: "A child learning to code" },
-  { src: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774726/ChatGPT_Image_May_14_2026_09_08_46_PM_dgfdz9.png", alt: "Students coding in a classroom" },
+  { src: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1782231963/copy_of_chatgpt_image_may_14_2026_09_08_46_pm_dgfdz9.png", alt: "Students coding in a classroom" },
   { src: "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=80", alt: "KiddyKode Studio interface" },
   { src: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1778774727/ChatGPT_Image_May_14_2026_09_17_40_PM_ma3741.png", alt: "A student presenting an app about African stories" },
 ];

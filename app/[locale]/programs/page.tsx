@@ -123,7 +123,7 @@ export default function ProgramsPage() {
                 facilitators, practice at home, present their work, and grow through guided
                 cohorts that follow the KiddyKode method from story to presentation.
               </p>
-              <Link href="/contact" className="btn btn--ghost">
+              <Link href="/programs/kiddykode-live" className="btn btn--ghost">
                 Join a cohort <span className="arrow">→</span>
               </Link>
             </div>
