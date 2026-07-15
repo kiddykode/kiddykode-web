@@ -62,10 +62,12 @@ export async function registerForYil(
       console.error('[registerForYil] WhatsApp welcome failed:', waError);
     }
 
-    // Notify team via Telegram. Fire-and-forget (not awaited): the DB write
-    // already succeeded, so this must never add latency to or fail the user's
-    // response — only log if it errors.
-    notifyNewRegistration('YIL Registration', {
+    // Notify team via Telegram. Awaited (with a bounded timeout inside
+    // sendTelegramMessage) rather than fire-and-forget: on serverless
+    // (Vercel), an un-awaited call can get killed the instant the response
+    // is sent, before it ever reaches Telegram. Errors are only logged —
+    // the DB write already succeeded, so this must never fail the response.
+    await notifyNewRegistration('YIL Registration', {
       Name: data.fullName,
       WhatsApp: data.whatsappNumber,
       Kids: data.numberOfKids,

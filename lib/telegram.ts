@@ -13,15 +13,28 @@ export async function sendTelegramMessage(text: string): Promise<void> {
 
   const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: telegramChatId,
-      text,
-      parse_mode: 'HTML',
-    }),
-  });
+  // Bounded timeout: on serverless (Vercel), the function can be frozen/killed
+  // right after the response is sent, so this call must be awaited by the
+  // caller to actually complete — but it must not hang the response if
+  // Telegram's API is ever slow, so cap it instead of awaiting indefinitely.
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+
+  let response: Response;
+  try {
+    response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: telegramChatId,
+        text,
+        parse_mode: 'HTML',
+      }),
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
 
   if (!response.ok) {
     const errorText = await response.text();
