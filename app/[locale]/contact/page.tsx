@@ -31,25 +31,25 @@ export default function ContactPage() {
               <span className={styles.n}>01 / Schools</span>
               <h3>School Partnerships</h3>
               <p>For headteachers, district officials, and NGOs wanting to run KiddyKode curriculum.</p>
-              <a href="mailto:schools@kiddykode.org" className={styles.mail}>schools@kiddykode.org</a>
+              <a href="mailto:kiddykode@gmail.com" className={styles.mail}>partners@kiddykode.com</a>
             </div>
             <div className={styles.desk}>
               <span className={styles.n}>02 / Development</span>
               <h3>Funding & Grants</h3>
               <p>For philanthropic partners, CSR leads, and individual donors.</p>
-              <a href="mailto:partners@kiddykode.org" className={styles.mail}>partners@kiddykode.org</a>
+              <a href="mailto:kiddykode@gmail.com" className={styles.mail}>partners@kiddykode.com</a>
             </div>
             <div className={styles.desk}>
               <span className={styles.n}>03 / Press</span>
               <h3>Media & Stories</h3>
               <p>For journalists, conference organizers, and requests for impact data.</p>
-              <a href="mailto:press@kiddykode.org" className={styles.mail}>press@kiddykode.org</a>
+              <a href="mailto:kiddykode@gmail.com" className={styles.mail}>press@kiddykode.com</a>
             </div>
             <div className={styles.desk}>
               <span className={styles.n}>04 / General</span>
               <h3>Everything else</h3>
               <p>For parents, potential mentors, chapter leads, and general questions.</p>
-              <a href="mailto:hello@kiddykode.org" className={styles.mail}>hello@kiddykode.org</a>
+              <a href="mailto:kiddykode@gmail.com" className={styles.mail}>hello@kiddykode.com</a>
             </div>
           </div>
         </div>
@@ -124,32 +124,32 @@ export default function ContactPage() {
             <div className={styles.dirRow}>
               <div className={styles.name}>Adaeze Okonkwo</div>
               <div className={styles.role}>Curriculum & Pedagogy</div>
-              <a href="mailto:adaeze@kiddykode.org" className={styles.mail}>adaeze@kiddykode.org</a>
+              <a href="mailto:adaeze@kiddykode.com" className={styles.mail}>adaeze@kiddykode.com</a>
             </div>
             <div className={styles.dirRow}>
               <div className={styles.name}>Kweku Ofori</div>
               <div className={styles.role}>Operations & Chapters</div>
-              <a href="mailto:kweku@kiddykode.org" className={styles.mail}>kweku@kiddykode.org</a>
+              <a href="mailto:kweku@kiddykode.com" className={styles.mail}>kweku@kiddykode.com</a>
             </div>
             <div className={styles.dirRow}>
               <div className={styles.name}>Samuel Kamau</div>
               <div className={styles.role}>Engineering (Studio)</div>
-              <a href="mailto:samuel@kiddykode.org" className={styles.mail}>samuel@kiddykode.org</a>
+              <a href="mailto:samuel@kiddykode.com" className={styles.mail}>samuel@kiddykode.com</a>
             </div>
             <div className={styles.dirRow}>
               <div className={styles.name}>Thandi Mbeki</div>
               <div className={styles.role}>Editorial & Storytelling</div>
-              <a href="mailto:thandi@kiddykode.org" className={styles.mail}>thandi@kiddykode.org</a>
+              <a href="mailto:thandi@kiddykode.com" className={styles.mail}>thandi@kiddykode.com</a>
             </div>
             <div className={styles.dirRow}>
               <div className={styles.name}>Zola Nkosi</div>
               <div className={styles.role}>Southern Africa Lead</div>
-              <a href="mailto:zola@kiddykode.org" className={styles.mail}>zola@kiddykode.org</a>
+              <a href="mailto:zola@kiddykode.com" className={styles.mail}>zola@kiddykode.com</a>
             </div>
             <div className={styles.dirRow}>
               <div className={styles.name}>Mariam El-Sayed</div>
               <div className={styles.role}>North Africa Lead</div>
-              <a href="mailto:mariam@kiddykode.org" className={styles.mail}>mariam@kiddykode.org</a>
+              <a href="mailto:mariam@kiddykode.com" className={styles.mail}>mariam@kiddykode.com</a>
             </div>
           </div>
         </div>
@@ -165,7 +165,7 @@ export default function ContactPage() {
             <div>
               <p>We have a zero-tolerance policy for safeguarding breaches. If you have any concern about the conduct of a mentor, partner, or staff member towards a child, please contact our dedicated safeguarding officer immediately.</p>
               <p>This inbox is monitored 7 days a week and is restricted to the safeguarding lead and the board chair.</p>
-              <a href="mailto:safe@kiddykode.org" className={styles.mail}>safe@kiddykode.org</a>
+              <a href="mailto:kiddykode@gmail.com" className={styles.mail}>safe@kiddykode.com</a>
               <div className={styles.anon}>To report anonymously, use our <Link href="#" style={{textDecoration:"underline"}}>secure reporting form</Link>.</div>
             </div>
           </div>
@@ -200,7 +200,7 @@ export default function ContactPage() {
                 </details>
                 <details className={styles.cq}>
                   <summary><span>Is KiddyKode hiring?</span><span className={styles.plus}>+</span></summary>
-                  <p className={styles.ans}>Open roles are posted on the Careers page. If nothing fits but you'd be a strong addition, we keep an "open application" queue reviewed every quarter — write to <a href="mailto:careers@kiddykode.org" style={{color:"var(--color-accent)",borderBottom:"1px solid var(--color-accent)"}}>careers@kiddykode.org</a>.</p>
+                  <p className={styles.ans}>Open roles are posted on the Careers page. If nothing fits but you'd be a strong addition, we keep an "open application" queue reviewed every quarter — write to <a href="mailto:careers@kiddykode.com" style={{color:"var(--color-accent)",borderBottom:"1px solid var(--color-accent)"}}>careers@kiddykode.org</a>.</p>
                 </details>
               </div>
             </div>

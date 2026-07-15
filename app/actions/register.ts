@@ -4,6 +4,7 @@ import { registrationSchema } from '@/lib/validations';
 import { supabase } from '@/lib/supabase/client';
 import { sendRegistrationConfirmation } from '@/lib/email/mailer';
 import { sendWelcomeMessage } from '@/lib/whatsapp/service';
+import { notifyNewRegistration } from '@/lib/telegram';
 
 export type RegistrationState = {
   success: boolean;
@@ -105,6 +106,20 @@ export async function registerForCohort(
       // Email failure shouldn't block — registration is saved
       console.error('[registerForCohort] Registration email failed:', emailError);
     }
+
+    // 5. Notify team via Telegram. Fire-and-forget (not awaited): the DB write
+    // already succeeded, so this must never add latency to or fail the user's
+    // response — only log if it errors.
+    notifyNewRegistration('Cohort Registration', {
+      Child: `${data.childName} (age ${data.childAge})`,
+      Guardian: data.guardianName,
+      Email: data.guardianEmail,
+      Phone: data.guardianPhone,
+      City: data.city,
+      Cohort: cohortName,
+    }).catch((tgError) => {
+      console.error('[registerForCohort] Telegram notification failed:', tgError);
+    });
 
     return {
       success: true,

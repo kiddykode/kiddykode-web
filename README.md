@@ -54,6 +54,10 @@ ADMIN_PASSWORD=your-secret-admin-password
 WHATSAPP_API_URL=https://your-open-wa-render-instance.com
 WHATSAPP_API_KEY=your-api-key-here
 CRON_SECRET=optional-cron-validation-secret
+
+# Telegram Bot Notifications
+TELEGRAM_BOT_TOKEN=your-telegram-bot-token
+TELEGRAM_CHAT_ID=your-telegram-chat-id
 ```
 
 ### 3. Database Migration

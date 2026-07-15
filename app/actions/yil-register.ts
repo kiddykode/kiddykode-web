@@ -3,6 +3,7 @@
 import { yilRegistrationSchema } from '@/lib/validations';
 import { supabase } from '@/lib/supabase/client';
 import { sendWelcomeMessage } from '@/lib/whatsapp/service';
+import { notifyNewRegistration } from '@/lib/telegram';
 
 export type YilRegistrationState = {
   success: boolean;
@@ -60,6 +61,17 @@ export async function registerForYil(
     } catch (waError) {
       console.error('[registerForYil] WhatsApp welcome failed:', waError);
     }
+
+    // Notify team via Telegram. Fire-and-forget (not awaited): the DB write
+    // already succeeded, so this must never add latency to or fail the user's
+    // response — only log if it errors.
+    notifyNewRegistration('YIL Registration', {
+      Name: data.fullName,
+      WhatsApp: data.whatsappNumber,
+      Kids: data.numberOfKids,
+    }).catch((tgError) => {
+      console.error('[registerForYil] Telegram notification failed:', tgError);
+    });
 
     return {
       success: true,
