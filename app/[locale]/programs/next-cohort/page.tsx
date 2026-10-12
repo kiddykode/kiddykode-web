@@ -1,8 +1,6 @@
 import { Metadata } from "next";
-import { PageHero } from "../../../components/PageHero";
 import { SectionHead } from "../../../components/SectionHead";
 import { CtaStrip } from "../../../components/CtaStrip";
-import { ImagePlaceholder } from "../../../components/ImagePlaceholder";
 import { RegistrationForm } from "../../../components/RegistrationForm";
 import { ShareActions } from "../../../components/ShareActions";
 import styles from "./cohort.module.css";
@@ -13,16 +11,16 @@ export const metadata: Metadata = {
   title: "Next Cohort — KiddyKode Live",
   description: "The next cohort starts soon. Register your child for live, cohort-based coding sessions.",
   openGraph: {
-    title: "Explorer Live Session — June 2026",
+    title: "Explorer Live Session — November 2026",
     description: "KiddyKode is launching a new live coding cohort for kids ages 8-17! Learners build real projects with expert facilitators.",
     url: "https://kiddykode.org/programs/next-cohort",
     siteName: "KiddyKode",
     images: [
       {
-        url: "/explorer-cohort-june-2026.jpeg",
+        url: "/explorer-cohort3-nov-2026.jpeg",
         width: 1200,
         height: 630,
-        alt: "Explorer Live Session Flyer — June 2026",
+        alt: "Explorer Live Session Flyer — November 2026",
       },
     ],
     locale: "en_US",
@@ -30,248 +28,199 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Explorer Live Session — June 2026",
+    title: "Explorer Live Session — November 2026",
     description: "KiddyKode is launching a new live coding cohort for kids ages 8-17!",
-    images: ["/explorer-cohort-june-2026.jpeg"],
+    images: ["/explorer-cohort3-nov-2026.jpeg"],
   },
 };
 
+const JOURNEY = [
+  { label: "Logic Basics", sub: "Talk to the computer", color: "var(--kk-blue)" },
+  { label: "Variables", sub: "Memory boxes", color: "var(--kk-red)" },
+  { label: "Decisions", sub: "If this, then that", color: "var(--kk-gold)" },
+  { label: "Loops", sub: "Repeat & automate", color: "var(--kk-green)" },
+  { label: "Functions", sub: "Organize the code", color: "var(--kk-purple)" },
+  { label: "Project Build", sub: "Make something real", color: "var(--kk-blue)" },
+  { label: "Debug & Polish", sub: "Fix & refine", color: "var(--kk-red)" },
+  { label: "Demo Day", sub: "Show it off!", color: "var(--kk-gold)" },
+];
+
 export default function NextCohortPage() {
   return (
-    <>
-      <PageHero
-        breadcrumb={[
-          { label: "Home", href: "/" },
-          { label: "Learning Formats", href: "/programs" },
-          { label: "Next Cohort", href: "/programs/next-cohort" },
-        ]}
-        eyebrow="KiddyKode Live"
-        title="The next cohort starts soon. Your child's seat is waiting."
-        lede="KiddyKode Live is our flagship cohort-based experience. Learners build projects with expert facilitators, practice at home, and present their work on demo day."
-        metaItems={[
-          { label: "Format", value: "Live on Zoom" },
-          { label: "Ages", value: "8–17" },
-          { label: "Duration", value: "2 Months" },
-          { label: "Start Date", value: "6th June 2026" },
-        ]}
-      />
-
-      <section className={styles.overview}>
+    <div className={styles.page}>
+      {/* HERO */}
+      <section className={styles.hero}>
         <div className="wrap">
-          <SectionHead 
-            eyebrow="01 / Cohort Details"
-            title="Everything you need to know."
-          />
-          <div className={`${styles.infoCard} ${styles.feature}`}>
-            <div className={styles.infoMain}>
-              <span className="eyebrow text-[var(--color-accent)] mb-4">Registration Open</span>
-              <h2>Explorer Live Session — June 2026</h2>
-              <p>Join a guided cohort of learners. Over the course of the program, your child will move from understanding basic logic to presenting a fully functional project.</p>
-              <a href="#register" className="btn btn--primary">
-                Register Now <span className="arrow">→</span>
-              </a>
-            </div>
-            <div className={styles.infoMeta}>
-              <div className={styles.infoGroup}>
-                <span className={styles.infoLabel}>Schedule</span>
-                <span className={styles.infoValue}>Every week · 5:30 PM (Cameroon Time)</span>
-                <span className={styles.infoValue}>Every week · 9:00 PM (Cameroon Time for Participants Abroad)</span>
-              </div>
-              <div className={styles.infoGroup}>
-                <span className={styles.infoLabel}>Start Date</span>
-                <span className={styles.infoValue}>6th June 2026</span>
-              </div>
-              <div className={styles.infoGroup}>
-                <span className={styles.infoLabel}>Target Age Group</span>
-                <span className={styles.infoValue}>8–17 Years</span>
-              </div>
-              <div className={styles.infoGroup}>
-                <span className={styles.infoLabel}>Level</span>
-                <span className={styles.infoValue}>Explorer (Beginner)</span>
-              </div>
-              <div className={styles.infoGroup}>
-                <span className={styles.infoLabel}>Format</span>
-                <span className={styles.infoValue}>100% Online · Live on Zoom</span>
-              </div>
-              <div className={styles.infoGroup}>
-                <span className={styles.infoLabel}>Program Fee</span>
-                <span className={styles.infoValue}>50,000 FRS (Cameroon)</span>
-                <span className={styles.infoValue}>65,000 FRS (Abroad)</span>
-              </div>
-              <div className={styles.infoGroup}>
-                <span className={styles.infoLabel}>Early Bird</span>
-                <span className={styles.infoValue}>10% off before 3rd June 2026</span>
-              </div>
-            </div>
+          <div className="crumb">
+            <Link href="/">Home</Link>
+            <span className="sep text-[var(--color-ink-300)]">/</span>
+            <Link href="/programs">Learning Formats</Link>
+            <span className="sep text-[var(--color-ink-300)]">/</span>
+            <span>Next Cohort</span>
           </div>
-        </div>
-      </section>
 
-      <section className={styles.flyer}>
-        <div className="wrap">
-          <div className={styles.flyerGrid}>
-            <div className={styles.flyerImage}>
-              <Image 
-                src="/explorer-cohort-june-2026.jpeg" 
-                alt="Explorer Live Session Flyer — June 2026" 
-                width={800} 
-                height={800} 
-                style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
-              />
-            </div>
-            <div className={styles.flyerBody}>
-              <span className="eyebrow mb-4">Help us spread the word</span>
-              <h3>Share this cohort with your network.</h3>
-              <p>Know other parents, teachers, or schools who might be interested? Download the event flyer to share on WhatsApp or social media.</p>
-              <div className="flex flex-wrap gap-4 items-center mb-6">
-                <a href="/explorer-cohort-june-2026.jpeg" download className="btn btn--primary">
+          <div className={styles.heroGrid}>
+            <div className={styles.heroCopy}>
+              <span className={styles.badge}><span className={styles.dot} /> Registration Open</span>
+              <h1>Your child&apos;s coding adventure <em>starts here.</em></h1>
+              <p className={styles.heroSub}>
+                Explorer Live — playful, live online coding sessions where kids build real projects, every week.
+              </p>
+
+              <div className={styles.factChips}>
+                <span className={styles.chip}><span className={styles.ic}>🗓️</span> Starts 21 Nov 2026</span>
+                <span className={styles.chip}><span className={styles.ic}>⏳</span> 2 Months</span>
+                <span className={styles.chip}><span className={styles.ic}>🧒</span> Ages 8–17</span>
+                <span className={styles.chip}><span className={styles.ic}>💻</span> 100% Online</span>
+              </div>
+
+              <div className={styles.heroCtas}>
+                <a href="#register" className="btn btn--primary">
+                  Register Now <span className="arrow">→</span>
+                </a>
+                <a href="/explorer-cohort3-nov-2026.jpeg" download className="btn btn--white">
                   Download Flyer <span className="arrow">↓</span>
                 </a>
-                <ShareActions 
-                  url="https://kiddykode.org/programs/next-cohort"
-                  title="Explorer Live Session — June 2026"
-                  text="🚀 KiddyKode is launching a new live coding cohort for kids ages 8-17! Check out the details and register here:"
+              </div>
+            </div>
+
+            <div className={styles.heroArt}>
+              <div className={styles.posterFrame}>
+                <Image
+                  src="/explorer-cohort3-nov-2026.jpeg"
+                  alt="Explorer Live Session Flyer — November 2026"
+                  width={800}
+                  height={800}
+                  style={{ width: '100%', height: 'auto' }}
+                  priority
                 />
               </div>
-              <div className={styles.shareBox}>
-                <strong>Suggested share text:</strong><br /><br />
-                🚀 KiddyKode is launching a new live coding cohort for kids ages 8-17! Learners will build real projects and present them on Demo Day. Check out the details and register here: https://kiddykode.com/en/programs/next-cohort
+              <div className={styles.mascotFloat}>
+                <Image
+                  src="/explorer-live-mascot.jpeg"
+                  alt="KiddyKode mascot character"
+                  width={290}
+                  height={233}
+                  style={{ width: '100%', height: 'auto' }}
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.breakdown}>
+      {/* FACT / PRICE BAR */}
+      <section className={styles.factBar}>
         <div className="wrap">
-          <span className={styles.eyebrow}>03 / The Journey</span>
-          <h2>What your child will learn, week by week.</h2>
-          <p className={styles.lede}>A structured path from blank screen to working project.</p>
-
-          <div className={styles.spineTable}>
-            <div className={styles.spineRow}>
-              <div className={styles.wk}>Week 01</div>
-              <div>
-                <h4>Story & Introduction</h4>
-                <span className={styles.topic}>Logic basics</span>
+          <div className={styles.factBarGrid}>
+            <div className={styles.factCell}>
+              <span className={styles.fl}>Schedule</span>
+              <div className={styles.fv}>
+                <div className={styles.fvRow}>2 sessions/week <small>1.5 hours each, mostly weekends</small></div>
               </div>
-              <p>Meeting the cohort, setting up the tools, and understanding how computers think through simple step-by-step logic challenges.</p>
             </div>
-            <div className={styles.spineRow}>
-              <div className={styles.wk}>Week 02</div>
-              <div>
-                <h4>Variables & State</h4>
-                <span className={styles.topic}>Python fundamentals</span>
+            <div className={styles.factCell}>
+              <span className={styles.fl}>Program Fee</span>
+              <div className={styles.fv}>
+                <div className={styles.fvRow}>50,000 FRS <small>Cameroon</small></div>
+                <div className={styles.fvRow}>65,000 FRS <small>Abroad</small></div>
               </div>
-              <p>Learning how programs remember information. Learners create their first interactive scripts that ask for and store user input.</p>
             </div>
-            <div className={styles.spineRow}>
-              <div className={styles.wk}>Week 03</div>
-              <div>
-                <h4>Conditions & Flow</h4>
-                <span className={styles.topic}>Decision making</span>
+            <div className={styles.factCell}>
+              <span className={styles.fl}>Early Bird</span>
+              <div className={styles.fv}>
+                <div className={styles.fvRow}>10% off <small>Full payment before 6 November 2026</small></div>
               </div>
-              <p>Teaching the computer how to make choices. Building small text-based games that branch based on user decisions.</p>
-            </div>
-            <div className={styles.spineRow}>
-              <div className={styles.wk}>Week 04</div>
-              <div>
-                <h4>Loops & Repetition</h4>
-                <span className={styles.topic}>Efficiency</span>
-              </div>
-              <p>Automating repetitive tasks. Learners use loops to generate patterns, run game rounds, and process multiple inputs.</p>
-            </div>
-            <div className={styles.spineRow}>
-              <div className={styles.wk}>Week 05</div>
-              <div>
-                <h4>Functions & Organization</h4>
-                <span className={styles.topic}>Structure</span>
-              </div>
-              <p>Grouping code into reusable blocks. This week focuses on keeping code clean and preparing for the final project build.</p>
-            </div>
-            <div className={styles.spineRow}>
-              <div className={styles.wk}>Week 06</div>
-              <div>
-                <h4>Project Build</h4>
-                <span className={styles.topic}>Synthesis</span>
-              </div>
-              <p>Learners start building their final project, applying everything they've learned to solve a problem or create a tool.</p>
-            </div>
-            <div className={styles.spineRow}>
-              <div className={styles.wk}>Week 07</div>
-              <div>
-                <h4>Debugging & Polish</h4>
-                <span className={styles.topic}>Resilience</span>
-              </div>
-              <p>Testing the projects, finding bugs, and fixing them. Learners practice resilience and refine their user experience.</p>
-            </div>
-            <div className={styles.spineRow}>
-              <div className={styles.wk}>Week 08</div>
-              <div>
-                <h4>Demo Day</h4>
-                <span className={styles.topic}>Presentation</span>
-              </div>
-              <p>The final session where learners present their projects to the cohort, explain their code, and celebrate their progress.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.steps}>
-        <div className="wrap">
-          <SectionHead 
-            eyebrow="04 / How It Works"
-            title="Three steps to becoming a creator."
+      {/* PROOF BANNER */}
+      <section className={styles.proofBanner}>
+        <div className={styles.proofImgWrap}>
+          <Image
+            src="/explorer-live-classroom-grid.jpeg"
+            alt="Learners from a live KiddyKode coding session"
+            fill
+            style={{ objectFit: 'cover' }}
           />
-          <div className={styles.stepsGrid}>
-            <div className={styles.step}>
-              <span className={styles.num}>01 / Register</span>
-              <h4>Secure your spot</h4>
-              <p>Fill out the registration form to join the cohort. You will receive a welcome pack and setup instructions before day one.</p>
+        </div>
+        <div className="wrap">
+          <div className={styles.proofCaption}>
+            <span className={styles.eyebrowLight}>Real Cohort</span>
+            <h2>Real kids. Real live classes.</h2>
+            <p>Learners from Cameroon and abroad, coding together every week with a facilitator who knows their name.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* JOURNEY */}
+      <section className={styles.journey}>
+        <div className="wrap">
+          <SectionHead
+            eyebrow="01 / The Journey"
+            title="8 weeks. 8 skills. 1 finished project."
+          />
+          <div className={styles.journeyGrid}>
+            <div className={styles.journeyImg}>
+              <Image
+                src="/explorer-live-lesson-preview.jpeg"
+                alt="A sample lesson from the Explorer Live curriculum"
+                width={1285}
+                height={693}
+                style={{ width: '100%', height: 'auto' }}
+              />
             </div>
-            <div className={styles.step}>
-              <span className={styles.num}>02 / Attend</span>
-              <h4>Live weekly sessions</h4>
-              <p>Your child joins the live Zoom sessions, learns with a facilitator, and completes guided practice during the week.</p>
-            </div>
-            <div className={styles.step}>
-              <span className={styles.num}>03 / Present</span>
-              <h4>Demo Day</h4>
-              <p>At the end of the cohort, your child presents their finished project. You are invited to watch and celebrate their work.</p>
+            <div className={styles.pathSteps}>
+              {JOURNEY.map((step, i) => (
+                <div className={styles.pathStep} key={step.label}>
+                  <span className={styles.pathNum} style={{ background: step.color }}>{i + 1}</span>
+                  <div>
+                    <h4>{step.label}</h4>
+                    <span>{step.sub}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.results}>
+      {/* COMMUNITY / STATS */}
+      <section className={styles.community}>
         <div className="wrap">
-          <SectionHead 
-            eyebrow="05 / Evidence"
-            title="Real results from past cohorts."
+          <SectionHead
+            eyebrow="02 / Meet the Cohort"
+            title="Real learners, real results."
           />
-          <div className={styles.impactGrid}>
-            <div className={styles.impactCell}>
-              <div className={styles.label}>Projects completed</div>
-              <div className={styles.num}>24</div>
-              <div className={styles.desc}>Functional tools, games, and scripts built by learners.</div>
+          <div className={styles.facesStrip}>
+            <Image
+              src="/explorer-live-session-faces.jpeg"
+              alt="Learners and facilitators in a live Explorer session"
+              fill
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
+          <div className={styles.statRow}>
+            <div className={styles.statBadge}>
+              <div className={styles.n} style={{ color: 'var(--kk-blue)' }}>24</div>
+              <div className={styles.l}>Projects completed</div>
             </div>
-            <div className={styles.impactCell}>
-              <div className={styles.label}>Learners</div>
-              <div className={styles.num}>20</div>
-              <div className={styles.desc}>From the last live cohort.</div>
+            <div className={styles.statBadge}>
+              <div className={styles.n} style={{ color: 'var(--kk-red)' }}>20</div>
+              <div className={styles.l}>Learners last cohort</div>
             </div>
-            <div className={styles.impactCell}>
-              <div className={styles.label}>Average Age</div>
-              <div className={styles.num}>11.5</div>
-              <div className={styles.desc}>A mix of primary and early secondary students.</div>
+            <div className={styles.statBadge}>
+              <div className={styles.n} style={{ color: 'var(--kk-gold)' }}>11.5</div>
+              <div className={styles.l}>Average age</div>
             </div>
-            <div className={styles.impactCell}>
-              <div className={styles.label}>Completion Rate</div>
-              <div className={styles.num}>95%</div>
-              <div className={styles.desc}>Learners who successfully presented a final project.</div>
+            <div className={styles.statBadge}>
+              <div className={styles.n} style={{ color: 'var(--kk-green)' }}>95%</div>
+              <div className={styles.l}>Completion rate</div>
             </div>
           </div>
-          <div className="mt-8 text-center">
+          <div className="mt-10 text-center">
             <Link href="/programs/portfolio" className="btn btn--ghost">
               View the Learner Portfolio <span className="arrow">→</span>
             </Link>
@@ -279,30 +228,58 @@ export default function NextCohortPage() {
         </div>
       </section>
 
+      {/* HOW IT WORKS */}
+      <section className={styles.steps}>
+        <div className="wrap">
+          <SectionHead
+            eyebrow="03 / How It Works"
+            title="Three steps to becoming a creator."
+          />
+          <div className={styles.stepsGrid}>
+            <div className={styles.stepCard}>
+              <div className={styles.stepEmoji} style={{ background: 'var(--kk-blue)' }}>📝</div>
+              <h4>Register</h4>
+              <p>Fill out the form below. You&apos;ll get a welcome pack and setup instructions before day one.</p>
+            </div>
+            <div className={styles.stepCard}>
+              <div className={styles.stepEmoji} style={{ background: 'var(--kk-red)' }}>💻</div>
+              <h4>Attend</h4>
+              <p>Join live weekly sessions with a facilitator, plus guided practice between classes.</p>
+            </div>
+            <div className={styles.stepCard}>
+              <div className={styles.stepEmoji} style={{ background: 'var(--kk-gold)' }}>🎤</div>
+              <h4>Present</h4>
+              <p>Demo Day! Your child shows off their finished project — you&apos;re invited to watch.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
       <section className={styles.faq}>
         <div className="wrap">
           <div className={styles.faqGrid}>
             <div>
               <span className="eyebrow">FAQ</span>
-              <h2 className="mt-[18px]">Common questions about the cohort.</h2>
+              <h2 className="mt-[18px]">Common questions.</h2>
             </div>
             <div>
               <div className={styles.faqList}>
                 <details className={styles.cq} open>
-                  <summary><span>Does my child need previous coding experience?</span><span className={styles.plus}>+</span></summary>
-                  <p className={styles.ans}>No. Our Explorer level cohorts are designed for complete beginners. We start from the very basics of logical thinking.</p>
+                  <summary><span>Does my child need coding experience?</span><span className={styles.plus}>+</span></summary>
+                  <p className={styles.ans}>No. Explorer is for complete beginners — we start from the basics of logical thinking.</p>
                 </details>
                 <details className={styles.cq}>
                   <summary><span>What equipment is needed?</span><span className={styles.plus}>+</span></summary>
-                  <p className={styles.ans}>A laptop or desktop computer (Windows, Mac, or Chromebook) with a reliable internet connection. A tablet is not sufficient for typing code.</p>
+                  <p className={styles.ans}>A laptop or desktop with a reliable internet connection. A tablet alone isn&apos;t enough for typing code.</p>
                 </details>
                 <details className={styles.cq}>
-                  <summary><span>What happens if we miss a session?</span><span className={styles.plus}>+</span></summary>
-                  <p className={styles.ans}>All live sessions are recorded and shared with parents securely, so your child can catch up before the next week.</p>
+                  <summary><span>What if we miss a session?</span><span className={styles.plus}>+</span></summary>
+                  <p className={styles.ans}>Every live session is recorded and shared with parents, so your child can catch up easily.</p>
                 </details>
                 <details className={styles.cq}>
                   <summary><span>What language will they learn?</span><span className={styles.plus}>+</span></summary>
-                  <p className={styles.ans}>We use Python because it is powerful enough for real-world applications but has a readable syntax that is great for beginners.</p>
+                  <p className={styles.ans}>Python — powerful enough for real projects, with a readable syntax that&apos;s great for beginners.</p>
                 </details>
               </div>
             </div>
@@ -310,15 +287,44 @@ export default function NextCohortPage() {
         </div>
       </section>
 
-      <section id="register" style={{ background: 'var(--color-sand-100)', borderBottom: '1px solid var(--color-line)' }}>
+      {/* REGISTER */}
+      <section id="register" className={styles.registerSection}>
         <div className="wrap">
           <SectionHead
-            eyebrow="06 / Register"
+            eyebrow="04 / Register"
             title="Secure your child's spot."
-            lede="Fill in the form below to register for the next cohort. You'll receive a confirmation email with everything you need."
+            lede="Fill in the form below. You'll get a confirmation email with everything you need."
           />
-          <div style={{ maxWidth: 720, margin: '0 auto' }}>
+          <div className={styles.registerGrid}>
             <RegistrationForm />
+            <div className={styles.registerSide}>
+              <div className={styles.mascotCard}>
+                <h4>Know a parent who&apos;d love this?</h4>
+                <p>Share the flyer on WhatsApp or social media.</p>
+                <div className="mt-5">
+                  <ShareActions
+                    url="https://kiddykode.org/programs/next-cohort"
+                    title="Explorer Live Session — November 2026"
+                    text="🚀 KiddyKode is launching a new live coding cohort for kids ages 8-17! Check out the details and register here:"
+                  />
+                </div>
+                <Image
+                  src="/explorer-live-mascot.jpeg"
+                  alt=""
+                  width={290}
+                  height={233}
+                  className={styles.mascotImg}
+                  aria-hidden="true"
+                />
+              </div>
+              <div className={styles.shareCard}>
+                <h4>Prefer WhatsApp?</h4>
+                <p>Message us directly and we&apos;ll help you register.</p>
+                <a href="https://wa.me/237680262136?text=Hello%2C%20I%20want%20to%20register%20for%20the%20Explorer%20Live%20Session." target="_blank" rel="noopener noreferrer" className="btn btn--ghost">
+                  Chat on WhatsApp
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -331,6 +337,6 @@ export default function NextCohortPage() {
           { label: "Ask a Question", href: "/contact", variant: "ghost" },
         ]}
       />
-    </>
+    </div>
   );
 }
