@@ -35,14 +35,14 @@ export const metadata: Metadata = {
 };
 
 const JOURNEY = [
-  { label: "Logic Basics", sub: "Talk to the computer", color: "var(--kk-blue)" },
-  { label: "Variables", sub: "Memory boxes", color: "var(--kk-red)" },
-  { label: "Decisions", sub: "If this, then that", color: "var(--kk-gold)" },
-  { label: "Loops", sub: "Repeat & automate", color: "var(--kk-green)" },
-  { label: "Functions", sub: "Organize the code", color: "var(--kk-purple)" },
-  { label: "Project Build", sub: "Make something real", color: "var(--kk-blue)" },
-  { label: "Debug & Polish", sub: "Fix & refine", color: "var(--kk-red)" },
-  { label: "Demo Day", sub: "Show it off!", color: "var(--kk-gold)" },
+  { label: "Python Fundamentals", sub: "Talk to the computer", color: "var(--kk-blue)" },
+  { label: "Logical Thinking", sub: "If this, then that", color: "var(--kk-red)" },
+  { label: "Problem Solving", sub: "Break it down, step by step", color: "var(--kk-gold)" },
+  { label: "Creativity", sub: "Turn ideas into code", color: "var(--kk-green)" },
+  { label: "Presentation", sub: "Explain and show your work", color: "var(--kk-purple)" },
+  { label: "System Thinking", sub: "See how the pieces connect", color: "var(--kk-blue)" },
+  { label: "Situational Awareness", sub: "Read the problem, adapt the plan", color: "var(--kk-red)" },
+  { label: "Debugging", sub: "Fix & refine", color: "var(--kk-gold)" },
 ];
 
 export default function NextCohortPage() {

@@ -265,6 +265,7 @@
   width: 34px;
   height: 34px;
   min-width: 34px;
+  flex-shrink: 0;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -272,6 +273,7 @@
   color: #fff;
   font-weight: 700;
   font-size: 14px;
+  line-height: 1;
   font-family: var(--font-mono);
 }
 .pathStep h4 {
