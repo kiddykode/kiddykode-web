@@ -8,6 +8,7 @@
   --kk-red: #EE2C5A;
   --kk-sky: #2E7BEF;
   --kk-green: #48B84C;
+  --kk-purple: #7A5AE0;
   --kk-cream: #FAF3DF;
   --kk-cream-soft: #FFF8EA;
   --kk-paper: #FBFAF6;
@@ -490,6 +491,66 @@
     margin-left: 6px;
   }
 
+  /* Hero — chip row (replaces long bullet list) */
+  & .hero .chipRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 28px 0 0;
+  }
+
+  & .hero .chipRow .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.14);
+    padding: 8px 14px;
+    border-radius: 999px;
+  }
+
+  /* Hero — two-column layout with poster visual */
+  & .heroGrid {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+
+  & .heroArt {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  & .posterFrame {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 6px solid rgba(255,255,255,.9);
+    box-shadow: 0 30px 60px -22px rgba(0,0,0,.5);
+    transform: rotate(2deg);
+  }
+
+  & .mascotFloat {
+    position: absolute;
+    bottom: -26px;
+    left: -30px;
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(0 12px 18px rgba(0,0,0,.4));
+    transform: rotate(-6deg);
+  }
+
+  & .mascotFloat img {
+    border-radius: 14px;
+  }
+
   /* Hero — session board */
   & .sessboard {
     margin-top: 48px;
@@ -675,26 +736,8 @@
     color: rgba(255,255,255,.7);
   }
 
-  /* 6-up "why parents choose" grid */
-  & .why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--kk-rule);
-    border-left: 1px solid var(--kk-rule);
-  }
-
-  & .why-grid .item {
-    padding: 28px;
-    border-right: 1px solid var(--kk-rule);
-    border-bottom: 1px solid var(--kk-rule);
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  & .why-grid .item .icon {
+  /* Icon chips (reused by the proof strip) */
+  & .icon {
     width: 42px;
     height: 42px;
     border-radius: 11px;
@@ -703,11 +746,7 @@
     color: #fff;
     font-weight: 800;
     font-size: 16px;
-  }
-
-  & .why-grid .item p {
-    font-size: 15px;
-    color: var(--kk-muted);
+    flex: 0 0 42px;
   }
 
   & .ic-blue {
@@ -732,149 +771,180 @@
   }
 
   & .ic-purple {
-    background: #7A5AE0;
+    background: var(--kk-purple);
   }
 
-  & .specially {
-    margin-top: 36px;
+  /* Proof photo (real classroom, full-bleed) */
+  & .proofPhoto {
+    position: relative;
+    margin-top: 40px;
+    height: 360px;
+    overflow: hidden;
+  }
+
+  & .proofPhoto::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(10,22,53,.88) 0%, rgba(10,22,53,.15) 55%, transparent 100%);
+  }
+
+  & .proofCaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 24px 28px;
+  }
+
+  & .proofCaption span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  & .proofCaption .d {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--kk-red);
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+
+  /* Condensed proof icon strip (icon + short label, no paragraphs) */
+  & .proofIcons {
     display: flex;
+    flex-wrap: wrap;
     gap: 14px;
-    align-items: flex-start;
-    border: 1px solid rgba(238,44,90,.20);
-    background: rgba(238,44,90,.04);
-    border-radius: 14px;
-    padding: 18px 22px;
+    margin-top: 36px;
+  }
+
+  & .pItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    border: 1px solid var(--kk-rule);
+    border-radius: 999px;
+    padding: 8px 20px 8px 8px;
+    font-weight: 600;
     font-size: 14.5px;
-    color: #3a4866;
-  }
-
-  & .specially .tag {
-    font-size: 10.5px;
-    font-weight: 800;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--kk-red);
-    flex: 0 0 auto;
-  }
-
-  & .specially b {
     color: var(--kk-text);
   }
 
-  /* Stats (industry research) */
-  & .stats-head {
-    max-width: 760px;
-    margin-bottom: 48px;
+  & .pItem .icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    font-size: 13px;
   }
 
-  & .stats-head .kicker.on-dark {
-    color: var(--kk-yellow);
+  /* Faces photo (real learners strip) */
+  & .facesPhoto {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1455 / 172;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.12);
+    margin-top: 36px;
   }
 
-  & .stats {
+  & .miniStats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    border-top: 1px solid rgba(255,255,255,.10);
-    padding-top: 36px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 32px;
   }
 
-  & .stats .big {
+  & .statChip {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 14px;
+    padding: 22px 12px;
+    text-align: center;
+  }
+
+  & .statChip .n {
     font-family: var(--font-sora), 'Sora', sans-serif;
     font-weight: 800;
-    font-size: 64px;
+    font-size: clamp(26px, 3vw, 36px);
     line-height: 1;
-    letter-spacing: -.03em;
-    color: var(--kk-yellow);
+    letter-spacing: -.02em;
   }
 
-  & .stats .lab {
-    margin-top: 14px;
-    font-size: 15px;
-    color: rgba(255,255,255,.78);
-    max-width: 280px;
-  }
-
-  & .stats .src {
-    margin-top: 14px;
-    font-size: 12px;
-    color: rgba(255,255,255,.45);
-    letter-spacing: .04em;
-  }
-
-  & .press {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: 48px;
-  }
-
-  & .press blockquote {
-    background: rgba(255,255,255,.04);
-    border: 1px solid rgba(255,255,255,.10);
-    border-radius: 14px;
-    padding: 22px;
-    color: rgba(255,255,255,.85);
-    font-size: 15px;
-    line-height: 1.55;
-    font-style: italic;
-    margin: 0;
-  }
-
-  & .press .cite {
-    margin-top: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+  & .statChip .l {
+    margin-top: 8px;
     font-size: 11.5px;
-    color: rgba(255,255,255,.5);
+    font-weight: 600;
     letter-spacing: .06em;
     text-transform: uppercase;
-    font-style: normal;
+    color: rgba(255,255,255,.65);
   }
 
-  & .hedge {
-    margin-top: 24px;
-    font-size: 11px;
-    letter-spacing: .14em;
-    color: rgba(255,255,255,.4);
-    text-transform: uppercase;
-  }
-
-  /* Skills section */
-  & .skills-grid {
+  /* Journey (curriculum preview + skill path) */
+  & .journeyGrid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-left: 1px solid var(--kk-rule);
-    border-top: 1px solid var(--kk-rule);
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(28px, 4vw, 48px);
+    align-items: center;
   }
 
-  & .skills-grid .item {
-    padding: 28px;
-    border-right: 1px solid var(--kk-rule);
-    border-bottom: 1px solid var(--kk-rule);
+  & .journeyImg {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--kk-rule);
+    box-shadow: 0 20px 44px -22px rgba(15,27,59,.25);
+  }
+
+  & .pathSteps {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  & .pathStep {
+    display: flex;
+    align-items: center;
     gap: 12px;
+    background: #fff;
+    border: 1px solid var(--kk-rule);
+    border-radius: 12px;
+    padding: 10px 16px 10px 10px;
+    flex: 1 1 calc(50% - 7px);
+    min-width: 190px;
   }
 
-  & .skills-grid .num {
+  & .pathNum {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
     font-family: var(--font-sora), 'Sora', sans-serif;
-    font-weight: 800;
-    font-size: 13px;
-    letter-spacing: .14em;
-    color: var(--kk-blue);
-    opacity: .7;
   }
 
-  & .skills-grid h3 {
-    font-size: 21px;
-  }
-
-  & .skills-grid p {
+  & .pathStep h4 {
     font-size: 15px;
+    font-weight: 600;
+  }
+
+  & .pathStep > div span {
+    display: block;
+    font-size: 12.5px;
     color: var(--kk-muted);
+    margin-top: 1px;
   }
 
   /* Reserve-now mid CTA */
@@ -1276,28 +1346,25 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    counter-reset: s;
   }
 
   & .step {
     position: relative;
-    padding: 24px 24px 24px 80px;
+    padding: 28px 24px 24px;
     border: 1px solid var(--kk-rule);
     border-radius: 18px;
     background: #fff;
   }
 
-  & .step::before {
-    counter-increment: s;
-    content: "0" counter(s);
-    position: absolute;
-    left: 24px;
-    top: 24px;
-    font-family: var(--font-sora), 'Sora', sans-serif;
-    font-weight: 800;
-    font-size: 34px;
-    letter-spacing: -.02em;
-    color: var(--kk-yellow);
+  & .stepEmoji {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    font-size: 22px;
+    margin-bottom: 14px;
   }
 
   & .step h3 {
@@ -1487,11 +1554,18 @@
 
 /* media queries */
 @media (max-width: 860px) {
-  .explorer-live-page .why-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .explorer-live-page .heroGrid {
+    grid-template-columns: 1fr;
   }
-  .explorer-live-page .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .explorer-live-page .heroArt {
+    order: -1;
+    margin-bottom: 12px;
+  }
+  .explorer-live-page .posterFrame {
+    max-width: 260px;
+  }
+  .explorer-live-page .journeyGrid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1532,12 +1606,8 @@
   .explorer-live-page .sessboard .when {
     font-size: 18px;
   }
-  .explorer-live-page .stats {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .explorer-live-page .press {
-    grid-template-columns: 1fr;
+  .explorer-live-page .miniStats {
+    grid-template-columns: repeat(2, 1fr);
   }
   .explorer-live-page .pricegrid {
     grid-template-columns: 1fr;
@@ -1555,11 +1625,11 @@
 }
 
 @media (max-width: 560px) {
-  .explorer-live-page .why-grid {
-    grid-template-columns: 1fr;
+  .explorer-live-page .pathStep {
+    flex: 1 1 100%;
   }
-  .explorer-live-page .skills-grid {
-    grid-template-columns: 1fr;
+  .explorer-live-page .miniStats {
+    grid-template-columns: 1fr 1fr;
   }
 }
 

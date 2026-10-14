@@ -20,6 +20,17 @@ const inter = Inter({
   display: "swap",
 });
 
+const JOURNEY = [
+  { label: "Python Fundamentals", sub: "Talk to the computer", color: "var(--kk-blue)" },
+  { label: "Logical Thinking", sub: "If this, then that", color: "var(--kk-red)" },
+  { label: "Problem Solving", sub: "Break it down, step by step", color: "var(--kk-yellow)" },
+  { label: "Creativity", sub: "Turn ideas into code", color: "var(--kk-green)" },
+  { label: "Presentation", sub: "Explain and show your work", color: "var(--kk-purple)" },
+  { label: "System Thinking", sub: "See how the pieces connect", color: "var(--kk-blue)" },
+  { label: "Situational Awareness", sub: "Read the problem, adapt the plan", color: "var(--kk-red)" },
+  { label: "Debugging", sub: "Fix & refine", color: "var(--kk-yellow)" },
+];
+
 export default function ExplorerLivePage() {
   const [timeLeft, setTimeLeft] = useState({
     d: "00",
@@ -110,31 +121,55 @@ export default function ExplorerLivePage() {
       <main id="top">
         <section className="hero">
           <div className="container">
-            <span className="lede">
-              <span className="live"><span className="d"></span>Live</span>
-              Online programme · Cameroon &amp; abroad · Ages 8–17
-            </span>
-            <h1>Give your child more than screen time. <em>Give them the skills to create</em> with technology.</h1>
-            <p className="sub">
-              <strong>Explorer Live Session</strong> is KiddyKode's interactive online cohort where children build coding, creativity, communication, and problem-solving skills through live classes and hands-on projects. The next cohort starts <strong>21 November 2026</strong> and runs for <strong>2 months</strong>, fully online from home.
-            </p>
-            <ul className="bullets">
-              <li><span className="ck">✓</span>Live, interactive group classes — not pre-recorded</li>
-              <li><span className="ck">✓</span>Two timing options for local &amp; abroad learners</li>
-              <li><span className="ck">✓</span>Hands-on projects between sessions</li>
-              <li><span className="ck">✓</span>For children aged 8 to 17</li>
-              <li><span className="ck">✓</span>100% online — learn from the comfort of home</li>
-              <li><span className="ck">✓</span>No prior coding experience required</li>
-            </ul>
-            <div className="cta-row">
-              <a className="btn btn-primary btn-lg" href="#register">Reserve My Child's Spot →</a>
-              <a className="btn btn-ghost-light btn-lg" href="https://wa.me/237680262136?text=Hello%2C%20I%20want%20to%20reserve%20a%20spot%20for%20Explorer%20Live%20Session.%20My%20child%20is%20___%20years%20old.%20Please%20share%20the%20next%20steps." target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3z"/>
-                </svg>
-                Ask on WhatsApp
-              </a>
-              <span className="note">10% off · ends 6 November 2026</span>
+            <div className="heroGrid">
+              <div className="heroCopy">
+                <span className="lede">
+                  <span className="live"><span className="d"></span>Live</span>
+                  Online programme · Cameroon &amp; abroad · Ages 8–17
+                </span>
+                <h1>Give your child more than screen time. <em>Give them the skills to create</em> with technology.</h1>
+                <p className="sub">
+                  <strong>Explorer Live Session</strong> — a playful, live online cohort where kids build real projects every week. Starts <strong>21 November 2026</strong> · <strong>2 months</strong> · fully online.
+                </p>
+                <div className="chipRow">
+                  <span className="chip">🟢 Live, interactive classes</span>
+                  <span className="chip">🧩 Hands-on projects weekly</span>
+                  <span className="chip">🌍 2 timing options</span>
+                  <span className="chip">🆕 Zero experience needed</span>
+                </div>
+                <div className="cta-row">
+                  <a className="btn btn-primary btn-lg" href="#register">Reserve My Child's Spot →</a>
+                  <a className="btn btn-ghost-light btn-lg" href="https://wa.me/237680262136?text=Hello%2C%20I%20want%20to%20reserve%20a%20spot%20for%20Explorer%20Live%20Session.%20My%20child%20is%20___%20years%20old.%20Please%20share%20the%20next%20steps." target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3z"/>
+                    </svg>
+                    Ask on WhatsApp
+                  </a>
+                  <span className="note">10% off · ends 6 November 2026</span>
+                </div>
+              </div>
+
+              <div className="heroArt">
+                <div className="posterFrame">
+                  <Image
+                    src="/explorer-cohort3-nov-2026.jpeg"
+                    alt="Explorer Live Session flyer — November 2026 cohort"
+                    width={1122}
+                    height={1402}
+                    style={{ width: '100%', height: 'auto' }}
+                    priority
+                  />
+                </div>
+                <div className="mascotFloat">
+                  <Image
+                    src="/explorer-live-mascot.jpeg"
+                    alt="KiddyKode mascot character"
+                    width={290}
+                    height={233}
+                    style={{ width: '100%', height: 'auto' }}
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Session board mirroring YIL Session 01 / 02 layout */}
@@ -177,92 +212,56 @@ export default function ExplorerLivePage() {
           <div className="container">
             <div className="sec-head">
               <span className="kicker"><span className="num">01</span><span className="bar"></span>Why parents choose KiddyKode</span>
-              <h2>Most online classes try to entertain. We're built to teach — with structure, a curriculum, and deliverables at the end.</h2>
-              <p>Explorer Live presents coding as a tool for expression, invention, and leadership — not just technical training. Children learn through storytelling, games, hands-on projects, creativity first, then code.</p>
+              <h2>Most online classes try to entertain. We're built to teach.</h2>
+              <p>Real facilitators, real classes, real projects — creativity first, then code.</p>
             </div>
+          </div>
 
-            <div className="why-grid">
-              <div className="item">
-                <span className="icon ic-blue">&lt;/&gt;</span>
-                <h3>Real coding foundations</h3>
-                <p>From zero to a working project they can demo and explain. Real concepts, real outputs — not just clicking blocks.</p>
-              </div>
-              <div className="item">
-                <span className="icon ic-green">↻</span>
-                <h3>Hands-on, project-based</h3>
-                <p>Every concept lands in a shippable project, so progress is visible to your child and to you.</p>
-              </div>
-              <div className="item">
-                <span className="icon ic-yellow">★</span>
-                <h3>Creativity first, then code</h3>
-                <p>Storytelling, games, and play come first — code is the tool they use to bring those ideas to life.</p>
-              </div>
-              <div className="item">
-                <span className="icon ic-red">◆</span>
-                <h3>Problem solving &amp; logic</h3>
-                <p>Challenges with no single right answer — children learn to think, test, and iterate like creators.</p>
-              </div>
-              <div className="item">
-                <span className="icon ic-sky">♪</span>
-                <h3>Communication &amp; presentation</h3>
-                <p>They practice explaining their thinking on camera — confidence that carries into school and beyond.</p>
-              </div>
-              <div className="item">
-                <span className="icon ic-purple">↑</span>
-                <h3>Future-ready mindset</h3>
-                <p>Built for children, not adapted from adult bootcamps. A builder's mindset they take into everything else.</p>
-              </div>
-            </div>
+          <div className="proofPhoto">
+            <Image
+              src="/explorer-live-classroom-grid.jpeg"
+              alt="Learners and facilitators in a live Explorer Live class"
+              fill
+              style={{ objectFit: "cover" }}
+            />
+            <div className="proofCaption"><span><span className="d"></span>Live · real kids, real facilitators, every week</span></div>
+          </div>
 
-            <div className="specially">
-              <span className="tag">⚠ Specially designed</span>
-              <span>For parents who want a productive, structured online programme — and a child who can <b>create</b> with technology, not just consume it.</span>
+          <div className="container">
+            <div className="proofIcons">
+              <div className="pItem"><span className="icon ic-blue">&lt;/&gt;</span>Real coding</div>
+              <div className="pItem"><span className="icon ic-green">↻</span>Hands-on builds</div>
+              <div className="pItem"><span className="icon ic-yellow">★</span>Creativity first</div>
+              <div className="pItem"><span className="icon ic-red">◆</span>Problem solving</div>
+              <div className="pItem"><span className="icon ic-sky">♪</span>Confidence on camera</div>
+              <div className="pItem"><span className="icon ic-purple">↑</span>Future-ready mindset</div>
             </div>
           </div>
         </section>
 
-        {/* ═══════════════ 02 · The world your child is growing into ═══════════════ */}
+        {/* ═══════════════ 02 · Meet the cohort ═══════════════ */}
         <section className="sec dark" id="context">
           <div className="container">
-            <div className="stats-head sec-head on-dark">
-              <span className="kicker on-dark"><span className="num">02</span><span className="bar"></span>The world your child is growing into</span>
-              <h2>Kids who can build with technology will stand out.</h2>
-              <p>The earliest opportunities are going to young people who can already think, code, and present. Africa's digital pipeline is being built right now — Explorer Live puts your child inside it.</p>
+            <div className="sec-head on-dark">
+              <span className="kicker on-dark"><span className="num">02</span><span className="bar"></span>Meet the cohort</span>
+              <h2>Real learners, real results.</h2>
             </div>
 
-            <div className="stats">
-              <div>
-                <div className="big">230M+</div>
-                <div className="lab">Digital-skill jobs expected in Sub-Saharan Africa by 2030.</div>
-                <div className="src">— IFC</div>
-              </div>
-              <div>
-                <div className="big">650M</div>
-                <div className="lab">Digital-skills training opportunities forecast in Africa by 2030.</div>
-                <div className="src">— IFC</div>
-              </div>
-              <div>
-                <div className="big">5×</div>
-                <div className="lab">Higher employability for tech-literate graduates entering the workforce.</div>
-                <div className="src">— World Bank</div>
-              </div>
+            <div className="facesPhoto">
+              <Image
+                src="/explorer-live-session-faces.jpeg"
+                alt="Learners and facilitators in a live Explorer Live session"
+                fill
+                style={{ objectFit: "cover" }}
+              />
             </div>
 
-            <div className="press">
-              <blockquote className="italic">
-                “Regional policy and education reporting consistently highlights Africa's digital-skills gap as the defining workforce challenge of the next decade.”
-                <div className="cite"><span>Cameroon Tribune</span><span>Education · 2025</span></div>
-              </blockquote>
-              <blockquote className="italic">
-                “Africa's youth need stronger pathways from digital literacy to creation — from using technology to building with it.”
-                <div className="cite"><span>Jeune Afrique</span><span>Innovation · 2025</span></div>
-              </blockquote>
-              <blockquote className="italic">
-                “Hands-on, project-based programmes are out-performing traditional curricula for early-stage learners across the continent.”
-                <div className="cite"><span>TechCabal</span><span>Skills · 2025</span></div>
-              </blockquote>
+            <div className="miniStats">
+              <div className="statChip"><div className="n" style={{ color: "var(--kk-sky)" }}>24</div><div className="l">Projects completed</div></div>
+              <div className="statChip"><div className="n" style={{ color: "var(--kk-red)" }}>20</div><div className="l">Learners last cohort</div></div>
+              <div className="statChip"><div className="n" style={{ color: "var(--kk-yellow)" }}>11.5</div><div className="l">Average age</div></div>
+              <div className="statChip"><div className="n" style={{ color: "var(--kk-green)" }}>95%</div><div className="l">Completion rate</div></div>
             </div>
-            <div className="hedge">Representative coverage · Landscape overview · Not KiddyKode endorsements</div>
           </div>
         </section>
 
@@ -271,38 +270,29 @@ export default function ExplorerLivePage() {
           <div className="container">
             <div className="sec-head">
               <span className="kicker"><span className="num">03</span><span className="bar"></span>What your child will gain</span>
-              <h2>In 2 months, your child will build six concrete skills they carry into school, college, and a future career.</h2>
+              <h2>8 weeks. 8 skills. 1 finished project.</h2>
             </div>
-            <div className="skills-grid">
-              <div className="item">
-                <span className="num">SKILL 01</span>
-                <h3>Coding &amp; digital fluency</h3>
-                <p>Foundations of real code — variables, logic, flow — applied in guided, practical projects.</p>
+
+            <div className="journeyGrid">
+              <div className="journeyImg">
+                <Image
+                  src="/explorer-live-lesson-preview.jpeg"
+                  alt="A sample lesson from the Explorer Live curriculum"
+                  width={1285}
+                  height={693}
+                  style={{ width: "100%", height: "auto" }}
+                />
               </div>
-              <div className="item">
-                <span className="num">SKILL 02</span>
-                <h3>Problem solving</h3>
-                <p>Breaking down challenges, testing ideas, and thinking like a creator instead of a consumer.</p>
-              </div>
-              <div className="item">
-                <span className="num">SKILL 03</span>
-                <h3>Creativity &amp; storytelling</h3>
-                <p>Imagination first — children invent characters, games, and stories, then build them with code.</p>
-              </div>
-              <div className="item">
-                <span className="num">SKILL 04</span>
-                <h3>Communication on camera</h3>
-                <p>Explaining ideas clearly, owning the screen, and presenting work — the skill behind every career.</p>
-              </div>
-              <div className="item">
-                <span className="num">SKILL 05</span>
-                <h3>Collaboration</h3>
-                <p>Working with peers on shared projects — leading, supporting, and disagreeing well online.</p>
-              </div>
-              <div className="item">
-                <span className="num">SKILL 06</span>
-                <h3>Confidence for the future</h3>
-                <p>A builder's mindset that turns "I don't know how" into "I can figure this out."</p>
+              <div className="pathSteps">
+                {JOURNEY.map((step, i) => (
+                  <div className="pathStep" key={step.label}>
+                    <span className="pathNum" style={{ background: step.color }}>{i + 1}</span>
+                    <div>
+                      <h4>{step.label}</h4>
+                      <span>{step.sub}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -476,16 +466,19 @@ export default function ExplorerLivePage() {
             </div>
             <div className="steps">
               <div className="step">
+                <span className="stepEmoji" style={{ background: "var(--kk-sky)" }}>💬</span>
                 <h3>Tap WhatsApp</h3>
-                <p>Click the green button below — your message is pre-filled. Just edit your child's age and tap send.</p>
+                <p>Your message is pre-filled. Just edit your child's age and tap send.</p>
               </div>
               <div className="step">
+                <span className="stepEmoji" style={{ background: "var(--kk-red)" }}>🗓️</span>
                 <h3>Pick your slot</h3>
-                <p>We confirm the 5:30 PM (Cameroon) or 9:00 PM (abroad) slot, and send a written summary &amp; parent pack.</p>
+                <p>We confirm 5:30 PM (Cameroon) or 9:00 PM (abroad), plus a parent welcome pack.</p>
               </div>
               <div className="step">
+                <span className="stepEmoji" style={{ background: "var(--kk-yellow)" }}>✅</span>
                 <h3>Complete payment</h3>
-                <p>Mobile money or bank transfer. Receipt + welcome pack land in your inbox the same day. Seat locked.</p>
+                <p>Mobile money or bank transfer. Receipt lands the same day — seat locked.</p>
               </div>
             </div>
             <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap", marginTop: 36 }}>
