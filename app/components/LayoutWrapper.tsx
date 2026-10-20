@@ -10,7 +10,10 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   
   // Define standalone pages that should not render header/footer/utility bar
-  const isStandalone = pathname === '/programs/yil-campaign' || pathname === '/programs/explorer-live';
+  const isStandalone =
+    pathname === '/programs/yil-campaign' ||
+    pathname === '/programs/explorer-live' ||
+    pathname === '/programs/builder-live';
 
   if (isStandalone) {
     return <main className="flex-grow flex flex-col">{children}</main>;

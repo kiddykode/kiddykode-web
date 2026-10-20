@@ -9,7 +9,11 @@ const initialState: RegistrationState = {
   message: '',
 };
 
-export function RegistrationForm() {
+export function RegistrationForm({
+  program = 'explorer-live',
+}: {
+  program?: 'explorer-live' | 'builder-live';
+}) {
   const [state, formAction, pending] = useActionState(registerForCohort, initialState);
 
   if (state.success) {
@@ -59,6 +63,7 @@ export function RegistrationForm() {
       padding: 'clamp(24px, 4vw, 48px)',
     }}>
       <form action={formAction}>
+        <input type="hidden" name="program" value={program} />
         {state.message && !state.success && (
           <div style={{
             padding: '12px 16px',

@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/stories',
     '/programs',
     '/programs/explorer-live',
+    '/programs/builder-live',
     '/programs/next-cohort',
     '/programs/portfolio',
     '/programs/yil-campaign',

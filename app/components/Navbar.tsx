@@ -24,6 +24,7 @@ export function Navbar() {
         { href: '/programs/portfolio', label: t('portfolio') },
         { href: '/programs/next-cohort', label: t('nextCohort') },
         { href: '/programs/explorer-live', label: t('explorerLive') },
+        { href: '/programs/builder-live', label: t('builderLive') },
         { href: '/programs/yil-campaign', label: t('yilCampaign') },
       ]
     },

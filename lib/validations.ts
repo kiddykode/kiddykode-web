@@ -58,6 +58,10 @@ export type NewsletterFormData = z.infer<typeof newsletterSchema>;
 // ────────────────────────────────────────────
 
 export const registrationSchema = z.object({
+  program: z
+    .enum(['explorer-live', 'builder-live'])
+    .optional()
+    .default('explorer-live'),
   childName: z
     .string()
     .min(1, "Child's name is required.")

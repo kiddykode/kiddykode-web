@@ -5,6 +5,9 @@ import Image from "next/image";
 import { Sora, Inter } from "next/font/google";
 import "./explorer-live.css";
 import { RegistrationForm } from "@/app/components/RegistrationForm";
+import { VideoEmbed } from "@/app/components/VideoEmbed";
+import { useLocale } from "@/i18n/context";
+import { en, fr } from "./content";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -20,18 +23,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const JOURNEY = [
-  { label: "Python Fundamentals", sub: "Talk to the computer", color: "var(--kk-blue)" },
-  { label: "Logical Thinking", sub: "If this, then that", color: "var(--kk-red)" },
-  { label: "Problem Solving", sub: "Break it down, step by step", color: "var(--kk-yellow)" },
-  { label: "Creativity", sub: "Turn ideas into code", color: "var(--kk-green)" },
-  { label: "Presentation", sub: "Explain and show your work", color: "var(--kk-purple)" },
-  { label: "System Thinking", sub: "See how the pieces connect", color: "var(--kk-blue)" },
-  { label: "Situational Awareness", sub: "Read the problem, adapt the plan", color: "var(--kk-red)" },
-  { label: "Debugging", sub: "Fix & refine", color: "var(--kk-yellow)" },
-];
-
 export default function ExplorerLivePage() {
+  const locale = useLocale();
+  const t = locale === "fr" ? fr : en;
+
   const [timeLeft, setTimeLeft] = useState({
     d: "00",
     h: "00",
@@ -77,10 +72,10 @@ export default function ExplorerLivePage() {
       <div className="topstrip">
         <div className="row">
           {timeLeft.expired ? (
-            <span><strong>Early-bird offer closed</strong> · Standard pricing now in effect</span>
+            <span>{t.topstrip.expired}</span>
           ) : (
             <>
-              <span><strong>Register before 6 November 2026</strong></span>
+              <span><strong>{t.topstrip.registerBefore}</strong></span>
               <span className="sep">·</span>
               <span className="countdown" aria-label="Time remaining">
                 <span className="cd-cell"><b>{timeLeft.d}</b><small>d</small></span>
@@ -88,8 +83,7 @@ export default function ExplorerLivePage() {
                 <span className="cd-cell"><b>{timeLeft.m}</b><small>m</small></span>
                 <span className="cd-cell"><b>{timeLeft.s}</b><small>s</small></span>
               </span>
-              <span className="sep">·</span>
-              <span>Save <strong>10% on the program fee</strong></span>
+              {t.topstrip.active}
             </>
           )}
         </div>
@@ -125,27 +119,24 @@ export default function ExplorerLivePage() {
               <div className="heroCopy">
                 <span className="lede">
                   <span className="live"><span className="d"></span>Live</span>
-                  Online programme · Cameroon &amp; abroad · Ages 8–17
+                  {t.lede}
                 </span>
-                <h1>Give your child more than screen time. <em>Give them the skills to create</em> with technology.</h1>
-                <p className="sub">
-                  <strong>Explorer Live Session</strong> — a playful, live online cohort where kids build real projects every week. Starts <strong>21 November 2026</strong> · <strong>2 months</strong> · fully online.
-                </p>
+                <h1>{t.heroTitlePre}<em>{t.heroTitleEm}</em>{t.heroTitlePost}</h1>
+                <p className="sub">{t.heroSub}</p>
                 <div className="chipRow">
-                  <span className="chip">🟢 Live, interactive classes</span>
-                  <span className="chip">🧩 Hands-on projects weekly</span>
-                  <span className="chip">🌍 2 timing options</span>
-                  <span className="chip">🆕 Zero experience needed</span>
+                  {t.chips.map((chip) => (
+                    <span className="chip" key={chip}>{chip}</span>
+                  ))}
                 </div>
                 <div className="cta-row">
-                  <a className="btn btn-primary btn-lg" href="#register">Reserve My Child's Spot →</a>
-                  <a className="btn btn-ghost-light btn-lg" href="https://wa.me/237680262136?text=Hello%2C%20I%20want%20to%20reserve%20a%20spot%20for%20Explorer%20Live%20Session.%20My%20child%20is%20___%20years%20old.%20Please%20share%20the%20next%20steps." target="_blank" rel="noopener noreferrer">
+                  <a className="btn btn-primary btn-lg" href="#register">{t.reserveCta}</a>
+                  <a className="btn btn-ghost-light btn-lg" href={`https://wa.me/237680262136?text=${encodeURIComponent(t.waAskReserveText)}`} target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3z"/>
                     </svg>
-                    Ask on WhatsApp
+                    {t.waAsk}
                   </a>
-                  <span className="note">10% off · ends 6 November 2026</span>
+                  <span className="note">{t.earlybirdNote}</span>
                 </div>
               </div>
 
@@ -175,22 +166,21 @@ export default function ExplorerLivePage() {
             {/* Session board mirroring YIL Session 01 / 02 layout */}
             <div className="sessboard">
               <div className="head">
-                <span>Class slot</span>
-                <span>Time</span>
-                <span>Audience</span>
-                <span>Seats</span>
+                {t.sessboard.headers.map((h) => (
+                  <span key={h}>{h}</span>
+                ))}
               </div>
               <div className="row2">
-                <div><span className="lbl">Class slot</span><span className="sid">SLOT 01 · LOCAL</span></div>
-                <div><span className="lbl">Time</span><span className="when">5:30 PM<small>Cameroon time</small></span></div>
-                <div><span className="lbl">Audience</span><span className="meta"><b>Participants in Cameroon</b>Mon–Fri · live</span></div>
-                <div><span className="lbl">Seats</span><span className="seat"><span className="d"></span>Open</span></div>
+                <div><span className="lbl">{t.sessboard.headers[0]}</span><span className="sid">{t.sessboard.slot1.id}</span></div>
+                <div><span className="lbl">{t.sessboard.headers[1]}</span><span className="when">{t.sessboard.slot1.time}<small>{t.sessboard.slot1.tz}</small></span></div>
+                <div><span className="lbl">{t.sessboard.headers[2]}</span><span className="meta"><b>{t.sessboard.slot1.audience}</b>{t.sessboard.slot1.schedule}</span></div>
+                <div><span className="lbl">{t.sessboard.headers[3]}</span><span className="seat"><span className="d"></span>{t.sessboard.slot1.seats}</span></div>
               </div>
               <div className="row2">
-                <div><span className="lbl">Class slot</span><span className="sid">SLOT 02 · ABROAD</span></div>
-                <div><span className="lbl">Time</span><span className="when">9:00 PM<small>Cameroon · 4:00 PM EST (USA)</small></span></div>
-                <div><span className="lbl">Audience</span><span className="meta"><b>Participants abroad</b>Mon–Fri · live</span></div>
-                <div><span className="lbl">Seats</span><span className="seat"><span className="d"></span>Open</span></div>
+                <div><span className="lbl">{t.sessboard.headers[0]}</span><span className="sid">{t.sessboard.slot2.id}</span></div>
+                <div><span className="lbl">{t.sessboard.headers[1]}</span><span className="when">{t.sessboard.slot2.time}<small>{t.sessboard.slot2.tz}</small></span></div>
+                <div><span className="lbl">{t.sessboard.headers[2]}</span><span className="meta"><b>{t.sessboard.slot2.audience}</b>{t.sessboard.slot2.schedule}</span></div>
+                <div><span className="lbl">{t.sessboard.headers[3]}</span><span className="seat"><span className="d"></span>{t.sessboard.slot2.seats}</span></div>
               </div>
             </div>
           </div>
@@ -199,11 +189,11 @@ export default function ExplorerLivePage() {
         {/* Confirmed-facts strip under hero (cream, hairline) */}
         <div className="factsrow">
           <div className="container row">
-            <div className="grp"><span className="lab">Start</span><b>21 November 2026</b></div>
-            <div className="grp"><span className="lab">Duration</span><b>2 months</b></div>
-            <div className="grp"><span className="lab">Format</span><b>100% online</b></div>
-            <div className="grp"><span className="lab">Ages</span><b>8 – 17</b></div>
-            <div className="grp"><span className="lab">Early bird</span><b>Until 6 November · 10% off</b></div>
+            <div className="grp"><span className="lab">{t.factsrow.start.label}</span><b>{t.factsrow.start.value}</b></div>
+            <div className="grp"><span className="lab">{t.factsrow.duration.label}</span><b>{t.factsrow.duration.value}</b></div>
+            <div className="grp"><span className="lab">{t.factsrow.format.label}</span><b>{t.factsrow.format.value}</b></div>
+            <div className="grp"><span className="lab">{t.factsrow.ages.label}</span><b>{t.factsrow.ages.value}</b></div>
+            <div className="grp"><span className="lab">{t.factsrow.earlybird.label}</span><b>{t.factsrow.earlybird.value}</b></div>
           </div>
         </div>
 
@@ -211,9 +201,9 @@ export default function ExplorerLivePage() {
         <section className="sec" id="why">
           <div className="container">
             <div className="sec-head">
-              <span className="kicker"><span className="num">01</span><span className="bar"></span>Why parents choose KiddyKode</span>
-              <h2>Most online classes try to entertain. We're built to teach.</h2>
-              <p>Real facilitators, real classes, real projects — creativity first, then code.</p>
+              <span className="kicker"><span className="num">01</span><span className="bar"></span>{t.why.kicker}</span>
+              <h2>{t.why.title}</h2>
+              <p>{t.why.sub}</p>
             </div>
           </div>
 
@@ -224,17 +214,21 @@ export default function ExplorerLivePage() {
               fill
               style={{ objectFit: "cover" }}
             />
-            <div className="proofCaption"><span><span className="d"></span>Live · real kids, real facilitators, every week</span></div>
+            <div className="proofCaption"><span><span className="d"></span>{t.why.proofCaption}</span></div>
           </div>
 
           <div className="container">
             <div className="proofIcons">
-              <div className="pItem"><span className="icon ic-blue">&lt;/&gt;</span>Real coding</div>
-              <div className="pItem"><span className="icon ic-green">↻</span>Hands-on builds</div>
-              <div className="pItem"><span className="icon ic-yellow">★</span>Creativity first</div>
-              <div className="pItem"><span className="icon ic-red">◆</span>Problem solving</div>
-              <div className="pItem"><span className="icon ic-sky">♪</span>Confidence on camera</div>
-              <div className="pItem"><span className="icon ic-purple">↑</span>Future-ready mindset</div>
+              <div className="pItem"><span className="icon ic-blue">&lt;/&gt;</span>{t.why.icons[0]}</div>
+              <div className="pItem"><span className="icon ic-green">↻</span>{t.why.icons[1]}</div>
+              <div className="pItem"><span className="icon ic-yellow">★</span>{t.why.icons[2]}</div>
+              <div className="pItem"><span className="icon ic-red">◆</span>{t.why.icons[3]}</div>
+              <div className="pItem"><span className="icon ic-sky">♪</span>{t.why.icons[4]}</div>
+              <div className="pItem"><span className="icon ic-purple">↑</span>{t.why.icons[5]}</div>
+            </div>
+            <div style={{ marginTop: 40 }}>
+              {/* TODO: replace with the real YouTube video ID for a classroom/cohort video */}
+              <VideoEmbed youtubeId="REPLACE_WITH_YOUTUBE_ID" caption={t.why.videoCaption} />
             </div>
           </div>
         </section>
@@ -243,8 +237,8 @@ export default function ExplorerLivePage() {
         <section className="sec dark" id="context">
           <div className="container">
             <div className="sec-head on-dark">
-              <span className="kicker on-dark"><span className="num">02</span><span className="bar"></span>Meet the cohort</span>
-              <h2>Real learners, real results.</h2>
+              <span className="kicker on-dark"><span className="num">02</span><span className="bar"></span>{t.context.kicker}</span>
+              <h2>{t.context.title}</h2>
             </div>
 
             <div className="facesPhoto">
@@ -257,10 +251,10 @@ export default function ExplorerLivePage() {
             </div>
 
             <div className="miniStats">
-              <div className="statChip"><div className="n" style={{ color: "var(--kk-sky)" }}>24</div><div className="l">Projects completed</div></div>
-              <div className="statChip"><div className="n" style={{ color: "var(--kk-red)" }}>20</div><div className="l">Learners last cohort</div></div>
-              <div className="statChip"><div className="n" style={{ color: "var(--kk-yellow)" }}>11.5</div><div className="l">Average age</div></div>
-              <div className="statChip"><div className="n" style={{ color: "var(--kk-green)" }}>95%</div><div className="l">Completion rate</div></div>
+              <div className="statChip"><div className="n" style={{ color: "var(--kk-sky)" }}>{t.context.stats[0].n}</div><div className="l">{t.context.stats[0].l}</div></div>
+              <div className="statChip"><div className="n" style={{ color: "var(--kk-red)" }}>{t.context.stats[1].n}</div><div className="l">{t.context.stats[1].l}</div></div>
+              <div className="statChip"><div className="n" style={{ color: "var(--kk-yellow)" }}>{t.context.stats[2].n}</div><div className="l">{t.context.stats[2].l}</div></div>
+              <div className="statChip"><div className="n" style={{ color: "var(--kk-green)" }}>{t.context.stats[3].n}</div><div className="l">{t.context.stats[3].l}</div></div>
             </div>
           </div>
         </section>
@@ -269,8 +263,8 @@ export default function ExplorerLivePage() {
         <section className="sec cream" id="skills">
           <div className="container">
             <div className="sec-head">
-              <span className="kicker"><span className="num">03</span><span className="bar"></span>What your child will gain</span>
-              <h2>8 weeks. 8 skills. 1 finished project.</h2>
+              <span className="kicker"><span className="num">03</span><span className="bar"></span>{t.skills.kicker}</span>
+              <h2>{t.skills.title}</h2>
             </div>
 
             <div className="journeyGrid">
@@ -284,7 +278,7 @@ export default function ExplorerLivePage() {
                 />
               </div>
               <div className="pathSteps">
-                {JOURNEY.map((step, i) => (
+                {t.skills.journey.map((step, i) => (
                   <div className="pathStep" key={step.label}>
                     <span className="pathNum" style={{ background: step.color }}>{i + 1}</span>
                     <div>
@@ -303,17 +297,17 @@ export default function ExplorerLivePage() {
           <div className="container" style={{ paddingTop: 0 }}>
             <div className="midstrip">
               <div className="wrap">
-                <div className="topline">Register before 6 November 2026</div>
-                <h2>To get a discount of <span style={{ color: "var(--kk-yellow)" }}>10% off the program fee</span></h2>
+                <div className="topline">{t.midstrip.topline}</div>
+                <h2>{t.midstrip.titlePre}<span style={{ color: "var(--kk-yellow)" }}>{t.midstrip.titleHighlight}</span></h2>
                 <div className="big-cd">
-                  <div className="cell"><div className="v">{timeLeft.d}</div><div className="k">Days</div></div>
-                  <div className="cell"><div className="v">{timeLeft.h}</div><div className="k">Hours</div></div>
-                  <div className="cell"><div className="v">{timeLeft.m}</div><div className="k">Minutes</div></div>
-                  <div className="cell"><div className="v">{timeLeft.s}</div><div className="k">Seconds</div></div>
+                  <div className="cell"><div className="v">{timeLeft.d}</div><div className="k">{t.midstrip.days}</div></div>
+                  <div className="cell"><div className="v">{timeLeft.h}</div><div className="k">{t.midstrip.hours}</div></div>
+                  <div className="cell"><div className="v">{timeLeft.m}</div><div className="k">{t.midstrip.minutes}</div></div>
+                  <div className="cell"><div className="v">{timeLeft.s}</div><div className="k">{t.midstrip.seconds}</div></div>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap", marginTop: 32 }}>
-                  <a className="btn btn-primary btn-lg" href="#register">Reserve My Child's Spot →</a>
-                  <a className="btn btn-ghost-light btn-lg" href="https://wa.me/237680262136?text=Hello%2C%20I%20want%20to%20reserve%20a%20spot%20for%20Explorer%20Live%20Session." target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
+                  <a className="btn btn-primary btn-lg" href="#register">{t.reserveCta}</a>
+                  <a className="btn btn-ghost-light btn-lg" href={`https://wa.me/237680262136?text=${encodeURIComponent(t.waAskShortText)}`} target="_blank" rel="noopener noreferrer">{t.waAsk}</a>
                 </div>
               </div>
             </div>
@@ -324,9 +318,9 @@ export default function ExplorerLivePage() {
         <section className="sec" id="mentors" style={{ paddingTop: 120 }}>
           <div className="container">
             <div className="sec-head">
-              <span className="kicker"><span className="num">04</span><span className="bar"></span>Know your facilitators</span>
-              <h2>Real teachers, small group ratios — every question gets answered.</h2>
-              <p>KiddyKode facilitators run the live sessions, support hands-on projects, and give every child individual feedback throughout the cohort.</p>
+              <span className="kicker"><span className="num">04</span><span className="bar"></span>{t.mentors.kicker}</span>
+              <h2>{t.mentors.title}</h2>
+              <p>{t.mentors.sub}</p>
             </div>
             <div className="mentors">
               <div className="mentor">
@@ -340,14 +334,9 @@ export default function ExplorerLivePage() {
                   />
                 </div>
                 <div>
-                  <span className="role">Programme Director</span>
+                  <span className="role">{t.mentors.director.role}</span>
                   <h3>Chiella Harriet</h3>
-                  <ul>
-                    <li><span className="ck">✓</span>KiddyKode educator · [ years ] teaching experience</li>
-                    <li><span className="ck">✓</span>[ Specialism · e.g. Python, Design Thinking ]</li>
-                  </ul>
-                  <p className="quote">"Quote from the facilitator — what they're excited about, what your child will walk away with."</p>
-                  <span className="ph-note">Insert facilitator profile</span>
+                  <p className="quote">{t.mentors.director.quote}</p>
                 </div>
               </div>
               <div className="mentor">
@@ -361,31 +350,12 @@ export default function ExplorerLivePage() {
                   />
                 </div>
                 <div>
-                  <span className="role">Lead Instructor</span>
+                  <span className="role">{t.mentors.instructor.role}</span>
                   <h3>Deodatus Bijengsi</h3>
-                  <ul>
-                    <li><span className="ck">✓</span>[ Credential or role ]</li>
-                    <li><span className="ck">✓</span>[ Specialism · e.g. project coaching ]</li>
-                  </ul>
-                  <p className="quote">"Quote from the facilitator — tone is warm, direct, and parent-trust focused."</p>
-                  <span className="ph-note">Insert facilitator profile</span>
+                  <p className="quote">{t.mentors.instructor.quote}</p>
                 </div>
               </div>
             </div>
-
-            {/* Bring this back when we actually have some more partners */}
-            {/*
-            <div className="partners">
-              <div className="label">Programme run by · in partnership with</div>
-              <div className="row">
-                <div className="logo">KiddyKode</div>
-                <div className="logo">Insert partner</div>
-                <div className="logo">Insert partner</div>
-                <div className="logo">Insert partner</div>
-                <div className="logo">Insert partner</div>
-              </div>
-            </div>
-            */}
           </div>
         </section>
 
@@ -393,63 +363,63 @@ export default function ExplorerLivePage() {
         <section className="sec cream" id="pricing">
           <div className="container">
             <div className="sec-head">
-              <span className="kicker"><span className="num">05</span><span className="bar"></span>Pick your timing &amp; lock the price</span>
-              <h2>Two timing options — one curriculum. Pick the slot that works around your family's day.</h2>
+              <span className="kicker"><span className="num">05</span><span className="bar"></span>{t.pricing.kicker}</span>
+              <h2>{t.pricing.title}</h2>
             </div>
 
             <div className="pricegrid">
               <article className="pricecard">
                 <div className="top">
-                  <span className="sid">SLOT 01 · 5:30 PM CAMEROON TIME</span>
-                  <span className="where">Local</span>
+                  <span className="sid">{t.pricing.slot1.sid}</span>
+                  <span className="where">{t.pricing.slot1.where}</span>
                 </div>
-                <h3>For participants in Cameroon</h3>
+                <h3>{t.pricing.slot1.title}</h3>
                 <ul>
-                  <li><span className="ck">✓</span>Ages 8–17 · 2-month cohort</li>
-                  <li><span className="ck">✓</span>Live group classes · 100% online</li>
-                  <li><span className="ck">✓</span>Same curriculum as Slot 02</li>
-                  <li><span className="ck">✓</span><b>50,000 FRS</b> · or <b>45,000 FRS</b> with early bird</li>
+                  {t.pricing.slot1.bullets.map((b) => (
+                    <li key={b}><span className="ck">✓</span>{b}</li>
+                  ))}
+                  <li><span className="ck">✓</span>{t.pricing.slot1.price}</li>
                 </ul>
-                <a className="wa-link" href="https://wa.me/237680262136?text=Hello%2C%20I%20want%20to%20reserve%20a%20Cameroon%20(5%3A30%20PM)%20spot%20for%20Explorer%20Live%20Session.%20My%20child%20is%20___%20years%20old.">Ask about Slot 01 →</a>
+                <a className="wa-link" href={`https://wa.me/237680262136?text=${encodeURIComponent(t.pricing.slot1.waText)}`}>{t.pricing.slot1.waLink}</a>
               </article>
               <article className="pricecard abroad">
                 <div className="top">
-                  <span className="sid">SLOT 02 · 9:00 PM / 4:00 PM EST</span>
-                  <span className="where">Abroad</span>
+                  <span className="sid">{t.pricing.slot2.sid}</span>
+                  <span className="where">{t.pricing.slot2.where}</span>
                 </div>
-                <h3>For participants abroad</h3>
+                <h3>{t.pricing.slot2.title}</h3>
                 <ul>
-                  <li><span className="ck">✓</span>Ages 8–17 · 2-month cohort</li>
-                  <li><span className="ck">✓</span>Live group classes · 100% online</li>
-                  <li><span className="ck">✓</span>Time zone optimised for North America</li>
-                  <li><span className="ck">✓</span><b>65,000 FRS</b> · or <b>58,500 FRS</b> with early bird</li>
+                  {t.pricing.slot2.bullets.map((b) => (
+                    <li key={b}><span className="ck">✓</span>{b}</li>
+                  ))}
+                  <li><span className="ck">✓</span>{t.pricing.slot2.price}</li>
                 </ul>
-                <a className="wa-link" href="https://wa.me/237680262136?text=Hello%2C%20I%20want%20to%20reserve%20an%20abroad%20(9%3A00%20PM%20Cameroon%20%2F%204%3A00%20PM%20EST)%20spot%20for%20Explorer%20Live%20Session.%20My%20child%20is%20___%20years%20old.">Ask about Slot 02 →</a>
+                <a className="wa-link" href={`https://wa.me/237680262136?text=${encodeURIComponent(t.pricing.slot2.waText)}`}>{t.pricing.slot2.waLink}</a>
               </article>
             </div>
 
             <div className="earlybird-block" id="earlybird">
               <div>
-                <span className="savebadge">★ Early bird · ends 6 November 2026</span>
-                <h3>Register before 6 November and save 10% on the program fee</h3>
-                <p>Discount applies to both Cameroon and abroad pricing. One transparent fee — paid once, mobile money or cash. Written confirmation issued the same day.</p>
+                <span className="savebadge">{t.pricing.earlybird.badge}</span>
+                <h3>{t.pricing.earlybird.title}</h3>
+                <p>{t.pricing.earlybird.sub}</p>
               </div>
               <div className="right">
-                <span className="small">Cameroonians · today</span>
+                <span className="small">{t.pricing.earlybird.todayLabel}</span>
                 <div className="row" style={{ marginTop: 4 }}>
-                  <span className="now">45,000<span style={{ fontSize: 14, color: "var(--kk-muted)", marginLeft: 6 }}>FRS</span></span>
-                  <span className="was">50,000 FRS</span>
+                  <span className="now">{t.pricing.earlybird.now}<span style={{ fontSize: 14, color: "var(--kk-muted)", marginLeft: 6 }}>{t.pricing.earlybird.ccy}</span></span>
+                  <span className="was">{t.pricing.earlybird.was}</span>
                 </div>
-                <span className="footnote">Abroad-based: <b style={{ color: "var(--kk-text)" }}>58,500 FRS</b> <span style={{ textDecoration: "line-through", marginLeft: 4 }}>65,000 FRS</span></span>
-                <a className="btn btn-blue" href="https://wa.me/237680262136?text=Hello%2C%20I%20want%20to%20claim%20the%20Explorer%20Live%20Session%20early-bird%20discount.">Claim early-bird on WhatsApp →</a>
+                <span className="footnote">{t.pricing.earlybird.abroadLabel} <b style={{ color: "var(--kk-text)" }}>{t.pricing.earlybird.abroadNow}</b> <span style={{ textDecoration: "line-through", marginLeft: 4 }}>{t.pricing.earlybird.abroadWas}</span></span>
+                <a className="btn btn-blue" href={`https://wa.me/237680262136?text=${encodeURIComponent(t.pricing.earlybird.waText)}`}>{t.pricing.earlybird.cta}</a>
               </div>
             </div>
 
             {/* Embedded Registration Form Section */}
             <div className="sec-head center" style={{ marginTop: 80, marginBottom: 40 }}>
-              <span className="kicker"><span className="num">★</span><span className="bar"></span>Register Now</span>
-              <h2>Secure your child's spot</h2>
-              <p>Complete the form below to enroll your child in the Explorer Live cohort. We will confirm your seat and send welcome details.</p>
+              <span className="kicker"><span className="num">★</span><span className="bar"></span>{t.pricing.registerKicker}</span>
+              <h2>{t.pricing.registerTitle}</h2>
+              <p>{t.pricing.registerSub}</p>
             </div>
             <div id="register" style={{ maxWidth: 720, margin: '0 auto' }}>
               <RegistrationForm />
@@ -461,35 +431,27 @@ export default function ExplorerLivePage() {
         <section className="sec" id="reserve">
           <div className="container">
             <div className="sec-head">
-              <span className="kicker"><span className="num">06</span><span className="bar"></span>How to reserve in 3 simple steps</span>
-              <h2>One short conversation — and your child's spot is secured.</h2>
+              <span className="kicker"><span className="num">06</span><span className="bar"></span>{t.reserve.kicker}</span>
+              <h2>{t.reserve.title}</h2>
             </div>
             <div className="steps">
-              <div className="step">
-                <span className="stepEmoji" style={{ background: "var(--kk-sky)" }}>💬</span>
-                <h3>Tap WhatsApp</h3>
-                <p>Your message is pre-filled. Just edit your child's age and tap send.</p>
-              </div>
-              <div className="step">
-                <span className="stepEmoji" style={{ background: "var(--kk-red)" }}>🗓️</span>
-                <h3>Pick your slot</h3>
-                <p>We confirm 5:30 PM (Cameroon) or 9:00 PM (abroad), plus a parent welcome pack.</p>
-              </div>
-              <div className="step">
-                <span className="stepEmoji" style={{ background: "var(--kk-yellow)" }}>✅</span>
-                <h3>Complete payment</h3>
-                <p>Mobile money or bank transfer. Receipt lands the same day — seat locked.</p>
-              </div>
+              {t.reserve.steps.map((step, i) => (
+                <div className="step" key={step.title}>
+                  <span className="stepEmoji" style={{ background: i === 0 ? "var(--kk-sky)" : i === 1 ? "var(--kk-red)" : "var(--kk-yellow)" }}>{step.emoji}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </div>
+              ))}
             </div>
             <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap", marginTop: 36 }}>
-              <a className="btn btn-wa btn-lg" href="https://wa.me/237680262136?text=Hello%2C%20I%20want%20to%20reserve%20a%20spot%20for%20Explorer%20Live%20Session.%20My%20child%20is%20___%20years%20old.%20Please%20share%20the%20next%20steps." target="_blank" rel="noopener noreferrer">
+              <a className="btn btn-wa btn-lg" href={`https://wa.me/237680262136?text=${encodeURIComponent(t.waAskReserveText)}`} target="_blank" rel="noopener noreferrer">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3z"/>
                 </svg>
-                Reserve on WhatsApp — +237 680 262 136
+                {t.reserve.waCta}
               </a>
             </div>
-            <p className="center" style={{ marginTop: 14, fontSize: 13, color: "var(--kk-muted)" }}>Replies within ~1hr · Yaoundé, Cameroon</p>
+            <p className="center" style={{ marginTop: 14, fontSize: 13, color: "var(--kk-muted)" }}>{t.reserve.replies}</p>
           </div>
         </section>
 
@@ -497,79 +459,53 @@ export default function ExplorerLivePage() {
         <section className="sec cream" id="faq">
           <div className="container">
             <div className="sec-head">
-              <span className="kicker"><span className="num">07</span><span className="bar"></span>Frequently asked questions</span>
-              <h2>Anything not covered? Send a WhatsApp — we usually reply within an hour.</h2>
+              <span className="kicker"><span className="num">07</span><span className="bar"></span>{t.faq.kicker}</span>
+              <h2>{t.faq.title}</h2>
             </div>
             <div className="faq">
-              <details className="faq-item" open>
-                <summary>Does my child need prior coding experience?<span className="plus">+</span></summary>
-                <div className="answer">No. Explorer Live starts from zero — exploration and skill-building first. Children with some experience get stretched further by facilitators from day one.</div>
-              </details>
-              <details className="faq-item">
-                <summary>Will classes be live or pre-recorded?<span className="plus">+</span></summary>
-                <div className="answer">Live and interactive. Your child joins a real facilitator and peers in real time, with hands-on projects between sessions.</div>
-              </details>
-              <details className="faq-item">
-                <summary>How will my child attend?<span className="plus">+</span></summary>
-                <div className="answer">The program is 100% online — your child joins from home with a laptop or desktop. Connection details are shared after registration.</div>
-              </details>
-              <details className="faq-item">
-                <summary>What ages exactly? My child is 9.<span className="plus">+</span></summary>
-                <div className="answer">Explorer Live is for children aged 8 to 17. Facilitators adjust pace and depth so the same curriculum fits each age group.</div>
-              </details>
-              <details className="faq-item">
-                <summary>How long is the program?<span className="plus">+</span></summary>
-                <div className="answer">The cohort runs for 2 months, starting 21 November 2026.</div>
-              </details>
-              <details className="faq-item">
-                <summary>What are the class times?<span className="plus">+</span></summary>
-                <div className="answer">Two options: <strong>5:30 PM Cameroon time</strong> for participants in Cameroon, and <strong>9:00 PM Cameroon time</strong> (equivalent to <strong>4:00 PM EST</strong>) for participants abroad.</div>
-              </details>
-              <details className="faq-item">
-                <summary>How do I claim the 10% early-bird discount?<span className="plus">+</span></summary>
-                <div className="answer">Register before <strong>6 November 2026</strong>. The discount is applied automatically — the countdown at the top of this page shows the exact time remaining.</div>
-              </details>
-              <details className="faq-item">
-                <summary>How does payment work?<span className="plus">+</span></summary>
-                <div className="answer">Full payment secures a seat. Mobile money. Written confirmation and receipt are issued immediately.</div>
-              </details>
+              {t.faq.items.map((item, i) => (
+                <details className="faq-item" key={item.q} open={i === 0}>
+                  <summary>{item.q}<span className="plus">+</span></summary>
+                  <div className="answer">{item.a}</div>
+                </details>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Seat-left urgency strip */}
-        <div className="seatstrip">⚡ Limited cohort · early-bird ends 6 November 2026 — secure your seat before pricing increases</div>
+        <div className="seatstrip">{t.seatstrip}</div>
 
         {/* ═══════════════ 08 · The choice every parent makes ═══════════════ */}
         <section className="final-wrap">
           <div className="container">
-            <span className="kicker"><span className="num">08</span><span className="bar"></span>The choice every parent makes</span>
-            <h2>A productive online cohort is a choice. Help your child <span style={{ color: "var(--kk-red)" }}>build the future</span> — not just consume it.</h2>
-            <p>Explorer Live gives children a structured, creative, and confidence-building way to engage with technology through live learning and meaningful projects. Limited seats per cohort. Early-bird pricing ends 6 November.</p>
+            <span className="kicker"><span className="num">08</span><span className="bar"></span>{t.final.kicker}</span>
+            <h2>{t.final.titlePre}<span style={{ color: "var(--kk-red)" }}>{t.final.titleHighlight}</span>{t.final.titlePost}</h2>
+            <p>{t.final.body}</p>
             <div className="ctas">
-              <a className="btn btn-blue btn-lg" href="#register">Reserve My Child's Spot →</a>
-              <a className="btn btn-wa btn-lg" href="https://wa.me/237680262136?text=Hello%2C%20I%20want%20to%20reserve%20a%20spot%20for%20Explorer%20Live%20Session." target="_blank" rel="noopener noreferrer">
+              <a className="btn btn-blue btn-lg" href="#register">{t.reserveCta}</a>
+              <a className="btn btn-wa btn-lg" href={`https://wa.me/237680262136?text=${encodeURIComponent(t.waAskShortText)}`} target="_blank" rel="noopener noreferrer">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3z"/>
                 </svg>
-                Talk to us on WhatsApp
+                {t.final.waCta}
               </a>
             </div>
-            <p className="replies">Questions before enrolling? <b>Call or WhatsApp +237 680 262 136</b> · Replies within ~1hr</p>
+            <p className="replies">{t.final.replies}</p>
           </div>
         </section>
 
         {/* ═══════════════ Footer countdown bar ═══════════════ */}
         <div className="footdown">
           <div className="container row">
-            <span className="label">Early bird ends</span>
+            <span className="label">{t.footdown.label}</span>
             <span className="timer">
-              <span className="c"><span>{timeLeft.d}</span><small>Days</small></span>
-              <span className="c"><span>{timeLeft.h}</span><small>Hours</small></span>
-              <span className="c"><span>{timeLeft.m}</span><small>Min</small></span>
-              <span className="c"><span>{timeLeft.s}</span><small>Sec</small></span>
+              <span className="c"><span>{timeLeft.d}</span><small>{t.footdown.days}</small></span>
+              <span className="c"><span>{timeLeft.h}</span><small>{t.footdown.hours}</small></span>
+              <span className="c"><span>{timeLeft.m}</span><small>{t.footdown.minutes}</small></span>
+              <span className="c"><span>{timeLeft.s}</span><small>{t.footdown.seconds}</small></span>
             </span>
-            <a className="btn btn-primary" href="#register">Reserve now →</a>
+            <a className="btn btn-primary" href="#register">{t.footdown.cta}</a>
           </div>
         </div>
       </main>

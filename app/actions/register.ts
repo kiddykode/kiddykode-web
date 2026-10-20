@@ -18,6 +18,7 @@ export async function registerForCohort(
 ): Promise<RegistrationState> {
   // 1. Validate
   const raw = {
+    program: formData.get('program') || undefined,
     childName: formData.get('childName'),
     childAge: formData.get('childAge'),
     guardianName: formData.get('guardianName'),
@@ -41,7 +42,8 @@ export async function registerForCohort(
   }
 
   const data = result.data;
-  const cohortName = 'Cohort 03'; // Update per cohort cycle
+  const cohortName =
+    data.program === 'builder-live' ? 'Builder Live — Cohort 01' : 'Explorer Live — Cohort 03'; // Update per cohort cycle
 
   try {
     // 2. Insert into Supabase (unique constraint catches duplicates)
