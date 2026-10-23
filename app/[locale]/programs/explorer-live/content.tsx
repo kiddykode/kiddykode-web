@@ -15,7 +15,7 @@ export const en = {
   waAsk: "Ask on WhatsApp",
   waAskReserveText: "Hello, I want to reserve a spot for Explorer Live Session. My child is ___ years old. Please share the next steps.",
   waAskShortText: "Hello, I want to reserve a spot for Explorer Live Session.",
-  earlybirdNote: "10% off · ends 6 November 2026",
+  earlybirdNote: "10% off · ends 20 November 2026",
   sessboard: {
     headers: ["Class slot", "Time", "Audience", "Seats"],
     slot1: { id: "SLOT 01 · LOCAL", time: "5:30 PM", tz: "Cameroon time", audience: "Participants in Cameroon", schedule: "Mon–Fri · live", seats: "Open" },
@@ -26,7 +26,7 @@ export const en = {
     duration: { label: "Duration", value: "2 months" },
     format: { label: "Format", value: "100% online" },
     ages: { label: "Ages", value: "8 – 17" },
-    earlybird: { label: "Early bird", value: "Until 6 November · 10% off" },
+    earlybird: { label: "Early bird", value: "Until 20 November · 10% off" },
   },
   why: {
     kicker: "Why parents choose KiddyKode",
@@ -61,7 +61,7 @@ export const en = {
     ],
   },
   midstrip: {
-    topline: "Register before 6 November 2026",
+    topline: "Register before 20 November 2026",
     titlePre: "To get a discount of ",
     titleHighlight: "10% off the program fee",
     days: "Days",
@@ -104,8 +104,8 @@ export const en = {
       waText: "Hello, I want to reserve an abroad (9:00 PM Cameroon / 4:00 PM EST) spot for Explorer Live Session. My child is ___ years old.",
     },
     earlybird: {
-      badge: "★ Early bird · ends 6 November 2026",
-      title: "Register before 6 November and save 10% on the program fee",
+      badge: "★ Early bird · ends 20 November 2026",
+      title: "Register before 20 November and save 10% on the program fee",
       sub: "Discount applies to both Cameroon and abroad pricing. One transparent fee — paid once, mobile money or cash. Written confirmation issued the same day.",
       todayLabel: "Cameroonians · today",
       now: "45,000",
@@ -139,16 +139,16 @@ export const en = {
       { q: "Does my child need prior coding experience?", a: "No. Explorer Live starts from zero — exploration and skill-building first. Children with some experience get stretched further by facilitators from day one." },
       { q: "How will my child attend?", a: "100% online, live and interactive — your child joins from home with a laptop or desktop. Connection details are shared after registration." },
       { q: "What ages exactly? My child is 9.", a: "Explorer Live is for children aged 8 to 17. Facilitators adjust pace and depth so the same curriculum fits each age group." },
-      { q: "How do I claim the 10% early-bird discount?", a: (<>Register before <strong>6 November 2026</strong>. The discount is applied automatically — the countdown at the top of this page shows the exact time remaining.</>) },
+      { q: "How do I claim the 10% early-bird discount?", a: (<>Register before <strong>20 November 2026</strong>. The discount is applied automatically — the countdown at the top of this page shows the exact time remaining.</>) },
     ],
   },
-  seatstrip: "⚡ Limited cohort · early-bird ends 6 November 2026 — secure your seat before pricing increases",
+  seatstrip: "⚡ Limited cohort · early-bird ends 20 November 2026 — secure your seat before pricing increases",
   final: {
     kicker: "The choice every parent makes",
     titlePre: "A productive online cohort is a choice. Help your child ",
     titleHighlight: "build the future",
     titlePost: " — not just consume it.",
-    body: "Explorer Live gives children a structured, creative, and confidence-building way to engage with technology through live learning and meaningful projects. Limited seats per cohort. Early-bird pricing ends 6 November.",
+    body: "Explorer Live gives children a structured, creative, and confidence-building way to engage with technology through live learning and meaningful projects. Limited seats per cohort. Early-bird pricing ends 20 November.",
     waCta: "Talk to us on WhatsApp",
     replies: (<>Questions before enrolling? <b>Call or WhatsApp +237 680 262 136</b> · Replies within ~1hr</>),
   },
@@ -163,7 +163,7 @@ export const en = {
   topstrip: {
     expired: (<><strong>Early-bird offer closed</strong> · Standard pricing now in effect</>),
     active: (<><span className="sep">·</span><span>Save <strong>10% on the program fee</strong></span></>),
-    registerBefore: "Register before 6 November 2026",
+    registerBefore: "Register before 20 November 2026",
   },
 };
 
@@ -182,7 +182,7 @@ export const fr: ExplorerLiveContent = {
   waAsk: "Écrire sur WhatsApp",
   waAskReserveText: "Bonjour, je souhaite réserver une place pour Explorer Live Session. Mon enfant a ___ ans. Merci de me partager les prochaines étapes.",
   waAskShortText: "Bonjour, je souhaite réserver une place pour Explorer Live Session.",
-  earlybirdNote: "10% de réduction · jusqu'au 6 novembre 2026",
+  earlybirdNote: "10% de réduction · jusqu'au 20 novembre 2026",
   sessboard: {
     headers: ["Créneau", "Horaire", "Public", "Places"],
     slot1: { id: "CRÉNEAU 01 · LOCAL", time: "17h30", tz: "Heure du Cameroun", audience: "Participants au Cameroun", schedule: "Lun–Ven · en direct", seats: "Disponible" },
@@ -193,7 +193,7 @@ export const fr: ExplorerLiveContent = {
     duration: { label: "Durée", value: "2 mois" },
     format: { label: "Format", value: "100% en ligne" },
     ages: { label: "Âges", value: "8 – 17 ans" },
-    earlybird: { label: "Offre anticipée", value: "Jusqu'au 6 novembre · -10%" },
+    earlybird: { label: "Offre anticipée", value: "Jusqu'au 20 novembre · -10%" },
   },
   why: {
     kicker: "Pourquoi les parents choisissent KiddyKode",
@@ -228,7 +228,7 @@ export const fr: ExplorerLiveContent = {
     ],
   },
   midstrip: {
-    topline: "Inscrivez-vous avant le 6 novembre 2026",
+    topline: "Inscrivez-vous avant le 20 novembre 2026",
     titlePre: "Pour bénéficier de ",
     titleHighlight: "-10% sur les frais du programme",
     days: "Jours",
@@ -271,8 +271,8 @@ export const fr: ExplorerLiveContent = {
       waText: "Bonjour, je souhaite réserver une place à l'étranger (21h00 Cameroun / 16h00 EST) pour Explorer Live Session. Mon enfant a ___ ans.",
     },
     earlybird: {
-      badge: "★ Offre anticipée · jusqu'au 6 novembre 2026",
-      title: "Inscrivez-vous avant le 6 novembre et économisez 10% sur les frais du programme",
+      badge: "★ Offre anticipée · jusqu'au 20 novembre 2026",
+      title: "Inscrivez-vous avant le 20 novembre et économisez 10% sur les frais du programme",
       sub: "La réduction s'applique aux tarifs Cameroun et diaspora. Un seul tarif transparent — payé en une fois, mobile money ou espèces. Confirmation écrite envoyée le jour même.",
       todayLabel: "Résidents du Cameroun · aujourd'hui",
       now: "45 000",
@@ -306,16 +306,16 @@ export const fr: ExplorerLiveContent = {
       { q: "Mon enfant doit-il déjà savoir coder ?", a: "Non. Explorer Live part de zéro — exploration et apprentissage des bases d'abord. Les enfants ayant déjà de l'expérience sont davantage challengés par les facilitateurs, dès le premier jour." },
       { q: "Comment mon enfant va-t-il suivre les cours ?", a: "100% en ligne, en direct et interactif — votre enfant se connecte depuis la maison avec un ordinateur portable ou de bureau. Les informations de connexion sont envoyées après l'inscription." },
       { q: "Quel âge exactement ? Mon enfant a 9 ans.", a: "Explorer Live s'adresse aux enfants de 8 à 17 ans. Les facilitateurs adaptent le rythme et la profondeur du cours selon chaque tranche d'âge." },
-      { q: "Comment bénéficier de la réduction de 10% ?", a: (<>Inscrivez-vous avant le <strong>6 novembre 2026</strong>. La réduction s'applique automatiquement — le compte à rebours en haut de cette page indique le temps restant exact.</>) },
+      { q: "Comment bénéficier de la réduction de 10% ?", a: (<>Inscrivez-vous avant le <strong>20 novembre 2026</strong>. La réduction s'applique automatiquement — le compte à rebours en haut de cette page indique le temps restant exact.</>) },
     ],
   },
-  seatstrip: "⚡ Cohorte limitée · l'offre anticipée se termine le 6 novembre 2026 — réservez votre place avant l'augmentation du tarif",
+  seatstrip: "⚡ Cohorte limitée · l'offre anticipée se termine le 20 novembre 2026 — réservez votre place avant l'augmentation du tarif",
   final: {
     kicker: "Le choix de chaque parent",
     titlePre: "Une cohorte en ligne productive, c'est un choix. Aidez votre enfant à ",
     titleHighlight: "construire l'avenir",
     titlePost: " — pas seulement à le consommer.",
-    body: "Explorer Live offre aux enfants une manière structurée, créative et valorisante d'aborder la technologie, à travers des cours en direct et des projets porteurs de sens. Places limitées par cohorte. L'offre anticipée se termine le 6 novembre.",
+    body: "Explorer Live offre aux enfants une manière structurée, créative et valorisante d'aborder la technologie, à travers des cours en direct et des projets porteurs de sens. Places limitées par cohorte. L'offre anticipée se termine le 20 novembre.",
     waCta: "Discutez avec nous sur WhatsApp",
     replies: (<>Des questions avant de vous inscrire&nbsp;? <b>Appelez ou écrivez au +237 680 262 136</b> · Réponse sous ~1h</>),
   },
@@ -330,6 +330,6 @@ export const fr: ExplorerLiveContent = {
   topstrip: {
     expired: (<><strong>Offre anticipée terminée</strong> · Tarif standard en vigueur</>),
     active: (<><span className="sep">·</span><span>Économisez <strong>10% sur les frais du programme</strong></span></>),
-    registerBefore: "Inscrivez-vous avant le 6 novembre 2026",
+    registerBefore: "Inscrivez-vous avant le 20 novembre 2026",
   },
 };

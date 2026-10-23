@@ -36,7 +36,7 @@ export default function ExplorerLivePage() {
   });
 
   useEffect(() => {
-    const deadline = new Date("2026-11-06T23:59:59+01:00").getTime();
+    const deadline = new Date("2026-11-20T23:59:59+01:00").getTime();
     const tick = () => {
       const ms = deadline - Date.now();
       if (ms <= 0) {

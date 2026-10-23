@@ -129,7 +129,7 @@ export default function NextCohortPage() {
             <div className={styles.factCell}>
               <span className={styles.fl}>Early Bird</span>
               <div className={styles.fv}>
-                <div className={styles.fvRow}>10% off <small>Full payment before 6 November 2026</small></div>
+                <div className={styles.fvRow}>10% off <small>Full payment before 20 November 2026</small></div>
               </div>
             </div>
           </div>
