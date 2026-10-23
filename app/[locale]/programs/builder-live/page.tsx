@@ -90,17 +90,15 @@ export default function BuilderLivePage() {
 
               <div className="heroArt">
                 <div className="posterFrame">
-                  {/* TODO: replace with the real Builder Live cohort flyer once designed */}
-                  <div
-                    className="img-placeholder tone-ink photo"
-                    style={{
-                      backgroundImage:
-                        "url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=80')",
-                      aspectRatio: "4 / 5",
-                    }}
-                  >
-                    <div className="img-cap">Replace ▸ Builder Live cohort flyer</div>
-                  </div>
+                  <Image
+                    src="https://res.cloudinary.com/dsbm73ojs/image/upload/v1792790051/Builder-live-flyer_fw8agq.jpg"
+                    alt="Builder Live cohort flyer"
+                    width={1122}
+                    height={1402}
+                    sizes="(max-width: 900px) 100vw, 520px"
+                    priority
+                    style={{ width: "100%", height: "auto", display: "block" }}
+                  />
                 </div>
                 <div className="mascotFloat">
                   <Image
