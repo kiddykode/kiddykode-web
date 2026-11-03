@@ -32,7 +32,7 @@ export function VideoEmbed({
       <button
         type="button"
         className={styles.facade}
-        style={{ backgroundImage: `url(https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg)` }}
+        style={{ backgroundImage: `url(https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg)` }}
         onClick={() => setPlaying(true)}
         aria-label={caption ? `Play video: ${caption}` : 'Play video'}
       >

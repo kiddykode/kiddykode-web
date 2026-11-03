@@ -227,8 +227,7 @@ export default function ExplorerLivePage() {
               <div className="pItem"><span className="icon ic-purple">↑</span>{t.why.icons[5]}</div>
             </div>
             <div style={{ marginTop: 40 }}>
-              {/* TODO: replace with the real YouTube video ID for a classroom/cohort video */}
-              <VideoEmbed youtubeId="REPLACE_WITH_YOUTUBE_ID" caption={t.why.videoCaption} />
+              <VideoEmbed youtubeId="eMIWi3k1dKo" caption={t.why.videoCaption} />
             </div>
           </div>
         </section>
