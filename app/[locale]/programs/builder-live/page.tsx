@@ -157,7 +157,7 @@ export default function BuilderLivePage() {
             </div>
             <div style={{ marginTop: 40 }}>
               {/* TODO: replace with the real Builder Live classroom/Demo Night video */}
-              <VideoEmbed youtubeId="REPLACE_WITH_YOUTUBE_ID" caption="See a Builder Live Demo Night" />
+              <VideoEmbed youtubeId="eMIWi3k1dKo" caption="See a Builder Live Demo Night" />
             </div>
           </div>
         </section>
