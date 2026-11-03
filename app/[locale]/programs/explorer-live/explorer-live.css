@@ -524,6 +524,7 @@
     position: relative;
     display: flex;
     justify-content: center;
+    min-width: 0;
   }
 
   & .posterFrame {
@@ -551,12 +552,22 @@
     border-radius: 14px;
   }
 
-  /* Hero — session board */
+  /* Hero — video frame (replaces posterFrame's rotated-photo treatment) */
+  & .heroVideoFrame {
+    width: 100%;
+    max-width: 480px;
+    flex: 0 1 480px;
+    min-width: 0;
+    margin: 0 auto;
+    box-shadow: 0 30px 60px -22px rgba(0,0,0,.5);
+    border-radius: 16px;
+  }
+
+  /* Session board — solid dark card so it reads correctly on any section background */
   & .sessboard {
-    margin-top: 48px;
     border: 1px solid rgba(255,255,255,.14);
     border-radius: 18px;
-    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    background: linear-gradient(180deg, #11214a, #0b1733);
     overflow: hidden;
   }
 
@@ -1546,6 +1557,171 @@
     font-size: 13px;
   }
 
+  /* Sub-headings inside a merged section (e.g. Schedule / Curriculum / Pricing) */
+  & .subkicker {
+    display: block;
+    font-family: var(--font-sora), 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--kk-blue);
+    margin-bottom: 20px;
+  }
+
+  & .subkicker.on-dark {
+    color: var(--kk-yellow);
+  }
+
+  & .offerBlock {
+    margin-top: 64px;
+  }
+
+  & .offerBlock:first-child {
+    margin-top: 40px;
+  }
+
+  /* Offer section — fact cards (language track, etc.) */
+  & .offerFacts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  & .factCard {
+    background: #fff;
+    border: 1px solid var(--kk-rule);
+    border-radius: 14px;
+    padding: 20px 22px;
+  }
+
+  & .factCard .lab {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--kk-muted);
+    margin-bottom: 8px;
+  }
+
+  & .factCard .val {
+    font-size: 15px;
+    color: var(--kk-text);
+    line-height: 1.5;
+  }
+
+  & .factCard ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 8px;
+  }
+
+  & .factCard ul li {
+    display: flex;
+    gap: 8px;
+    font-size: 14.5px;
+    color: var(--kk-muted);
+    align-items: flex-start;
+  }
+
+  & .factCard ul li .ck {
+    color: var(--kk-green);
+    font-weight: 800;
+    flex: 0 0 14px;
+    margin-top: 2px;
+  }
+
+  /* Evidence — testimonials */
+  & .testimonialGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  & .testimonialCard {
+    background: #fff;
+    color: var(--kk-text);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  & section.sec:not(.dark) .testimonialCard {
+    border-color: var(--kk-rule);
+  }
+
+  & .testimonialCard .q {
+    font-size: 15.5px;
+    font-style: italic;
+    line-height: 1.5;
+    color: #3a4866;
+  }
+
+  & .testimonialCard .who {
+    margin-top: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--kk-muted);
+  }
+
+  /* Evidence — before & after (placeholder project examples) */
+  & .improveGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  & .improveCard {
+    border: 1px dashed rgba(255,255,255,.25);
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  & section.sec:not(.dark) .improveCard {
+    border-color: rgba(15,27,59,.2);
+    background: #fff;
+  }
+
+  & .improveCard .ph {
+    height: 120px;
+    border-radius: 10px;
+    background: repeating-linear-gradient(45deg, rgba(255,255,255,.06), rgba(255,255,255,.06) 10px, rgba(255,255,255,.02) 10px, rgba(255,255,255,.02) 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+    margin-bottom: 14px;
+  }
+
+  & section.sec:not(.dark) .improveCard .ph {
+    background: repeating-linear-gradient(45deg, rgba(15,27,59,.04), rgba(15,27,59,.04) 10px, rgba(15,27,59,.015) 10px, rgba(15,27,59,.015) 20px);
+    color: var(--kk-muted);
+  }
+
+  & .improveCard h4 {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  & .improveCard p {
+    margin-top: 6px;
+    font-size: 13.5px;
+    color: rgba(255,255,255,.65);
+  }
+
+  & section.sec:not(.dark) .improveCard p {
+    color: var(--kk-muted);
+  }
+
   /* small helpers */
   & .center {
     text-align: center;
@@ -1556,10 +1732,6 @@
 @media (max-width: 860px) {
   .explorer-live-page .heroGrid {
     grid-template-columns: 1fr;
-  }
-  .explorer-live-page .heroArt {
-    order: -1;
-    margin-bottom: 12px;
   }
   .explorer-live-page .posterFrame {
     max-width: 260px;
@@ -1615,6 +1787,11 @@
   .explorer-live-page .earlybird-block {
     grid-template-columns: 1fr;
     text-align: left;
+  }
+  .explorer-live-page .offerFacts,
+  .explorer-live-page .testimonialGrid,
+  .explorer-live-page .improveGrid {
+    grid-template-columns: 1fr;
   }
 }
 

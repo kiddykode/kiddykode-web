@@ -2,14 +2,15 @@ export type ExplorerLiveContent = typeof en;
 
 export const en = {
   lede: "Online programme · Cameroon & abroad · Ages 8–17",
-  heroTitlePre: "Give your child more than screen time. ",
-  heroTitleEm: "Give them the skills to create",
-  heroTitlePost: " with technology.",
+  heroTitlePre: "Help Your Child Become a ",
+  heroTitleEm: "Thinker, Creator and Problem-Solver",
+  heroTitlePost: ".",
   heroSub: (
     <>
       <strong>Explorer Live Session</strong> — a playful, live online cohort where kids build real projects every week. Starts <strong>21 November 2026</strong> · <strong>2 months</strong> · fully online.
     </>
   ),
+  heroVideoCaption: "See a live Explorer Live class",
   chips: ["🟢 Live, interactive classes", "🧩 Hands-on projects weekly", "🌍 2 timing options", "🆕 Zero experience needed"],
   reserveCta: "Reserve My Child's Spot →",
   waAsk: "Ask on WhatsApp",
@@ -28,22 +29,56 @@ export const en = {
     ages: { label: "Ages", value: "8 – 17" },
     earlybird: { label: "Early bird", value: "Until 20 November · 10% off" },
   },
+  offer: {
+    kicker: "The Explorer Live Offer",
+    title: "One straightforward programme — age, schedule, curriculum and price, all in one place.",
+    sub: "No hidden extras. Here's exactly what's included before you enrol.",
+    languageTrack: {
+      label: "Language track",
+      value: "[PLACEHOLDER — confirm language track, e.g. English-taught cohort, French-taught cohort available separately]",
+    },
+    scheduleKicker: "Schedule",
+    curriculumKicker: "Curriculum",
+    pricingKicker: "Pricing & early-bird",
+  },
   why: {
     kicker: "Why parents choose KiddyKode",
     title: "Most online classes try to entertain. We're built to teach.",
     sub: "Real facilitators, real classes, real projects — creativity first, then code.",
     proofCaption: "Live · real kids, real facilitators, every week",
     icons: ["Real coding", "Hands-on builds", "Creativity first", "Problem solving", "Confidence on camera", "Future-ready mindset"],
-    videoCaption: "See a live Explorer Live class",
+    techKicker: "Technology you'll need",
+    techItems: [
+      "A laptop or desktop computer (smartphones and tablets are not recommended)",
+      "A stable internet connection",
+      "[PLACEHOLDER — confirm video platform, e.g. Zoom or Google Meet, and whether a headset/mic is required]",
+    ],
+    attendanceKicker: "Attendance",
+    attendanceValue: "[PLACEHOLDER — confirm attendance policy: is attendance mandatory, and what happens if a child misses a class — recording or makeup session?]",
+    supportKicker: "Support along the way",
+    supportValue: "[PLACEHOLDER — confirm ongoing support: e.g. a parent WhatsApp group, facilitator office hours, or progress updates]",
+    mentorsKicker: "Meet your facilitators",
+    mentorsSub: "KiddyKode facilitators run the live sessions, support hands-on projects, and give every child individual feedback throughout the cohort.",
   },
   context: {
     kicker: "Meet the cohort",
     title: "Real learners, real results.",
+    sub: "Don't just take our word for it — see what Explorer Live cohorts have built, and hear from the parents behind them.",
     stats: [
       { n: "24", l: "Projects completed" },
       { n: "20", l: "Learners last cohort" },
       { n: "11.5", l: "Average age" },
       { n: "95%", l: "Completion rate" },
+    ],
+    testimonialsKicker: "What parents say",
+    testimonials: [
+      { quote: "[PLACEHOLDER — parent testimonial quote, shared with permission]", name: "[Parent name], parent of a [age]-year-old" },
+      { quote: "[PLACEHOLDER — parent testimonial quote, shared with permission]", name: "[Parent name], parent of a [age]-year-old" },
+    ],
+    improvementKicker: "Before & after",
+    improvementExamples: [
+      { title: "[PLACEHOLDER — student project title]", desc: "[PLACEHOLDER — describe how this child's project or skills improved over the cohort]" },
+      { title: "[PLACEHOLDER — student project title]", desc: "[PLACEHOLDER — describe how this child's project or skills improved over the cohort]" },
     ],
   },
   skills: {
@@ -140,6 +175,9 @@ export const en = {
       { q: "How will my child attend?", a: "100% online, live and interactive — your child joins from home with a laptop or desktop. Connection details are shared after registration." },
       { q: "What ages exactly? My child is 9.", a: "Explorer Live is for children aged 8 to 17. Facilitators adjust pace and depth so the same curriculum fits each age group." },
       { q: "How do I claim the 10% early-bird discount?", a: (<>Register before <strong>20 November 2026</strong>. The discount is applied automatically — the countdown at the top of this page shows the exact time remaining.</>) },
+      { q: "How much time will my child need to commit each week?", a: "[PLACEHOLDER — confirm number of live sessions per week and the length of each session]" },
+      { q: "What does the program cost?", a: (<>Explorer Live is <strong>50,000 FRS</strong> for Cameroon-based participants or <strong>65,000 FRS</strong> for participants abroad — with <strong>10% off</strong> for early-bird registrations before 20 November 2026. Full details are in the pricing section above.</>) },
+      { q: "How do I enrol?", a: "Message us on WhatsApp or complete the registration form above — we confirm your slot and send a welcome pack the same day." },
     ],
   },
   seatstrip: "⚡ Limited cohort · early-bird ends 20 November 2026 — secure your seat before pricing increases",
@@ -169,14 +207,15 @@ export const en = {
 
 export const fr: ExplorerLiveContent = {
   lede: "Programme en ligne · Cameroun & diaspora · 8–17 ans",
-  heroTitlePre: "Offrez à votre enfant plus que du temps d'écran. ",
-  heroTitleEm: "Donnez-lui les compétences pour créer",
-  heroTitlePost: " avec la technologie.",
+  heroTitlePre: "Aidez Votre Enfant à Devenir un ",
+  heroTitleEm: "Penseur, Créateur et Résolveur de Problèmes",
+  heroTitlePost: ".",
   heroSub: (
     <>
       <strong>Explorer Live Session</strong> — une cohorte en ligne, ludique et en direct, où les enfants construisent de vrais projets chaque semaine. Début le <strong>21 novembre 2026</strong> · <strong>2 mois</strong> · 100% en ligne.
     </>
   ),
+  heroVideoCaption: "Découvrez un cours Explorer Live en direct",
   chips: ["🟢 Cours en direct et interactifs", "🧩 Projets pratiques chaque semaine", "🌍 2 créneaux horaires", "🆕 Aucune expérience requise"],
   reserveCta: "Réserver la place de mon enfant →",
   waAsk: "Écrire sur WhatsApp",
@@ -195,22 +234,56 @@ export const fr: ExplorerLiveContent = {
     ages: { label: "Âges", value: "8 – 17 ans" },
     earlybird: { label: "Offre anticipée", value: "Jusqu'au 20 novembre · -10%" },
   },
+  offer: {
+    kicker: "L'offre Explorer Live",
+    title: "Un seul programme clair — âge, horaire, programme et tarif, tout au même endroit.",
+    sub: "Aucun frais caché. Voici exactement ce qui est inclus avant de vous inscrire.",
+    languageTrack: {
+      label: "Langue d'enseignement",
+      value: "[PLACEHOLDER — confirmer la langue d'enseignement, ex. cohorte en anglais, cohorte en français disponible séparément]",
+    },
+    scheduleKicker: "Horaires",
+    curriculumKicker: "Programme pédagogique",
+    pricingKicker: "Tarifs & offre anticipée",
+  },
   why: {
     kicker: "Pourquoi les parents choisissent KiddyKode",
     title: "La plupart des cours en ligne cherchent à divertir. Nous, à enseigner.",
     sub: "De vrais facilitateurs, de vrais cours, de vrais projets — la créativité d'abord, le code ensuite.",
     proofCaption: "En direct · de vrais enfants, de vrais facilitateurs, chaque semaine",
     icons: ["Vrai code", "Projets pratiques", "La créativité d'abord", "Résolution de problèmes", "Confiance face à la caméra", "Prêt pour l'avenir"],
-    videoCaption: "Découvrez un cours Explorer Live en direct",
+    techKicker: "Matériel nécessaire",
+    techItems: [
+      "Un ordinateur portable ou de bureau (smartphones et tablettes déconseillés)",
+      "Une connexion internet stable",
+      "[PLACEHOLDER — confirmer la plateforme vidéo, ex. Zoom ou Google Meet, et si un casque/micro est requis]",
+    ],
+    attendanceKicker: "Assiduité",
+    attendanceValue: "[PLACEHOLDER — confirmer la politique d'assiduité : la présence est-elle obligatoire, et que se passe-t-il si un enfant manque un cours — enregistrement ou séance de rattrapage ?]",
+    supportKicker: "Un accompagnement tout au long du parcours",
+    supportValue: "[PLACEHOLDER — confirmer l'accompagnement proposé : ex. groupe WhatsApp pour les parents, permanences des facilitateurs, ou points d'étape réguliers]",
+    mentorsKicker: "Découvrez vos facilitateurs",
+    mentorsSub: "Les facilitateurs de KiddyKode animent les sessions en direct, accompagnent les projets pratiques et donnent à chaque enfant un retour individuel tout au long de la cohorte.",
   },
   context: {
     kicker: "Découvrez la cohorte",
     title: "De vrais apprenants, de vrais résultats.",
+    sub: "Ne vous fiez pas qu'à notre parole — découvrez ce que les cohortes Explorer Live ont construit, et écoutez les parents qui les soutiennent.",
     stats: [
       { n: "24", l: "Projets réalisés" },
       { n: "20", l: "Apprenants lors de la dernière cohorte" },
       { n: "11,5", l: "Âge moyen" },
       { n: "95%", l: "Taux d'achèvement" },
+    ],
+    testimonialsKicker: "Ce que disent les parents",
+    testimonials: [
+      { quote: "[PLACEHOLDER — témoignage d'un parent, partagé avec son autorisation]", name: "[Nom du parent], parent d'un enfant de [âge] ans" },
+      { quote: "[PLACEHOLDER — témoignage d'un parent, partagé avec son autorisation]", name: "[Nom du parent], parent d'un enfant de [âge] ans" },
+    ],
+    improvementKicker: "Avant & après",
+    improvementExamples: [
+      { title: "[PLACEHOLDER — titre du projet de l'élève]", desc: "[PLACEHOLDER — décrire comment le projet ou les compétences de cet enfant se sont améliorés pendant la cohorte]" },
+      { title: "[PLACEHOLDER — titre du projet de l'élève]", desc: "[PLACEHOLDER — décrire comment le projet ou les compétences de cet enfant se sont améliorés pendant la cohorte]" },
     ],
   },
   skills: {
@@ -242,11 +315,11 @@ export const fr: ExplorerLiveContent = {
     sub: "Les facilitateurs de KiddyKode animent les sessions en direct, accompagnent les projets pratiques et donnent à chaque enfant un retour individuel tout au long de la cohorte.",
     director: {
       role: "Directrice du programme",
-      quote: "« Citation du facilitateur — ce qui l'enthousiasme, ce que votre enfant retiendra. »",
+      quote: "« Citation du facilitateur — ce qui l'enthousiasme, ce que votre enfant retiendra. »",
     },
     instructor: {
       role: "Instructeur principal",
-      quote: "« Citation du facilitateur — ton chaleureux, direct, pensé pour rassurer les parents. »",
+      quote: "« Citation du facilitateur — ton chaleureux, direct, pensé pour rassurer les parents. »",
     },
   },
   pricing: {
@@ -278,7 +351,7 @@ export const fr: ExplorerLiveContent = {
       now: "45 000",
       ccy: "FCFA",
       was: "50 000 FCFA",
-      abroadLabel: "Diaspora :",
+      abroadLabel: "Diaspora :",
       abroadNow: "58 500 FCFA",
       abroadWas: "65 000 FCFA",
       cta: "Profiter de l'offre sur WhatsApp →",
@@ -306,7 +379,10 @@ export const fr: ExplorerLiveContent = {
       { q: "Mon enfant doit-il déjà savoir coder ?", a: "Non. Explorer Live part de zéro — exploration et apprentissage des bases d'abord. Les enfants ayant déjà de l'expérience sont davantage challengés par les facilitateurs, dès le premier jour." },
       { q: "Comment mon enfant va-t-il suivre les cours ?", a: "100% en ligne, en direct et interactif — votre enfant se connecte depuis la maison avec un ordinateur portable ou de bureau. Les informations de connexion sont envoyées après l'inscription." },
       { q: "Quel âge exactement ? Mon enfant a 9 ans.", a: "Explorer Live s'adresse aux enfants de 8 à 17 ans. Les facilitateurs adaptent le rythme et la profondeur du cours selon chaque tranche d'âge." },
-      { q: "Comment bénéficier de la réduction de 10% ?", a: (<>Inscrivez-vous avant le <strong>20 novembre 2026</strong>. La réduction s'applique automatiquement — le compte à rebours en haut de cette page indique le temps restant exact.</>) },
+      { q: "Comment bénéficier de la réduction de 10% ?", a: (<>Inscrivez-vous avant le <strong>20 novembre 2026</strong>. La réduction s&apos;applique automatiquement — le compte à rebours en haut de cette page indique le temps restant exact.</>) },
+      { q: "Combien de temps mon enfant devra-t-il y consacrer chaque semaine ?", a: "[PLACEHOLDER — confirmer le nombre de cours en direct par semaine et la durée de chaque séance]" },
+      { q: "Quel est le prix du programme ?", a: (<>Explorer Live coûte <strong>50 000 FCFA</strong> pour les participants au Cameroun ou <strong>65 000 FCFA</strong> pour les participants à l&apos;étranger — avec <strong>10% de réduction</strong> pour toute inscription anticipée avant le 20 novembre 2026. Tous les détails sont dans la section tarifs ci-dessus.</>) },
+      { q: "Comment m'inscrire ?", a: "Écrivez-nous sur WhatsApp ou remplissez le formulaire d'inscription ci-dessus — nous confirmons votre créneau et envoyons un pack de bienvenue le jour même." },
     ],
   },
   seatstrip: "⚡ Cohorte limitée · l'offre anticipée se termine le 20 novembre 2026 — réservez votre place avant l'augmentation du tarif",
