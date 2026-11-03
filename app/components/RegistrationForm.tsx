@@ -15,6 +15,7 @@ export function RegistrationForm({
   program?: 'explorer-live' | 'builder-live';
 }) {
   const [state, formAction, pending] = useActionState(registerForCohort, initialState);
+  const programLabel = program === 'builder-live' ? 'Builder Live' : 'Explorer Live';
 
   if (state.success) {
     return (
@@ -311,6 +312,36 @@ export function RegistrationForm({
               <option value="friend">Friend / Word of Mouth</option>
               <option value="website">Website / Search</option>
               <option value="other">Other</option>
+            </select>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <label style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 11,
+              letterSpacing: '0.04em',
+              color: 'var(--color-ink-700)',
+            }}>
+              What would you most like your child to gain from {programLabel}?
+            </label>
+            <select
+              name="learningGoal"
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: 15,
+                padding: '12px 14px',
+                border: '1px solid var(--color-line)',
+                borderRadius: 6,
+                background: 'var(--color-sand-50)',
+                color: 'var(--color-ink-900)',
+              }}
+            >
+              <option value="">Select an option</option>
+              <option value="creativity_problem_solving">Develop creativity and problem-solving skills</option>
+              <option value="logical_thinking">Improve logical and critical thinking</option>
+              <option value="tech_projects">Learn to create projects using technology</option>
+              <option value="confidence_expression">Build confidence and express ideas</option>
+              <option value="future_opportunities">Explore future opportunities in technology</option>
+              <option value="combination">A combination of these</option>
             </select>
           </div>
         </div>

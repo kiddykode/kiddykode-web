@@ -98,6 +98,16 @@ export const registrationSchema = z.object({
   referralSource: z
     .enum(['social_media', 'school', 'friend', 'website', 'other'])
     .optional(),
+  learningGoal: z
+    .enum([
+      'creativity_problem_solving',
+      'logical_thinking',
+      'tech_projects',
+      'confidence_expression',
+      'future_opportunities',
+      'combination',
+    ])
+    .optional(),
   consent: z
     .string({ message: 'You must agree to the terms.' })
     .refine((val) => val === 'on', { message: 'You must agree to the terms.' }),

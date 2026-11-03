@@ -26,6 +26,7 @@ export async function registerForCohort(
     guardianPhone: formData.get('guardianPhone'),
     city: formData.get('city'),
     referralSource: formData.get('referralSource') || undefined,
+    learningGoal: formData.get('learningGoal') || undefined,
     consent: formData.get('consent'),
   };
 
@@ -45,6 +46,15 @@ export async function registerForCohort(
   const cohortName =
     data.program === 'builder-live' ? 'Builder Live — Cohort 01' : 'Explorer Live — Cohort 03'; // Update per cohort cycle
 
+  const learningGoalLabels: Record<string, string> = {
+    creativity_problem_solving: 'Develop creativity and problem-solving skills',
+    logical_thinking: 'Improve logical and critical thinking',
+    tech_projects: 'Learn to create projects using technology',
+    confidence_expression: 'Build confidence and express ideas',
+    future_opportunities: 'Explore future opportunities in technology',
+    combination: 'A combination of these',
+  };
+
   try {
     // 2. Insert into Supabase (unique constraint catches duplicates)
     console.log('[registerForCohort] Attempting Supabase insert for:', data.childName);
@@ -57,6 +67,7 @@ export async function registerForCohort(
       guardian_phone: data.guardianPhone.trim(),
       city: data.city,
       referral_source: data.referralSource || null,
+      learning_goal: data.learningGoal || null,
       consent: true,
       status: 'confirmed',
     });
@@ -121,6 +132,7 @@ export async function registerForCohort(
       Phone: data.guardianPhone,
       City: data.city,
       Cohort: cohortName,
+      ...(data.learningGoal && { 'Learning goal': learningGoalLabels[data.learningGoal] }),
     }).catch((tgError) => {
       console.error('[registerForCohort] Telegram notification failed:', tgError);
     });
