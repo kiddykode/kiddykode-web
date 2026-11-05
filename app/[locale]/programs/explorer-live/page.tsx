@@ -296,7 +296,11 @@ export default function ExplorerLivePage() {
                     <span className="now">{t.pricing.earlybird.now}<span style={{ fontSize: 14, color: "var(--kk-muted)", marginLeft: 6 }}>{t.pricing.earlybird.ccy}</span></span>
                     <span className="was">{t.pricing.earlybird.was}</span>
                   </div>
-                  <span className="footnote">{t.pricing.earlybird.abroadLabel} <b style={{ color: "var(--kk-text)" }}>{t.pricing.earlybird.abroadNow}</b> <span style={{ textDecoration: "line-through", marginLeft: 4 }}>{t.pricing.earlybird.abroadWas}</span></span>
+                  <span className="small" style={{ marginTop: 18 }}>{t.pricing.earlybird.abroadLabel}</span>
+                  <div className="row" style={{ marginTop: 4 }}>
+                    <span className="now">{t.pricing.earlybird.abroadNow}<span style={{ fontSize: 14, color: "var(--kk-muted)", marginLeft: 6 }}>{t.pricing.earlybird.ccy}</span></span>
+                    <span className="was">{t.pricing.earlybird.abroadWas}</span>
+                  </div>
                   <a className="btn btn-blue" href={`https://wa.me/237680262136?text=${encodeURIComponent(t.pricing.earlybird.waText)}`}>{t.pricing.earlybird.cta}</a>
                 </div>
               </div>
