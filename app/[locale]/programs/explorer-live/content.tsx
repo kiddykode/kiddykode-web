@@ -51,7 +51,7 @@ export const en = {
     techItems: [
       "A laptop or desktop computer (smartphones and tablets are not recommended)",
       "A stable internet connection",
-      "[PLACEHOLDER — confirm video platform, e.g. Zoom or Google Meet, and whether a headset/mic is required]",
+      "Zoom is used for all live classes. A headset is optional — your child can join with or without one",
     ],
     attendanceKicker: "Attendance",
     attendanceValue: "[PLACEHOLDER — confirm attendance policy: is attendance mandatory, and what happens if a child misses a class — recording or makeup session?]",
@@ -267,7 +267,7 @@ export const fr: ExplorerLiveContent = {
     techItems: [
       "Un ordinateur portable ou de bureau (smartphones et tablettes déconseillés)",
       "Une connexion internet stable",
-      "[PLACEHOLDER — confirmer la plateforme vidéo, ex. Zoom ou Google Meet, et si un casque/micro est requis]",
+      "Zoom est utilisé pour tous les cours en direct. Le casque est facultatif — votre enfant peut participer avec ou sans casque",
     ],
     attendanceKicker: "Assiduité",
     attendanceValue: "[PLACEHOLDER — confirmer la politique d'assiduité : la présence est-elle obligatoire, et que se passe-t-il si un enfant manque un cours — enregistrement ou séance de rattrapage ?]",
