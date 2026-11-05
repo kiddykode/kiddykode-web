@@ -1714,6 +1714,14 @@
     color: var(--kk-muted);
   }
 
+  & .improveCard .shot {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+
   & .improveCard h4 {
     font-size: 15px;
     font-weight: 600;

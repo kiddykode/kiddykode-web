@@ -379,7 +379,9 @@ export default function ExplorerLivePage() {
               <div className="improveGrid">
                 {t.context.improvementExamples.map((item, i) => (
                   <div className="improveCard" key={i}>
-                    <div className="ph">Photo placeholder</div>
+                    <div className="shot">
+                      <Image src={item.img} alt={item.imgAlt} fill sizes="(max-width: 768px) 100vw, 560px" style={{ objectFit: "cover" }} />
+                    </div>
                     <h4>{item.title}</h4>
                     <p>{item.desc}</p>
                   </div>

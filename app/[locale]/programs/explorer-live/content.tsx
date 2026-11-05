@@ -78,8 +78,18 @@ export const en = {
     ],
     improvementKicker: "Before & after",
     improvementExamples: [
-      { title: "[PLACEHOLDER — student project title]", desc: "[PLACEHOLDER — describe how this child's project or skills improved over the cohort]" },
-      { title: "[PLACEHOLDER — student project title]", desc: "[PLACEHOLDER — describe how this child's project or skills improved over the cohort]" },
+      {
+        title: "Sammy's Journey",
+        desc: "Sammy joined KiddyKode as a complete coding beginner. Over the course of Explorer and Builder Live, he progressed from learning basic coding concepts to independently building projects like the African Adventure Game and Homework Reminder App. He developed his problem-solving and critical-thinking skills, learned to plan his projects, debug errors, and improve his ideas. His journey shows how far a child can grow with the right guidance, practice, and support.",
+        img: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1793863100/SAMMY_S_APP_ppjj04.jpg",
+        imgAlt: "Sammy's Homework Reminder App",
+      },
+      {
+        title: "Bernice's Journey: From Explorer to Builder",
+        desc: "Bernice joined KiddyKode with no prior coding experience, but her curiosity and passion for technology quickly became evident. She actively participated in class discussions, asked questions, shared her ideas confidently, and loved taking part in thinking and debugging activities. From building her African Adventure Game in Explorer Live to creating a Smart Saving & Compound Money Calculator and her Mini Game Hub in Builder Live, Bernice has continued to grow in her coding, problem-solving, and creative thinking skills. Her attentiveness, consistency, and enthusiasm have made her journey wonderful to watch. Now, we're excited to see what she creates in Innovator Live!",
+        img: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1793863102/BERNICE_GAME_HUB_qxy4n8.jpg",
+        imgAlt: "Bernice's Mini Game Hub",
+      },
     ],
   },
   skills: {
@@ -284,8 +294,18 @@ export const fr: ExplorerLiveContent = {
     ],
     improvementKicker: "Avant & après",
     improvementExamples: [
-      { title: "[PLACEHOLDER — titre du projet de l'élève]", desc: "[PLACEHOLDER — décrire comment le projet ou les compétences de cet enfant se sont améliorés pendant la cohorte]" },
-      { title: "[PLACEHOLDER — titre du projet de l'élève]", desc: "[PLACEHOLDER — décrire comment le projet ou les compétences de cet enfant se sont améliorés pendant la cohorte]" },
+      {
+        title: "Le parcours de Sammy",
+        desc: "Sammy a rejoint KiddyKode en tant que débutant complet en programmation. Au fil d'Explorer et de Builder Live, il est passé de l'apprentissage des notions de base à la création autonome de projets comme l'African Adventure Game et la Homework Reminder App. Il a développé son esprit critique et sa capacité à résoudre des problèmes, appris à planifier ses projets, à corriger ses erreurs et à améliorer ses idées. Son parcours montre jusqu'où un enfant peut progresser avec un bon accompagnement, de la pratique et du soutien.",
+        img: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1793863100/SAMMY_S_APP_ppjj04.jpg",
+        imgAlt: "La Homework Reminder App de Sammy",
+      },
+      {
+        title: "Le parcours de Bernice : d'Explorer à Builder",
+        desc: "Bernice a rejoint KiddyKode sans aucune expérience en programmation, mais sa curiosité et sa passion pour la technologie sont vite apparues. Elle participait activement aux discussions, posait des questions, partageait ses idées avec confiance et adorait les activités de réflexion et de débogage. De la création de son African Adventure Game dans Explorer Live à celle d'un Smart Saving & Compound Money Calculator et de son Mini Game Hub dans Builder Live, Bernice n'a cessé de progresser en programmation, en résolution de problèmes et en créativité. Son attention, sa régularité et son enthousiasme font de son parcours un plaisir à suivre. Nous avons hâte de voir ce qu'elle créera dans Innovator Live !",
+        img: "https://res.cloudinary.com/dsbm73ojs/image/upload/v1793863102/BERNICE_GAME_HUB_qxy4n8.jpg",
+        imgAlt: "Le Mini Game Hub de Bernice",
+      },
     ],
   },
   skills: {
