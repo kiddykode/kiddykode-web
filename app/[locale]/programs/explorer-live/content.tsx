@@ -161,7 +161,7 @@ export const en = {
     title: "One short conversation — and your child's spot is secured.",
     steps: [
       { emoji: "💬", title: "Tap WhatsApp", body: "Your message is pre-filled. Just edit your child's age and tap send." },
-      { emoji: "🗓️", title: "Pick your slot", body: "We confirm 5:30 PM (Cameroon) or 9:00 PM (abroad), plus a parent welcome pack." },
+      { emoji: "🗓️", title: "Pick your slot", body: "We confirm 5:30 PM (Cameroon) or 9:00 PM Cameroon / 3:00 PM EST (abroad), plus a parent welcome pack." },
       { emoji: "✅", title: "Complete payment", body: "Mobile money or bank transfer. Receipt lands the same day — seat locked." },
     ],
     waCta: "Reserve on WhatsApp — +237 680 262 136",
@@ -335,7 +335,7 @@ export const fr: ExplorerLiveContent = {
       waText: "Bonjour, je souhaite réserver une place au Cameroun (17h30) pour Explorer Live Session. Mon enfant a ___ ans.",
     },
     slot2: {
-      sid: "CRÉNEAU 02 · 21H00 / 16H00 EST",
+      sid: "CRÉNEAU 02 · 21H00 / 15H00 EST",
       where: "Diaspora",
       title: "Pour les participants à l'étranger",
       bullets: ["8–17 ans · cohorte de 2 mois", "Cours collectifs en direct · 100% en ligne", "Fuseau horaire adapté à l'Amérique du Nord"],
@@ -366,7 +366,7 @@ export const fr: ExplorerLiveContent = {
     title: "Une courte conversation — et la place de votre enfant est assurée.",
     steps: [
       { emoji: "💬", title: "Écrivez sur WhatsApp", body: "Votre message est pré-rempli. Indiquez simplement l'âge de votre enfant et envoyez." },
-      { emoji: "🗓️", title: "Confirmez votre créneau", body: "Nous confirmons 17h30 (Cameroun) ou 21h00 (diaspora), ainsi qu'un pack de bienvenue pour les parents." },
+      { emoji: "🗓️", title: "Confirmez votre créneau", body: "Nous confirmons 17h30 (Cameroun) ou 21h00 Cameroun / 15h00 EST (diaspora), ainsi qu'un pack de bienvenue pour les parents." },
       { emoji: "✅", title: "Effectuez le paiement", body: "Mobile money ou virement bancaire. Le reçu arrive le jour même — la place est réservée." },
     ],
     waCta: "Réserver sur WhatsApp — +237 680 262 136",
