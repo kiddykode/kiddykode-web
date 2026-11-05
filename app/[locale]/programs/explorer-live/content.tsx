@@ -19,8 +19,8 @@ export const en = {
   earlybirdNote: "10% off · ends 20 November 2026",
   sessboard: {
     headers: ["Class slot", "Time", "Audience", "Seats"],
-    slot1: { id: "SLOT 01 · LOCAL", time: "5:30 PM", tz: "Cameroon time", audience: "Participants in Cameroon", schedule: "Mon–Fri · live", seats: "Open" },
-    slot2: { id: "SLOT 02 · ABROAD", time: "9:00 PM", tz: "Cameroon · 4:00 PM EST (USA)", audience: "Participants abroad", schedule: "Mon–Fri · live", seats: "Open" },
+    slot1: { id: "SLOT 01 · LOCAL", time: "5:30 PM", tz: "Cameroon time", audience: "Participants in Cameroon", schedule: "Weekends · live", seats: "Open" },
+    slot2: { id: "SLOT 02 · ABROAD", time: "9:00 PM", tz: "Cameroon · 3:00 PM EST (USA)", audience: "Participants abroad", schedule: "Weekends · live", seats: "Open" },
   },
   factsrow: {
     start: { label: "Start", value: "21 November 2026" },
@@ -130,13 +130,13 @@ export const en = {
       waText: "Hello, I want to reserve a Cameroon (5:30 PM) spot for Explorer Live Session. My child is ___ years old.",
     },
     slot2: {
-      sid: "SLOT 02 · 9:00 PM / 4:00 PM EST",
+      sid: "SLOT 02 · 9:00 PM / 3:00 PM EST",
       where: "Abroad",
       title: "For participants abroad",
       bullets: ["Ages 8–17 · 2-month cohort", "Live group classes · 100% online", "Time zone optimised for North America"],
       price: (<><b>65,000 FRS</b> · or <b>58,500 FRS</b> with early bird</>),
       waLink: "Ask about Slot 02 →",
-      waText: "Hello, I want to reserve an abroad (9:00 PM Cameroon / 4:00 PM EST) spot for Explorer Live Session. My child is ___ years old.",
+      waText: "Hello, I want to reserve an abroad (9:00 PM Cameroon / 3:00 PM EST) spot for Explorer Live Session. My child is ___ years old.",
     },
     earlybird: {
       badge: "★ Early bird · ends 20 November 2026",
@@ -224,8 +224,8 @@ export const fr: ExplorerLiveContent = {
   earlybirdNote: "10% de réduction · jusqu'au 20 novembre 2026",
   sessboard: {
     headers: ["Créneau", "Horaire", "Public", "Places"],
-    slot1: { id: "CRÉNEAU 01 · LOCAL", time: "17h30", tz: "Heure du Cameroun", audience: "Participants au Cameroun", schedule: "Lun–Ven · en direct", seats: "Disponible" },
-    slot2: { id: "CRÉNEAU 02 · DIASPORA", time: "21h00", tz: "Cameroun · 16h00 EST (USA)", audience: "Participants à l'étranger", schedule: "Lun–Ven · en direct", seats: "Disponible" },
+    slot1: { id: "CRÉNEAU 01 · LOCAL", time: "17h30", tz: "Heure du Cameroun", audience: "Participants au Cameroun", schedule: "Week-ends · en direct", seats: "Disponible" },
+    slot2: { id: "CRÉNEAU 02 · DIASPORA", time: "21h00", tz: "Cameroun · 15h00 EST (USA)", audience: "Participants à l'étranger", schedule: "Week-ends · en direct", seats: "Disponible" },
   },
   factsrow: {
     start: { label: "Début", value: "21 novembre 2026" },
@@ -341,7 +341,7 @@ export const fr: ExplorerLiveContent = {
       bullets: ["8–17 ans · cohorte de 2 mois", "Cours collectifs en direct · 100% en ligne", "Fuseau horaire adapté à l'Amérique du Nord"],
       price: (<><b>65 000 FCFA</b> · ou <b>58 500 FCFA</b> en offre anticipée</>),
       waLink: "Demander le créneau 02 →",
-      waText: "Bonjour, je souhaite réserver une place à l'étranger (21h00 Cameroun / 16h00 EST) pour Explorer Live Session. Mon enfant a ___ ans.",
+      waText: "Bonjour, je souhaite réserver une place à l'étranger (21h00 Cameroun / 15h00 EST) pour Explorer Live Session. Mon enfant a ___ ans.",
     },
     earlybird: {
       badge: "★ Offre anticipée · jusqu'au 20 novembre 2026",
