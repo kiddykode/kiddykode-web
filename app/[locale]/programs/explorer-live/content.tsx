@@ -35,7 +35,7 @@ export const en = {
     sub: "No hidden extras. Here's exactly what's included before you enrol.",
     languageTrack: {
       label: "Language track",
-      value: "[PLACEHOLDER — confirm language track, e.g. English-taught cohort, French-taught cohort available separately]",
+      value: "Taught in English, with a French cohort available separately.",
     },
     scheduleKicker: "Schedule",
     curriculumKicker: "Curriculum",
@@ -240,7 +240,7 @@ export const fr: ExplorerLiveContent = {
     sub: "Aucun frais caché. Voici exactement ce qui est inclus avant de vous inscrire.",
     languageTrack: {
       label: "Langue d'enseignement",
-      value: "[PLACEHOLDER — confirmer la langue d'enseignement, ex. cohorte en anglais, cohorte en français disponible séparément]",
+      value: "Enseigné en anglais, avec une cohorte en français disponible séparément.",
     },
     scheduleKicker: "Horaires",
     curriculumKicker: "Programme pédagogique",
