@@ -121,11 +121,11 @@ export const en = {
     sub: "KiddyKode facilitators run the live sessions, support hands-on projects, and give every child individual feedback throughout the cohort.",
     director: {
       role: "Programme Director",
-      quote: "“Quote from the facilitator — what they're excited about, what your child will walk away with.”",
+      quote: "“Every great creation begins with a child who dares to think.”",
     },
     instructor: {
       role: "Lead Instructor",
-      quote: "“Quote from the facilitator — tone is warm, direct, and parent-trust focused.”",
+      quote: "“Yesterday is history, tomorrow is a mystery, but today is a gift. That is why it is called the present.”",
     },
   },
   pricing: {
@@ -337,11 +337,11 @@ export const fr: ExplorerLiveContent = {
     sub: "Les facilitateurs de KiddyKode animent les sessions en direct, accompagnent les projets pratiques et donnent à chaque enfant un retour individuel tout au long de la cohorte.",
     director: {
       role: "Directrice du programme",
-      quote: "« Citation du facilitateur — ce qui l'enthousiasme, ce que votre enfant retiendra. »",
+      quote: "« Toute grande création commence par un enfant qui ose penser. »",
     },
     instructor: {
       role: "Instructeur principal",
-      quote: "« Citation du facilitateur — ton chaleureux, direct, pensé pour rassurer les parents. »",
+      quote: "« Hier appartient à l'histoire, demain est un mystère, mais aujourd'hui est un cadeau. C'est pourquoi on l'appelle le présent. »",
     },
   },
   pricing: {
