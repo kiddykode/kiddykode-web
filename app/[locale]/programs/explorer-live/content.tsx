@@ -70,6 +70,7 @@ export const en = {
       { n: "11.5", l: "Average age" },
       { n: "95%", l: "Completion rate" },
     ],
+    testimonialsHeadline: "When children are excited to share what they've learned, it tells a story.",
     testimonialsKicker: "What parents say",
     testimonials: [
       { quote: "I enrolled my son in KiddyKode to help him explore coding and develop his problem-solving skills. Watching him go from a complete beginner to building his own “Homework Reminder App,” while learning to think critically and embrace mistakes, was such a proud moment. The knowledgeable, approachable instructors provided one-on-one support—even beyond class—to help him work through challenges. I highly recommend KiddyKode to parents looking for a supportive place for their children to learn and grow.", name: "Shiela Bife, United States · parent of a 13-year-old" },
@@ -275,6 +276,7 @@ export const fr: ExplorerLiveContent = {
       { n: "11,5", l: "Âge moyen" },
       { n: "95%", l: "Taux d'achèvement" },
     ],
+    testimonialsHeadline: "Quand les enfants sont impatients de partager ce qu'ils ont appris, cela raconte une histoire.",
     testimonialsKicker: "Ce que disent les parents",
     testimonials: [
       { quote: "J'ai inscrit mon fils chez KiddyKode pour l'aider à explorer le codage et à développer ses compétences de résolution de problèmes. Le voir passer de débutant complet à la création de sa propre « Homework Reminder App », tout en apprenant à réfléchir de façon critique et à accepter ses erreurs, a été un moment de grande fierté. Les instructeurs, compétents et accessibles, l'ont accompagné individuellement — même en dehors des cours — pour surmonter les difficultés. Je recommande vivement KiddyKode aux parents qui cherchent un cadre bienveillant où leurs enfants peuvent apprendre et grandir.", name: "Shiela Bife, États-Unis · parent d'un enfant de 13 ans" },

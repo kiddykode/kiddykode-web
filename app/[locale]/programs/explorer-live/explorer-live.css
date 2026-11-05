@@ -1577,6 +1577,13 @@
     margin-top: 64px;
   }
 
+  & .testimonialsHeadline {
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.25;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+
   & .offerBlock:first-child {
     margin-top: 40px;
   }

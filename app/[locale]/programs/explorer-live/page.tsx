@@ -362,6 +362,7 @@ export default function ExplorerLivePage() {
             </div>
 
             <div className="offerBlock">
+              <h3 className="testimonialsHeadline">{t.context.testimonialsHeadline}</h3>
               <span className="subkicker on-dark">{t.context.testimonialsKicker}</span>
               <div className="testimonialGrid">
                 {t.context.testimonials.map((item, i) => (
