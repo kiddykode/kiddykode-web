@@ -111,24 +111,26 @@ export default function ExplorerLivePage() {
         </div>
       </div>
 
-      {/* HERO — headline, then the video immediately after the supporting message */}
+      {/* HERO — full-width headline, then the video after the chips, just before the CTAs */}
       <main id="top">
         <section className="hero">
           <div className="container">
-            <div className="heroGrid">
-              <div className="heroCopy">
-                <span className="lede">
-                  <span className="live"><span className="d"></span>Live</span>
-                  {t.lede}
-                </span>
-                <h1>{t.heroTitlePre}<em>{t.heroTitleEm}</em>{t.heroTitlePost}</h1>
-                <p className="sub">{t.heroSub}</p>
+            <div className="heroCopy">
+              <span className="lede">
+                <span className="live"><span className="d"></span>Live</span>
+                {t.lede}
+              </span>
+              <h1>{t.heroTitlePre}<em>{t.heroTitleEm}</em>{t.heroTitlePost}</h1>
+              <p className="sub">{t.heroSub}</p>
+
+              <div className="chipRow">
+                {t.chips.map((chip) => (
+                  <span className="chip" key={chip}>{chip}</span>
+                ))}
               </div>
 
-              <div className="heroArt">
-                <div className="heroVideoFrame">
-                  <VideoEmbed youtubeId="eMIWi3k1dKo" caption={t.heroVideoCaption} />
-                </div>
+              <div className="heroVideoWrap">
+                <VideoEmbed youtubeId="eMIWi3k1dKo" caption={t.heroVideoCaption} />
                 <div className="mascotFloat">
                   <Image
                     src="/explorer-live-mascot.jpeg"
@@ -139,22 +141,17 @@ export default function ExplorerLivePage() {
                   />
                 </div>
               </div>
-            </div>
 
-            <div className="chipRow">
-              {t.chips.map((chip) => (
-                <span className="chip" key={chip}>{chip}</span>
-              ))}
-            </div>
-            <div className="cta-row">
-              <a className="btn btn-primary btn-lg" href="#register">{t.reserveCta}</a>
-              <a className="btn btn-ghost-light btn-lg" href={`https://wa.me/237680262136?text=${encodeURIComponent(t.waAskReserveText)}`} target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3z"/>
-                </svg>
-                {t.waAsk}
-              </a>
-              <span className="note">{t.earlybirdNote}</span>
+              <div className="cta-row">
+                <a className="btn btn-primary btn-lg" href="#register">{t.reserveCta}</a>
+                <a className="btn btn-ghost-light btn-lg" href={`https://wa.me/237680262136?text=${encodeURIComponent(t.waAskReserveText)}`} target="_blank" rel="noopener noreferrer">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3z"/>
+                  </svg>
+                  {t.waAsk}
+                </a>
+                <span className="note">{t.earlybirdNote}</span>
+              </div>
             </div>
           </div>
         </section>
